@@ -5,9 +5,15 @@ const App = () => {
 
   return (
     <div>
-      <p>You clicked {count} times!</p>
+      <p>
+        You clicked
+        {' '}
+        {count}
+        {' '}
+        times!
+      </p>
 
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>
+      <button type="button" onClick={() => setCount((prevCount) => prevCount + 1)}>
         Click Me!
       </button>
     </div>
