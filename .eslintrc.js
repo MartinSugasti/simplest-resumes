@@ -7,7 +7,8 @@ module.exports = {
     'no-console': 0,
     'no-alert': 0,
     'comma-dangle': ['error', 'never'],
-    'jsx-a11y/label-has-associated-control': ['error', { required: { some: ['nesting', 'id'] } }]
+    'jsx-a11y/label-has-associated-control': ['error', { required: { some: ['nesting', 'id'] } }],
+    'no-restricted-exports': ['error', { restrictedNamedExports: [] }]
   },
   globals: {
     document: 'readonly'

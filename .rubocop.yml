@@ -10,7 +10,7 @@ require:
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.0
-  TargetRailsVersion: 6.1
+  TargetRailsVersion: 7.0
   Exclude:
     - 'bin/*'
     - 'config/environments/*'
