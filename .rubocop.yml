@@ -1,0 +1,23 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-git
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  TargetRailsVersion: 6.1
+  Exclude:
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'app/controllers/pages_controller.rb'
+
+Style/Documentation:
+  Enabled: false
