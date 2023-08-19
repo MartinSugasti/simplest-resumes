@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import ContactForm from '../../../shared/ContactForm';
+import ContactForm from '../../shared/ContactForm';
 import CarInsuranceFields from './CarInsuranceFields';
 import TravelInsuranceFields from './TravelInsuranceFields';
 import HomeInsuranceFields from './HomeInsuranceFields';

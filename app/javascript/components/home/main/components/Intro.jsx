@@ -2,7 +2,7 @@ import React from 'react';
 
 import AccidentModal from './AccidentModal';
 import SoaModal from './SoaModal';
-import LinkWithLoaderAndScrolling from '../../../shared/LinkWithLoaderAndScrolling';
+import LinkWithLoaderAndScrolling from '../../shared/LinkWithLoaderAndScrolling';
 
 import familyImage from '../../../../images/others/family.png';
 

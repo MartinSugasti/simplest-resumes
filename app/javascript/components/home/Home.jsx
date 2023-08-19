@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navbar from '../shared/Navbar';
+import Navbar from './shared/Navbar';
 import Main from './main/Main';
 import About from './about/About';
 import Cotizacion from './cotizacion/Cotizacion';
-import Footer from '../shared/Footer';
-import WhatsappIcon from '../shared/WhatsappIcon';
+import Footer from './shared/Footer';
+import WhatsappIcon from './shared/WhatsappIcon';
 
 const Home = () => (
   <Router>

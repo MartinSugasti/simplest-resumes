@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ContactForm from '../../../shared/ContactForm';
+import ContactForm from '../../shared/ContactForm';
 
 const Contacto = () => (
   <section id="contacto" className="bg-white">

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import LinkWithLoaderAndScrolling from '../../../shared/LinkWithLoaderAndScrolling';
+import LinkWithLoaderAndScrolling from '../../shared/LinkWithLoaderAndScrolling';
 
 const CarouselCard = ({
   active,

@@ -2,9 +2,9 @@ import React from 'react';
 
 import LinkWithLoaderAndScrolling from './LinkWithLoaderAndScrolling';
 
-import mainWithoutTextLogo from '../../images/logos/main_without_text.png';
-import cuaproseLogo from '../../images/partners_logos/cuaprose.svg';
-import aproaseTextLogo from '../../images/partners_logos/aproase.png';
+import mainWithoutTextLogo from '../../../images/logos/main_without_text.png';
+import cuaproseLogo from '../../../images/partners_logos/cuaprose.svg';
+import aproaseTextLogo from '../../../images/partners_logos/aproase.png';
 
 const Footer = () => (
   <section id="footer" className="bg-dark">
