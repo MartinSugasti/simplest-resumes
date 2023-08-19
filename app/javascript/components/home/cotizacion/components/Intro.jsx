@@ -3,7 +3,7 @@ import React from 'react';
 import calculatorImage from '../../../../images/others/calculator.png';
 
 const Intro = () => (
-  <section id="cotizador-intro" className="bg-light">
+  <section id="cotizacion-intro" className="bg-light">
     <div className="container-lg py-5">
       <div className="row mx-0 g-4 justify-content-around align-items-center">
         <div className="col-md-6 order-md-2 text-center mt-4 mt-md-0">

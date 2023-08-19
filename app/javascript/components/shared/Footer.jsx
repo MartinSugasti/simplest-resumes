@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ButtonAsLinkToSection from './ButtonAsLinkToSection';
+import LinkWithLoaderAndScrolling from './LinkWithLoaderAndScrolling';
 
 import mainWithoutTextLogo from '../../images/logos/main_without_text.png';
 import cuaproseLogo from '../../images/partners_logos/cuaprose.svg';
@@ -111,13 +111,9 @@ const Footer = () => (
       </div>
 
       <div className="row justify-content-center mt-4 pt-3 mx-3 mx-lg-0 border-top">
-        <ButtonAsLinkToSection
-          sectionId="intro"
-          path="/#intro"
-          className="btn btn-link col-6 col-sm-3 col-md-2"
-        >
+        <LinkWithLoaderAndScrolling to="/" className="btn btn-link col-6 col-sm-3 col-md-2" sectionId="main-intro">
           <img src={mainWithoutTextLogo} className="img-fluid logo" alt="main-logo" />
-        </ButtonAsLinkToSection>
+        </LinkWithLoaderAndScrolling>
       </div>
 
       <div className="modal fade" id="horarios-modal" tabIndex="-1" aria-labelledby="modal-title" aria-hidden="true">

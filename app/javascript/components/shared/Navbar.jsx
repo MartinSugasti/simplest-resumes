@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import ButtonAsLinkToSection from './ButtonAsLinkToSection';
+import LinkWithLoaderAndScrolling from './LinkWithLoaderAndScrolling';
 
 import lightLogo from '../../images/logos/light.png';
 import darkLogo from '../../images/logos/dark.png';
@@ -27,6 +27,7 @@ const Navbar = () => {
 
   const applyLightBg = width >= 768 || scrolled || pathname.includes('about') || pathname.includes('cotizacion');
   const makeItemsCollapseNavbar = width < 768;
+  const classForLinks = `btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`;
 
   useEffect(() => {
     const updateClass = () => {
@@ -62,40 +63,24 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul className="navbar-nav">
             <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <ButtonAsLinkToSection
-                sectionId="intro"
-                path="/#intro"
-                className={`btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`}
-              >
+              <LinkWithLoaderAndScrolling to="/" className={classForLinks} sectionId="main-intro">
                 INICIO
-              </ButtonAsLinkToSection>
+              </LinkWithLoaderAndScrolling>
             </li>
             <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <ButtonAsLinkToSection
-                sectionId="cotizacion-intro"
-                path="/cotizacion"
-                className={`btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`}
-              >
+              <LinkWithLoaderAndScrolling to="/cotizacion" className={classForLinks} sectionId="cotizacion-intro">
                 COTIZAR
-              </ButtonAsLinkToSection>
+              </LinkWithLoaderAndScrolling>
             </li>
             <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <ButtonAsLinkToSection
-                sectionId="about-us-intro"
-                path="/about"
-                className={`btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`}
-              >
+              <LinkWithLoaderAndScrolling to="/about" className={classForLinks} sectionId="about-us-intro">
                 NOSOTROS
-              </ButtonAsLinkToSection>
+              </LinkWithLoaderAndScrolling>
             </li>
             <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <ButtonAsLinkToSection
-                sectionId="contacto"
-                path="/#contacto"
-                className={`btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`}
-              >
+              <LinkWithLoaderAndScrolling to="/#contacto" className={classForLinks} sectionId="contacto">
                 CONTACTO
-              </ButtonAsLinkToSection>
+              </LinkWithLoaderAndScrolling>
             </li>
           </ul>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ButtonAsLinkToSection from '../../../shared/ButtonAsLinkToSection';
+import LinkWithLoaderAndScrolling from '../../../shared/LinkWithLoaderAndScrolling';
 
 const CarouselCard = ({
   active,
@@ -18,13 +18,13 @@ const CarouselCard = ({
         <div className="card-body d-inline-block text-start">
           {children}
           <div className="text-center">
-            <ButtonAsLinkToSection
+            <LinkWithLoaderAndScrolling
+              to={insuranceType ? `/cotizacion?insurance_type=${insuranceType}` : '/cotizacion'}
               sectionId="cotizacion-intro"
-              path={insuranceType ? `/cotizacion?insurance_type=${insuranceType}` : '/cotizacion'}
               className="btn btn-outline-light rounded-pill w-50 mt-3"
             >
               Cotizar
-            </ButtonAsLinkToSection>
+            </LinkWithLoaderAndScrolling>
           </div>
         </div>
       </div>

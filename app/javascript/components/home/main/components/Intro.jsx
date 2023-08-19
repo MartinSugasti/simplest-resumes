@@ -2,35 +2,35 @@ import React from 'react';
 
 import AccidentModal from './AccidentModal';
 import SoaModal from './SoaModal';
-import ButtonAsLinkToSection from '../../../shared/ButtonAsLinkToSection';
+import LinkWithLoaderAndScrolling from '../../../shared/LinkWithLoaderAndScrolling';
 
 import familyImage from '../../../../images/others/family.png';
 
 const Intro = () => (
-  <section id="intro" className="bg-light">
+  <section id="main-intro" className="bg-light">
     <div className="container-lg py-5">
       <div className="row mx-0 g-4 justify-content-around align-items-center">
         <div className="col-md-6 text-center">
           <h1 className="text-dark mb-0">Especialistas en Seguros</h1>
           <p className="text-muted mb-2 fst-italic">Lideres en Servicios desde 1987</p>
 
-          <ButtonAsLinkToSection
+          <LinkWithLoaderAndScrolling
+            to="/#contacto"
             sectionId="contacto"
-            path="/#contacto"
             className="btn btn-outline-primary-dark rounded-pill"
           >
             Contáctenos
-          </ButtonAsLinkToSection>
+          </LinkWithLoaderAndScrolling>
 
           <br />
 
-          <a href="#intro" className="accident-link btn btn-danger rounded-pill mt-2" alt="en-caso-de-accidente" data-bs-toggle="modal" data-bs-target="#accident-modal">
+          <a href="#main-intro" className="accident-link btn btn-danger rounded-pill mt-2" alt="en-caso-de-accidente" data-bs-toggle="modal" data-bs-target="#accident-modal">
             <p className="my-0">En caso de siniestro</p>
           </a>
 
           <br />
 
-          <a href="#intro" className="soa-link btn btn-outline-primary-dark rounded-pill mt-2" alt="certificado-soa" data-bs-toggle="modal" data-bs-target="#soa-modal">
+          <a href="#main-intro" className="soa-link btn btn-outline-primary-dark rounded-pill mt-2" alt="certificado-soa" data-bs-toggle="modal" data-bs-target="#soa-modal">
             <p className="my-0">SOA y Carta Verde</p>
           </a>
         </div>

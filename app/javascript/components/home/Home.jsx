@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import ScrollToTop from '../shared/ScrollToTop';
 import Navbar from '../shared/Navbar';
 import Main from './main/Main';
 import About from './about/About';
@@ -11,7 +10,6 @@ import WhatsappIcon from '../shared/WhatsappIcon';
 
 const Home = () => (
   <Router>
-    <ScrollToTop />
     <Navbar />
 
     <Routes>
