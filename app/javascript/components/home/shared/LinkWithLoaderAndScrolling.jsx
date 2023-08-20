@@ -8,7 +8,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import * as bootstrap from 'bootstrap';
+import { Collapse } from 'bootstrap';
 
 const LinkWithLoaderAndScrolling = ({
   to,
@@ -54,7 +54,7 @@ const LinkWithLoaderAndScrolling = ({
     // Close navbar in case it's open
     const menuToggle = document.querySelector('#main-nav.show');
     if (menuToggle) {
-      const bsCollapse = new bootstrap.Collapse(menuToggle);
+      const bsCollapse = new Collapse(menuToggle);
       bsCollapse.toggle();
     }
   };
