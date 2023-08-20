@@ -1,11 +1,14 @@
-// I created this component because of issues with Link component from react routes.
+// I created this component because of issues
+// with Link component from react routes and Navbar from bootstrap
+// It shows loader when necessary
 // It scrolls to top when necessary
-// And scroll to element with sectionId when necessary
+// It scrolls to element with sectionId when necessary
+// It closes Navbar when necessary
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { HashLink } from 'react-router-hash-link';
-import { useLocation } from 'react-router-dom';
+import * as bootstrap from 'bootstrap';
 
 const LinkWithLoaderAndScrolling = ({
   to,
@@ -13,18 +16,12 @@ const LinkWithLoaderAndScrolling = ({
   sectionId,
   children
 }) => {
-  const { pathname } = useLocation();
-
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
-
   const showLoader = (id) => {
     const section = document.getElementById(id);
 
-    if (section) {
-      if (id.includes('intro')) {
-        window.scrollTo(0, 0);
-      }
-    } else {
+    // If section is not found, it means we are navigating to a new path,
+    // so loader should show up
+    if (!section) {
       document.querySelector('#loader').classList.remove('hidden');
       document.querySelector('#home').classList.remove('non-hidden');
 
@@ -33,12 +30,39 @@ const LinkWithLoaderAndScrolling = ({
         document.querySelector('#home').classList.add('non-hidden');
       }, 1500);
     }
+
+    // If id contains the word 'intro', it means we are navigating to a top section,
+    // so page should scroll to top
+    if (id.includes('intro')) {
+      console.log('Scrolling up');
+      window.scrollTo(0, 0);
+    }
+
+    // If id contains the word 'contacto', it means we are navigating to the contact form,
+    // so page should scroll to that section
+    // A 1 sec timeout is set in case the contact form is not in current page
+    if (id.includes('contacto')) {
+      if (section) {
+        document.querySelector('#contacto').scrollIntoView();
+      } else {
+        setTimeout(() => {
+          document.querySelector('#contacto').scrollIntoView();
+        }, 1000);
+      }
+    }
+
+    // Close navbar in case it's open
+    const menuToggle = document.querySelector('#main-nav.show');
+    if (menuToggle) {
+      const bsCollapse = new bootstrap.Collapse(menuToggle);
+      bsCollapse.toggle();
+    }
   };
 
   return (
-    <HashLink to={to} className={className} role="button" onClick={() => showLoader(sectionId)}>
+    <Link to={to} className={className} onClick={() => showLoader(sectionId)}>
       {children}
-    </HashLink>
+    </Link>
   );
 };
 

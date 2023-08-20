@@ -26,7 +26,6 @@ const Navbar = () => {
   const { pathname } = useLocation();
 
   const applyLightBg = width >= 768 || scrolled || pathname.includes('about') || pathname.includes('cotizacion');
-  const makeItemsCollapseNavbar = width < 768;
   const classForLinks = `btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`;
 
   useEffect(() => {
@@ -62,26 +61,21 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul className="navbar-nav">
-            <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <LinkWithLoaderAndScrolling to="/" className={classForLinks} sectionId="main-intro">
-                INICIO
-              </LinkWithLoaderAndScrolling>
-            </li>
-            <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <LinkWithLoaderAndScrolling to="/cotizacion" className={classForLinks} sectionId="cotizacion-intro">
-                COTIZAR
-              </LinkWithLoaderAndScrolling>
-            </li>
-            <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <LinkWithLoaderAndScrolling to="/about" className={classForLinks} sectionId="about-us-intro">
-                NOSOTROS
-              </LinkWithLoaderAndScrolling>
-            </li>
-            <li className="nav-item" data-bs-toggle={makeItemsCollapseNavbar && 'collapse'} data-bs-target="#main-nav">
-              <LinkWithLoaderAndScrolling to="/#contacto" className={classForLinks} sectionId="contacto">
-                CONTACTO
-              </LinkWithLoaderAndScrolling>
-            </li>
+            <LinkWithLoaderAndScrolling to="/" className={classForLinks} sectionId="main-intro">
+              INICIO
+            </LinkWithLoaderAndScrolling>
+
+            <LinkWithLoaderAndScrolling to="/cotizacion" className={classForLinks} sectionId="cotizacion-intro">
+              COTIZAR
+            </LinkWithLoaderAndScrolling>
+
+            <LinkWithLoaderAndScrolling to="/about" className={classForLinks} sectionId="about-us-intro">
+              NOSOTROS
+            </LinkWithLoaderAndScrolling>
+
+            <LinkWithLoaderAndScrolling to="/#contacto" className={classForLinks} sectionId="contacto">
+              CONTACTO
+            </LinkWithLoaderAndScrolling>
           </ul>
         </div>
       </div>
