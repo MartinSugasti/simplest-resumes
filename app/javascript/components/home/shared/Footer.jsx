@@ -111,7 +111,7 @@ const Footer = () => (
       </div>
 
       <div className="row justify-content-center mt-4 pt-3 mx-3 mx-lg-0 border-top">
-        <LinkWithLoaderAndScrolling to="/" className="btn btn-link col-6 col-sm-3 col-md-2" sectionId="main-intro">
+        <LinkWithLoaderAndScrolling to="/home" className="btn btn-link col-6 col-sm-3 col-md-2" sectionId="main-intro">
           <img src={mainWithoutTextLogo} className="img-fluid logo" alt="main-logo" />
         </LinkWithLoaderAndScrolling>
       </div>

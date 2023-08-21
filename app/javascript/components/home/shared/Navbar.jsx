@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 
 import LinkWithLoaderAndScrolling from './LinkWithLoaderAndScrolling';
@@ -19,7 +20,7 @@ const useWindowSize = () => {
   return size;
 };
 
-const Navbar = () => {
+const Navbar = ({ userSignedIn }) => {
   // eslint-disable-next-line no-unused-vars
   const [width, _height] = useWindowSize();
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +52,7 @@ const Navbar = () => {
       }
     >
       <div className="container-xxl">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/home">
           <img src={applyLightBg ? darkLogo : lightLogo} className="img-fluid logo" alt="logo" />
         </a>
 
@@ -61,7 +62,7 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul className="navbar-nav">
-            <LinkWithLoaderAndScrolling to="/" className={classForLinks} sectionId="main-intro">
+            <LinkWithLoaderAndScrolling to="/home" className={classForLinks} sectionId="main-intro">
               INICIO
             </LinkWithLoaderAndScrolling>
 
@@ -73,14 +74,32 @@ const Navbar = () => {
               NOSOTROS
             </LinkWithLoaderAndScrolling>
 
-            <LinkWithLoaderAndScrolling to="/#contacto" className={classForLinks} sectionId="contacto">
+            <LinkWithLoaderAndScrolling to="/home#contacto" className={classForLinks} sectionId="contacto">
               CONTACTO
             </LinkWithLoaderAndScrolling>
+
+            {userSignedIn ? (
+              <a href="/" className={classForLinks}>
+                DASHBOARD
+              </a>
+            ) : (
+              <a href="/users/sign_in" className={classForLinks}>
+                LOG IN
+              </a>
+            )}
           </ul>
         </div>
       </div>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  userSignedIn: PropTypes.bool
+};
+
+Navbar.defaultProps = {
+  userSignedIn: false
 };
 
 export default Navbar;

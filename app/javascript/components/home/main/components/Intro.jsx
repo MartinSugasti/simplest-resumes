@@ -4,7 +4,7 @@ import AccidentModal from './AccidentModal';
 import SoaModal from './SoaModal';
 import LinkWithLoaderAndScrolling from '../../shared/LinkWithLoaderAndScrolling';
 
-import familyImage from '../../../../images/others/family.png';
+import familyImage from '../../../../../assets/images/family2.png';
 
 const Intro = () => (
   <section id="main-intro" className="bg-light">
@@ -15,7 +15,7 @@ const Intro = () => (
           <p className="text-muted mb-2 fst-italic">Lideres en Servicios desde 1987</p>
 
           <LinkWithLoaderAndScrolling
-            to="/#contacto"
+            to="/home#contacto"
             sectionId="contacto"
             className="btn btn-outline-primary-dark rounded-pill"
           >

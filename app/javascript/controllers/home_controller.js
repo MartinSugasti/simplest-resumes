@@ -7,7 +7,8 @@ import Home from '../components/home';
 export default class extends Controller {
   connect() {
     const root = createRoot(document.getElementById('home'));
+    const config = window.homeConfig();
 
-    root.render(<Home />);
+    root.render(<Home userSignedIn={config.user_signed_in} />);
   }
 }

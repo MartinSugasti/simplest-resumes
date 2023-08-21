@@ -1,3 +1,13 @@
+<%= render "shared/loader" %>
+
+<%= javascript_tag do %>
+  var homeConfig = function() {
+    return (
+      <%= { user_signed_in: user_signed_in? }.to_json.html_safe %>
+    )
+  }
+<% end %>
+
 <%= content_tag(:div, "", id: "home", data: {
-  controller: "home"
+  controller: "home", user_signed_in: user_signed_in?
 }) %>
