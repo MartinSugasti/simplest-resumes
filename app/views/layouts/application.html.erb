@@ -5,6 +5,10 @@
   <body>
     <%= render "shared/flash" %>
 
+    <% if defined? resource %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

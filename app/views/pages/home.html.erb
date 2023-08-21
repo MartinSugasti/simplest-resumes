@@ -8,6 +8,6 @@
   }
 <% end %>
 
-<%= content_tag(:div, "", id: "home", data: {
+<%= content_tag(:div, "", id: "home", class: 'smoothly-show-page', data: {
   controller: "home", user_signed_in: user_signed_in?
 }) %>

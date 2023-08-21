@@ -4,7 +4,7 @@ import AccidentModal from './AccidentModal';
 import SoaModal from './SoaModal';
 import LinkWithLoaderAndScrolling from '../../shared/LinkWithLoaderAndScrolling';
 
-import familyImage from '../../../../../assets/images/family2.png';
+import familyImage from '../../../../images/others/family.png';
 
 const Intro = () => (
   <section id="main-intro" className="bg-light">
