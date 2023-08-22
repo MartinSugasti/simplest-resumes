@@ -3,11 +3,11 @@
 <%= javascript_tag do %>
   var homeConfig = function() {
     return (
-      <%= { user_signed_in: user_signed_in? }.to_json.html_safe %>
+      <%= { sign_in_available: !user_signed_in? && !admin_signed_in? }.to_json.html_safe %>
     )
   }
 <% end %>
 
 <%= content_tag(:div, "", id: "home", class: 'smoothly-show-page', data: {
-  controller: "home", user_signed_in: user_signed_in?
+  controller: "home"
 }) %>

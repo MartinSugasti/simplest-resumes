@@ -20,7 +20,7 @@ const useWindowSize = () => {
   return size;
 };
 
-const Navbar = ({ userSignedIn }) => {
+const Navbar = ({ signInAvailable }) => {
   // eslint-disable-next-line no-unused-vars
   const [width, _height] = useWindowSize();
   const [scrolled, setScrolled] = useState(false);
@@ -78,13 +78,13 @@ const Navbar = ({ userSignedIn }) => {
               CONTACTO
             </LinkWithLoaderAndScrolling>
 
-            {userSignedIn ? (
-              <a href="/" className={classForLinks}>
-                DASHBOARD
+            {signInAvailable ? (
+              <a href="/users/sign_in" className={classForLinks}>
+                SIGN IN
               </a>
             ) : (
-              <a href="/users/sign_in" className={classForLinks}>
-                LOG IN
+              <a href="/" className={classForLinks}>
+                DASHBOARD
               </a>
             )}
           </ul>
@@ -95,11 +95,11 @@ const Navbar = ({ userSignedIn }) => {
 };
 
 Navbar.propTypes = {
-  userSignedIn: PropTypes.bool
+  signInAvailable: PropTypes.bool
 };
 
 Navbar.defaultProps = {
-  userSignedIn: false
+  signInAvailable: false
 };
 
 export default Navbar;

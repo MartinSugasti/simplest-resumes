@@ -1,0 +1,4 @@
+<%= link_to "Profile", edit_admin_registration_path %><br><br>
+<%= button_to "Log Out", destroy_admin_session_path, method: :delete %><br>
+
+Welcome <%= current_admin.email %> to the admin dashboard..

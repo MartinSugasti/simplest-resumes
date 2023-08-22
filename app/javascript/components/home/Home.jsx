@@ -9,9 +9,9 @@ import Cotizacion from './cotizacion/Cotizacion';
 import Footer from './shared/Footer';
 import WhatsappIcon from './shared/WhatsappIcon';
 
-const Home = ({ userSignedIn }) => (
+const Home = ({ signInAvailable }) => (
   <Router>
-    <Navbar userSignedIn={userSignedIn} />
+    <Navbar signInAvailable={signInAvailable} />
 
     <Routes>
       <Route exact path="/about" element={<About />} />
@@ -25,11 +25,11 @@ const Home = ({ userSignedIn }) => (
 );
 
 Home.propTypes = {
-  userSignedIn: PropTypes.bool
+  signInAvailable: PropTypes.bool
 };
 
 Home.defaultProps = {
-  userSignedIn: false
+  signInAvailable: false
 };
 
 export default Home;

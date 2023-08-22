@@ -19,5 +19,13 @@ AllCops:
     - 'tmp/**/*'
     - 'app/controllers/pages_controller.rb'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+    - 'db/data/*'
+    - 'db/migrate/*'
+    - 'spec/**/*'
+    - 'lib/tasks/billing/re_generate_invoices.rake'
+
 Style/Documentation:
   Enabled: false

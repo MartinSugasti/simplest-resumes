@@ -1,0 +1,46 @@
+<section id="sign-in-page" class="row g-0 vh-100">
+  <div class="left-section col-10 col-sm-4 offset-1 py-5 d-flex align-items-center">
+    <div class="w-100">
+      <div class="text-center mb-5">
+        <img src="https://urseseguros.com.uy/content/urse/images/logo_02.png" class="mw-100">
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-4">
+          <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "Email" %>
+        </div>
+
+        <div class="mb-1">
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="form-check mb-0">
+            <%= f.check_box :remember_me, class:"form-check-input" %>
+            <%= f.label :remember_me, class: "form-check-label" %>
+          </div>
+        <% end %>
+
+        <div class="mt-4 text-center">
+          <%= f.submit "Sign In", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light" %>
+
+          <% if devise_mapping.recoverable? %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-muted" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="align-items-center my-4 row g-0 mx-0">
+        <hr class="col-5 my-0">
+        <p class="text-center col-2 my-0">Or</p>
+        <hr class="col-5 my-0">
+      </div>
+
+      <div class="text-center d-md-flex justify-content-center mt-4">
+        <%= link_to "User Sign In", new_user_session_path, class: "text-primary-dark" %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "devise/shared/right_section" %>
+</section>

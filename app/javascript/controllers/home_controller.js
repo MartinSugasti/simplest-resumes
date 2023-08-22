@@ -9,6 +9,6 @@ export default class extends Controller {
     const root = createRoot(document.getElementById('home'));
     const config = window.homeConfig();
 
-    root.render(<Home userSignedIn={config.user_signed_in} />);
+    root.render(<Home signInAvailable={config.sign_in_available} />);
   }
 }
