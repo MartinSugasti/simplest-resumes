@@ -1,4 +1,5 @@
-<%= link_to "Profile", edit_user_registration_path %>
-<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+<%= link_to "Profile", edit_user_registration_path %><br><br>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %><br>
 
-Welcome to the user dashboard!!!
+Welcome <%= current_user.email %> to the user dashboard..<br><br>
+You're a <%= current_user.role %> user!!

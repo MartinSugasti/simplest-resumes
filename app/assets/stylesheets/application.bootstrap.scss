@@ -35,6 +35,12 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
     background: linear-gradient(172.78deg, $primary, $primary-dark);
   }
 
+  .role {
+    input:checked + label {
+      background: linear-gradient(172.78deg, $primary, $primary-dark);
+    }
+  }
+
   .sign-in-image {
     max-width: 100%;
 

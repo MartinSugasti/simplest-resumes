@@ -57,9 +57,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
+  # Debugging
   gem 'pry', '~> 0.14.2'
   gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
 
+  # Ruby styles
   gem 'rubocop', '1.28.2', require: false
   gem 'rubocop-git', '0.1.3', require: false
   gem 'rubocop-performance', '1.13.3', require: false
@@ -67,6 +69,7 @@ group :development, :test do
   gem 'rubocop-rake', '0.6.0', require: false
   gem 'rubocop-rspec', '2.10.0', require: false
 
+  # For env variables
   gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 end
 
@@ -79,4 +82,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Add a comment summarizing the current schema to the top models files
+  gem "annotate", "~> 3.2"
 end
