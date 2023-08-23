@@ -79,7 +79,7 @@ const Navbar = ({ signInAvailable }) => {
             </LinkWithLoaderAndScrolling>
 
             {signInAvailable ? (
-              <a href="/users/sign_in" className={classForLinks}>
+              <a href="/candidates/sign_in" className={classForLinks}>
                 SIGN IN
               </a>
             ) : (

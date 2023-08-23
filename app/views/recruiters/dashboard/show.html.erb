@@ -1,0 +1,4 @@
+<%= link_to "Profile", edit_recruiter_registration_path %><br><br>
+<%= button_to "Log Out", destroy_recruiter_session_path, method: :delete %><br>
+
+Welcome <%= current_recruiter.email %> to the recruiter dashboard..

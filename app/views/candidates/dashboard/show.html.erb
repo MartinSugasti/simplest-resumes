@@ -1,0 +1,4 @@
+<%= link_to "Profile", edit_candidate_registration_path %><br><br>
+<%= button_to "Log Out", destroy_candidate_session_path, method: :delete %><br>
+
+Welcome <%= current_candidate.email %> to the candidate dashboard..

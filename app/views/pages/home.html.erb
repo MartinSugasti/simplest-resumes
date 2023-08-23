@@ -3,7 +3,7 @@
 <%= javascript_tag do %>
   var homeConfig = function() {
     return (
-      <%= { sign_in_available: !user_signed_in? && !admin_signed_in? }.to_json.html_safe %>
+      <%= { sign_in_available: !admin_signed_in? && !candidate_signed_in? && !recruiter_signed_in? }.to_json.html_safe %>
     )
   }
 <% end %>

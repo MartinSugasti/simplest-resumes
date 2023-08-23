@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateAdmins < ActiveRecord::Migration[7.0]
+class DeviseCreateCandidates < ActiveRecord::Migration[7.0]
   def change
-    create_table :admins do |t|
+    create_table :candidates do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -32,13 +32,12 @@ class DeviseCreateAdmins < ActiveRecord::Migration[7.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.integer :role, default: 0, null: false
       t.timestamps null: false
     end
 
-    add_index :admins, :email,                unique: true
-    add_index :admins, :reset_password_token, unique: true
-    add_index :admins, :confirmation_token,   unique: true
-    # add_index :admins, :unlock_token,         unique: true
+    add_index :candidates, :email,                unique: true
+    add_index :candidates, :reset_password_token, unique: true
+    add_index :candidates, :confirmation_token,   unique: true
+    # add_index :candidates, :unlock_token,         unique: true
   end
 end

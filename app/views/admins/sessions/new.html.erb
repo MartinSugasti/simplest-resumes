@@ -1,8 +1,10 @@
 <section id="sign-in-page" class="row g-0 vh-100">
-  <div class="left-section col-10 col-sm-4 offset-1 py-5 d-flex align-items-center">
+  <div class="left-section col-10 col-sm-4 offset-1 py-4 d-flex align-items-center">
     <div class="w-100">
       <div class="text-center mb-5">
-        <img src="https://urseseguros.com.uy/content/urse/images/logo_02.png" class="mw-100">
+        <%= link_to home_path do %>
+          <img src="https://urseseguros.com.uy/content/urse/images/logo_02.png" class="mw-100">
+        <% end %>
       </div>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -37,7 +39,7 @@
       </div>
 
       <div class="text-center d-md-flex justify-content-center mt-4">
-        <%= link_to "User Sign In", new_user_session_path, class: "text-primary-dark" %>
+        <%= link_to "User Sign In", new_candidate_session_path, class: "text-primary-dark" %>
       </div>
     </div>
   </div>

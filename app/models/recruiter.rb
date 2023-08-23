@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: admins
+# Table name: recruiters
 #
 #  id                     :bigint           not null, primary key
 #  confirmation_sent_at   :datetime
@@ -13,24 +13,18 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :integer          default("super_admin"), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
 # Indexes
 #
-#  index_admins_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_admins_on_email                 (email) UNIQUE
-#  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_recruiters_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_recruiters_on_email                 (email) UNIQUE
+#  index_recruiters_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class Admin < ApplicationRecord
+class Recruiter < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
-
-  enum role: {
-    super_admin: 0,
-    collaborator: 1
-  }
 end
