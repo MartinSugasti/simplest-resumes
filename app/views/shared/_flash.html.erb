@@ -3,7 +3,7 @@
     class="alert alert-dismissible fade show mb-0 rounded-0 border-0 <%= key == 'notice' ? 'alert-primary' : 'alert-danger' %>"
     role="alert"
   >
-    <%= value %>
+    <%= value.html_safe %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>

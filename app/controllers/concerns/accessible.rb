@@ -2,28 +2,39 @@
 
 module Accessible
   extend ActiveSupport::Concern
-  included do
-    before_action :check_resource
-  end
 
   protected
 
-  def check_resource
-    if admin_signed_in?
-      flash.clear
-      flash[:alert] = "You're already signed in as an Admin" unless controller_path.include?('admins')
+  def check_if_resource_signed_in
+    if admin_signed_in? || candidate_signed_in? || recruiter_signed_in?
+      flash.keep
+      unless controller_path == 'admins/sessions' && action_name == 'create'
+        flash[:alert] = "You're already signed in as a #{resource_class.to_s}"
+      end
 
-      redirect_to(admins_authenticated_root_path) and return
-    elsif candidate_signed_in?
-      flash.clear
-      flash[:alert] = "You're already signed in as a Candidate" unless controller_path.include?('candidates')
+      redirect_to(root_path(resource_name)) and return
+    end
+  end
 
-      redirect_to(candidates_authenticated_root_path) and return
-    elsif recruiter_signed_in?
-      flash.clear
-      flash[:alert] = "You're already signed in as a Recruiter" unless controller_path.include?('recruiters')
+  def check_if_confirmation_available
+    token = params[:confirmation_token]
+    user = token && resource_class.find_by(confirmation_token: token)
 
-      redirect_to(recruiters_authenticated_root_path) and return
+    if token.blank?
+      flasj.keep
+      flash[:alert] = "Confirmation token can't be blank"
+
+      redirect_to(root_path) and return
+    elsif user.blank?
+      flasj.keep
+      flash[:alert] = 'Confirmation token is invalid'
+
+      redirect_to(root_path) and return
+    elsif user.confirmed?
+      flasj.keep
+      flash[:alert] = "#{resource_class.to_s} already confirmed"
+
+      redirect_to(root_path) and return
     end
   end
 end

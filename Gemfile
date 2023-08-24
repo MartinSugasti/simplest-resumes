@@ -86,3 +86,5 @@ group :development do
   # Add a comment summarizing the current schema to the top models files
   gem "annotate", "~> 3.2"
 end
+
+gem "devise_invitable", "~> 2.0"

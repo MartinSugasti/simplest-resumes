@@ -3,5 +3,5 @@
 class Recruiters::SessionsController < Devise::SessionsController
   include Accessible
 
-  skip_before_action :check_resource, only: :destroy
+  before_action :check_if_resource_signed_in, except: :destroy
 end

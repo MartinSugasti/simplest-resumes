@@ -34,6 +34,10 @@
 
         <div class="mt-4 text-center">
           <%= f.submit "Sign Up", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light" %>
+
+          <% if devise_mapping.confirmable? %>
+            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "text-decoration-none text-muted" %>
+          <% end %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-4">
