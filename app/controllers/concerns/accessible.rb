@@ -6,10 +6,10 @@ module Accessible
   protected
 
   def check_if_resource_signed_in
-    if admin_signed_in? || candidate_signed_in? || recruiter_signed_in?
+    if user_signed_in?
       flash.keep
-      unless controller_path == 'admins/sessions' && action_name == 'create'
-        flash[:alert] = "You're already signed in as a #{resource_class.to_s}"
+      unless controller_path == "#{resource_name.to_s.pluralize}/sessions" && action_name == 'create'
+        flash[:alert] = "You're already signed in as a #{current_user.class}"
       end
 
       redirect_to(root_path(resource_name)) and return
@@ -21,17 +21,17 @@ module Accessible
     user = token && resource_class.find_by(confirmation_token: token)
 
     if token.blank?
-      flasj.keep
+      flash.keep
       flash[:alert] = "Confirmation token can't be blank"
 
       redirect_to(root_path) and return
     elsif user.blank?
-      flasj.keep
+      flash.keep
       flash[:alert] = 'Confirmation token is invalid'
 
       redirect_to(root_path) and return
     elsif user.confirmed?
-      flasj.keep
+      flash.keep
       flash[:alert] = "#{resource_class.to_s} already confirmed"
 
       redirect_to(root_path) and return
