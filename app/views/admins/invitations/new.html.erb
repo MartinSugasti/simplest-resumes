@@ -1,0 +1,16 @@
+<h2><%= t "devise.invitations.new.header" %></h2>LLL
+
+<%# I was having issue when submiting this form once the admin had passed the invitations limit %>
+<%# I added data: { turbo: false } following the suggestion https://github.com/heartcombo/devise/issues/5439#issuecomment-1021131680 %>
+<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }, data: { turbo: false }) do |f| %>
+  <% resource.class.invite_key_fields.each do |field| -%>
+    <div class="field">
+      <%= f.label field %><br />
+      <%= f.text_field field %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit t("devise.invitations.new.submit_button") %>
+  </div>
+<% end %>
