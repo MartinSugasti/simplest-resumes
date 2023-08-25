@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions',
     registrations: 'admins/registrations',
     passwords: 'admins/passwords',
-    confirmations: 'admins/confirmations'
+    confirmations: 'admins/confirmations',
+    invitations: 'admins/invitations'
   }
 
   devise_for :candidates, path: 'candidates', controllers: {

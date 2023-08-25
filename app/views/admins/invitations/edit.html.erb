@@ -1,0 +1,30 @@
+<section id="accept-invitation-page" class="row g-0 vh-100">
+  <div class="left-section col-10 col-sm-4 offset-1 py-4 d-flex align-items-center">
+    <div class="w-100">
+      <div class="text-center mb-5">
+        <%= link_to home_path do %>
+          <img src="https://urseseguros.com.uy/content/urse/images/logo_02.png" class="mw-100">
+        <% end %>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.hidden_field :invitation_token, readonly: true %>
+
+        <div class="mb-4">
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password #{@minimum_password_length ? "(#{@minimum_password_length}" : ''} characters minimum)" %>
+        </div>
+
+        <div>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password confirmation" %>
+        </div>
+
+
+        <div class="mt-4 text-center">
+          <%= f.submit "Reset Password", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render "devise/shared/right_section" %>
+</section>

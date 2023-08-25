@@ -40,6 +40,8 @@ class Admin < ApplicationRecord
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
+  has_many :invitations, class_name: self.to_s, as: :invited_by
+
   enum role: {
     super_admin: 0,
     collaborator: 1

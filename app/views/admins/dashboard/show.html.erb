@@ -1,5 +1,9 @@
 <%= link_to "Profile", edit_admin_registration_path %><br><br>
 <%= button_to "Log Out", destroy_admin_session_path, method: :delete %><br>
 
+<% if current_admin.super_admin? %>
+  <%= link_to "Send an invitation", new_admin_invitation_path %><br><br>
+<% end %>
+
 Welcome <%= current_admin.email %> to the admin dashboard..<br><br>
-You're a <%= current_admin.role %> user!!
+You're a <%= current_admin.role %> user!!<br><br>
