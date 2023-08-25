@@ -9,11 +9,11 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "Email" %>
+          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
         </div>
 
         <div class="mb-1">
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
@@ -24,7 +24,7 @@
         <% end %>
 
         <div class="mt-4 text-center">
-          <%= f.submit "Sign In", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light" %>
+          <%= f.submit "Sign In", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
 
           <% if devise_mapping.recoverable? %>
             <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-muted" %>

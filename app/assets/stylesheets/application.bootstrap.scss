@@ -35,16 +35,18 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
     background: linear-gradient(172.78deg, $primary, $primary-dark);
   }
 
-  .type-selector {
-    &.candidate {
-      &.selected, &:hover {
-        background: linear-gradient(to left, $primary, $primary-dark);
-      }
-    }
+  .type {
+    background: linear-gradient(172.78deg, $primary, $primary-dark);
+  }
 
-    &.recruiter {
-      &.selected, &:hover {
-        background: linear-gradient(to right, $primary, $primary-dark);
+  .type-selector {
+    &:not(.selected) {
+      background-color: $light;
+
+      &:hover {
+        background-color: transparent;
+        border-color: transparent !important;
+        color: $light !important;
       }
     }
   }

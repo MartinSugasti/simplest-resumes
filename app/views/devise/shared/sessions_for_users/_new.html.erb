@@ -8,34 +8,34 @@
       </div>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="btn-group mb-4 w-100 type" role="group" aria-label="Basic radio toggle button group">
+        <div class="btn-group mb-4 w-100 type rounded-pill" role="group" aria-label="Basic radio toggle button group">
           <%= link_to "Candidate",
                       new_candidate_session_path,
-                      class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : '' } btn btn-outline-primary-dark border-end-0"
+                      class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-end-0 rounded-start-pill"
           %>
           <%= link_to "Recruiter",
                       new_recruiter_session_path,
-                      class: "type-selector recruiter #{resource_name.to_s == 'recruiter' ? 'selected text-light' : '' } btn btn-outline-primary-dark border-start-0"
+                      class: "type-selector recruiter #{resource_name.to_s == 'recruiter' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-start-0 rounded-end-pill"
           %>
         </div>
 
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "Email" %>
+          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
         </div>
 
         <div class="mb-1">
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="form-check mb-0">
-            <%= f.check_box :remember_me, class:"form-check-input" %>
+            <%= f.check_box :remember_me, class:"form-check-input bg-light" %>
             <%= f.label :remember_me, class: "form-check-label" %>
           </div>
         <% end %>
 
         <div class="mt-4 text-center">
-          <%= f.submit "Sign In", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light" %>
+          <%= f.submit "Sign In", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
 
           <% if devise_mapping.recoverable? %>
             <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-muted" %>
@@ -58,15 +58,15 @@
       </div>
 
       <div>
-        <button class="btn mb-2 w-100 text-light shadow" style="background-color: #dd4b39;" type="submit">
+        <button class="btn mb-2 w-100 text-light shadow rounded-pill" style="background-color: #dd4b39;" type="submit">
           <i class="bi bi-google me-2"></i>
           Google
         </button>
-        <button class="btn mb-2 w-100 text-light shadow" style="background-color: #3b5998;" type="submit">
+        <button class="btn mb-2 w-100 text-light shadow rounded-pill" style="background-color: #3b5998;" type="submit">
           <i class="bi bi-facebook me-2"></i>
           Facebook
         </button>
-        <button class="btn w-100 text-light shadow" style="background-color: #1DA1F2;" type="submit">
+        <button class="btn w-100 text-light shadow rounded-pill" style="background-color: #1DA1F2;" type="submit">
           <i class="bi bi-twitter me-2"></i>
           Twitter
         </button>

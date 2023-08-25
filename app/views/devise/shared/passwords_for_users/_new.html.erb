@@ -8,23 +8,23 @@
       </div>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <div class="btn-group mb-4 w-100 type" role="group" aria-label="Basic radio toggle button group">
+        <div class="btn-group mb-4 w-100 type rounded-pill" role="group" aria-label="Basic radio toggle button group">
           <%= link_to "Candidate",
                       new_candidate_password_path,
-                      class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : '' } btn btn-outline-primary-dark border-end-0"
+                      class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-end-0 rounded-start-pill"
           %>
           <%= link_to "Recruiter",
                       new_recruiter_password_path,
-                      class: "type-selector recruiter #{resource_name.to_s == 'recruiter' ? 'selected text-light' : '' } btn btn-outline-primary-dark border-start-0"
+                      class: "type-selector recruiter #{resource_name.to_s == 'recruiter' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-start-0 rounded-end-pill"
           %>
         </div>
 
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "Email" %>
+          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
         </div>
 
         <div class="mt-4 text-center">
-          <%= f.submit "Send Instructions", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0" %>
+          <%= f.submit "Send Instructions", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill" %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-2">
