@@ -3,9 +3,18 @@ import '@hotwired/turbo-rails';
 import './controllers';
 import * as bootstrap from 'bootstrap';
 
-// Added for making bootstrap tooltips work
 document.addEventListener('turbo:load', () => {
+  // Added for making bootstrap tooltips work
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 
   tooltipTriggerList.map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+
+  // Added for making sidebar toggle
+  const sidebarToggler = document.querySelector('#sidebar-toggler');
+
+  if (sidebarToggler) {
+    sidebarToggler.addEventListener('click', () => {
+      document.querySelector('#sidebar').classList.toggle('collapsed');
+    });
+  }
 });

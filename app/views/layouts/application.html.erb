@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <%= render "shared/head" %>
+  <%= render "layouts/shared/head" %>
 
   <body>
-    <%= render "shared/flash" %>
+    <%= render "layouts/shared/flash" %>
 
     <% if defined? resource %>
       <%= render "devise/shared/error_messages", resource: resource %>
     <% end %>
 
-    <%= yield %>
+    <% if show_dashboard_layout %>
+      <div id="main-wrapper" class="bg-light">
+        <%= render "layouts/shared/sidebar" %>
+
+        <div class="main">
+          <%= render "layouts/shared/navbar", user: current_user %>
+
+          <main class="content px-3 py-2 bg-light">
+            <div class="container-fluid">
+              <div class="mb-3">
+                <%= yield %>
+              </div>
+            </div>
+          </main>
+
+          <%= render "layouts/shared/footer" %>
+        </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

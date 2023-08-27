@@ -1,0 +1,42 @@
+#sign-in-page, #sign-up-page, #send-intructions-page, #reset-password-page, #accept-invitation-page {
+  .right-section {
+    background: linear-gradient(172.78deg, $primary-dark, $primary);
+  }
+
+  .btn-submit {
+    background: linear-gradient(172.78deg, $primary, $primary-dark);
+  }
+
+  .type {
+    background: linear-gradient(172.78deg, $primary, $primary-dark);
+  }
+
+  .type-selector {
+    &:not(.selected) {
+      background-color: $light;
+
+      &:hover {
+        background-color: transparent;
+        border-color: transparent !important;
+        color: $light !important;
+      }
+    }
+  }
+
+  .sign-in-image {
+    max-width: 100%;
+
+    @media (min-width: 700px) {
+      max-width: 80%;
+    }
+  }
+}
+
+.smoothly-show-page {
+  opacity: 0;
+
+  &.non-hidden {
+    transition: opacity 700ms linear;
+    opacity: 1;
+  }
+}

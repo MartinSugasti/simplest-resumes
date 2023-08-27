@@ -44,7 +44,7 @@ const Navbar = ({ signInAvailable }) => {
 
   return (
     <nav
-      id="navbar"
+      id="signed-out-navbar"
       className={
         `navbar sticky-top navbar-expand-md pt-2 pb-2
         ${applyLightBg ? 'light-bg navbar-light' : 'colored-bg navbar-dark'}
