@@ -359,4 +359,9 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # As far I understood, this makes only Admin to be authorized to impresionate, but I'm not 100% sure.
+  # Anyway, I added a custom masquerade_authorize! method in Admins::MasqueradesController to ensure
+  # only admins can impresionate.
+  config.masquerading_resource_class_name = 'Admin'
 end

@@ -13,14 +13,16 @@ Rails.application.routes.draw do
     sessions: 'candidates/sessions',
     registrations: 'candidates/registrations',
     passwords: 'candidates/passwords',
-    confirmations: 'candidates/confirmations'
+    confirmations: 'candidates/confirmations',
+    masquerades: "admins/masquerades"
   }
 
   devise_for :recruiters, path: 'recruiters', controllers: {
     sessions: 'recruiters/sessions',
     registrations: 'recruiters/registrations',
     passwords: 'recruiters/passwords',
-    confirmations: 'recruiters/confirmations'
+    confirmations: 'recruiters/confirmations',
+    masquerades: "admins/masquerades"
   }
 
   authenticated :admin do

@@ -7,3 +7,8 @@
 
 Welcome <%= current_admin.email %> to the admin dashboard..<br><br>
 You're a <%= current_admin.role %> user!!<br><br>
+
+<% if current_admin.super_admin? %>
+  <%= link_to "Login As A Candidate", masquerade_path(Candidate.first) %><br><br>
+  <%= link_to "Login As A Recruiter", masquerade_path(Recruiter.first) %><br><br>
+<% end %>

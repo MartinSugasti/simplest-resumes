@@ -51,7 +51,12 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# For authentication
 gem "devise", "~> 4.9"
+gem "devise_invitable", "~> 2.0"
+
+# For impresionation
+gem "devise_masquerade", "~> 2.1"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -86,5 +91,3 @@ group :development do
   # Add a comment summarizing the current schema to the top models files
   gem "annotate", "~> 3.2"
 end
-
-gem "devise_invitable", "~> 2.0"

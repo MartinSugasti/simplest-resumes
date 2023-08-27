@@ -10,6 +10,12 @@
     <% end %>
 
     <% if show_dashboard_layout %>
+      <% if candidate_masquerade? || recruiter_masquerade? %>
+        <div id="back-masquerade" class="bg-danger py-1 text-center sticky-top">
+          <%= link_to "Return to Admin dashboard", back_masquerade_path(current_user), class: "bg-light btn px-2 py-0 text-danger text-decoration-none" %>
+        </div>
+      <% end %>
+
       <div id="main-wrapper" class="bg-light">
         <%= render "layouts/shared/sidebar" %>
 
