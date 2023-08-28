@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Navbar = ({ user }) => (
   <div className="navbar navbar-expand">
-    <button id="sidebar-toggler" className="btn border-0" type="button" data-bs-theme="dark">
+    <button className="btn border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobile-sidebar" aria-controls="mobile-sidebar" data-bs-theme="dark">
       <span className="navbar-toggler-icon" />
     </button>
 

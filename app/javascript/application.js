@@ -8,13 +8,4 @@ document.addEventListener('turbo:load', () => {
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 
   tooltipTriggerList.map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-
-  // Added for making sidebar toggle
-  const sidebarToggler = document.querySelector('#sidebar-toggler');
-
-  if (sidebarToggler) {
-    sidebarToggler.addEventListener('click', () => {
-      document.querySelector('#sidebar').classList.toggle('collapsed');
-    });
-  }
 });
