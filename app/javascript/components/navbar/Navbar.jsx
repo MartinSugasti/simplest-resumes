@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Navbar = ({ user }) => (
-  <>
+  <div className="navbar navbar-expand">
     <button id="sidebar-toggler" className="btn border-0" type="button" data-bs-theme="dark">
       <span className="navbar-toggler-icon" />
     </button>
@@ -11,7 +11,7 @@ const Navbar = ({ user }) => (
       <input className="form-control me-2 bg-light" type="search" placeholder="Search" aria-label="Search" />
       <button className="btn btn-outline-light" type="submit">Search</button>
     </form>
-  </>
+  </div>
 );
 
 Navbar.propTypes = {

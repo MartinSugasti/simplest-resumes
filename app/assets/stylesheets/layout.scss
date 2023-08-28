@@ -3,10 +3,19 @@
 }
 
 #main-wrapper {
-  align-items: stretch;
-  display: flex;
-  width: 100%;
-  background: linear-gradient(172.78deg, $primary-dark, $primary-light);
+  #navbar {
+    #search-form {
+      width: 100%;
+
+      @media (min-width: 550px) {
+        width: 75%;
+      }
+
+      @media (min-width: 700px) {
+        width: 50%;
+      }
+    }
+  }
 
   .main {
     display: flex;
@@ -27,21 +36,11 @@
     }
   }
 
-  #navbar {
-    #search-form {
-      width: 100%;
-
-      @media (min-width: 500px) {
-        width: 50%;
-      }
-    }
-  }
-
   #sidebar {
     max-width: 264px;
     min-width: 264px;
     transition: all 0.35s ease-in-out;
-    z-index: 1111;
+    background: linear-gradient(to bottom, $primary-dark, $primary-light);
 
     a {
       cursor: pointer;
