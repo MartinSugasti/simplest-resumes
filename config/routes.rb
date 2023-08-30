@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     registrations: 'candidates/registrations',
     passwords: 'candidates/passwords',
     confirmations: 'candidates/confirmations',
-    masquerades: "admins/masquerades"
+    masquerades: "admins/masquerades",
+    omniauth_callbacks: "candidates/omniauth_callbacks"
   }
 
   devise_for :recruiters, path: 'recruiters', controllers: {

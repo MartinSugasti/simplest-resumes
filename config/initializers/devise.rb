@@ -364,4 +364,6 @@ Devise.setup do |config|
   # Anyway, I added a custom masquerade_authorize! method in Admins::MasqueradesController to ensure
   # only admins can impresionate.
   config.masquerading_resource_class_name = 'Admin'
+
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
 end

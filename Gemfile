@@ -58,6 +58,11 @@ gem "devise_invitable", "~> 2.0"
 # For impresionation
 gem "devise_masquerade", "~> 2.1"
 
+# For omniauth authentication
+gem "omniauth", "~> 2.1"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem "omniauth-github", "~> 2.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
