@@ -10,11 +10,9 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  uid                    :string
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -31,11 +29,8 @@ class Candidate < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :validatable, :confirmable, :masqueradable
 
-  devise :omniauthable, omniauth_providers: %i[github]
-
   def self.from_omniauth(auth)
-    find_or_create_by(provider: auth.provider, uid: auth.uid) do |candidate|
-      candidate.email = auth.info.email
+    find_or_create_by(email: auth.info.email) do |candidate|
       candidate.password = Devise.friendly_token[0, 20]
 
       # If you are using confirmable and the provider(s) you use validate emails,
