@@ -1,0 +1,29 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1">Settings</h2>
+  <p class="small text-muted mb-0"><strong>Settings</strong></p>
+<% end %>
+
+<div class="authentication-page">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="mb-4">
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password #{@minimum_password_length ? "(#{@minimum_password_length}" : ''} characters minimum)" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password confirmation" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded-pill bg-light", placeholder: "Current Password" %>
+    </div>
+
+    <div class="mt-4 text-center">
+      <%= f.submit "Update", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
+
+      <div class="text-decoration-none text-muted">
+        Unhappy?
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "Are you sure? This actions is irreversible!" }, class: "text-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>

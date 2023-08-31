@@ -1,11 +1,11 @@
 <%= javascript_tag do %>
   var navbarConfig = function() {
     return (
-      <%= { user: current_user }.to_json.html_safe %>
+      <%= { user: user }.to_json.html_safe %>
     )
   }
 <% end %>
 
-<%= content_tag(:nav, "", id: "navbar", data: {
+<%= content_tag(:nav, "", id: "dashboard-navbar", data: {
   controller: "navbar"
 }) %>

@@ -1,3 +1,12 @@
+.smoothly-show-page {
+  opacity: 0;
+
+  &.non-hidden {
+    transition: opacity 700ms linear;
+    opacity: 1;
+  }
+}
+
 #loader {
   display: flex;
   flex-direction: column;

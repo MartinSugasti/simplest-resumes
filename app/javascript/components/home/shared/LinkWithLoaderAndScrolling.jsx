@@ -23,12 +23,12 @@ const LinkWithLoaderAndScrolling = ({
     // so loader should show up
     if (!section) {
       document.querySelector('#loader').classList.remove('hidden');
-      document.querySelector('#home').classList.remove('non-hidden');
+      document.querySelector('.smoothly-show-page').classList.remove('non-hidden');
 
       setTimeout(() => {
         document.querySelector('#loader').classList.add('hidden');
-        document.querySelector('#home').classList.add('non-hidden');
-      }, 1500);
+        document.querySelector('.smoothly-show-page').classList.add('non-hidden');
+      }, 1100);
     }
 
     // If id contains the word 'intro', it means we are navigating to a top section,

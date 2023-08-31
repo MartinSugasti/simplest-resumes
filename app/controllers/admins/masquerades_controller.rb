@@ -6,6 +6,14 @@ class Admins::MasqueradesController < Devise::MasqueradesController
 
   protected
 
+  def find_masqueradable_resource
+    if params[:resource_id].present?
+      masqueraded_resource_class.find(params[:resource_id])
+    else
+      super
+    end
+  end
+
   def masquerade_authorize!
     if params[:action] != 'back'
       if !admin_signed_in?

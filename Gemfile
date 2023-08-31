@@ -98,3 +98,5 @@ group :development do
   # Add a comment summarizing the current schema to the top models files
   gem "annotate", "~> 3.2"
 end
+
+gem "active_model_serializers", "~> 0.10.13"

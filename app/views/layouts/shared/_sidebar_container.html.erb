@@ -1,7 +1,27 @@
-<div id="mobile-sidebar" class="offcanvas offcanvas-start d-md-none" tabindex="-1" aria-labelledby="sidebar">
-  <%= render "layouts/shared/sidebar" %>
+<div id="sidebar-mobile" class="offcanvas offcanvas-start d-lg-none" tabindex="-1" aria-labelledby="sidebar">
+  <div class="h-100">
+    <div class="p-4">
+      <%= link_to root_path do %>
+        <%= image_tag 'logos/light.png', class: 'mw-100' %>
+      <% end %>
+    </div>
+
+    <ul class="sidebar-nav p-0">
+      <%= render "layouts/#{user.class.name.downcase.pluralize}/sidebar", user: user %>
+    </ul>
+  </div>
 </div>
 
-<div id="sidebar" class="d-none d-md-inline-block">
-  <%= render "layouts/shared/sidebar" %>
+<div id="sidebar" class="d-none d-lg-inline-block">
+  <div class="h-100">
+    <div class="p-4">
+      <%= link_to root_path do %>
+        <%= image_tag 'logos/light.png', class: 'mw-100' %>
+      <% end %>
+    </div>
+
+    <ul class="sidebar-nav p-0">
+      <%= render "layouts/#{user.class.name.downcase.pluralize}/sidebar", user: user %>
+    </ul>
+  </div>
 </div>

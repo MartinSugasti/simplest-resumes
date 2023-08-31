@@ -10,7 +10,7 @@
     <% end %>
 
     <% if show_dashboard_layout %>
-      <%= render "layouts/shared/dashboard" %>
+      <%= render "layouts/shared/dashboard", user: current_user %>
     <% else %>
       <%= yield %>
     <% end %>

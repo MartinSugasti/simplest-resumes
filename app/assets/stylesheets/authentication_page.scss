@@ -1,4 +1,4 @@
-#sign-in-page, #sign-up-page, #send-intructions-page, #reset-password-page, #accept-invitation-page {
+.authentication-page {
   .right-section {
     background: linear-gradient(172.78deg, $primary-dark, $primary);
   }
@@ -29,14 +29,5 @@
     @media (min-width: 700px) {
       max-width: 80%;
     }
-  }
-}
-
-.smoothly-show-page {
-  opacity: 0;
-
-  &.non-hidden {
-    transition: opacity 700ms linear;
-    opacity: 1;
   }
 }

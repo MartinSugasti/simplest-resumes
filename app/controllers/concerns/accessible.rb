@@ -8,6 +8,7 @@ module Accessible
   def check_if_resource_signed_in
     if user_signed_in?
       flash.keep
+
       unless controller_path == "#{resource_name.to_s.pluralize}/sessions" && action_name == 'create'
         flash[:alert] = "You're already signed in as a #{current_user.class}"
       end

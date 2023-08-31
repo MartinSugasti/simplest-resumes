@@ -1,0 +1,8 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1">Admins</h2>
+  <p class="small text-muted mb-0">Users / <strong>Admins</strong></p>
+<% end %>
+
+<%= content_tag(:div, "", id: "admins-admins-container", data: {
+  controller: "admins_admins"
+}) %>

@@ -61,6 +61,10 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'dashboard/show'
+
+    resources :admins, only: %i[index]
+    resources :candidates, only: %i[index]
+    resources :recruiters, only: %i[index]
   end
 
   namespace :candidates do

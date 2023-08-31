@@ -1,0 +1,37 @@
+<li>
+  <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">
+    <i class="bi bi-person-fill pe-2 pe-2"></i>
+    Users
+  </a>
+
+  <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+    <% if current_admin.super_admin? %>
+      <li>
+        <a href="/admins/invitation/new" class="sidebar-link text-light px-4 py-2">Invite Admin</a>
+      </li>
+    <% end %>
+    <li>
+      <a href="/admins/admins" class="sidebar-link text-light px-4 py-2">Admins</a>
+    </li>
+    <li>
+      <a href="/admins/candidates" class="sidebar-link text-light px-4 py-2">Candidates</a>
+    </li>
+    <li>
+      <a href="/admins/recruiters" class="sidebar-link text-light px-4 py-2">Recruiters</a>
+    </li>
+  </ul>
+</li>
+
+<li>
+  <a href="/admins/edit" class="sidebar-link text-light px-4 py-2">
+    <i class="bi bi-gear-fill pe-2"></i>
+    Settings
+  </a>
+</li>
+
+<li>
+  <%= button_to destroy_admin_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0", method: :delete do %>
+    <i class="bi bi-box-arrow-right pe-2"></i>
+    Sign Out
+  </a>
+<% end %>

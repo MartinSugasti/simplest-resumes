@@ -1,0 +1,17 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1">Recruiters</h2>
+  <p class="small text-muted mb-0">Users / <strong>Recruiters</strong></p>
+<% end %>
+
+<%= javascript_tag do %>
+  var adminsRecruitersConfig = function() {
+    return (
+      <%= { current_user: current_user }.to_json.html_safe %>
+    )
+  }
+<% end %>
+
+<%= content_tag(:div, "", id: "admins-recruiters-container", data: {
+  controller: "admins_recruiters"
+}) %>
+

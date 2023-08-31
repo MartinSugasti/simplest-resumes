@@ -6,7 +6,7 @@ import Navbar from '../components/navbar';
 
 export default class extends Controller {
   connect() {
-    const root = createRoot(document.getElementById('navbar'));
+    const root = createRoot(document.getElementById('dashboard-navbar'));
     const config = window.navbarConfig();
 
     root.render(<Navbar user={config.user} />);

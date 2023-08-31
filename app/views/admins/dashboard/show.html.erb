@@ -1,14 +1,6 @@
-<%= link_to "Profile", edit_admin_registration_path %><br><br>
-<%= button_to "Log Out", destroy_admin_session_path, method: :delete %><br>
-
-<% if current_admin.super_admin? %>
-  <%= link_to "Send an invitation", new_admin_invitation_path %><br><br>
+<% content_for :top_section do %>
+  <h2 class="mb-1">Dashboard</h2>
+  <p class="small text-muted mb-0"><strong>Dashboard</strong></p>
 <% end %>
 
-Welcome <%= current_admin.email %> to the admin dashboard..<br><br>
-You're a <%= current_admin.role %> user!!<br><br>
-
-<% if current_admin.super_admin? %>
-  <%= link_to "Login As A Candidate", masquerade_path(Candidate.first) %><br><br>
-  <%= link_to "Login As A Recruiter", masquerade_path(Recruiter.first) %><br><br>
-<% end %>
+<p class="mb-0">Welcome to the the <%= current_user.super_admin? ? "Super Admin's" : "Admin's" %> dashboard!

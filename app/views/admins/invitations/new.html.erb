@@ -1,21 +1,22 @@
-<h2><%= t "devise.invitations.new.header" %></h2>LLL
+<% content_for :top_section do %>
+  <h2 class="mb-1">Invite</h2>
+  <p class="small text-muted mb-0">Users / <strong>Invite Admin</strong></p>
+<% end %>
 
 <%# I was having issue when submiting this form once the admin had passed the invitations limit %>
 <%# I added data: { turbo: false } following the suggestion https://github.com/heartcombo/devise/issues/5439#issuecomment-1021131680 %>
-<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }, data: { turbo: false }) do |f| %>
-  <% resource.class.invite_key_fields.each do |field| -%>
-    <div class="field">
-      <%= f.label field %><br />
-      <%= f.text_field field %>
+<div class="authentication-page row">
+  <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post, class: 'col-12 col-md-6' }, data: { turbo: false }) do |f| %>
+    <div class="mb-4">
+      <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
     </div>
-  <% end -%>
 
-  <div class="field">
-    <%= f.label :role %>
-    <%= f.select :role, options_for_select(Admin.roles.map { |key, value| [key.humanize, key] }), {prompt: "Select Role"} %>
-  </div>
+    <div class="mb-4">
+      <%= f.select :role, options_for_select(Admin.roles.map { |key, value| [key.titleize, key] }), { include_blank: "Select Role" }, { class: "form-select rounded-pill bg-light", required: true } %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit t("devise.invitations.new.submit_button") %>
-  </div>
-<% end %>
+    <div class="mt-4 text-center">
+      <%= f.submit "Send Invitation", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
+    </div>
+  <% end %>
+</div>

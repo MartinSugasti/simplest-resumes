@@ -1,4 +1,6 @@
-<%= link_to "Profile", edit_recruiter_registration_path %><br><br>
-<%= button_to "Log Out", destroy_recruiter_session_path, method: :delete %><br>
+<% content_for :top_section do %>
+  <h2 class="mb-1">Dashboard</h2>
+  <p class="small text-muted mb-0"><strong>Dashboard</strong></p>
+<% end %>
 
-Welcome <%= current_recruiter.email %> to the recruiter dashboard..
+<p class="mb-0">Welcome to the the Recruiter's dashboard!</p>
