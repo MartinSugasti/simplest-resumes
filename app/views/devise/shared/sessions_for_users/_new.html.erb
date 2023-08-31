@@ -57,27 +57,7 @@
         <hr class="col-5 my-0">
       </div>
 
-      <div>
-        <%= button_to omniauth_authorize_path_for(resource, 'google_oauth2'), class: "btn mb-2 w-100 text-light shadow rounded-pill", style: "background-color: #dd4b39;", data: { turbo: false } do %>
-          <i class="bi bi-google me-2"></i>
-          Google
-        <% end %>
-
-        <%= button_to omniauth_authorize_path_for(resource, 'github'), class: "btn mb-2 w-100 text-light shadow rounded-pill", style: "background-color: #24292f;", data: { turbo: false } do %>
-          <i class="bi bi-github me-2"></i>
-          Github
-        <% end %>
-
-        <button class="btn mb-2 w-100 text-light shadow rounded-pill" style="background-color: #3b5998;" type="submit">
-          <i class="bi bi-facebook me-2"></i>
-          Facebook
-        </button>
-
-        <button class="btn w-100 text-light shadow rounded-pill" style="background-color: #1DA1F2;" type="submit">
-          <i class="bi bi-twitter me-2"></i>
-          Twitter
-        </button>
-      </div>
+      <%= render "devise/shared/social_media_links" %>
 
       <div class="align-items-center my-4 row g-0 mx-0">
         <hr class="col-5 my-0">

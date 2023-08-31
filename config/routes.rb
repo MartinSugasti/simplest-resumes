@@ -28,15 +28,18 @@ Rails.application.routes.draw do
   devise_scope :candidate do
     post "/auth/github" => "omniauth_callbacks#passthru", as: :candidate_github_omniauth_authorize
     post "/auth/google_oauth2" => "omniauth_callbacks#passthru", as: :candidate_google_oauth2_omniauth_authorize
+    post "/auth/twitter" => "omniauth_callbacks#passthru", as: :candidate_twitter_omniauth_authorize
   end
 
   devise_scope :recruiter do
     post "/auth/github" => "omniauth_callbacks#passthru", as: :recruiter_github_omniauth_authorize
     post "/auth/google_oauth2" => "omniauth_callbacks#passthru", as: :recruiter_google_oauth2_omniauth_authorize
+    post "/auth/twitter" => "omniauth_callbacks#passthru", as: :recruiter_twitter_omniauth_authorize
   end
 
   get "/auth/github/callback" => "omniauth_callbacks#github", as: :github_omniauth_callback
   get "/auth/google_oauth2/callback" => "omniauth_callbacks#google_oauth2", as: :google_oauth2_omniauth_callback
+  get "/auth/twitter/callback" => "omniauth_callbacks#twitter", as: :twitter_omniauth_callback
 
   authenticated :admin do
     root 'admins/dashboard#show', as: :admins_authenticated_root
