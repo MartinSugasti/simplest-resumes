@@ -8,9 +8,17 @@ import NavbarController from './navbar_controller';
 import AdminsAdminsController from './admins/admins_controller';
 import AdminsCandidatesController from './admins/candidates_controller';
 import AdminsRecruitersController from './admins/recruiters_controller';
+import AdminsInvitationRequestsController from './admins/invitation_requests_controller';
 
 application.register('home', HomeController);
 application.register('navbar', NavbarController);
+
+// Admins pages
 application.register('admins_admins', AdminsAdminsController);
 application.register('admins_candidates', AdminsCandidatesController);
 application.register('admins_recruiters', AdminsRecruitersController);
+application.register('admins_invitation_requests', AdminsInvitationRequestsController);
+
+// Cadidates pages
+
+// Recruiters pages

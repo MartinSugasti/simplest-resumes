@@ -5,7 +5,7 @@ module Accessible
 
   protected
 
-  def check_if_resource_signed_in
+  def check_if_resource_already_signed_in
     if user_signed_in?
       flash.keep
 
@@ -36,6 +36,13 @@ module Accessible
       flash[:alert] = "#{resource_class.to_s} already confirmed"
 
       redirect_to(root_path) and return
+    end
+  end
+
+  def check_if_resource_super_admin
+    unless current_admin.super_admin?
+      flash[:alert] = "You need to be a Super Admin for inviting admins."
+      redirect_to root_path
     end
   end
 end

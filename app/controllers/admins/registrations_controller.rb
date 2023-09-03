@@ -3,7 +3,7 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
   include Accessible
 
-  before_action :check_if_resource_signed_in, only: %i[new create]
+  before_action :check_if_resource_already_signed_in, only: %i[new create]
   before_action :sign_up_not_allowed, only: %i[new create]
   before_action :configure_permitted_parameters
 

@@ -4,7 +4,7 @@ class Admins::AdminSerializer < ActiveModel::Serializer
   attributes :id, :email, :role, :created_at, :users_invited, :invited_by, :invitation_accepted
 
   def role
-    object.role.humanize
+    object.role.titleize
   end
 
   def created_at
@@ -12,7 +12,7 @@ class Admins::AdminSerializer < ActiveModel::Serializer
   end
 
   def users_invited
-    object.invitations.count
+    object.invitations_count
   end
 
   def invited_by
@@ -20,7 +20,7 @@ class Admins::AdminSerializer < ActiveModel::Serializer
   end
 
   def invitation_accepted
-    if object.invited_by.present?
+    if object.invited_by_id.present?
       object.invitation_accepted? ? 'Yes' : 'No'
     else
       '-'

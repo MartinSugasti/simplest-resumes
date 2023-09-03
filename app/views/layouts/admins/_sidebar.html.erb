@@ -1,15 +1,10 @@
 <li>
-  <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">
+  <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#users-dropdown" aria-expanded="false" aria-controls="users-dropdown">
     <i class="bi bi-person-fill pe-2 pe-2"></i>
     Users
   </a>
 
-  <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-    <% if current_admin.super_admin? %>
-      <li>
-        <a href="/admins/invitation/new" class="sidebar-link text-light px-4 py-2">Invite Admin</a>
-      </li>
-    <% end %>
+  <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
     <li>
       <a href="/admins/admins" class="sidebar-link text-light px-4 py-2">Admins</a>
     </li>
@@ -21,6 +16,24 @@
     </li>
   </ul>
 </li>
+
+<% if current_admin.super_admin? %>
+  <li>
+    <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#invitations-dropdown" aria-expanded="false" aria-controls="invitations-dropdown">
+      <i class="bi bi-person-fill pe-2 pe-2"></i>
+      Invitations
+    </a>
+
+    <ul id="invitations-dropdown" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+      <li>
+        <a href="/admins/invitation/new" class="sidebar-link text-light px-4 py-2">Send Invitation</a>
+      </li>
+      <li>
+        <a href="/admins/invitation_requests" class="sidebar-link text-light px-4 py-2">Requests</a>
+      </li>
+    </ul>
+  </li>
+<% end %>
 
 <li>
   <a href="/admins/edit" class="sidebar-link text-light px-4 py-2">

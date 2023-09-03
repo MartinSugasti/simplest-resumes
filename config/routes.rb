@@ -65,6 +65,15 @@ Rails.application.routes.draw do
     resources :admins, only: %i[index]
     resources :candidates, only: %i[index]
     resources :recruiters, only: %i[index]
+
+    resources :invitation_requests, only: %i[index new create] do
+      scope constraints: { format: :json } do
+        member do
+          post :dismiss
+          post :ban
+        end
+      end
+    end
   end
 
   namespace :candidates do

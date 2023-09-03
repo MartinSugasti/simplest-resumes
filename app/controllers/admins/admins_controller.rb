@@ -6,7 +6,7 @@ class Admins::AdminsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render json: Admin.all.order(:id), each_serializer: Admins::AdminSerializer }
+      format.json { render json: Admin.includes(:invited_by).order(:id), each_serializer: Admins::AdminSerializer }
     end
   end
 end

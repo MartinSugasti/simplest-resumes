@@ -8,7 +8,8 @@ module.exports = {
     'no-alert': 0,
     'comma-dangle': ['error', 'never'],
     'jsx-a11y/label-has-associated-control': ['error', { required: { some: ['nesting', 'id'] } }],
-    'no-restricted-exports': ['error', { restrictedNamedExports: [] }]
+    'no-restricted-exports': ['error', { restrictedNamedExports: [] }],
+    'max-len': ['error', { code: 120 }]
   },
   globals: {
     document: 'readonly'

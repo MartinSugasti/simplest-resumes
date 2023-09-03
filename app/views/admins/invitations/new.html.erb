@@ -1,12 +1,12 @@
 <% content_for :top_section do %>
-  <h2 class="mb-1">Invite</h2>
-  <p class="small text-muted mb-0">Users / <strong>Invite Admin</strong></p>
+  <h2 class="mb-1">Send Invitation</h2>
+  <p class="small text-muted mb-0">Invitations / <strong>Send Invitation</strong></p>
 <% end %>
 
 <%# I was having issue when submiting this form once the admin had passed the invitations limit %>
 <%# I added data: { turbo: false } following the suggestion https://github.com/heartcombo/devise/issues/5439#issuecomment-1021131680 %>
 <div class="authentication-page row">
-  <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post, class: 'col-12 col-md-6' }, data: { turbo: false }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post, class: 'col-12' }, data: { turbo: false }) do |f| %>
     <div class="mb-4">
       <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
     </div>
