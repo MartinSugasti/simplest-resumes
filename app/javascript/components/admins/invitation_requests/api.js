@@ -7,7 +7,7 @@ export const getInvitationRequests = () => {
 };
 
 export const approveInvitationRequest = (email, role) => {
-  const response = axios.post('/admins/invitation', { admin: { email, role } });
+  const response = axios.post('/admins/invitation.json', { admin: { email, role } });
 
   return response;
 };

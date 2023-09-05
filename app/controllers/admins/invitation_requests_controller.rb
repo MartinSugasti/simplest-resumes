@@ -25,8 +25,7 @@ class Admins::InvitationRequestsController < ApplicationController
     @invitation_request = InvitationRequest.new(email: params[:invitation_request][:email])
 
     if @invitation_request.save
-      # TODO: Implement mailer for super admins when invitation request is created
-      Rails.logger.info('Send email in future commit')
+      Admins::InvitationsMailer.invitation_requested_email(@invitation_request.email).deliver_later
 
       flash.now[:notice] = 'Your request will be reviewed soon'
       render "pages/home"

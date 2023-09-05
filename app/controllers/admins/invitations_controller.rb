@@ -14,6 +14,14 @@ class Admins::InvitationsController < Devise::InvitationsController
     redirect_to new_admin_invitation_path
   end
 
+  def update
+    super do |admin|
+      Admins::InvitationsMailer.invitation_accepted_email(admin.email).deliver_later if admin.errors.empty?
+
+      admin
+    end
+  end
+
   protected
 
   # This is called when creating invitation.
@@ -27,16 +35,6 @@ class Admins::InvitationsController < Devise::InvitationsController
         flash[:alert] ||= 'There was an invitation request for this email that was marked as Approved'
       end
 
-      admin
-    end
-  end
-
-  # This is called when accepting invitation.
-  # It should return an instance of resource class.
-  def accept_resource
-    super do |admin|
-      # TODO: Implement mailer for super admins when invitation is accepted
-      Rails.logger.info('Send email in future commit') if admin.errors.empty?
       admin
     end
   end
