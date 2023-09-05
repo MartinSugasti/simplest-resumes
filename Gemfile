@@ -103,4 +103,7 @@ group :development do
 
   # Add a comment summarizing the current schema to the top models files
   gem "annotate", "~> 3.2"
+
+  # For opening emails in browser
+  gem "letter_opener", "~> 1.8"
 end
