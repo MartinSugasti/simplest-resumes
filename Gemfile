@@ -30,8 +30,14 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Use for serialization
+gem "active_model_serializers", "~> 0.10.13"
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
+
+# Use sidekiq for jobs queueing
+gem "sidekiq", "~> 7.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -98,5 +104,3 @@ group :development do
   # Add a comment summarizing the current schema to the top models files
   gem "annotate", "~> 3.2"
 end
-
-gem "active_model_serializers", "~> 0.10.13"

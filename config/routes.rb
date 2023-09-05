@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
+require "sidekiq/web"
+
 Rails.application.routes.draw do
+  authenticated :admin, ->(admin) { admin.super_admin? } do
+    mount Sidekiq::Web, at: 'admins/sidekiq'
+  end
+
   devise_for :admins, path: 'admins', controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations',
@@ -24,6 +30,12 @@ Rails.application.routes.draw do
     confirmations: 'recruiters/confirmations',
     masquerades: "admins/masquerades"
   }
+
+  devise_scope :admin do
+    post 'admins/invitations/resend', to: 'admins/invitations#resend',
+                                      as: :resend_admins_invitations,
+                                      constraints: { format: :json }
+  end
 
   devise_scope :candidate do
     post "/auth/github" => "omniauth_callbacks#passthru", as: :candidate_github_omniauth_authorize

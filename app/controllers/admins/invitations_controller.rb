@@ -7,6 +7,13 @@ class Admins::InvitationsController < Devise::InvitationsController
   before_action :check_if_resource_super_admin, only: [:new, :create]
   before_action :configure_permitted_parameters
 
+  def resend
+    Admins::RemindInvitationsJob.perform_later
+
+    flash[:notice] = "An email will be sent to Admins with pending invitations"
+    redirect_to new_admin_invitation_path
+  end
+
   protected
 
   # This is called when creating invitation.

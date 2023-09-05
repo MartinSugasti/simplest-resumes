@@ -16,7 +16,11 @@
     </div>
 
     <div class="mt-4 text-center">
-      <%= f.submit "Send Invitation", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
+      <%= f.submit "Send Invitation", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill" %>
     </div>
   <% end %>
+
+  <div class="mt-4 text-center">
+    <%= button_to "Resend Pending Invitations", resend_admins_invitations_path, class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill", type: "button", data: { turbo: false } %>
+  </div>
 </div>
