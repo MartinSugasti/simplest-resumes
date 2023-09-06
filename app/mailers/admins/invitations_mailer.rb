@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::InvitationsMailer < ApplicationMailer
-  default from: email_address_with_name('notifications@jardinymasuy.com', 'Notifications'),
+  default from: email_address_with_name('notifications@simplestresumes.com', 'Notifications'),
           to: -> { Admin.super_admin.pluck(:email) }
 
   def invitation_accepted_email(email)

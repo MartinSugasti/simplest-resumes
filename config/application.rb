@@ -36,11 +36,11 @@ module SimplestResumes
 
     config.active_job.queue_adapter = :sidekiq
 
-    config.action_mailer.default_url_options = { :host => 'jardinymasuy.com' }
+    config.action_mailer.default_url_options = { :host => 'simplestresumes.com' }
     config.action_mailer.smtp_settings = {
       :user_name => 'apikey',
       :password => ENV['SENDGRID_API_KEY'],
-      :domain => 'jardinymasuy.com',
+      :domain => 'simplestresumes.com',
       :address => 'smtp.sendgrid.net',
       :port => 587,
       :authentication => :plain,
