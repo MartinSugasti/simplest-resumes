@@ -1,4 +1,10 @@
 ---
 :concurrency: 5
+
 :queues:
   - default
+
+:scheduler:
+  :schedule:
+    Admins::RemindInvitationsJob:
+      every: ['24h', first_in: '0s']

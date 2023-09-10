@@ -39,6 +39,9 @@ gem "redis", "~> 4.0"
 # Use sidekiq for jobs queueing
 gem "sidekiq", "~> 7.1"
 
+# For scheduled processes
+gem "sidekiq-scheduler", "~> 5.0"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
