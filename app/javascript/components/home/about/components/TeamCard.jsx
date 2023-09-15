@@ -17,7 +17,7 @@ const TeamCard = ({
       <div className="hover-2-content">
         <div className="hover-2-description">
           <h5 className="text-light mb-0 mb-sm-1">{name}</h5>
-          <h5 className="text-secondary-light mb-0 mb-sm-1">{position}</h5>
+          <h5 className="text-primary-light mb-0 mb-sm-1">{position}</h5>
           <a
             href={`mailto:${email}`}
             className="email-link text-light me-3"

@@ -58,7 +58,7 @@ const Reviews = () => {
             </Slider>
 
             <div className="mt-5">
-              <a href="https://search.google.com/local/writereview?placeid=ChIJE77fArECoZURL5cFhUl1bRA" className="soa-link btn btn-outline-secondary-dark rounded-pill" alt="dejanos-tu-opinion" target="_blank" rel="noreferrer">
+              <a href="https://search.google.com/local/writereview?placeid=ChIJE77fArECoZURL5cFhUl1bRA" className="soa-link btn btn-outline-primary-dark rounded-pill" alt="dejanos-tu-opinion" target="_blank" rel="noreferrer">
                 <p className="my-0">Déjanos tu opinión</p>
               </a>
             </div>

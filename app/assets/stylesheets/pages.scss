@@ -58,7 +58,7 @@
 }
 
 #seguros {
-  background: linear-gradient(172.78deg, $primary, $primary-dark);
+  background: linear-gradient(172.78deg, $primary 9.92%, $primary-dark 87.35%);
 
   .list {
     list-style-type: none;
@@ -101,7 +101,7 @@
 }
 
 #servicios {
-  background: linear-gradient(172.78deg, $primary-dark, $primary);
+  background: linear-gradient(172.78deg, $primary-dark 9.92%, $primary 87.35%);
 
   .card {
     height: 300px !important;
@@ -192,12 +192,12 @@
     .slick-dots {
       button:before {
         font-size: 12px;
-        color: $secondary;
+        color: $primary;
       }
 
       .slick-active {
         button:before {
-          color: $secondary-dark;
+          color: $primary-dark;
         }
       }
     }
@@ -220,7 +220,7 @@
 
   &.contact-form-light {
     .form-control:focus, .form-select:focus {
-      border-color: $secondary-light;
+      border-color: $primary-light;
       outline: 0;
       box-shadow: 0 0 0 0.25rem rgba(13, 169, 221, 0.616);
     }
@@ -400,7 +400,7 @@
 }
 
 #nuestra-historia {
-  background: linear-gradient(172.78deg, $secondary-light 9.92%, $secondary 87.35%)
+  background: linear-gradient(172.78deg, $primary-light 9.92%, $primary 87.35%)
 }
 
 #valores {
@@ -454,7 +454,7 @@
 }
 
 #mision {
-  background: linear-gradient(172.78deg, $secondary 9.92%, $secondary-light 87.35%);
+  background: linear-gradient(172.78deg, $primary 9.92%, $primary-light 87.35%);
 
   .accordion-button::after {
     background-image: initial;
@@ -503,7 +503,7 @@
     position: absolute;
     left: -20px;
     top: 10px;
-    color: $secondary !important;
+    color: $primary !important;
     background-color: $light;
     border: 5px solid $light;
     font-size: 15px;
@@ -602,7 +602,7 @@
 }
 
 #team {
-  background: linear-gradient(172.78deg, $secondary-light 9.92%, $secondary 87.35%);
+  background: linear-gradient(172.78deg, $primary-light 9.92%, $primary 87.35%);
 
   .hover {
     overflow: hidden;
@@ -683,5 +683,5 @@
 }
 
 #quoter-form {
-  background: linear-gradient(172.78deg, $secondary 9.92%, $secondary-light 87.35%);
+  background: linear-gradient(172.78deg, $primary 9.92%, $primary-light 87.35%);
 }

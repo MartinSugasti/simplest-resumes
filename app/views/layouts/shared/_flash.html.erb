@@ -1,6 +1,6 @@
 <% flash.each do |key, value| %>
   <div
-    class="alert alert-dismissible fade show mb-0 rounded-0 border-0 <%= key == 'notice' ? 'alert-primary' : 'alert-danger' %>"
+    class="alert alert-dismissible fade show mb-0 rounded-0 border-0 <%= key == 'notice' ? 'alert-success' : 'alert-danger' %>"
     role="alert"
   >
     <%= value.html_safe %>
