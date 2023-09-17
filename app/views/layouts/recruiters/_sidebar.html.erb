@@ -1,12 +1,12 @@
 <li>
-  <a href="/recruiters/edit" class="sidebar-link text-light px-4 py-2">
+  <%= link_to edit_recruiter_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_recruiter_registration_path) ? "bg-primary" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     Settings
-  </a>
+  <% end %>
 </li>
 
 <li>
-  <%= button_to destroy_recruiter_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0", method: :delete do %>
+  <%= button_to destroy_recruiter_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_recruiter_session_path) ? "bg-primary" : ''}", method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
     Sign Out
   <% end %>
