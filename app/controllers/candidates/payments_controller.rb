@@ -25,8 +25,6 @@ class Candidates::PaymentsController < ApplicationController
       cancel_url: candidates_payments_url(canceled: true)
     })
 
-    # redirect_to @session.url, allow_other_host: true
-
     render json: { url: @session.url }
   end
 end
