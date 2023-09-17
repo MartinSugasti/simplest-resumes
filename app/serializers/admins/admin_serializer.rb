@@ -20,10 +20,6 @@ class Admins::AdminSerializer < ActiveModel::Serializer
   end
 
   def invitation_accepted
-    if object.invited_by_id.present?
-      object.invitation_accepted? ? 'Yes' : 'No'
-    else
-      '-'
-    end
+    object.invitation_accepted? ? 'Yes' : 'No'
   end
 end
