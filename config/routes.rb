@@ -90,6 +90,10 @@ Rails.application.routes.draw do
 
   namespace :candidates do
     get 'dashboard/show'
+
+    resources :payments, only: %i[index] do
+      post :checkout, on: :collection
+    end
   end
 
   namespace :recruiters do

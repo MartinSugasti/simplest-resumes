@@ -20,7 +20,7 @@ class InvitationRequest < ApplicationRecord
     message: "already has an invitation request. If you haven't receive an invitation, please contact "\
              "<a href='mailto:admin@example.com' class='text-muted'>admin@example.com</a> for more information"
   }
-  validate :check_if_user_already_exists, on: :create
+  validate :check_if_admin_already_exists, on: :create
   validate :email_cannot_change, on: :update
   validate :invitation_request_already_approved, on: :update, if: -> { !approved? }
   validate :check_if_admin_exists, on: :update, if: -> { !approved? }
@@ -34,7 +34,7 @@ class InvitationRequest < ApplicationRecord
 
   private
 
-  def check_if_user_already_exists
+  def check_if_admin_already_exists
     return unless Admin.find_by(email: email).present?
 
     errors.add(:base, 'An Admin already exists for the email')

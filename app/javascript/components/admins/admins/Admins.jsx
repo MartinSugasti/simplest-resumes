@@ -22,7 +22,7 @@ const Admins = () => {
             <th>Created At</th>
             <th>Invited By</th>
             <th>Invitation Accepted?</th>
-            <th>Users Invited</th>
+            <th>Admins Invited</th>
           </tr>
         </thead>
 
@@ -36,7 +36,7 @@ const Admins = () => {
               <td>{admin.created_at}</td>
               <td>{admin.invited_by}</td>
               <td>{admin.invitation_accepted}</td>
-              <td>{admin.users_invited}</td>
+              <td>{admin.admins_invited}</td>
             </tr>
           ))}
         </tbody>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::AdminSerializer < ActiveModel::Serializer
-  attributes :id, :email, :role, :created_at, :users_invited, :invited_by, :invitation_accepted
+  attributes :id, :email, :role, :created_at, :admins_invited, :invited_by, :invitation_accepted
 
   def role
     object.role.titleize
@@ -11,7 +11,7 @@ class Admins::AdminSerializer < ActiveModel::Serializer
     object.created_at.strftime('%d/%m/%Y %H:%M')
   end
 
-  def users_invited
+  def admins_invited
     object.invitations_count
   end
 

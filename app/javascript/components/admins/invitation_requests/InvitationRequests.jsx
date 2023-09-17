@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import * as bootstrap from 'bootstrap';
 
 import {
   getInvitationRequests,

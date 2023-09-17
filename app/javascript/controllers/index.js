@@ -3,22 +3,31 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from './application';
+
+// Shared components
 import HomeController from './home_controller';
 import NavbarController from './navbar_controller';
+
+// Admins components
 import AdminsAdminsController from './admins/admins_controller';
 import AdminsCandidatesController from './admins/candidates_controller';
 import AdminsRecruitersController from './admins/recruiters_controller';
 import AdminsInvitationRequestsController from './admins/invitation_requests_controller';
 
+// Candidates components
+import CandidatesPaymentsController from './candidates/payments_controller';
+
+// Shared controllers
 application.register('home', HomeController);
 application.register('navbar', NavbarController);
 
-// Admins pages
+// Admins controllers
 application.register('admins_admins', AdminsAdminsController);
 application.register('admins_candidates', AdminsCandidatesController);
 application.register('admins_recruiters', AdminsRecruitersController);
 application.register('admins_invitation_requests', AdminsInvitationRequestsController);
 
-// Cadidates pages
+// Cadidates controllers
+application.register('candidates_payments', CandidatesPaymentsController);
 
-// Recruiters pages
+// Recruiters controllers
