@@ -23,7 +23,6 @@ class InvitationRequest < ApplicationRecord
   validate :check_if_admin_already_exists, on: :create
   validate :email_cannot_change, on: :update
   validate :invitation_request_already_approved, on: :update, if: -> { !approved? }
-  validate :check_if_admin_exists, on: :update, if: -> { !approved? }
 
   enum status: {
     pending: 0,
