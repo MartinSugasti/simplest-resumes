@@ -12,7 +12,7 @@ class Admins::AdminSerializer < ActiveModel::Serializer
   end
 
   def admins_invited
-    object.invitations_count
+    object.invitations.count
   end
 
   def invited_by
