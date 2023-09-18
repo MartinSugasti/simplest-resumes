@@ -22,7 +22,7 @@ class Admins::InvitationRequestsController < ApplicationController
   end
 
   def create
-    @invitation_request = InvitationRequest.new(email: params[:invitation_request][:email])
+    @invitation_request = InvitationRequest.new(email: safe_params[:email])
 
     if @invitation_request.save
       Admins::InvitationsMailer.invitation_requested_email(@invitation_request.email).deliver_later
@@ -53,5 +53,11 @@ class Admins::InvitationRequestsController < ApplicationController
     else
       render json: invitation_request.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def safe_params
+    params.require(:invitation_request).permit(:email)
   end
 end
