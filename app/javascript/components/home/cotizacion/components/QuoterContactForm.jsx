@@ -48,7 +48,6 @@ const QuoterContactForm = () => {
           theme="light"
           insuranceType={insuranceType}
           handleInsuranceTypeSelection={handleInsuranceTypeSelection}
-          template="quoter"
           fieldsList={fieldsListMapping[insuranceType]}
         >
           {insuranceType && <FieldsComponent /> }

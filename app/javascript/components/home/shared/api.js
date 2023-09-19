@@ -1,9 +1,9 @@
-import emailjs from 'emailjs-com';
+import axios from '../../shared/configuredAxios';
 
-import { EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATES_ID, EMAIL_JS_PUBLIC_KEY } from './constants';
+const sendContactForm = (data) => {
+  const response = axios.post('/contact_form.json', { contact_form: data });
 
-const sendEmailJSform = (template, data) => (
-  emailjs.send(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATES_ID[template], data, EMAIL_JS_PUBLIC_KEY)
-);
+  return response;
+};
 
-export default sendEmailJSform;
+export default sendContactForm;
