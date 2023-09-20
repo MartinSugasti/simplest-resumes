@@ -11,60 +11,52 @@ const Footer = () => (
         <div>
           <p className="text-light mb-1">
             <a
-              href="mailto:info@urseseguros.com.uy"
+              href="mailto:martinsugasti@gmail.com"
               className="email-link text-light"
               target="_blank"
               rel="noreferrer"
             >
               <i className="bi bi-envelope-fill me-2" />
-              info@urseseguros.com.uy
+              martinsugasti@gmail.com
             </a>
           </p>
           <p className="text-light mb-1">
             <a
-              href="https://wa.me/59899804290"
+              href="https://wa.me/696924288"
               className="mobile-link text-light"
               target="_blank"
               rel="noreferrer"
             >
               <i className="bi bi-phone me-2" />
-              099804290
+              +34 696 924 288
             </a>
           </p>
         </div>
 
         <div className="text-light align-self-end mt-4 mt-sm-1">
           <a
-            href="https://www.linkedin.com/company/urse-seguros/"
-            alt="link-to-urseseguros-linkedin"
+            href="https://www.linkedin.com/in/martin-sugasti-ab2aa391/"
+            alt="link-to-linkedin"
             target="_blank"
             rel="noreferrer"
           >
             <i className="text-light bi bi-linkedin fa-2x me-3 me-md-4" />
           </a>
           <a
-            href="https://www.instagram.com/urse_seguros/"
-            alt="link-to-urseseguros-instagram"
+            href="https://www.instagram.com/martinsugastisanchez/"
+            alt="link-to-instagram"
             target="_blank"
             rel="noreferrer"
           >
             <i className="text-light bi bi-instagram fa-2x me-3 me-md-4" />
           </a>
           <a
-            href="https://twitter.com/UrseSeguros"
-            alt="link-to-urseseguros-twitter"
+            href="https://twitter.com/MartinSugasti"
+            alt="link-to-twitter"
             target="_blank"
             rel="noreferrer"
           >
             <i className="text-light bi bi-twitter fa-2x me-3 me-md-4" />
-          </a>
-          <a
-            href="https://www.facebook.com/ursesegurosflorida"
-            alt="link-to-urseseguros-facebook"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="text-light bi bi-facebook fa-2x me-3 me-md-4" />
           </a>
         </div>
       </div>

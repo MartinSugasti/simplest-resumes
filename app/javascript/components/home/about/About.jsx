@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Intro from './components/Intro';
-import Mision from './components/Mision';
-import PoliticaDeCalidad from './components/PoliticaDeCalidad';
+import Mission from './components/Mission';
+import QualityPolicy from './components/QualityPolicy';
 
 const About = () => (
   <>
     <Intro />
-    <Mision />
-    <PoliticaDeCalidad />
+    <Mission />
+    <QualityPolicy />
   </>
 );
 

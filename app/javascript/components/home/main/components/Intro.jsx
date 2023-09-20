@@ -9,15 +9,15 @@ const Intro = () => (
     <div className="container-lg py-5">
       <div className="row mx-0 g-4 align-items-center justify-content-around">
         <div className="col-md-6 text-center">
-          <h1 className="text-dark mb-0">Especialistas en Seguros</h1>
-          <p className="text-muted mb-2 fst-italic">Lideres en Servicios desde 1987</p>
+          <h1 className="text-dark mb-0">Simplest Resume You Can Get!</h1>
+          <p className="text-muted mb-2 fst-italic">Keep resumes simple</p>
 
           <LinkWithLoaderAndScrolling
-            to="/home#contacto"
-            sectionId="contacto"
+            to="/home#contact"
+            sectionId="contact"
             className="btn btn-outline-primary-dark rounded-pill"
           >
-            Contáctenos
+            Contact Us
           </LinkWithLoaderAndScrolling>
         </div>
 

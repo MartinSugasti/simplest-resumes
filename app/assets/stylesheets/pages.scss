@@ -27,7 +27,7 @@
   }
 }
 
-#servicios {
+#services {
   .card {
     height: 300px !important;
     border-bottom-right-radius: 3em !important;
@@ -93,13 +93,7 @@
     text-decoration: none;
 
     &:hover {
-      &.privacy-policy-link-light {
-        text-decoration: underline $light;
-      }
-
-      &.privacy-policy-link-dark {
-        text-decoration: underline $dark;
-      }
+      text-decoration: underline $dark;
     }
   }
 
@@ -128,7 +122,7 @@
   }
 }
 
-#mision {
+#mission {
   .accordion-button::after {
     background-image: initial;
   };

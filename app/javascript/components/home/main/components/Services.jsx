@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Servicios = () => (
-  <section id="servicios" className="bg-primary">
+const Services = () => (
+  <section id="services" className="bg-primary">
     <div className="container-lg py-5">
       <div className="text-center">
-        <h1 className="text-light mb-0">Servicios</h1>
+        <h1 className="text-light mb-0">Services</h1>
         <p className="text-light mb-2 fst-italic">Soluciones pensadas para tu comodidad</p>
       </div>
 
@@ -13,11 +13,14 @@ const Servicios = () => (
           <div className="card bg-light rounded-4 text-center border-0 shadow-lg h-100">
             <div className="card-body">
               <div className="mb-4">
-                <i className="bi fa-2x bi-signpost-2" />
-                <h5 className="card-title">Gestión de siniestros</h5>
+                <i className="bi fa-2x bi-alphabet" />
+                <h5 className="card-title">Effective Resumes</h5>
               </div>
               <div>
-                <p className="card-text">En caso de siniestro gestionamos y realizamos el seguimiento frente a las compañías, acompañándote en todo momento, hasta la finalización del mismo.</p>
+                <p className="card-text">
+                  We help candidates write professional and effective resumes that are tailored to their specific
+                  needs and goals.
+                </p>
               </div>
             </div>
           </div>
@@ -26,11 +29,14 @@ const Servicios = () => (
           <div className="card bg-light rounded-4 text-center border-0 shadow-lg h-100">
             <div className="card-body">
               <div className="mb-4">
-                <i className="bi fa-2x bi-wallet2" />
-                <h5 className="card-title">Gestión de Cobranzas</h5>
+                <i className="bi fa-2x bi-search" />
+                <h5 className="card-title">Search Optimization</h5>
               </div>
               <div>
-                <p className="card-text">Frente a la posibilidad de no pago en fecha de los cupones y/o facturas, te haremos llegar un aviso para evitar el cese de cobertura.</p>
+                <p className="card-text">
+                  Recruiters can look for candidates by keywords and save their resumes by job positions, skills,
+                  experience, etc.
+                </p>
               </div>
             </div>
           </div>
@@ -39,11 +45,13 @@ const Servicios = () => (
           <div className="card bg-light rounded-4 text-center border-0 shadow-lg h-100">
             <div className="card-body">
               <div className="mb-4">
-                <i className="bi fa-2x bi-arrow-clockwise" />
-                <h5 className="card-title">Gestión de las renovaciones</h5>
+                <i className="bi fa-2x bi-card-checklist" />
+                <h5 className="card-title">Postulations Managment</h5>
               </div>
               <div>
-                <p className="card-text">Al llegar el vencimiento de la póliza cotizamos en todas las compañías asegurándote los mejores costos/beneficios.</p>
+                <p className="card-text">
+                  Candidates can postulate to jobs and Recruiters can manage these postulations.
+                </p>
               </div>
             </div>
           </div>
@@ -52,11 +60,14 @@ const Servicios = () => (
           <div className="card bg-light rounded-4 text-center border-0 shadow-lg h-100">
             <div className="card-body">
               <div className="mb-4">
-                <i className="bi fa-2x bi-compass" />
-                <h5 className="card-title">Asesoramiento</h5>
+                <i className="bi fa-2x bi-currency-dollar" />
+                <h5 className="card-title">Free</h5>
               </div>
               <div>
-                <p className="card-text">Te informamos y asesoramos sobre todo tipo de seguros, productos y compañías que mejor se adapte a tus necesidades y posibilidades.</p>
+                <p className="card-text">
+                  All features are free. We accept payments from Candidates to prioritize their resumes when Recruiters
+                  look for their skills.
+                </p>
               </div>
             </div>
           </div>
@@ -65,11 +76,14 @@ const Servicios = () => (
           <div className="card bg-light rounded-4 text-center border-0 shadow-lg h-100">
             <div className="card-body">
               <div className="mb-4">
-                <i className="bi fa-2x bi-phone" />
-                <h5 className="card-title">App Móvil y Web</h5>
+                <i className="bi fa-2x bi-magic" />
+                <h5 className="card-title">Simplicity</h5>
               </div>
               <div>
-                <p className="card-text">Puedes hacer tus consultas y solicitud de cotizaciones desde la comodidad de tu casa o desde donde te encuentres.</p>
+                <p className="card-text">
+                  We want to keep things simple. We trully think these few features are the basics need for Recruiters
+                  findinf the ideal Candiates, and for Candidates finding their perfect job.
+                </p>
               </div>
             </div>
           </div>
@@ -79,4 +93,4 @@ const Servicios = () => (
   </section>
 );
 
-export default Servicios;
+export default Services;

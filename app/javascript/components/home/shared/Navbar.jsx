@@ -52,28 +52,34 @@ const Navbar = ({ signInAvailable }) => {
       }
     >
       <div className="container-xxl">
-        <div>
-          <a className="navbar-brand" href="/home">
-            <img src={applyLightBg ? darkLogo : lightLogo} className="img-fluid logo" alt="logo" />
-          </a>
+        <a className="navbar-brand" href="/home">
+          <img src={applyLightBg ? darkLogo : lightLogo} className="img-fluid logo" alt="logo" />
+        </a>
 
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
-          </button>
-        </div>
+        <button
+          className="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main-nav"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
 
         <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul className="navbar-nav">
             <LinkWithLoaderAndScrolling to="/home" className={classForLinks} sectionId="main-intro">
-              INICIO
+              HOME
             </LinkWithLoaderAndScrolling>
 
             <LinkWithLoaderAndScrolling to="/about" className={classForLinks} sectionId="about-us-intro">
-              NOSOTROS
+              ABOUT US
             </LinkWithLoaderAndScrolling>
 
-            <LinkWithLoaderAndScrolling to="/home#contacto" className={classForLinks} sectionId="contacto">
-              CONTACTO
+            <LinkWithLoaderAndScrolling to="/home#contact" className={classForLinks} sectionId="contact">
+              CONTACT
             </LinkWithLoaderAndScrolling>
 
             {signInAvailable ? (

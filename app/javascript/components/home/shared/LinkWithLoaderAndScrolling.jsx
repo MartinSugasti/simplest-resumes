@@ -38,15 +38,15 @@ const LinkWithLoaderAndScrolling = ({
       window.scrollTo(0, 0);
     }
 
-    // If id contains the word 'contacto', it means we are navigating to the contact form,
+    // If id contains the word 'contact', it means we are navigating to the contact form,
     // so page should scroll to that section
     // A 1 sec timeout is set in case the contact form is not in current page
-    if (id.includes('contacto')) {
+    if (id.includes('contact')) {
       if (section) {
-        document.querySelector('#contacto').scrollIntoView();
+        document.querySelector('#contact').scrollIntoView();
       } else {
         setTimeout(() => {
-          document.querySelector('#contacto').scrollIntoView();
+          document.querySelector('#contact').scrollIntoView();
         }, 1000);
       }
     }
