@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Servicios = () => (
-  <section id="servicios">
+  <section id="servicios" className="bg-primary">
     <div className="container-lg py-5">
       <div className="text-center">
         <h1 className="text-light mb-0">Servicios</h1>
@@ -73,12 +73,6 @@ const Servicios = () => (
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="video-promocional mt-5">
-        <div className="video-wrapper">
-          <iframe title="video-promocional" src="https://www.youtube.com/embed/L7z1rL9KEeM" className="rounded" />
         </div>
       </div>
     </div>

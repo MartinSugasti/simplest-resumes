@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home'
   get '/about', to: 'pages#home'
   get '/cotizacion', to: 'pages#home'
+  post '/contact_form', to: 'contact_form#create'
 
   namespace :admins do
     get 'dashboard/show'

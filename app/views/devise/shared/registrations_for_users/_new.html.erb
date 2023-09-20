@@ -3,12 +3,12 @@
     <div class="w-100">
       <div class="text-center mb-5">
         <%= link_to home_path do %>
-          <img src="https://urseseguros.com.uy/content/urse/images/logo_02.png" class="mw-100">
+          <%= image_tag 'logos/primary.png', class: 'mw-100' %>
         <% end %>
       </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
-        <div class="btn-group mb-4 w-100 type rounded-pill" role="group" aria-label="Basic radio toggle button group">
+        <div class="btn-group mb-4 w-100 bg-primary rounded-pill" role="group" aria-label="Basic radio toggle button group">
           <%= link_to "Candidate",
                       new_candidate_registration_path,
                       class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-end-0 rounded-start-pill"
