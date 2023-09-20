@@ -4,7 +4,7 @@ import React from 'react';
 import missionImage from '../../../../images/others/mission.png';
 
 const Mision = () => (
-  <section id="mision">
+  <section id="mision" className="bg-primary">
     <div className="container-lg py-5">
       <div className="row mx-0 justify-content-around align-items-center">
         <div className="col-11 col-sm-9 col-md-6 text-center">

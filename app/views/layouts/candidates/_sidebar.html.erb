@@ -6,20 +6,20 @@
 
   <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse <%= current_sidebar_option?(candidates_payments_path) ? "show" : '' %>" data-bs-parent="#sidebar">
     <li>
-      <%= link_to 'Make a Payment', candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(candidates_payments_path) ? "bg-primary" : ''}" %>
+      <%= link_to 'Make a Payment', candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(candidates_payments_path) ? "bg-primary-dark" : ''}" %>
     </li>
   </ul>
 </li>
 
 <li>
-  <%= link_to edit_candidate_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_candidate_registration_path) ? "bg-primary" : ''}" do %>
+  <%= link_to edit_candidate_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_candidate_registration_path) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     Settings
   <% end %>
 </li>
 
 <li>
-  <%= button_to destroy_candidate_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_candidate_session_path) ? "bg-primary" : ''}", method: :delete do %>
+  <%= button_to destroy_candidate_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_candidate_session_path) ? "bg-primary-dark" : ''}", method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
     Sign Out
   <% end %>
