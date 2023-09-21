@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], {
+  provider :github, Rails.configuration.github_key, Rails.configuration.github_secret, {
     provider_ignores_state: true
   }
-  provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
-  provider :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"]
+  provider :google_oauth2, Rails.configuration.google_client_id, Rails.configuration.google_client_secret
+  provider :twitter, Rails.configuration.twitter_key, Rails.configuration.twitter_secret
 
   before_callback_phase do |env|
     env["devise.mapping"] = map_resource(env)

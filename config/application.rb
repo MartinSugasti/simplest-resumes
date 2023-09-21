@@ -46,5 +46,31 @@ module SimplestResumes
       :authentication => :plain,
       :enable_starttls_auto => true
     }
+
+    config.contact_email = ENV.fetch('CONTACT_EMAIL', 'martinsugasti@gmail.com')
+
+    # External services keys
+    config.github_key = ENV['GITHUB_KEY']
+    config.github_secret = ENV['GITHUB_SECRET']
+
+    config.google_client_id = ENV['GOOGLE_CLIENT_ID']
+    config.google_client_secret = ENV['GOOGLE_CLIENT_SECRET']
+
+    config.twitter_key = ENV['TWITTER_KEY']
+    config.twitter_secret = ENV['TWITTER_SECRET']
+
+    config.sendgrid_api_key = ENV['SENDGRID_API_KEY']
+
+    config.twilio_account_sid = ENV['TWILIO_ACCOUNT_SID']
+    config.twilio_auth_token = ENV['TWILIO_AUTH_TOKEN']
+    config.twilio_from_phone = ENV['TWILIO_FROM_PHONE']
+    config.twilio_test_phone = ENV['TWILIO_TEST_PHONE']
+
+    config.stripe_api_key = ENV['STRIPE_API_KEY']
+    config.stripe_secret_key = ENV['STRIPE_SECRET_KEY']
+    config.stripe_signing_secret = ENV['STRIPE_SIGNING_SECRET']
+
+    config.google_recaptcha_site_key = ENV['GOOGLE_RECAPTCHA_SITE_KEY']
+    config.google_recaptcha_secret_key = ENV['GOOGLE_RECAPTCHA_SECRET_KEY']
   end
 end

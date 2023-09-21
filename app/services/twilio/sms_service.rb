@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Twilio::SmsService
-  TWILIO_ACCOUNT_SID = ENV['TWILIO_ACCOUNT_SID']
-  TWILIO_AUTH_TOKEN = ENV['TWILIO_AUTH_TOKEN']
-  TWILIO_FROM_PHONE = ENV['TWILIO_FROM_PHONE']
-  TWILIO_TEST_PHONE = ENV['TWILIO_TEST_PHONE']
+  TWILIO_ACCOUNT_SID = Rails.configuration.twilio_account_sid
+  TWILIO_AUTH_TOKEN = Rails.configuration.twilio_auth_token
+  TWILIO_FROM_PHONE = Rails.configuration.twilio_from_phone
+  TWILIO_TEST_PHONE = Rails.configuration.twilio_test_phone
 
   def initialize(body, to_phone_number)
     @body = body

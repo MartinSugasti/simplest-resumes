@@ -83,4 +83,4 @@ production:
   <<: *default
   database: simplest_resumes_production
   username: simplest_resumes
-  password: <%= ENV["simplest_resumes_DATABASE_PASSWORD"] %>
+  password: <%= ENV["SIMLEST_RESUMES_DATABASE_PASSWORD"] %>

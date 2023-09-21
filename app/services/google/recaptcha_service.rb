@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Google::RecaptchaService
-  GOOGLE_RECAPTCHA_SECRET_KEY = ENV['GOOGLE_RECAPTCHA_SECRET_KEY']
+  GOOGLE_RECAPTCHA_SECRET_KEY = Rails.configuration.google_recaptcha_secret_key
 
   def initialize(token)
     @token = token

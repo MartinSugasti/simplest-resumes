@@ -18,7 +18,8 @@ class InvitationRequest < ApplicationRecord
   validates :email, :status, presence: true
   validates :email, uniqueness: {
     message: "already has an invitation request. If you haven't receive an invitation, please contact "\
-             "<a href='mailto:admin@example.com' class='text-muted'>admin@example.com</a> for more information"
+             "<a href='mailto:#{Rails.configuration.contact_email}' class='text-muted'>"\
+             "#{Rails.configuration.contact_email}</a> for more information"
   }
   validate :check_if_admin_already_exists, on: :create
   validate :email_cannot_change, on: :update

@@ -10,7 +10,7 @@ class StripeWebhooksController < ActionController::Metal
 
     begin
       event = Stripe::Webhook.construct_event(
-          payload, sig_header, ENV['STRIPE_SIGNING_SECRET']
+          payload, sig_header, Rails.configuration.stripe_signing_secret
       )
     rescue JSON::ParserError
       # Invalid payload
