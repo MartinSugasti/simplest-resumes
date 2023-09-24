@@ -52,7 +52,7 @@ const InvitationRequests = () => {
   const handleInvitationRequestApproval = (email, role) => {
     approveInvitationRequest(email, role)
       .then(() => showSucessToast('Invitation was successfully sent'))
-      .catch((error) => showErrorToast(error.response.data))
+      .catch(() => showErrorToast('Something went wrong. Please, try again later!'))
       .finally(() => {
         getInvitationRequests().then((response) => setInvitationRequests(response.data));
       });
