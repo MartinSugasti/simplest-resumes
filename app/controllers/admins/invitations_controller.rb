@@ -10,7 +10,8 @@ class Admins::InvitationsController < Devise::InvitationsController
   def resend
     Admins::RemindInvitationsJob.perform_later
 
-    flash[:notice] = "An email will be sent to Admins with pending invitations"
+    flash[:notice] ||= []
+    flash[:notice] << "An email will be sent to Admins with pending invitations"
     redirect_to new_admin_invitation_path
   end
 
@@ -32,7 +33,8 @@ class Admins::InvitationsController < Devise::InvitationsController
 
       invitation_request = InvitationRequest.find_by(email: admin.email)
       if !invitation_request&.approved? && invitation_request&.update(status: :approved)
-        flash[:alert] ||= 'There was an invitation request for this email that was marked as Approved'
+        flash[:alert] ||= []
+        flash[:alert] << 'There was an invitation request for this email that was marked as Approved'
       end
 
       admin

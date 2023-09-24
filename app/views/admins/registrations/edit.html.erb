@@ -22,7 +22,7 @@
 
       <div class="text-decoration-none text-muted">
         Unhappy?
-        <%= link_to "Cancel my account", registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "Are you sure? This actions is irreversible!" }, class: "text-danger" %>
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { turbo: true, turbo_method: :delete, turbo_confirm: "Are you sure? This actions is irreversible!" }, class: "text-danger" %>
       </div>
     </div>
   <% end %>

@@ -27,10 +27,12 @@ class Admins::InvitationRequestsController < ApplicationController
     if @invitation_request.save
       Admins::InvitationsMailer.invitation_requested_email(@invitation_request.email).deliver_later
 
-      flash.now[:notice] = 'Your request will be reviewed soon'
+      flash.now[:notice] ||= []
+      flash.now[:notice] << 'Your request will be reviewed soon'
       render "pages/home"
     else
-      flash.now[:alert] = @invitation_request.errors.full_messages.to_sentence
+      flash.now[:alert] ||= []
+      flash.now[:alert] << @invitation_request.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end

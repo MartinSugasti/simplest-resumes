@@ -11,9 +11,10 @@ class Admins::ConfirmationsController < Devise::ConfirmationsController
 
   def needs_invitation
     flash.keep
-    flash[:alert] = "Admins need an invitation. If you haven't receive one, please contact "\
-                    "<a href='mailto:#{Rails.configuration.contact_email}' class='text-muted'>"\
-                    "#{Rails.configuration.contact_email}</a>"
+    flash[:alert] ||= []
+    flash[:alert] << "Admins need an invitation. If you haven't receive one, please contact "\
+                     "<a href='mailto:#{Rails.configuration.contact_email}' class='text-muted'>"\
+                     "#{Rails.configuration.contact_email}</a>"
 
     redirect_to(root_path) and return
   end

@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActionController::InvalidAuthenticityToken do |exception|
     flash.keep
-    flash[:alert] = "Can't verify CSRF token authenticity"
+    flash[:alert] ||= []
+    flash[:alert] << "Can't verify CSRF token authenticity"
 
     redirect_to(root_path)
   end

@@ -1,9 +1,21 @@
 <% flash.each do |key, value| %>
-  <div
-    class="alert alert-dismissible fade show mb-0 rounded-0 border-0 <%= key == 'notice' ? 'alert-success' : 'alert-danger' %>"
-    role="alert"
-  >
-    <%= value.html_safe %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
+  <% if value.kind_of?(Array) %>
+    <% value.each do |message| %>
+      <div
+        class="alert alert-dismissible fade show mb-0 rounded-0 border-0 <%= key == 'notice' ? 'alert-success' : 'alert-danger' %>"
+        role="alert"
+      >
+        <%= message.html_safe %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+  <% else %>
+    <div
+      class="alert alert-dismissible fade show mb-0 rounded-0 border-0 <%= key == 'notice' ? 'alert-success' : 'alert-danger' %>"
+      role="alert"
+    >
+      <%= value.html_safe %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
 <% end %>
