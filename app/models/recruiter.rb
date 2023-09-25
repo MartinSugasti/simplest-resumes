@@ -29,6 +29,8 @@ class Recruiter < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :validatable, :confirmable, :masqueradable
 
+  has_one_attached :profile_picture
+
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |recruiter|
       recruiter.password = Devise.friendly_token[0, 20]

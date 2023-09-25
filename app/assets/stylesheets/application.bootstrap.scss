@@ -32,3 +32,4 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 @import 'loader.scss';
 @import 'authentication_page.scss';
 @import 'dashboard_layout.scss';
+@import 'reports.scss';

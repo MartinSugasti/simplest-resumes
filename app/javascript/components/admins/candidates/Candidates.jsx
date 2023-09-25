@@ -13,7 +13,7 @@ const Candidates = ({ currentUser }) => {
   }, []);
 
   return (
-    <div className="table-responsive">
+    <div className="table-responsive" id="admins-candidates-report">
       <table className="table table-striped text-center mb-0">
         <thead>
           <tr>
@@ -34,7 +34,14 @@ const Candidates = ({ currentUser }) => {
             // eslint-disable-next-line react/no-array-index-key
             <tr key={index}>
               <td>{candidate.id}</td>
-              <td>{candidate.email}</td>
+              <td className="image-cell">
+                <span>
+                  {candidate.email}
+                  {candidate.profile_picture_url && (
+                    <img src={candidate.profile_picture_url} alt="Profile" className="ms-3 rounded-circle" />
+                  )}
+                </span>
+              </td>
               <td>{candidate.created_at}</td>
               <td>{candidate['confirmed?'] ? 'Yes' : 'No' }</td>
               {currentUser.role === 'super_admin' && (

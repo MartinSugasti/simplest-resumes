@@ -5,6 +5,16 @@
 
 <div class="authentication-page">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
+    <% if resource.profile_picture.attached? %>
+      <div class="mb-4 text-center">
+        <%= image_tag resource.profile_picture, class: "rounded-circle w-25 shadow" %>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= f.file_field :profile_picture, class: "form-control rounded-pill bg-light", placeholder: "Upload a profile picture" %>
+    </div>
+
     <div class="mb-4">
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password #{@minimum_password_length ? "(#{@minimum_password_length}" : ''} characters minimum)" %>
     </div>
