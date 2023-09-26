@@ -80,6 +80,9 @@ gem "twilio-ruby", "~> 6.6"
 # Payments
 gem "stripe", "~> 9.3"
 
+# Active Storage validation
+gem "active_storage_validations", "~> 1.0"
+
 # S3 storage
 gem "aws-sdk-s3", "~> 1.135", require: false
 

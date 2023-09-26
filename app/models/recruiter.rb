@@ -30,6 +30,8 @@ class Recruiter < ApplicationRecord
          :rememberable, :validatable, :confirmable, :masqueradable
 
   has_one_attached :profile_picture
+  validates :profile_picture, content_type: [:png, :jpeg, :jpg],
+                              size: { less_than: 0.5.megabytes , message: 'size must be less than 0.5MB' }
 
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |recruiter|
