@@ -15,16 +15,6 @@ class Admins::MasqueradesController < Devise::MasqueradesController
   end
 
   def masquerade_authorize!
-    if params[:action] != 'back'
-      if !admin_signed_in?
-        flash[:alert] ||= []
-        flash[:alert] << "You need to sign in as an Admin for impresionation."
-        redirect_to root_path
-      elsif !current_admin.super_admin?
-        flash[:alert] ||= []
-        flash[:alert] << "You need to be a Super Admin for impresionation."
-        redirect_to root_path
-      end
-    end
+    authorize([:admins, :masquerade], :masquerade?) unless params[:action] == 'back'
   end
 end

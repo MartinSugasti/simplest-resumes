@@ -17,7 +17,7 @@
   </ul>
 </li>
 
-<% if current_admin.super_admin? %>
+<% if policy([:admins, :invitation]).new? %>
   <li>
     <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#invitations-dropdown" aria-expanded="false" aria-controls="invitations-dropdown">
       <i class="bi bi-person-fill-add pe-2 pe-2"></i>

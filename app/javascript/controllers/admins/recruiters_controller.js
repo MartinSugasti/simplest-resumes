@@ -9,6 +9,8 @@ export default class extends Controller {
     const root = createRoot(document.getElementById('admins-recruiters-container'));
     const config = window.adminsRecruitersConfig();
 
-    root.render(<Recruiters currentUser={config.current_user} />);
+    root.render(
+      <Recruiters hasMasqueradePermissions={config.has_masquerade_permissions} />
+    );
   }
 }

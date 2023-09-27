@@ -11,7 +11,7 @@ module Accessible
 
       unless controller_path == "#{resource_name.to_s.pluralize}/sessions" && action_name == 'create'
         flash[:alert] ||= []
-        flash[:alert] << "You're already signed in as a #{current_user.class}"
+        flash[:alert] << " You're already signed in as a #{current_user.class}"
       end
 
       redirect_to(root_path(resource_name)) and return
@@ -40,14 +40,6 @@ module Accessible
       flash[:alert] << "#{resource_class.to_s} already confirmed"
 
       redirect_to(root_path) and return
-    end
-  end
-
-  def check_if_resource_super_admin
-    unless current_admin.super_admin?
-      flash[:alert] ||= []
-      flash[:alert] << "You need to be a Super Admin for performing this action."
-      redirect_to root_path
     end
   end
 end

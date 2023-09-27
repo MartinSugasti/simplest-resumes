@@ -4,7 +4,7 @@ class Admins::InvitationRequestsController < ApplicationController
   include Accessible
 
   before_action :authenticate_admin!, only: [:index, :dismiss, :ban]
-  before_action :check_if_resource_super_admin, only: [:index, :dismiss, :ban]
+  before_action -> { authorize([:admins, InvitationRequest]) }, only: [:index, :dismiss, :ban]
   before_action :check_if_resource_already_signed_in, only: [:new, :create]
 
   def index

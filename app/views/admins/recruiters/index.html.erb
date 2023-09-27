@@ -6,7 +6,9 @@
 <%= javascript_tag do %>
   var adminsRecruitersConfig = function() {
     return (
-      <%= { current_user: current_user }.to_json.html_safe %>
+      <%= {
+        has_masquerade_permissions: policy([:admins, :masquerade]).masquerade?
+      }.to_json.html_safe %>
     )
   }
 <% end %>

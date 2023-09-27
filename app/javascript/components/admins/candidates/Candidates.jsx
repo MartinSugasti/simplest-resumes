@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { getCandidates } from './api';
 
-const Candidates = ({ currentUser }) => {
+const Candidates = ({ hasMasqueradePermissions }) => {
   const [candidates, setCandidates] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Candidates = ({ currentUser }) => {
             <th>Email</th>
             <th>Created At</th>
             <th>Confirmed?</th>
-            {currentUser.role === 'super_admin' && (
+            {hasMasqueradePermissions && (
               <th>
                 <i className="bi bi-box-arrow-in-right" />
               </th>
@@ -44,7 +44,7 @@ const Candidates = ({ currentUser }) => {
               </td>
               <td>{candidate.created_at}</td>
               <td>{candidate['confirmed?'] ? 'Yes' : 'No' }</td>
-              {currentUser.role === 'super_admin' && (
+              {hasMasqueradePermissions && (
                 <td>
                   <a href={`${candidate.sign_in_path}?resource_id=${candidate.id}`}>Sign In</a>
                 </td>
@@ -58,9 +58,7 @@ const Candidates = ({ currentUser }) => {
 };
 
 Candidates.propTypes = {
-  currentUser: PropTypes.shape({
-    role: PropTypes.string
-  }).isRequired
+  hasMasqueradePermissions: PropTypes.bool.isRequired
 };
 
 export default Candidates;

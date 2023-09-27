@@ -4,7 +4,7 @@ class Admins::InvitationsController < Devise::InvitationsController
   include Accessible
 
   before_action :check_if_resource_already_signed_in, only: [:edit, :update, :destroy]
-  before_action :check_if_resource_super_admin, only: [:new, :create]
+  before_action -> { authorize([:admins, :invitation]) }, only: [:new, :create]
   before_action :configure_permitted_parameters
 
   def resend
