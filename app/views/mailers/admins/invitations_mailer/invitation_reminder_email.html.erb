@@ -1,5 +1,5 @@
-You still have one invitation pending to be accepted. Please, follow the link to accept it:
+<%= t('.body') %>
 
 <br><br>
 
-<%= link_to 'Accept invitation', accept_admin_invitation_url(invitation_token: @admin.raw_invitation_token) %>
+<%= link_to t('.accept_invitation'), accept_admin_invitation_url(invitation_token: @admin.raw_invitation_token) %>

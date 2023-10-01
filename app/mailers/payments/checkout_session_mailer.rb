@@ -2,6 +2,6 @@
 
 class Payments::CheckoutSessionMailer < ApplicationMailer
   def completed(email)
-    mail(to: email, subject: 'Payment Accepted')
+    mail(to: email)
   end
 end

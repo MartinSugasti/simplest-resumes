@@ -28,7 +28,7 @@ class Admins::InvitationRequestsController < ApplicationController
       Admins::InvitationsMailer.invitation_requested_email(@invitation_request.email).deliver_later
 
       flash.now[:notice] ||= []
-      flash.now[:notice] << 'Your request will be reviewed soon'
+      flash.now[:notice] << t('.notice')
       render "pages/home"
     else
       flash.now[:alert] ||= []
@@ -41,7 +41,7 @@ class Admins::InvitationRequestsController < ApplicationController
     invitation_request = InvitationRequest.find(params[:id])
 
     if invitation_request.update(status: :dismissed)
-      render json: 'Request dismissed', status: :ok
+      render json: t('.notice'), status: :ok
     else
       render json: invitation_request.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
@@ -51,7 +51,7 @@ class Admins::InvitationRequestsController < ApplicationController
     invitation_request = InvitationRequest.find(params[:id])
 
     if invitation_request.update(status: :banned)
-      render json: 'Request banned', status: :ok
+      render json: t('.notice'), status: :ok
     else
       render json: invitation_request.errors.full_messages.to_sentence, status: :unprocessable_entity
     end

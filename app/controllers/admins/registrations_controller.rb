@@ -11,7 +11,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   def sign_up_not_allowed
     flash[:alert] ||= []
-    flash[:alert] << "Admins need an invitation to sign up"
+    flash[:alert] << t('.sign_up_not_allowed')
 
     redirect_to(root_path) and return
   end

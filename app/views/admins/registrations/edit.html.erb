@@ -1,28 +1,40 @@
 <% content_for :top_section do %>
-  <h2 class="mb-1">Settings</h2>
-  <p class="small text-muted mb-0"><strong>Settings</strong></p>
+  <h2 class="mb-1"><%= t('dashboard.settings') %></h2>
+  <p class="small text-muted mb-0"><strong><%= t('dashboard.settings') %></strong></p>
 <% end %>
 
 <div class="authentication-page">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
     <div class="mb-4">
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password #{@minimum_password_length ? "(#{@minimum_password_length}" : ''} characters minimum)" %>
+      <%= f.password_field :password,
+        autocomplete: "new-password",
+        class: "form-control rounded-pill bg-light",
+        placeholder: "#{t('devise.passwords.edit.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length)}"
+      %>
     </div>
 
     <div class="mb-4">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password confirmation" %>
+      <%= f.password_field :password_confirmation,
+        autocomplete: "new-password",
+        class: "form-control rounded-pill bg-light",
+        placeholder: t('devise.passwords.edit.confirm_new_password')
+      %>
     </div>
 
     <div class="mb-4">
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded-pill bg-light", placeholder: "Current Password" %>
+      <%= f.password_field :current_password,
+        autocomplete: "current-password",
+        class: "form-control rounded-pill bg-light",
+        placeholder: t('devise.passwords.edit.current_password')
+      %>
     </div>
 
     <div class="mt-4 text-center">
-      <%= f.submit "Update", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
+      <%= f.submit t('devise.registrations.edit.update'), class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
 
       <div class="text-decoration-none text-muted">
-        Unhappy?
-        <%= link_to "Cancel my account", registration_path(resource_name), data: { turbo: true, turbo_method: :delete, turbo_confirm: "Are you sure? This actions is irreversible!" }, class: "text-danger" %>
+        <%= t('devise.registrations.edit.unhappy') %>
+        <%= link_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { turbo: true, turbo_method: :delete, turbo_confirm: t('devise.registrations.edit.are_you_sure') }, class: "text-danger" %>
       </div>
     </div>
   <% end %>

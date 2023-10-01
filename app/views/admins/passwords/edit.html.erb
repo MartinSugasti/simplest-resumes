@@ -11,20 +11,27 @@
         <%= f.hidden_field :reset_password_token %>
 
         <div class="mb-4">
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password #{@minimum_password_length ? "(#{@minimum_password_length}" : ''} characters minimum)" %>
+          <%= f.password_field :password,
+            autocomplete: "new-password",
+            class: "form-control rounded-pill bg-light",
+            placeholder: "#{t('devise.passwords.edit.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length)}"
+          %>
         </div>
 
         <div>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password confirmation" %>
+          <%= f.password_field :password_confirmation,
+            autocomplete: "new-password",
+            class: "form-control rounded-pill bg-light",
+            placeholder: t('devise.passwords.edit.confirm_new_password')
+          %>
         </div>
 
-
         <div class="mt-4 text-center">
-          <%= f.submit "Reset Password", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill" %>
+          <%= f.submit t('devise.passwords.edit.change_my_password'), class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill" %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-2">
-          <%= link_to "Sign In", new_session_path(resource_name), class: "text-primary-dark" %>
+          <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name), class: "text-primary-dark" %>
         </div>
       <% end %>
     </div>

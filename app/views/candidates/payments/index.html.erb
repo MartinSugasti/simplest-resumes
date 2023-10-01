@@ -1,6 +1,6 @@
 <% content_for :top_section do %>
-  <h2 class="mb-1">Payments</h2>
-  <p class="small text-muted mb-0">Payments / <strong>Payments</strong></p>
+  <h2 class="mb-1"><%= t('dashboard.payments') %></h2>
+  <p class="small text-muted mb-0"><%= t('dashboard.payments') %> / <strong><%= t('dashboard.make_payment') %></strong></p>
 <% end %>
 
 <%= content_tag(:div, "", id: "candidates-payments-container", data: {

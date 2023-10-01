@@ -17,9 +17,13 @@
 class InvitationRequest < ApplicationRecord
   validates :email, :status, presence: true
   validates :email, uniqueness: {
-    message: "already has an invitation request. If you haven't receive an invitation, please contact "\
-             "<a href='mailto:#{Rails.configuration.contact_email}' class='text-muted'>"\
-             "#{Rails.configuration.contact_email}</a> for more information"
+    message: ->(record, data) do
+      I18n.t(
+        'activerecord.errors.models.invitation_request.attributes.email.custom_taken',
+        email: Rails.configuration.contact_email,
+        value: data[:value]
+      )
+    end
   }
   validate :check_if_admin_already_exists, on: :create
   validate :email_cannot_change, on: :update
@@ -37,24 +41,24 @@ class InvitationRequest < ApplicationRecord
   def check_if_admin_already_exists
     return unless Admin.find_by(email: email).present?
 
-    errors.add(:base, 'An Admin already exists for the email')
+    errors.add(:email, :admin_already_exists)
   end
 
   def email_cannot_change
     return unless will_save_change_to_email?
 
-    errors.add(:base, 'Email cannot be changed')
+    errors.add(:email, :cannot_be_changed)
   end
 
   def invitation_request_already_approved
     return unless status_was == 'approved'
 
-    errors.add(:base, 'Status cannot be changed once the invitation request was approved')
+    errors.add(:status, :invitation_request_already_approved)
   end
 
   def invitation_request_already_approved
     return unless Admin.find_by(email: email).present?
 
-    errors.add(:base, 'Invitation request cannot be updated because an Admin already exists')
+    errors.add(:status, :invitation_request_already_approved)
   end
 end

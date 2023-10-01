@@ -98,12 +98,12 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
 
   # Ruby styles
-  gem 'rubocop', '1.28.2', require: false
-  gem 'rubocop-git', '0.1.3', require: false
-  gem 'rubocop-performance', '1.13.3', require: false
-  gem 'rubocop-rails', '2.14.2', require: false
-  gem 'rubocop-rake', '0.6.0', require: false
-  gem 'rubocop-rspec', '2.10.0', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-git', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', require: false
 
   # For env variables
   gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'

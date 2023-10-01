@@ -2,7 +2,7 @@
   <div class="sticky-top">
     <% if candidate_masquerade? || recruiter_masquerade? %>
       <div id="back-masquerade" class="bg-danger py-1 text-center sticky-top">
-        <%= link_to "Return to Admin dashboard", back_masquerade_path(user), class: "bg-light btn px-2 py-0 text-danger text-decoration-none" %>
+        <%= link_to t('dashboard.return_to_admin_dashboard'), back_masquerade_path(user), class: "bg-light btn px-2 py-0 text-danger text-decoration-none" %>
       </div>
     <% end %>
   </div>

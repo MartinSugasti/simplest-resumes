@@ -1,33 +1,150 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  general:
+    'yes': 'Yes'
+    'no': 'No'
+
+  dashboard:
+    users: 'Users'
+    admins: 'Admins'
+    candidates: 'Candidates'
+    recruiters: 'Recruiters'
+    invitations: 'Invitations'
+    send_invitation: 'Send Invitation'
+    requests: 'Requests'
+    settings: 'Settings'
+    sign_out: 'Sign Out'
+    payments: 'Payments'
+    make_a_payment: 'Make A Payment'
+    dashboard: 'Dashboard'
+    return_to_admin_dashboard: 'Return to Admin dashboard'
+
+  application:
+    invalid_authenticity_token: "Can't verify CSRF token authenticity"
+    user_not_authorized: 'You are not authorized to perform this action.'
+
+  accesible:
+    resource_already_signed_in: " You're already signed in as a %{class}"
+    blank_token: "Confirmation token can't be blank"
+    invalid_token: 'Confirmation token is invalid'
+    already_confirmed: "%{class} already confirmed"
+
+  mailers:
+    from:
+      no_reply: 'No Reply'
+      notifications: 'Notifications'
+      contact_form: 'Contact Form'
+
+  admins:
+    confirmations:
+      needs_invitation_html: "Admins need an invitation. If you haven't receive one, please contact <a href='mailto:%{email}' class='text-muted'>%{email}</a>"
+    invitation_requests:
+      create:
+        notice: 'Your request will be reviewed soon'
+      dismiss:
+        notice: 'Request dismissed'
+      ban:
+        notice: 'Request banned'
+      new:
+        submit: 'Send Request'
+    invitations:
+      resend:
+        notice: 'An email will be sent to Admins with pending invitations'
+      create:
+        invitation_request_marked_as_approved: 'There was an invitation request for this email that was marked as Approved!'
+    registrations:
+      sign_up_not_allowed: 'Admins need an invitation to sign up'
+    sessions:
+      new:
+        send_request: 'Send a request'
+    dashboard:
+      show:
+        welcome: "Welcome to the the %{role}'s dashboard!"
+    invitations_mailer:
+      invitation_accepted_email:
+        subject: 'Invitation accepted for %{email}'
+        body: 'Invitation to %{email} has been accepted.'
+      invitation_requested_email:
+        body_html: 'Invitation has been requested to %{email}. You can manage this and others invitation requests at %{link} page.'
+        subject: 'Invitation requested for %{email}'
+      invitation_reminder_email:
+        subject: 'You have one pending invitation'
+        body: 'You still have one invitation pending to be accepted. Please, follow the link to accept it:'
+        accept_invitation: 'Accept Invitation'
+    invitation_request_serializer:
+      accepted: 'Accepted'
+      admin_not_found: 'Admin Not Found'
+
+  candidates:
+    dashboard:
+      show:
+        welcome: "Welcome to the the Candidate's dashboard!"
+
+  recruiters:
+    dashboard:
+      show:
+        welcome: "Welcome to the the Recruiter's dashboard!"
+
+  omniauth_callbacks:
+    no_email: "We weren't able to get an email from your #{provider_name} account. Please, set an email in your account or allow access to read your email address in the app settings."
+    failure:
+      alert: 'Something went wrong while authenticating throug the provider. Please, try again later'
+
+  payments:
+    checkout_session_mailer:
+      completed:
+        subject: 'Payment Accepted'
+        body: 'Your payment was accepted'
+
+  contact_form:
+    create:
+      notice: "Thanks for your request. We'll be in touch soon!"
+      failure: "Recaptcha couldn't be verified. Please, try again later"
+
+  contact_form_mailer:
+    new_request:
+      subject: 'New Request through Contact Form'
+      body: 'You have a new request through the contact form'
+      name: 'Name'
+      email: 'Email'
+      phone: 'Phone'
+      message: 'Message'
+
+  activerecord:
+    models:
+      admin:
+        one: Admin
+        other: Admins
+      candidate:
+        one: Cadidate
+        other: Candidates
+      recruiter:
+        one: Recruiter
+        other: Recruiters
+      invitation_request:
+        one: Invitation request
+        other: Invitation requests
+    attributes:
+      admin:
+        role: Role
+      candidate:
+        profile_picture: Profile picture
+      recruiter:
+        profile_picture: Profile picture
+      invitation_request:
+        email: Email
+        status: Status
+    errors:
+      models:
+        invitation_request:
+          attributes:
+            base:
+              admin_already_exists: 'Invitation request cannot be updated because an Admin already exists'
+            email:
+              format: "%{message}"
+              # custom_taken is used instead of taken, because I was not being able to pass the email variable when using taken
+              custom_taken: "%{value} already has an invitation request. If you haven't receive an invitation, please contact <a href='mailto:%{email}' class='text-muted'>%{email}</a> for more information %{email}"
+              blank: "%{attribute} can't be blank"
+              cannot_be_changed: 'Email cannot be changes'
+              admin_already_exists: 'An Admin already exists for the email'
+            status:
+              invitation_request_already_approved: 'cannot be changed once the invitation request was approved'

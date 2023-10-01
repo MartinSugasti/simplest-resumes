@@ -12,14 +12,14 @@ AllCops:
   TargetRubyVersion: 3.0
   TargetRailsVersion: 7.0
   Exclude:
-    - 'bin/**/*'
-    - 'config/environments/*'
-    - 'db/schema.rb
-    - 'log/**/*'
-    - 'node_modules/**/*'
-    - 'test/fixtures/**/*'
-    - 'tmp/**/*'
-    - 'vendor/**/*'
+    - bin/**/*
+    - config/environments/*
+    - db/schema.rb
+    - log/**/*
+    - node_modules/**/*
+    - test/fixtures/**/*
+    - tmp/**/*
+    - vendor/**/*
 
 #  Metrics cops
 Metrics/ClassLength:
@@ -47,10 +47,10 @@ Metrics/BlockLength:
   Max: 15
   Enabled: true
   Exclude:
-    - 'config/**/*'
-    - 'db/data/*'
-    - 'db/migrate/*'
-    - 'spec/**/*'
+    - config/**/*
+    - db/data/*
+    - db/migrate/*
+    - spec/**/*
 
 Metrics/BlockNesting:
   Max: 4

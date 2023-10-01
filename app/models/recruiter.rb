@@ -30,8 +30,7 @@ class Recruiter < ApplicationRecord
          :rememberable, :validatable, :confirmable, :masqueradable
 
   has_one_attached :profile_picture
-  validates :profile_picture, content_type: [:png, :jpeg, :jpg],
-                              size: { less_than: 0.5.megabytes , message: 'size must be less than 0.5MB' }
+  validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
 
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |recruiter|
@@ -44,6 +43,8 @@ class Recruiter < ApplicationRecord
   end
 
   def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
+    I18n.with_locale(I18n.locale) do
+      devise_mailer.send(notification, self, *args).deliver_later
+    end
   end
 end

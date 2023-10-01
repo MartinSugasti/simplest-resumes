@@ -7,9 +7,9 @@ class ContactFormController < ApplicationController
         safe_params[:name], safe_params[:email], safe_params[:mobile], safe_params[:query]
       ).deliver_later
 
-      render json: "Thanks for your request. We'll be in touch soon!"
+      render json: t('.notice')
     else
-      render json: "Recaptcha couldn't be verified. Please, try again later.", status: :unprocessable_entity
+      render json: t('.failure'), status: :unprocessable_entity
     end
   end
 

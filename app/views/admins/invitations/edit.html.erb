@@ -11,16 +11,23 @@
         <%= f.hidden_field :invitation_token, readonly: true %>
 
         <div class="mb-4">
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password #{@minimum_password_length ? "(#{@minimum_password_length}" : ''} characters minimum)" %>
+          <%= f.password_field :password,
+            autocomplete: "new-password",
+            class: "form-control rounded-pill bg-light",
+            placeholder: "#{t('devise.passwords.edit.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length)}"
+          %>
         </div>
 
         <div>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password confirmation" %>
+          <%= f.password_field :password_confirmation,
+            autocomplete: "new-password",
+            class: "form-control rounded-pill bg-light",
+            placeholder: t('devise.shared.confirm_password')
+          %>
         </div>
 
-
         <div class="mt-4 text-center">
-          <%= f.submit "Reset Password", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill" %>
+          <%= f.submit t('devise.invitations.edit.submit'), class: "btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill" %>
         </div>
       <% end %>
     </div>

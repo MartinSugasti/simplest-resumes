@@ -1,18 +1,18 @@
 <li>
   <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#users-dropdown" aria-expanded="false" aria-controls="users-dropdown">
     <i class="bi bi-person-fill pe-2 pe-2"></i>
-    Users
+    <%= t('dashboard.users') %>
   </a>
 
   <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse <%= current_sidebar_option?(admins_admins_path, admins_candidates_path, admins_recruiters_path) ? "show" : '' %>" data-bs-parent="#sidebar">
     <li>
-      <%= link_to 'Admins', admins_admins_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_admins_path) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.admins'), admins_admins_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_admins_path) ? "bg-primary-dark" : ''}" %>
     </li>
     <li>
-    <%= link_to 'Candidates', admins_candidates_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_candidates_path) ? "bg-primary-dark" : ''}" %>
+    <%= link_to t('dashboard.candidates'), admins_candidates_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_candidates_path) ? "bg-primary-dark" : ''}" %>
     </li>
     <li>
-      <%= link_to 'Recruiters', admins_recruiters_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_recruiters_path) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.recruiters'), admins_recruiters_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_recruiters_path) ? "bg-primary-dark" : ''}" %>
     </li>
   </ul>
 </li>
@@ -21,15 +21,15 @@
   <li>
     <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#invitations-dropdown" aria-expanded="false" aria-controls="invitations-dropdown">
       <i class="bi bi-person-fill-add pe-2 pe-2"></i>
-      Invitations
+      <%= t('dashboard.invitations') %>
     </a>
 
     <ul id="invitations-dropdown" class="sidebar-dropdown list-unstyled collapse <%= current_sidebar_option?(new_admin_invitation_path, admins_invitation_requests_path) ? "show" : '' %>" data-bs-parent="#sidebar">
       <li>
-        <%= link_to 'Send Invitation', new_admin_invitation_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(new_admin_invitation_path) ? "bg-primary-dark" : ''}" %>
+        <%= link_to t('dashboard.send_invitation'), new_admin_invitation_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(new_admin_invitation_path) ? "bg-primary-dark" : ''}" %>
       </li>
       <li>
-        <%= link_to 'Requests', admins_invitation_requests_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_invitation_requests_path) ? "bg-primary-dark" : ''}" %>
+        <%= link_to t('dashboard.requests'), admins_invitation_requests_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_invitation_requests_path) ? "bg-primary-dark" : ''}" %>
       </li>
     </ul>
   </li>
@@ -38,7 +38,7 @@
 <li>
   <%= link_to edit_admin_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_admin_registration_path) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
-    Settings
+    <%= t('dashboard.settings') %>
   <% end %>
 </li>
 
@@ -46,6 +46,6 @@
 <li>
   <%= button_to destroy_admin_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_admin_session_path) ? "bg-primary-dark" : ''}", method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
-    Sign Out
+    <%= t('dashboard.sign_out') %>
   </a>
 <% end %>

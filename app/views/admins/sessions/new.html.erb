@@ -9,43 +9,43 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
+          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: t('devise.shared.email') %>
         </div>
 
         <div class="mb-1">
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "Password" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: t('devise.shared.password') %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="form-check mb-0">
-            <%= f.check_box :remember_me, class:"form-check-input" %>
-            <%= f.label :remember_me, class: "form-check-label" %>
+            <%= f.check_box :remember_me, class: "form-check-input" %>
+            <%= f.label :remember_me, t('devise.sessions.new.remember_me'), class: "form-check-label" %>
           </div>
         <% end %>
 
         <div class="mt-4 text-center">
-          <%= f.submit "Sign In", class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
+          <%= f.submit t('devise.shared.links.sign_in'), class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
 
           <% if devise_mapping.recoverable? %>
-            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-muted" %>
+            <%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(resource_name), class: "text-decoration-none text-muted" %>
           <% end %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-4">
-          <p class="mb-0 me-2">Don't have an account?</p>
+          <p class="mb-0 me-2"><%= t('devise.shared.links.don_t_have_an_account') %></p>
 
-          <%= link_to "Send a request", new_admins_invitation_request_path, class: "text-primary-dark" %>
+          <%= link_to t('.send_request'), new_admins_invitation_request_path, class: "text-primary-dark" %>
         </div>
       <% end %>
 
       <div class="align-items-center my-4 row g-0 mx-0">
         <hr class="col-5 my-0">
-        <p class="text-center col-2 my-0">Or</p>
+        <p class="text-center col-2 my-0"><%= t('devise.shared.or') %></p>
         <hr class="col-5 my-0">
       </div>
 
       <div class="text-center d-md-flex justify-content-center mt-4">
-        <%= link_to "User Sign In", new_candidate_session_path, class: "text-primary-dark" %>
+        <%= link_to t('devise.shared.links.user_sign_in'), new_candidate_session_path, class: "text-primary-dark" %>
       </div>
     </div>
   </div>

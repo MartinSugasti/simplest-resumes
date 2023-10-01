@@ -18,7 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     flash[:alert] ||= []
-    flash[:alert] << 'Something went wrong while authenticating throug the provider. Please, try again later'
+    flash[:alert] << t('.alert')
     redirect_to root_path
   end
 
@@ -36,9 +36,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:alert] ||= []
 
       if @resource.email.blank?
-        flash[:alert] << "We weren't able to get an email from your #{provider_name} account. "\
-                         "Please, set an email in your account or allow access to read your email "\
-                         "address in the app settings."
+        flash[:alert] << t('omniauth_callbacks.no_email', provider_name: provider_name)
       else
         flash[:alert] << @resource.errors.full_messages.to_sentence
       end

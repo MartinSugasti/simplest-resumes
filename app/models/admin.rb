@@ -48,6 +48,8 @@ class Admin < ApplicationRecord
   }
 
   def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
+    I18n.with_locale(I18n.locale) do
+      devise_mailer.send(notification, self, *args).deliver_later
+    end
   end
 end

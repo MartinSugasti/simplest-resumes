@@ -1,1 +1,1 @@
-Invitation has been requested to <%= @email %>. You can manage this and others invitation requests at <%= link_to 'Invitation Requests page', admins_invitation_requests_url %>!
+<%= t('.body_html', email: @email, link: link_to(InvitationRequest.model_name.human(count: 2), admins_invitation_requests_url)) %>

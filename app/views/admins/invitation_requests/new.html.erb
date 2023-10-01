@@ -9,15 +9,15 @@
 
       <%= form_with(model: [:admins, @invitation_request], data: { turbo: false }) do |f| %>
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: "Email" %>
+          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: t('devise.shared.email') %>
         </div>
 
         <div class="mt-4 text-center">
-          <%= f.submit "Send Request", class: "btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill" %>
+          <%= f.submit t('.submit'), class: "btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill" %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-2">
-          <%= link_to "Sign In", new_admin_session_path, class: "text-primary-dark" %>
+          <%= link_to t('devise.shared.links.sign_in'), new_admin_session_path, class: "text-primary-dark" %>
         </div>
       <% end %>
     </div>

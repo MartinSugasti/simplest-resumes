@@ -1,0 +1,150 @@
+es:
+  general:
+    'yes': 'Si'
+    'no': 'No'
+
+  dashboard:
+    users: 'Usuarios'
+    admins: 'Administradores'
+    candidates: 'Candidatos'
+    recruiters: 'Reclutadores'
+    invitations: 'Invitaciones'
+    send_invitation: 'Enviar Invitación'
+    requests: 'Solicitudes'
+    settings: 'Configuración'
+    sign_out: 'Cerrar Sesión'
+    payments: 'Pagos'
+    make_a_payment: 'Realizar Un Pago'
+    dashboard: 'Panel'
+    return_to_admin_dashboard: 'Regresar al panel de administrador'
+
+  application:
+    invalid_authenticity_token: 'CSRF token de autenticidad inválido'
+    user_not_authorized: 'No tiene autorización para dicha acción'
+
+  accesible:
+    resource_already_signed_in: ' Ya se encuentra loggeado como %{class}'
+    blank_token: 'El token de confirmación no puede estar vacío'
+    invalid_token: 'El token de confirmación es inválido'
+    already_confirmed: '%{class} ya fue confirmado'
+
+  mailers:
+    from:
+      no_reply: 'No Contestar'
+      notifications: 'Notificaciones'
+      contact_form: 'Formulario de Contacto'
+
+  admins:
+    confirmations:
+      needs_invitation_html: "Usuarios Admin necesitan una invitación. Si no has recibido una ponte en contacto con <a href='mailto:%{email}' class='text-muted'>%{email}</a>"
+    invitation_requests:
+      create:
+        notice: 'La solicitud sera revisada a la brevedad'
+      dismiss:
+        notice: 'Solicitud desestimada'
+      ban:
+        notice: 'Solicitud cancelada'
+      new:
+        submit: 'Enviar Solicitud'
+    invitations:
+      resend:
+        notice: 'Se enviará un email a los usuarios admins con invitaciones pendientes'
+      create:
+        invitation_request_marked_as_approved: 'Un solicitud de invitación fue marcada como Aprobada'
+    registrations:
+      sign_up_not_allowed: 'Usuarios Admin necesitan una invitación para registrarse'
+    sessions:
+      new:
+        send_request: 'Enviar una solicitud'
+    dashboard:
+      show:
+        welcome: "Bienvenido al panel de %{role}"
+    invitations_mailer:
+      invitation_accepted_email:
+        subject: 'Invitatción aceptada por %{email}'
+        body: 'La invitación para %{email} fue acpetada.'
+      invitation_requested_email:
+        subject: 'Nueva solicitud de invitación para %{email}'
+        body_html: 'Solicitud de invitación para %{email}. Maneja las solicitudes en la pagina de %{link}!'
+      invitation_reminder_email:
+        subject: 'Tienes una invitación pendiente'
+        body: 'Tienes una invitación pendiente. Por favor, sigue el siguiente link para aceptarla:'
+        accept_invitation: 'Aceptar Invitación'
+    invitation_request_serializer:
+      accepted: 'Aceptada'
+      admin_not_found: 'Usuario Admin no encontrado'
+
+  candidates:
+    dashboard:
+      show:
+        welcome: "Bienvenido al panel para candidatos!"
+
+  recruiters:
+    dashboard:
+      show:
+        welcome: "Bienvenido al panel para reclutadores!"
+
+  omniauth_callbacks:
+    no_email: 'No pudimos conseguir un email desde tu cuenta con #{provider_name}. Por favor, configura un email en tu cuenta o permite acceso a tu email desde la configuración de #{provider_name}'
+    failure:
+      alert: 'Algo salió mal. Por favor, intenta más tarde.'
+
+  payments:
+    checkout_session_mailer:
+      completed:
+        subject: 'Pago Aceptado'
+        body: 'Tu pago fue aceptado'
+
+  contact_form:
+    create:
+      notice: 'Gracias por la solicitud. Nos pondremos en contacto a la brevedad.'
+      failure: 'Recaptcha no pudo ser verificado. Por favor, intenta más tarde.'
+
+  contact_form_mailer:
+    new_request:
+      subject: 'Nueva solicitud a traves del formulario de contacto'
+      body: 'Tienes una nueva solicitud a traves del formulario de contacto'
+      name: 'Nombre'
+      email: 'Email'
+      phone: 'Télefono'
+      message: 'Mensaje'
+
+  activerecord:
+    models:
+      admin:
+        one: Administrador
+        other: Administradores
+      candidate:
+        one: Candidato
+        other: Candidatos
+      recruiter:
+        one: Reclutador
+        other: Reclutadores
+      invitation_request:
+        one: Solicitud de invitación
+        other: Solicitudes de invitación
+    attributes:
+      admin:
+        role: Rol
+      candidate:
+        profile_picture: Foto de perfil
+      recruiter:
+        profile_picture: Foto de perfil
+      invitation_request:
+        email: Email
+        status: Estado
+    errors:
+      models:
+        invitation_request:
+          attributes:
+            base:
+              admin_already_exists: 'La Solicitud de invitacion no puede modificarse porque un Administrador ya existe'
+            email:
+              format: "%{message}"
+              # custom_taken is used instead of taken, because I was not being able to pass the email variable when using taken
+              custom_taken: "Ya existe una solicitud para %{value}. Si aún no recibiste la invitación, ponte en contacto con <a href='mailto:%{email}' class='text-muted'>%{email}</a>"
+              blank: "%{attribute} no puede estar en blanco"
+              cannot_be_changed: 'Email no puede modificarse'
+              admin_already_exists: 'Un Administrador ya existe para este email'
+            status:
+              invitation_request_already_approved: 'no se puede modificar una vez que la solicitus fue aprobada'

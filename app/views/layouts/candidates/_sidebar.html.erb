@@ -1,12 +1,12 @@
 <li>
   <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#users-dropdown" aria-expanded="false" aria-controls="users-dropdown">
     <i class="bi bi-credit-card pe-2 pe-2"></i>
-    Payments
+    <%= t('dashboard.payments') %>
   </a>
 
   <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse <%= current_sidebar_option?(candidates_payments_path) ? "show" : '' %>" data-bs-parent="#sidebar">
     <li>
-      <%= link_to 'Make a Payment', candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(candidates_payments_path) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.make_a_payment'), candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(candidates_payments_path) ? "bg-primary-dark" : ''}" %>
     </li>
   </ul>
 </li>
@@ -14,13 +14,13 @@
 <li>
   <%= link_to edit_candidate_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_candidate_registration_path) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
-    Settings
+    <%= t('dashboard.settings') %>
   <% end %>
 </li>
 
 <li>
   <%= button_to destroy_candidate_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_candidate_session_path) ? "bg-primary-dark" : ''}", method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
-    Sign Out
+    <%= t('dashboard.sign_out') %>
   <% end %>
 </li>

@@ -20,6 +20,6 @@ class Admins::AdminSerializer < ActiveModel::Serializer
   end
 
   def invitation_accepted
-    object.invitation_accepted? ? 'Yes' : 'No'
+    object.invitation_accepted? ? I18n.t('general.yes') : I18n.t('general.no')
   end
 end
