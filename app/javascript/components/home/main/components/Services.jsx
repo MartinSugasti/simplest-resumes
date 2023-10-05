@@ -1,11 +1,12 @@
 import React from 'react';
+import i18n from '../../../shared/i18n';
 
 const Services = () => (
   <section id="services" className="bg-primary">
     <div className="container-lg py-5">
       <div className="text-center">
-        <h1 className="text-light mb-0">Services</h1>
-        <p className="text-light mb-2 fst-italic">Soluciones pensadas para tu comodidad</p>
+        <h1 className="text-light mb-0">{i18n.t('pages.home.services.title')}</h1>
+        <p className="text-light mb-2 fst-italic">{i18n.t('pages.home.services.subtitle')}</p>
       </div>
 
       <div className="row mx-0 gy-4 justify-content-center mt-4">
@@ -14,12 +15,11 @@ const Services = () => (
             <div className="card-body">
               <div className="mb-4">
                 <i className="bi fa-2x bi-alphabet" />
-                <h5 className="card-title">Effective Resumes</h5>
+                <h5 className="card-title">{i18n.t('pages.home.services.effective_resumes.title')}</h5>
               </div>
               <div>
                 <p className="card-text">
-                  We help candidates write professional and effective resumes that are tailored to their specific
-                  needs and goals.
+                  {i18n.t('pages.home.services.effective_resumes.description')}
                 </p>
               </div>
             </div>
@@ -30,12 +30,11 @@ const Services = () => (
             <div className="card-body">
               <div className="mb-4">
                 <i className="bi fa-2x bi-search" />
-                <h5 className="card-title">Search Optimization</h5>
+                <h5 className="card-title">{i18n.t('pages.home.services.search_optimization.title')}</h5>
               </div>
               <div>
                 <p className="card-text">
-                  Recruiters can look for candidates by keywords and save their resumes by job positions, skills,
-                  experience, etc.
+                  {i18n.t('pages.home.services.search_optimization.description')}
                 </p>
               </div>
             </div>
@@ -46,11 +45,11 @@ const Services = () => (
             <div className="card-body">
               <div className="mb-4">
                 <i className="bi fa-2x bi-card-checklist" />
-                <h5 className="card-title">Postulations Managment</h5>
+                <h5 className="card-title">{i18n.t('pages.home.services.postulations_managment.title')}</h5>
               </div>
               <div>
                 <p className="card-text">
-                  Candidates can postulate to jobs and Recruiters can manage these postulations.
+                  {i18n.t('pages.home.services.postulations_managment.description')}
                 </p>
               </div>
             </div>
@@ -61,12 +60,11 @@ const Services = () => (
             <div className="card-body">
               <div className="mb-4">
                 <i className="bi fa-2x bi-currency-dollar" />
-                <h5 className="card-title">Free</h5>
+                <h5 className="card-title">{i18n.t('pages.home.services.free.title')}</h5>
               </div>
               <div>
                 <p className="card-text">
-                  All features are free. We accept payments from Candidates to prioritize their resumes when Recruiters
-                  look for their skills.
+                  {i18n.t('pages.home.services.free.description')}
                 </p>
               </div>
             </div>
@@ -77,12 +75,11 @@ const Services = () => (
             <div className="card-body">
               <div className="mb-4">
                 <i className="bi fa-2x bi-magic" />
-                <h5 className="card-title">Simplicity</h5>
+                <h5 className="card-title">{i18n.t('pages.home.services.simplicity.title')}</h5>
               </div>
               <div>
                 <p className="card-text">
-                  We want to keep things simple. We trully think these few features are the basics need for Recruiters
-                  findinf the ideal Candiates, and for Candidates finding their perfect job.
+                  {i18n.t('pages.home.services.simplicity.description')}
                 </p>
               </div>
             </div>

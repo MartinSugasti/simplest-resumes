@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import i18n from '../../shared/i18n';
 
 import { postCheckout } from './api';
 
@@ -23,11 +24,11 @@ const Payments = () => {
     const showErrorToast = (message) => toast.error(message, toastConfig);
 
     if (query.get('success')) {
-      showSucessToast('Order placed! You will receive an email confirmation.');
+      showSucessToast(i18n.t('candidates.payments.index.checkout_success'));
     }
 
     if (query.get('canceled')) {
-      showErrorToast("Order canceled -- continue to shop around and checkout when you're ready.");
+      showErrorToast(i18n.t('candidates.payments.index.checkout_canceled'));
     }
   }, []);
 
@@ -43,7 +44,7 @@ const Payments = () => {
     <>
       <form onSubmit={handleSubmit}>
         <button type="submit" className="btn-submit btn btn-primary border-0 shadow w-100 text-light rounded-pill">
-          Make a US$5 payment
+          {i18n.t('candidates.payments.index.make_5_dollars_payment')}
         </button>
       </form>
 

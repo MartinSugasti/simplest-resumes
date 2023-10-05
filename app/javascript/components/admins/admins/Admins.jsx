@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import i18n from '../../shared/i18n';
 
 import { getAdmins } from './api';
 
@@ -17,12 +18,12 @@ const Admins = () => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Created At</th>
-            <th>Invited By</th>
-            <th>Invitation Accepted?</th>
-            <th>Admins Invited</th>
+            <th>{i18n.t('activerecord.attributes.admin.email')}</th>
+            <th>{i18n.t('activerecord.attributes.admin.role')}</th>
+            <th>{i18n.t('activerecord.attributes.admin.created_at')}</th>
+            <th>{i18n.t('activerecord.attributes.admin.invited_by')}</th>
+            <th>{i18n.t('activerecord.attributes.admin.invitation_accepted')}</th>
+            <th>{i18n.t('activerecord.attributes.admin.admins_invited')}</th>
           </tr>
         </thead>
 

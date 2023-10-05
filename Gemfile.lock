@@ -143,11 +143,15 @@ GEM
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
+    glob (0.4.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    i18n-js (4.2.3)
+      glob (>= 0.4.0)
+      i18n
     io-console (0.6.0)
     irb (1.7.4)
       reline (>= 0.3.6)
@@ -390,6 +394,7 @@ DEPENDENCIES
   devise_invitable (~> 2.0)
   devise_masquerade (~> 2.1)
   dotenv-rails (~> 2.8, >= 2.8.1)
+  i18n-js (~> 4.2)
   jbuilder
   jsbundling-rails
   letter_opener (~> 1.8)

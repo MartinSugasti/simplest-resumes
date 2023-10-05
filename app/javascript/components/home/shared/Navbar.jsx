@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+import i18n from '../../shared/i18n';
 
 import LinkWithLoaderAndScrolling from './LinkWithLoaderAndScrolling';
 
@@ -71,24 +72,24 @@ const Navbar = ({ signInAvailable }) => {
         <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul className="navbar-nav">
             <LinkWithLoaderAndScrolling to="/home" className={classForLinks} sectionId="main-intro">
-              HOME
+              {i18n.t('pages.navbar.home')}
             </LinkWithLoaderAndScrolling>
 
             <LinkWithLoaderAndScrolling to="/about" className={classForLinks} sectionId="about-us-intro">
-              ABOUT US
+              {i18n.t('pages.navbar.about_us')}
             </LinkWithLoaderAndScrolling>
 
             <LinkWithLoaderAndScrolling to="/home#contact" className={classForLinks} sectionId="contact">
-              CONTACT
+              {i18n.t('pages.navbar.contact')}
             </LinkWithLoaderAndScrolling>
 
             {signInAvailable ? (
               <a href="/candidates/sign_in" className={classForLinks}>
-                SIGN IN
+                {i18n.t('pages.navbar.sign_in')}
               </a>
             ) : (
               <a href="/" className={classForLinks}>
-                DASHBOARD
+                {i18n.t('pages.navbar.dashboard')}
               </a>
             )}
           </ul>

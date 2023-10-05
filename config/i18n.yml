@@ -1,0 +1,7 @@
+---
+<% group = "{en,es}" %>
+
+translations:
+  - file: app/javascript/locales/translations.json
+    patterns:
+      - "<%= group %>.*"

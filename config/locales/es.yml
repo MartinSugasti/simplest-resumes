@@ -2,6 +2,7 @@ es:
   general:
     'yes': 'Si'
     'no': 'No'
+    actions: Acciones
 
   dashboard:
     users: 'Usuarios'
@@ -17,6 +18,7 @@ es:
     make_a_payment: 'Realizar Un Pago'
     dashboard: 'Panel'
     return_to_admin_dashboard: 'Regresar al panel de administrador'
+    search: Buscar
 
   application:
     invalid_authenticity_token: 'CSRF token de autenticidad inválido'
@@ -46,6 +48,14 @@ es:
         notice: 'Solicitud cancelada'
       new:
         submit: 'Enviar Solicitud'
+      index:
+        approve: Aprobar
+        dismiss: Desestimar
+        ban: Vetar
+        approve_invitation_request: Aprobar Solicitud de Invitación
+        send_invitation: Enviar Invitación
+        approval_success: La invitación fue enviada con exito
+        approval_failure: Algo salió mal. Por favor, intenta mas tarde!
     invitations:
       resend:
         notice: 'Se enviará un email a los usuarios admins con invitaciones pendientes'
@@ -78,6 +88,11 @@ es:
     dashboard:
       show:
         welcome: "Bienvenido al panel para candidatos!"
+    payments:
+      index:
+        checkout_success: Orden creada! Recibiras un email de confirmacion
+        checkout_canceled: Orden cancelada -- continua comprando y pasa por caja una vez pronto.
+        make_5_dollars_payment: Realizar un pago de US$5
 
   recruiters:
     dashboard:
@@ -126,13 +141,22 @@ es:
     attributes:
       admin:
         role: Rol
+        roles:
+          super_admin: Super Administrador
+          collaborator: Colaborador
+        invited_by: Invitado por
+        invitation_accepted: Invitación aceptada?
+        admins_invited: Administradores invitados
       candidate:
         profile_picture: Foto de perfil
+        confirmed: Confirmado?
       recruiter:
         profile_picture: Foto de perfil
+        confirmed: Confirmado?
       invitation_request:
         email: Email
         status: Estado
+        created_at: Creado en
     errors:
       models:
         invitation_request:

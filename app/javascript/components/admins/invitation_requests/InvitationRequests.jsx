@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import i18n from '../../shared/i18n';
 
 import {
   getInvitationRequests,
@@ -51,8 +52,8 @@ const InvitationRequests = () => {
 
   const handleInvitationRequestApproval = (email, role) => {
     approveInvitationRequest(email, role)
-      .then(() => showSucessToast('Invitation was successfully sent'))
-      .catch(() => showErrorToast('Something went wrong. Please, try again later!'))
+      .then(() => showSucessToast(i18n.t('admins.invitation_requests.index.approval_success')))
+      .catch(() => showErrorToast(i18n.t('admins.invitation_requests.index.approval_failure')))
       .finally(() => {
         getInvitationRequests().then((response) => setInvitationRequests(response.data));
       });
@@ -83,11 +84,11 @@ const InvitationRequests = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th>Invited As</th>
-              <th>Created At</th>
-              <th>Actions</th>
+              <th>{i18n.t('activerecord.attributes.invitation_request.email')}</th>
+              <th>{i18n.t('activerecord.attributes.invitation_request.status')}</th>
+              <th>{i18n.t('activerecord.attributes.admin.role')}</th>
+              <th>{i18n.t('activerecord.attributes.invitation_request.created_at')}</th>
+              <th>{i18n.t('general.actions')}</th>
             </tr>
           </thead>
 
@@ -113,7 +114,7 @@ const InvitationRequests = () => {
                             () => showInvitationApprovalModal(invitationRequest.email, invitationRequest.invited_as)
                           }
                         >
-                          Approve
+                          {i18n.t('admins.invitation_requests.index.approve')}
                         </button>
                       </div>
 
@@ -123,7 +124,7 @@ const InvitationRequests = () => {
                           type="button"
                           onClick={() => handleInvitationRequestDismiss(invitationRequest.id)}
                         >
-                          Dismiss
+                          {i18n.t('admins.invitation_requests.index.dismiss')}
                         </button>
                       </div>
 
@@ -133,7 +134,7 @@ const InvitationRequests = () => {
                           type="button"
                           onClick={() => handleInvitationRequestBan(invitationRequest.id)}
                         >
-                          Ban
+                          {i18n.t('admins.invitation_requests.index.ban')}
                         </button>
                       </div>
                     </>
@@ -166,7 +167,7 @@ const InvitationRequests = () => {
                           () => showInvitationApprovalModal(invitationRequest.email, invitationRequest.invited_as)
                         }
                       >
-                        Approve
+                        {i18n.t('admins.invitation_requests.index.approve')}
                       </button>
                     </div>
                   )}
@@ -188,7 +189,7 @@ const InvitationRequests = () => {
           <div className="modal-content bg-light text-dark p-1 p-sm-2 p-lg-3">
             <div className="modal-header border-0">
               <h4 className="modal-title ms-auto">
-                Approve Invitation Request
+                {i18n.t('admins.invitation_requests.index.approve_invitation_request')}
               </h4>
               <button
                 id="close-approve-invitation-request-modal-button"
@@ -207,8 +208,8 @@ const InvitationRequests = () => {
                   value={roleToRequest}
                   onChange={handleRoleSelection}
                 >
-                  <option value="super_admin">Super Admin</option>
-                  <option value="collaborator">Collaborator</option>
+                  <option value="super_admin">{i18n.t('activerecord.attributes.admin.roles.super_admin')}</option>
+                  <option value="collaborator">{i18n.t('activerecord.attributes.admin.roles.collaborator')}</option>
                 </select>
               </div>
 
@@ -219,7 +220,7 @@ const InvitationRequests = () => {
                   data-bs-dismiss="modal"
                   onClick={() => handleInvitationRequestApproval(emailToRequest, roleToRequest)}
                 >
-                  Send Invitation
+                  {i18n.t('admins.invitation_requests.index.send_invitation')}
                 </button>
               </div>
             </div>

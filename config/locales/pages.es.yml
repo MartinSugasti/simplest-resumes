@@ -1,0 +1,63 @@
+# Transaltions for presentation pages
+
+es:
+  pages:
+    navbar:
+      home: INICIO
+      about_us: NOSOTROS
+      contact: CONTACTO
+      sign_in: INICIAR SESIÓN
+      dashboard: PANEL
+    home:
+      intro:
+        title: 'Los curricumuls mas simples'
+        subtitle: 'Hazlo simple'
+        contact_us: Contactanos
+      services:
+        title: Funcionalidades
+        subtitle: Nada loco. Eso es lo que buscamos!
+        effective_resumes:
+          title: Curriculums Efectivos
+          description: Ayudamos a los candidatos a redactar currículums profesionales y eficaces que se adapten a sus necesidades y objetivos específicos.
+        search_optimization:
+          title: Optimización de búsqueda
+          description: Los reclutadores pueden buscar candidatos por palabras clave y guardar sus currículums por puestos de trabajo, habilidades, experiencia, etc.
+        postulations_managment:
+          title: Gestión de Postulaciones
+          description: Los candidatos pueden postularse para puestos de trabajo y los reclutadores pueden gestionar estas postulaciones.
+        free:
+          title: Gratis
+          description: Todas las funciones son gratuitas. Aceptamos pagos de candidatos para priorizar sus currículums cuando los reclutadores buscan sus habilidades.
+        simplicity:
+          title: Simplicidad
+          description: Mantener las cosas simples. Creemos que estas pocas funcionalidades es todo lo necesario para que los reclutadores encuentren a los candidatos ideales y los candidatos encuentren su trabajo perfecto.
+      contact:
+        title: Contacto
+        subtitle: ¡Envíanos tu mensaje y pronto nos pondremos en contacto!
+        name: Nomre
+        email: Email
+        contact_number: Número de contacto
+        write_your_message: Escribe tu mensaje...
+        submit: Enviar
+        privacy_policy: Politica de privacidad
+        contact_failure: Algo salió mal. ¡Por favor, inténtelo de nuevo más tarde!
+      privacy_policy:
+        title: Política de Privacidad
+    about_us:
+      intro:
+        title: Sobre Nosotros
+        subtitle: Nuestros valores y políticas
+      mission:
+        title_1: Misión
+        title_2: Visión
+        description_1: En SimplestResumes, nuestra misión es revolucionar la industria de la contratación proporcionando una plataforma informal y fácil de usar que permita a los solicitantes de empleo crear los currículums más simples pero impactantes. Nuestro objetivo es conectar a estas personas talentosas con empleadores que aprecien sus habilidades y potencial, lo que resulta en un proceso de contratación fluido.
+        description_2: Nuestro enfoque informal garantiza que los candidatos y los empleadores se sientan cómodos y apoyados durante todo su proceso de contratación, lo que en última instancia conduce a oportunidades profesionales exitosas y satisfactorias.
+        description_3: Simplificar el proceso de búsqueda de empleo conectando a personas talentosas con los currículums más simples y efectivos, garantizando el éxito y la satisfacción tanto de los candidatos como de los empleadores.
+      quality_policy:
+        title: Política de Calidad
+        description_1: "SimplestResumes se compromete a brindar servicios de reclutamiento de la más alta calidad a nuestros clientes y candidatos. Creemos que al simplificar nuestros procesos, podemos centrarnos en lo más importante: construir relaciones y encontrar a las personas adecuadas para los trabajos adecuados."
+        description_2: "Nuestra política de calidad se basa en los siguientes principios:"
+        description_3: "Satisfacción del cliente: Estamos comprometidos a cumplir y superar las expectativas de nuestros clientes y candidatos. Lo haremos escuchando sus necesidades, brindándoles información oportuna y precisa y brindando un servicio de alta calidad."
+        description_4: "Mejora continua: Nos esforzamos constantemente en mejorar nuestros procesos y servicios. Lo haremos recopilando comentarios de nuestros clientes y candidatos, y revisando y actualizando periódicamente nuestros procedimientos."
+        description_5: "Transparencia y responsabilidad: Estamos comprometidos a ser transparentes y responsables en nuestras relaciones con nuestros clientes y candidatos. Proporcionaremos información clara y concisa sobre nuestros servicios y nuestros honorarios, y asumiremos la responsabilidad de nuestras acciones."
+        date: Julio 2023

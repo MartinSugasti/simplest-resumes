@@ -2,6 +2,7 @@ en:
   general:
     'yes': 'Yes'
     'no': 'No'
+    actions: Actions
 
   dashboard:
     users: 'Users'
@@ -17,6 +18,7 @@ en:
     make_a_payment: 'Make A Payment'
     dashboard: 'Dashboard'
     return_to_admin_dashboard: 'Return to Admin dashboard'
+    search: Search
 
   application:
     invalid_authenticity_token: "Can't verify CSRF token authenticity"
@@ -46,6 +48,14 @@ en:
         notice: 'Request banned'
       new:
         submit: 'Send Request'
+      index:
+        approve: Approve
+        dismiss: Dismiss
+        ban: Ban
+        approve_invitation_request: Approve Invitation Request
+        send_invitation: Send Invitation
+        approval_success: Invitation was successfully sent
+        approval_failure: Something went wrong. Please, try again later!
     invitations:
       resend:
         notice: 'An email will be sent to Admins with pending invitations'
@@ -78,6 +88,11 @@ en:
     dashboard:
       show:
         welcome: "Welcome to the the Candidate's dashboard!"
+    payments:
+      index:
+        checkout_success: Order placed! You will receive an email confirmation.
+        checkout_canceled: Order canceled -- continue to shop around and checkout when you're ready.
+        make_5_dollars_payment: Make a US$5 payment
 
   recruiters:
     dashboard:
@@ -126,13 +141,22 @@ en:
     attributes:
       admin:
         role: Role
+        roles:
+          super_admin: Super Admin
+          collaborator: Collaborator
+        invited_by: Invited by
+        invitation_accepted: Invitation accepted?
+        admins_invited: Admins invited
       candidate:
         profile_picture: Profile picture
+        confirmed: Confirmed?
       recruiter:
         profile_picture: Profile picture
+        confirmed: Confirmed?
       invitation_request:
         email: Email
         status: Status
+        created_at: Created at
     errors:
       models:
         invitation_request:

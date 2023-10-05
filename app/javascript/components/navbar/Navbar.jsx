@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18n from '../shared/i18n';
 
 const Navbar = ({ user }) => (
   <div className="navbar navbar-expand">
@@ -15,8 +16,15 @@ const Navbar = ({ user }) => (
     </button>
 
     <form id="search-form" className="d-flex m-auto pe-2" role="search">
-      <input className="form-control me-2 bg-light" type="search" placeholder="Search" aria-label="Search" />
-      <button className="btn btn-outline-light" type="submit">Search</button>
+      <input
+        className="form-control me-2 bg-light"
+        type="search"
+        placeholder={i18n.t('dashboard.search')}
+        aria-label="Search"
+      />
+      <button className="btn btn-outline-light" type="submit">
+        {i18n.t('dashboard.search')}
+      </button>
     </form>
   </div>
 );

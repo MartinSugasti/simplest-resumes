@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from '../../../shared/i18n';
 
 import LinkWithLoaderAndScrolling from '../../shared/LinkWithLoaderAndScrolling';
 
@@ -9,15 +10,15 @@ const Intro = () => (
     <div className="container-lg py-5">
       <div className="row mx-0 g-4 align-items-center justify-content-around">
         <div className="col-md-6 text-center">
-          <h1 className="text-dark mb-0">Simplest Resume You Can Get!</h1>
-          <p className="text-muted mb-2 fst-italic">Keep resumes simple</p>
+          <h1 className="text-dark mb-0">{i18n.t('pages.home.intro.title')}</h1>
+          <p className="text-muted mb-2 fst-italic">{i18n.t('pages.home.intro.subtitle')}</p>
 
           <LinkWithLoaderAndScrolling
             to="/home#contact"
             sectionId="contact"
             className="btn btn-outline-primary-dark rounded-pill"
           >
-            Contact Us
+            {i18n.t('pages.home.intro.contact_us')}
           </LinkWithLoaderAndScrolling>
         </div>
 

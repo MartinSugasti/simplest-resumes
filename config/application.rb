@@ -48,7 +48,7 @@ module SimplestResumes
     }
 
     config.i18n.available_locales = [:en, :es]
-    config.i18n.default_locale = :es
+    config.i18n.default_locale = :en
     config.i18n.fallbacks = true
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
     config.active_model.i18n_customize_full_message = true

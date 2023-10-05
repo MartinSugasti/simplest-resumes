@@ -125,3 +125,5 @@ group :development do
   # For opening emails in browser
   gem "letter_opener", "~> 1.8"
 end
+
+gem "i18n-js", "~> 4.2"

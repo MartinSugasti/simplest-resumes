@@ -12,7 +12,11 @@
     </div>
 
     <div class="mb-4">
-      <%= f.select :role, options_for_select(Admin.roles.map { |key, value| [key.titleize, key] }), { include_blank: t('devise.invitations.new.select_role') }, { class: "form-select rounded-pill bg-light", required: true } %>
+      <%= f.select :role,
+        options_for_select(Admin.roles.map { |key, value| [t("activerecord.attributes.admin.roles.#{key}"), key] }),
+        { include_blank: t('devise.invitations.new.select_role') },
+        { class: "form-select rounded-pill bg-light", required: true }
+      %>
     </div>
 
     <div class="mt-4 text-center">

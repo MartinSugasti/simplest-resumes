@@ -1,0 +1,63 @@
+# Transaltions for presentation pages
+
+en:
+  pages:
+    navbar:
+      home: HOME
+      about_us: ABOUT US
+      contact: CONTACT
+      sign_in: SIGN IN
+      dashboard: DASHBOARD
+    home:
+      intro:
+        title: Simplest Resume You Can Get!
+        subtitle: Keep resumes simple
+        contact_us: Contact Us
+      services:
+        title: Features
+        subtitle: Nothing crazy. That's what we want!
+        effective_resumes:
+          title: Effective Resumes
+          description: We help candidates write professional and effective resumes that are tailored to their specific needs and goals.
+        search_optimization:
+          title: Search Optimization
+          description: Recruiters can look for candidates by keywords and save their resumes by job positions, skills, experience, etc.
+        postulations_managment:
+          title: Postulations Managment
+          description: Candidates can postulate to jobs and Recruiters can manage these postulations.
+        free:
+          title: Free
+          description: All features are free. We accept payments from Candidates to prioritize their resumes when Recruiters look for their skills.
+        simplicity:
+          title: Simplicity
+          description: We want to keep things simple. We trully think these few features are the basics need for Recruiters finding the ideal Candiates, and for Candidates finding their perfect job.
+      contact:
+        title: Contact
+        subtitle: Send us your message and we will be in touch soon!
+        name: Name
+        email: Email
+        contact_number: Contact number
+        write_your_message: Write your message...
+        submit: Submit
+        privacy_policy: Privacy Policy
+        contact_failure: Something went wrong. Please, try again later!
+      privacy_policy:
+        title: Privacy Policy
+    about_us:
+      intro:
+        title: About Us
+        subtitle: Our values and policies
+      mission:
+        title_1: Mission
+        title_2: Vision
+        description_1: At SimplestResumes, our mission is to revolutionize the recruitment industry by providing a casual and user-friendly platform that allows job seekers to create the simplest yet impactful resumes. We aim to match these talented individuals with employers who appreciate their skills and potential, resulting in a seamless hiring process.
+        description_2: Our casual approach ensures that candidates and employers feel comfortable and supported throughout their recruitment journey, ultimately leading to successful and fulfilling career opportunities.
+        description_3: To simplify the job search process by connecting talented individuals with the simplest and most effective resumes, ensuring success and satisfaction for both candidates and employers.
+      quality_policy:
+        title: Quality Policy
+        description_1: "SimplestResumes is committed to providing the highest quality recruitment services to our clients and candidates. We believe that by simplifying our processes, we can focus on what matters most: building relationships and finding the right people for the right jobs."
+        description_2: "Our quality policy is based on the following principles:"
+        description_3: "Customer satisfaction: We are committed to meeting and exceeding the expectations of our clients and candidates. We will do this by listening to their needs, providing timely and accurate information, and delivering a high-quality service."
+        description_4: "Continuous improvement: We are constantly striving to improve our processes and services. We will do this by gathering feedback from our clients and candidates, and by regularly reviewing and updating our procedures."
+        description_5: "Transparency and accountability: We are committed to being transparent and accountable in our dealings with our clients and candidates. We will provide clear and concise information about our services and our fees, and we will take responsibility for our actions."
+        date: July 2023
