@@ -6,6 +6,17 @@
 <div class="authentication-page">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
     <div class="mb-4">
+      <%= f.select :preferred_language,
+        options_for_select(
+          Admin.preferred_languages.map { |key, _| [t("general.languages.#{key}"), key] },
+          resource.preferred_language
+        ),
+        { include_blank: t('devise.registrations.edit.select_language') },
+        { class: "form-select rounded-pill bg-light", required: true }
+      %>
+    </div>
+
+    <div class="mb-4">
       <%= f.password_field :password,
         autocomplete: "new-password",
         class: "form-control rounded-pill bg-light",

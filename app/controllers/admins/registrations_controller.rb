@@ -17,6 +17,6 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :preferred_language])
   end
 end

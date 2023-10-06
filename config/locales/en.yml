@@ -3,6 +3,12 @@ en:
     'yes': 'Yes'
     'no': 'No'
     actions: Actions
+    languages:
+      en: English
+      es: Spanish
+      abbreviations:
+        en: EN
+        es: SP
 
   dashboard:
     users: 'Users'

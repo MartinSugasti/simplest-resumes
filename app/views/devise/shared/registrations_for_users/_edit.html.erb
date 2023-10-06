@@ -16,6 +16,17 @@
     </div>
 
     <div class="mb-4">
+      <%= f.select :preferred_language,
+        options_for_select(
+          resource.class.preferred_languages.map { |key, _| [t("general.languages.#{key}"), key] },
+          resource.preferred_language
+        ),
+        { include_blank: t('devise.registrations.edit.select_language') },
+        { class: "form-select rounded-pill bg-light", required: true }
+      %>
+    </div>
+
+    <div class="mb-4">
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "#{t('devise.passwords.edit.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length)}" %>
     </div>
 

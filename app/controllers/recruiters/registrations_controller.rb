@@ -9,6 +9,6 @@ class Recruiters::RegistrationsController < Devise::RegistrationsController
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:profile_picture])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:profile_picture, :preferred_language])
   end
 end

@@ -84,13 +84,33 @@ const Navbar = ({ signInAvailable }) => {
             </LinkWithLoaderAndScrolling>
 
             {signInAvailable ? (
-              <a href="/candidates/sign_in" className={classForLinks}>
+              <a href={`/candidates/sign_in?lang=${i18n.locale}`} className={classForLinks}>
                 {i18n.t('pages.navbar.sign_in')}
               </a>
             ) : (
               <a href="/" className={classForLinks}>
                 {i18n.t('pages.navbar.dashboard')}
               </a>
+            )}
+
+            {signInAvailable && (
+              <div className="d-flex languages">
+                <a
+                  href="/?lang=en"
+                  className={`${classForLinks} pe-1 ${i18n.locale === 'en' ? 'fw-semibold' : ''}`}
+                >
+                  {i18n.t('general.languages.abbreviations.en')}
+                </a>
+
+                <hr className="m-0 border-1" />
+
+                <a
+                  href="/?lang=es"
+                  className={`${classForLinks} ps-1 ${i18n.locale === 'es' ? 'fw-semibold' : ''}`}
+                >
+                  {i18n.t('general.languages.abbreviations.es')}
+                </a>
+              </div>
             )}
           </ul>
         </div>

@@ -10,6 +10,7 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  preferred_language     :integer          default(0), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -24,6 +25,8 @@
 #  index_candidates_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class Candidate < ApplicationRecord
+  include Internationalizable
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :trackable
   devise :database_authenticatable, :registerable, :recoverable,
@@ -32,7 +35,6 @@ class Candidate < ApplicationRecord
   has_one_attached :profile_picture
   validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
 
-
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |candidate|
       candidate.password = Devise.friendly_token[0, 20]
@@ -40,12 +42,6 @@ class Candidate < ApplicationRecord
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       candidate.skip_confirmation!
-    end
-  end
-
-  def send_devise_notification(notification, *args)
-    I18n.with_locale(I18n.locale) do
-      devise_mailer.send(notification, self, *args).deliver_later
     end
   end
 end

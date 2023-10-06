@@ -10,6 +10,7 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  preferred_language     :integer          default(0), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -24,6 +25,8 @@
 #  index_recruiters_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class Recruiter < ApplicationRecord
+  include Internationalizable
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
@@ -39,12 +42,6 @@ class Recruiter < ApplicationRecord
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       recruiter.skip_confirmation!
-    end
-  end
-
-  def send_devise_notification(notification, *args)
-    I18n.with_locale(I18n.locale) do
-      devise_mailer.send(notification, self, *args).deliver_later
     end
   end
 end

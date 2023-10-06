@@ -14,17 +14,17 @@ module Accessible
         flash[:alert] ||= []
         flash[:alert] << t('accesible.resource_already_signed_in', class: current_user.class)
 
-        redirect_to(root_path(current_user)) and return
+        redirect_to(root_path) and return
       end
 
       if controller_path == "#{resource_name.to_s.pluralize}/sessions" && action_name == 'create'
-        redirect_to(root_path(resource_name)) and return
+        redirect_to(root_path) and return
       end
 
       flash[:alert] ||= []
       flash[:alert] << t('accesible.resource_already_signed_in', class: current_user.class)
 
-      redirect_to(root_path(resource_name)) and return
+      redirect_to(root_path) and return
     end
   end
 

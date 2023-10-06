@@ -25,14 +25,22 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = params[:lang] || locale_form_header || I18n.default_locale
+    I18n.locale = if user_signed_in?
+                    current_user.preferred_language
+                  elsif params[:lang].present? && I18n.available_locales.include?(params[:lang].to_sym)
+                    params[:lang]
+                  else
+                    locale_from_header || I18n.default_locale
+                  end
   end
 
-  def locale_form_header
-    request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{}2/).first
+  def locale_from_header
+    request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first
   end
 
   def default_url_options
-    { lang: I18n.locale }
+    return {} if user_signed_in? || params[:lang].blank?
+
+    { lang: params[:lang] }
   end
 end

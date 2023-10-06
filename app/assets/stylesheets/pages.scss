@@ -14,7 +14,7 @@
   }
 
   img.logo {
-    max-height: 50px;
+    max-height: 41px;
   }
 
   .nav-link {
@@ -23,6 +23,12 @@
     &:hover {
       color: black !important;
       transform: scale(1.03);
+    }
+  }
+
+  .languages {
+    hr {
+      border-left: thick solid $dark;
     }
   }
 }

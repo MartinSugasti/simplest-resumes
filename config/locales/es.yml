@@ -3,6 +3,12 @@ es:
     'yes': 'Si'
     'no': 'No'
     actions: Acciones
+    languages:
+      en: Ingles
+      es: Español
+      abbreviations:
+        en: IN
+        es: ES
 
   dashboard:
     users: 'Usuarios'

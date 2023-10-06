@@ -17,6 +17,7 @@
 #  invitation_token       :string
 #  invitations_count      :integer          default(0)
 #  invited_by_type        :string
+#  preferred_language     :integer          default(0), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -36,6 +37,8 @@
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class Admin < ApplicationRecord
+  include Internationalizable
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
@@ -46,10 +49,4 @@ class Admin < ApplicationRecord
     super_admin: 0,
     collaborator: 1
   }
-
-  def send_devise_notification(notification, *args)
-    I18n.with_locale(I18n.locale) do
-      devise_mailer.send(notification, self, *args).deliver_later
-    end
-  end
 end

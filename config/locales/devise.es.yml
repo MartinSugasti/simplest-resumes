@@ -101,6 +101,7 @@ es:
         unhappy: "¿Disconforme?"
         update: Actualizar
         we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
+        select_language: Seleccionar idioma
       new:
         sign_up: Registrarse
       signed_up: Bienvenido. Tu cuenta fue creada.

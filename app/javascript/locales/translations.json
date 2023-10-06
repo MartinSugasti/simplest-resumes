@@ -499,6 +499,7 @@
           "cancel_my_account": "Cancel my account",
           "currently_waiting_confirmation_for_email": "Currently waiting confirmation for: %{email}",
           "leave_blank_if_you_don_t_want_to_change_it": "leave blank if you don't want to change it",
+          "select_language": "Select language",
           "title": "Edit %{resource}",
           "unhappy": "Unhappy?",
           "update": "Update",
@@ -662,6 +663,14 @@
     },
     "general": {
       "actions": "Actions",
+      "languages": {
+        "abbreviations": {
+          "en": "EN",
+          "es": "SP"
+        },
+        "en": "English",
+        "es": "Spanish"
+      },
       "no": "No",
       "yes": "Yes"
     },
@@ -1371,6 +1380,7 @@
           "cancel_my_account": "Anular mi cuenta",
           "currently_waiting_confirmation_for_email": "Actualmente esperando la confirmacion de: %{email} ",
           "leave_blank_if_you_don_t_want_to_change_it": "dejar en blanco si no desea cambiarla",
+          "select_language": "Seleccionar idioma",
           "title": "Editar %{resource}",
           "unhappy": "¿Disconforme?",
           "update": "Actualizar",
@@ -1516,6 +1526,14 @@
     },
     "general": {
       "actions": "Acciones",
+      "languages": {
+        "abbreviations": {
+          "en": "IN",
+          "es": "ES"
+        },
+        "en": "Ingles",
+        "es": "Español"
+      },
       "no": "No",
       "yes": "Si"
     },

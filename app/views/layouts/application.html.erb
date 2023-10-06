@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="<%= I18n.locale %>">
+<html>
   <%= render "layouts/shared/head" %>
 
-  <body>
+  <body data-locale="<%= I18n.locale %>">
     <%= render "layouts/shared/flash" %>
 
     <% if defined? resource %>
