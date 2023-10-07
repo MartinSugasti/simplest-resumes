@@ -89,6 +89,9 @@ gem "aws-sdk-s3", "~> 1.135", require: false
 # Authorization
 gem "pundit", "~> 2.3"
 
+# For passing the translations from backend .yml files to translations.json frontend file
+gem "i18n-js", "~> 4.2"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -125,5 +128,3 @@ group :development do
   # For opening emails in browser
   gem "letter_opener", "~> 1.8"
 end
-
-gem "i18n-js", "~> 4.2"

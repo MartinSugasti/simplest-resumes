@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import ReCAPTCHA from 'react-google-recaptcha';
-import i18n from '../../../shared/i18n';
+import { useTranslation } from 'react-i18next';
 
 import PrivacyPolicy from './PrivacyPolicy';
 
@@ -10,6 +10,7 @@ import { GOOGLE_RECAPTCHA_SITE_KEY } from '../constants';
 
 const Contact = () => {
   const recaptchaRef = useRef();
+  const { t, i18n } = useTranslation();
 
   const toastConfig = {
     position: 'bottom-left',
@@ -23,7 +24,7 @@ const Contact = () => {
   };
 
   const showSucessToast = (message) => toast.success(message, toastConfig);
-  const showErrorToast = () => toast.error(i18n.t('pages.home.contact.contact_failure'), toastConfig);
+  const showErrorToast = () => toast.error(t('pages.home.contact.contact_failure'), toastConfig);
 
   const enableContactFormButton = () => {
     document.querySelector('#contact-form-button').disabled = false;
@@ -58,8 +59,8 @@ const Contact = () => {
     <section id="contact" className="bg-white">
       <div className="container-lg py-5">
         <div className="text-center">
-          <h1 className="text-dark mb-0">{i18n.t('pages.home.contact.title')}</h1>
-          <p className="text-dark mb-2 fst-italic">{i18n.t('pages.home.contact.subtitle')}</p>
+          <h1 className="text-dark mb-0">{t('pages.home.contact.title')}</h1>
+          <p className="text-dark mb-2 fst-italic">{t('pages.home.contact.subtitle')}</p>
         </div>
 
         <div className="row mx-0 justify-content-center mt-4 mt-md-5">
@@ -74,7 +75,7 @@ const Contact = () => {
                   name="name"
                   id="name"
                   className="form-control bg-light"
-                  placeholder={i18n.t('pages.home.contact.name')}
+                  placeholder={t('pages.home.contact.name')}
                   required
                 />
               </div>
@@ -88,7 +89,7 @@ const Contact = () => {
                   name="email"
                   id="email"
                   className="form-control text-dark bg-light"
-                  placeholder={i18n.t('pages.home.contact.email')}
+                  placeholder={t('pages.home.contact.email')}
                   required
                 />
               </div>
@@ -103,7 +104,7 @@ const Contact = () => {
                   name="mobile"
                   id="mobile"
                   className="form-control text-dark bg-light"
-                  placeholder={i18n.t('pages.home.contact.contact_number')}
+                  placeholder={t('pages.home.contact.contact_number')}
                 />
               </div>
 
@@ -113,10 +114,10 @@ const Contact = () => {
                   id="query"
                   name="query"
                   style={{ height: '140px' }}
-                  placeholder={i18n.t('pages.home.contact.write_your_message')}
+                  placeholder={t('pages.home.contact.write_your_message')}
                   required
                 />
-                <label htmlFor="query">{i18n.t('pages.home.contact.write_your_message')}</label>
+                <label htmlFor="query">{t('pages.home.contact.write_your_message')}</label>
               </div>
 
               <ReCAPTCHA
@@ -126,7 +127,7 @@ const Contact = () => {
                 onExpired={disableContactFormButton}
                 className="d-flex justify-content-center"
                 size={window.innerWidth < 400 ? 'compact' : 'normal'}
-                hl={i18n.locale}
+                hl={i18n.resolvedLanguage}
               />
 
               <div className="text-center mt-4">
@@ -136,7 +137,7 @@ const Contact = () => {
                   className="btn btn-outline-primary-dark rounded-pill w-25"
                   disabled
                 >
-                  {i18n.t('pages.home.contact.submit')}
+                  {t('pages.home.contact.submit')}
                 </button>
 
                 {/* Modal is in PrivacyPolicy component */}
@@ -147,7 +148,7 @@ const Contact = () => {
                   data-bs-toggle="modal"
                   data-bs-target="#privacy-policy-modal"
                 >
-                  <p className="small text-dark fst-italic mt-1">{i18n.t('pages.home.contact.privacy_policy')}</p>
+                  <p className="small text-dark fst-italic mt-1">{t('pages.home.contact.privacy_policy')}</p>
                 </a>
               </div>
             </form>

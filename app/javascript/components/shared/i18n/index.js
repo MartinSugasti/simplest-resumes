@@ -1,10 +1,18 @@
-import { I18n } from 'i18n-js';
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
 import translations from '../../../locales/translations.json';
 
-const i18n = new I18n(translations);
-console.log('configuring i18n');
+const englishTranslations = translations.en;
+const spanishTranslations = translations.es;
 
-i18n.locale = document.querySelector('body').dataset.locale || 'en';
-i18n.defaultLocale = document.querySelector('body').dataset.locale || 'en';
-
-export default i18n;
+i18next
+  .use(initReactI18next)
+  .init({
+    lng: document.querySelector('body').dataset.locale || 'en',
+    fallbackLng: 'en',
+    resources: {
+      en: { translation: englishTranslations },
+      es: { translation: spanishTranslations }
+    }
+  });

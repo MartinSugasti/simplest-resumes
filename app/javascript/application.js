@@ -3,6 +3,8 @@ import '@hotwired/turbo-rails';
 import './controllers';
 import * as bootstrap from 'bootstrap';
 
+import './components/shared/i18n';
+
 document.addEventListener('turbo:load', () => {
   // Added for making bootstrap tooltips work
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

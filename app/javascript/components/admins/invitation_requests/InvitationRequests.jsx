@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import i18n from '../../shared/i18n';
+import { useTranslation } from 'react-i18next';
 
 import {
   getInvitationRequests,
@@ -13,6 +13,7 @@ const InvitationRequests = () => {
   const [invitationRequests, setInvitationRequests] = useState([]);
   const [emailToRequest, setEmailToRequest] = useState('');
   const [roleToRequest, setRoleToRequest] = useState('super_admin');
+  const { t } = useTranslation();
 
   useEffect(() => {
     getInvitationRequests().then((response) => {
@@ -52,8 +53,8 @@ const InvitationRequests = () => {
 
   const handleInvitationRequestApproval = (email, role) => {
     approveInvitationRequest(email, role)
-      .then(() => showSucessToast(i18n.t('admins.invitation_requests.index.approval_success')))
-      .catch(() => showErrorToast(i18n.t('admins.invitation_requests.index.approval_failure')))
+      .then(() => showSucessToast(t('admins.invitation_requests.index.approval_success')))
+      .catch(() => showErrorToast(t('admins.invitation_requests.index.approval_failure')))
       .finally(() => {
         getInvitationRequests().then((response) => setInvitationRequests(response.data));
       });
@@ -84,11 +85,11 @@ const InvitationRequests = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>{i18n.t('activerecord.attributes.invitation_request.email')}</th>
-              <th>{i18n.t('activerecord.attributes.invitation_request.status')}</th>
-              <th>{i18n.t('activerecord.attributes.admin.role')}</th>
-              <th>{i18n.t('activerecord.attributes.invitation_request.created_at')}</th>
-              <th>{i18n.t('general.actions')}</th>
+              <th>{t('activerecord.attributes.invitation_request.email')}</th>
+              <th>{t('activerecord.attributes.invitation_request.status')}</th>
+              <th>{t('activerecord.attributes.admin.role')}</th>
+              <th>{t('activerecord.attributes.invitation_request.created_at')}</th>
+              <th>{t('general.actions')}</th>
             </tr>
           </thead>
 
@@ -114,7 +115,7 @@ const InvitationRequests = () => {
                             () => showInvitationApprovalModal(invitationRequest.email, invitationRequest.invited_as)
                           }
                         >
-                          {i18n.t('admins.invitation_requests.index.approve')}
+                          {t('admins.invitation_requests.index.approve')}
                         </button>
                       </div>
 
@@ -124,7 +125,7 @@ const InvitationRequests = () => {
                           type="button"
                           onClick={() => handleInvitationRequestDismiss(invitationRequest.id)}
                         >
-                          {i18n.t('admins.invitation_requests.index.dismiss')}
+                          {t('admins.invitation_requests.index.dismiss')}
                         </button>
                       </div>
 
@@ -134,7 +135,7 @@ const InvitationRequests = () => {
                           type="button"
                           onClick={() => handleInvitationRequestBan(invitationRequest.id)}
                         >
-                          {i18n.t('admins.invitation_requests.index.ban')}
+                          {t('admins.invitation_requests.index.ban')}
                         </button>
                       </div>
                     </>
@@ -167,7 +168,7 @@ const InvitationRequests = () => {
                           () => showInvitationApprovalModal(invitationRequest.email, invitationRequest.invited_as)
                         }
                       >
-                        {i18n.t('admins.invitation_requests.index.approve')}
+                        {t('admins.invitation_requests.index.approve')}
                       </button>
                     </div>
                   )}
@@ -189,7 +190,7 @@ const InvitationRequests = () => {
           <div className="modal-content bg-light text-dark p-1 p-sm-2 p-lg-3">
             <div className="modal-header border-0">
               <h4 className="modal-title ms-auto">
-                {i18n.t('admins.invitation_requests.index.approve_invitation_request')}
+                {t('admins.invitation_requests.index.approve_invitation_request')}
               </h4>
               <button
                 id="close-approve-invitation-request-modal-button"
@@ -208,8 +209,8 @@ const InvitationRequests = () => {
                   value={roleToRequest}
                   onChange={handleRoleSelection}
                 >
-                  <option value="super_admin">{i18n.t('activerecord.attributes.admin.roles.super_admin')}</option>
-                  <option value="collaborator">{i18n.t('activerecord.attributes.admin.roles.collaborator')}</option>
+                  <option value="super_admin">{t('activerecord.attributes.admin.roles.super_admin')}</option>
+                  <option value="collaborator">{t('activerecord.attributes.admin.roles.collaborator')}</option>
                 </select>
               </div>
 
@@ -220,7 +221,7 @@ const InvitationRequests = () => {
                   data-bs-dismiss="modal"
                   onClick={() => handleInvitationRequestApproval(emailToRequest, roleToRequest)}
                 >
-                  {i18n.t('admins.invitation_requests.index.send_invitation')}
+                  {t('admins.invitation_requests.index.send_invitation')}
                 </button>
               </div>
             </div>

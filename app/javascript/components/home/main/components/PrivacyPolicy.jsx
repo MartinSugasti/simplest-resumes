@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from '../../../shared/i18n';
+import { useTranslation } from 'react-i18next';
 
 import PrivacyPolicyContentEn from './PrivacyPolicyContentEn';
 import PrivacyPolicyContentEs from './PrivacyPolicyContentEs';
@@ -14,26 +14,36 @@ import PrivacyPolicyContentEs from './PrivacyPolicyContentEs';
 // >
 //   <p className="small text-light fst-italic mt-1">Privacy Policy</p>
 // </a>
-const PrivacyPolicy = () => (
-  <div className="modal fade" id="privacy-policy-modal" tabIndex="-1" aria-labelledby="modal-title" aria-hidden="true">
-    <div className="modal-dialog modal-dialog-centered modal-lg">
-      <div className="modal-content bg-light text-dark p-1 p-sm-2 p-lg-3">
-        <div className="modal-header border-0">
-          <h2 className="modal-title ms-auto" id="modal-privacy-policy-title">
-            {i18n.t('pages.home.privacy_policy.title')}
-          </h2>
+const PrivacyPolicy = () => {
+  const { t, i18n } = useTranslation();
 
-          <button type="button" className="btn-close me-n3 mt-n5" data-bs-dismiss="modal" aria-label="Close" />
+  return (
+    <div
+      id="privacy-policy-modal"
+      className="modal fade"
+      tabIndex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog modal-dialog-centered modal-lg">
+        <div className="modal-content bg-light text-dark p-1 p-sm-2 p-lg-3">
+          <div className="modal-header border-0">
+            <h2 className="modal-title ms-auto" id="modal-privacy-policy-title">
+              {t('pages.home.privacy_policy.title')}
+            </h2>
+
+            <button type="button" className="btn-close me-n3 mt-n5" data-bs-dismiss="modal" aria-label="Close" />
+          </div>
+
+          {i18n.resolvedLanguage === 'es' ? (
+            <PrivacyPolicyContentEs />
+          ) : (
+            <PrivacyPolicyContentEn />
+          )}
         </div>
-
-        {i18n.locale === 'es' ? (
-          <PrivacyPolicyContentEs />
-        ) : (
-          <PrivacyPolicyContentEn />
-        )}
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default PrivacyPolicy;

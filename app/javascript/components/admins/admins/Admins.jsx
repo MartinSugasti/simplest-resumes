@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import i18n from '../../shared/i18n';
+import { useTranslation } from 'react-i18next';
 
 import { getAdmins } from './api';
 
 const Admins = () => {
   const [admins, setAdmins] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     getAdmins().then((response) => {
@@ -18,12 +19,12 @@ const Admins = () => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>{i18n.t('activerecord.attributes.admin.email')}</th>
-            <th>{i18n.t('activerecord.attributes.admin.role')}</th>
-            <th>{i18n.t('activerecord.attributes.admin.created_at')}</th>
-            <th>{i18n.t('activerecord.attributes.admin.invited_by')}</th>
-            <th>{i18n.t('activerecord.attributes.admin.invitation_accepted')}</th>
-            <th>{i18n.t('activerecord.attributes.admin.admins_invited')}</th>
+            <th>{t('activerecord.attributes.admin.email')}</th>
+            <th>{t('activerecord.attributes.admin.role')}</th>
+            <th>{t('activerecord.attributes.admin.created_at')}</th>
+            <th>{t('activerecord.attributes.admin.invited_by')}</th>
+            <th>{t('activerecord.attributes.admin.invitation_accepted')}</th>
+            <th>{t('activerecord.attributes.admin.admins_invited')}</th>
           </tr>
         </thead>
 

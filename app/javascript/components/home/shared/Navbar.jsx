@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import i18n from '../../shared/i18n';
+import { useTranslation } from 'react-i18next';
 
 import LinkWithLoaderAndScrolling from './LinkWithLoaderAndScrolling';
 
@@ -26,6 +26,8 @@ const Navbar = ({ signInAvailable }) => {
   const [width, _height] = useWindowSize();
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+
+  const { t, i18n } = useTranslation();
 
   const applyLightBg = width >= 768 || scrolled || pathname.includes('about');
   const classForLinks = `btn btn-link nav-link m-auto text-${applyLightBg ? 'dark' : 'light'} fs-6`;
@@ -72,44 +74,46 @@ const Navbar = ({ signInAvailable }) => {
         <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul className="navbar-nav">
             <LinkWithLoaderAndScrolling to="/home" className={classForLinks} sectionId="main-intro">
-              {i18n.t('pages.navbar.home')}
+              {t('pages.navbar.home')}
             </LinkWithLoaderAndScrolling>
 
             <LinkWithLoaderAndScrolling to="/about" className={classForLinks} sectionId="about-us-intro">
-              {i18n.t('pages.navbar.about_us')}
+              {t('pages.navbar.about_us')}
             </LinkWithLoaderAndScrolling>
 
             <LinkWithLoaderAndScrolling to="/home#contact" className={classForLinks} sectionId="contact">
-              {i18n.t('pages.navbar.contact')}
+              {t('pages.navbar.contact')}
             </LinkWithLoaderAndScrolling>
 
             {signInAvailable ? (
-              <a href={`/candidates/sign_in?lang=${i18n.locale}`} className={classForLinks}>
-                {i18n.t('pages.navbar.sign_in')}
+              <a href={`/candidates/sign_in?lang=${i18n.resolvedLanguage}`} className={classForLinks}>
+                {t('pages.navbar.sign_in')}
               </a>
             ) : (
               <a href="/" className={classForLinks}>
-                {i18n.t('pages.navbar.dashboard')}
+                {t('pages.navbar.dashboard')}
               </a>
             )}
 
             {signInAvailable && (
               <div className="d-flex languages">
-                <a
-                  href="/?lang=en"
-                  className={`${classForLinks} pe-1 ${i18n.locale === 'en' ? 'fw-semibold' : ''}`}
+                <button
+                  type="button"
+                  onClick={() => i18n.changeLanguage('en')}
+                  className={`${classForLinks} pe-1 ${i18n.resolvedLanguage === 'en' ? 'fw-semibold' : ''}`}
                 >
-                  {i18n.t('general.languages.abbreviations.en')}
-                </a>
+                  {t('general.languages.abbreviations.en')}
+                </button>
 
                 <hr className="m-0 border-1" />
 
-                <a
-                  href="/?lang=es"
-                  className={`${classForLinks} ps-1 ${i18n.locale === 'es' ? 'fw-semibold' : ''}`}
+                <button
+                  type="button"
+                  onClick={() => i18n.changeLanguage('es')}
+                  className={`${classForLinks} ps-1 ${i18n.resolvedLanguage === 'es' ? 'fw-semibold' : ''}`}
                 >
-                  {i18n.t('general.languages.abbreviations.es')}
-                </a>
+                  {t('general.languages.abbreviations.es')}
+                </button>
               </div>
             )}
           </ul>

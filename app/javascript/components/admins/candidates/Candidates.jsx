@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import i18n from '../../shared/i18n';
+import { useTranslation } from 'react-i18next';
 
 import { getCandidates } from './api';
 
 const Candidates = ({ hasMasqueradePermissions }) => {
   const [candidates, setCandidates] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     getCandidates().then((response) => {
@@ -19,9 +20,9 @@ const Candidates = ({ hasMasqueradePermissions }) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>{i18n.t('activerecord.attributes.candidate.email')}</th>
-            <th>{i18n.t('activerecord.attributes.candidate.created_at')}</th>
-            <th>{i18n.t('activerecord.attributes.candidate.confirmed')}</th>
+            <th>{t('activerecord.attributes.candidate.email')}</th>
+            <th>{t('activerecord.attributes.candidate.created_at')}</th>
+            <th>{t('activerecord.attributes.candidate.confirmed')}</th>
             {hasMasqueradePermissions && (
               <th>
                 <i className="bi bi-box-arrow-in-right" />
@@ -44,11 +45,11 @@ const Candidates = ({ hasMasqueradePermissions }) => {
                 </span>
               </td>
               <td>{candidate.created_at}</td>
-              <td>{candidate['confirmed?'] ? i18n.t('general.yes') : i18n.t('general.no') }</td>
+              <td>{candidate['confirmed?'] ? t('general.yes') : t('general.no') }</td>
               {hasMasqueradePermissions && (
                 <td>
                   <a href={`${candidate.sign_in_path}?resource_id=${candidate.id}`}>
-                    {i18n.t('devise.shared.links.sign_in')}
+                    {t('devise.shared.links.sign_in')}
                   </a>
                 </td>
               )}
