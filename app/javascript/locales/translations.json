@@ -480,7 +480,9 @@
           "change_your_password": "Change your password",
           "confirm_new_password": "Confirm new password",
           "current_password": "Current password",
-          "new_password": "New password"
+          "current_password_required": "Required if updating your password",
+          "new_password": "New password",
+          "oauth_password": "If you log in using a external provider (Google, Github, etc), you may not require a password update. But if you still want it, to know your password you should reset it from the Forgot password? page."
         },
         "new": {
           "forgot_your_password": "Forgot your password?",
@@ -1361,7 +1363,9 @@
           "change_your_password": "Cambie su contraseña",
           "confirm_new_password": "Confirme la nueva contraseña",
           "current_password": "Contraseña actual",
-          "new_password": "Nueva contraseña"
+          "current_password_required": "Requerido al actualizar la contraseña",
+          "new_password": "Nueva contraseña",
+          "oauth_password": "Si inicia sesión con un proveedor externo (Google, Github, etc.), es posible que no necesite actualizar su contraseña. Pero si aún lo desea, para conocer su contraseña debe restablecerla desde la página de ¿Olvidó su contraseña?"
         },
         "new": {
           "forgot_your_password": "¿Ha olvidado su contraseña?",
@@ -1693,7 +1697,7 @@
             "title": "Optimización de búsqueda"
           },
           "simplicity": {
-            "description": "Mantener las cosas simples. Creemos que estas pocas funcionalidades es todo lo necesario para que los reclutadores encuentren a los candidatos ideales y los candidatos encuentren su trabajo perfecto.",
+            "description": "Estas pocas funcionalidades es todo lo necesario para que los reclutadores encuentren a los candidatos ideales y los candidatos encuentren su trabajo perfecto.",
             "title": "Simplicidad"
           },
           "subtitle": "Nada loco. Eso es lo que buscamos!",

@@ -55,7 +55,7 @@ const Navbar = ({ signInAvailable }) => {
       }
     >
       <div className="container-xxl">
-        <a className="navbar-brand" href="/home">
+        <a className="navbar-brand me-0" href="/home">
           <img src={applyLightBg ? darkLogo : lightLogo} className="img-fluid logo" alt="logo" />
         </a>
 
