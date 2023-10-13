@@ -36,6 +36,15 @@
 
     <div class="mb-4">
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded-pill bg-light", placeholder: t('devise.passwords.edit.current_password') %>
+      <p class="small">
+        * <%= t('devise.passwords.edit.current_password_required') %>
+        <i
+          class="bi bi-info-circle"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="<%= t('devise.passwords.edit.oauth_password') %>"
+        ></i>
+      </p>
     </div>
 
     <div class="mt-4 text-center">

@@ -82,6 +82,8 @@ es:
         confirm_new_password: Confirme la nueva contraseña
         new_password: Nueva contraseña
         current_password: Contraseña actual
+        current_password_required: Requerido al actualizar la contraseña
+        oauth_password: Si inicia sesión con un proveedor externo (Google, Github, etc.), es posible que no necesite actualizar su contraseña. Pero si aún lo desea, para conocer su contraseña debe restablecerla desde la página de ¿Olvidó su contraseña?
       new:
         forgot_your_password: "¿Ha olvidado su contraseña?"
         send_me_reset_password_instructions: Envíeme las instrucciones para resetear mi contraseña

@@ -11,4 +11,12 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:profile_picture, :preferred_language])
   end
+
+  def update_resource(resource, params)
+    if params[:password]&.present?
+      super
+    else
+      resource.update_without_password(params.except(:current_password))
+    end
+  end
 end

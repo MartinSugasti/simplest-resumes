@@ -82,6 +82,8 @@ en:
         confirm_new_password: Confirm new password
         new_password: New password
         current_password: Current password
+        current_password_required: Required if updating your password
+        oauth_password: If you log in using a external provider (Google, Github, etc), you may not require a password update. But if you still want it, to know your password you should reset it from the Forgot password? page.
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
