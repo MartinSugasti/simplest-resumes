@@ -7,7 +7,7 @@
         <% end %>
       </div>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: true }) do |f| %>
         <div class="btn-group mb-4 w-100 bg-primary rounded-pill" role="group" aria-label="Basic radio toggle button group">
           <%= link_to t('devise.shared.users.candidate'),
                       new_candidate_session_path,
