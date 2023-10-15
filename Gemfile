@@ -38,6 +38,7 @@ gem "redis", "~> 4.0"
 
 # Use sidekiq for jobs queueing
 gem "sidekiq", "~> 7.1"
+gem "sidekiq-failures", "~> 1.0"
 
 # For scheduled processes
 gem "sidekiq-scheduler", "~> 5.0"
