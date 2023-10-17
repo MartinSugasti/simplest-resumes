@@ -16,6 +16,7 @@ import AdminsInvitationRequestsController from './admins/invitation_requests_con
 
 // Candidates components
 import CandidatesPaymentsController from './candidates/payments_controller';
+import CandidatesMyResumeController from './candidates/my_resume_controller';
 
 // Shared controllers
 application.register('home', HomeController);
@@ -29,5 +30,6 @@ application.register('admins_invitation_requests', AdminsInvitationRequestsContr
 
 // Cadidates controllers
 application.register('candidates_payments', CandidatesPaymentsController);
+application.register('candidates_my_resume', CandidatesMyResumeController);
 
 // Recruiters controllers

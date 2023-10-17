@@ -1,4 +1,11 @@
 <li>
+  <%= link_to candidates_my_resume_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(candidates_my_resume_path) ? "bg-primary-dark" : ''}" do %>
+    <i class="bi bi-file-text pe-2 pe-2"></i>
+    <%= t('dashboard.my_resume') %>
+  <% end %>
+</li>
+
+<li>
   <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#users-dropdown" aria-expanded="false" aria-controls="users-dropdown">
     <i class="bi bi-credit-card pe-2 pe-2"></i>
     <%= t('dashboard.payments') %>

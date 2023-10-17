@@ -25,6 +25,7 @@ es:
     dashboard: 'Panel'
     return_to_admin_dashboard: 'Regresar al panel de administrador'
     search: Buscar
+    my_resume: Mi CV
 
   application:
     invalid_authenticity_token: 'CSRF token de autenticidad inválido'

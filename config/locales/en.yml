@@ -25,6 +25,7 @@ en:
     dashboard: 'Dashboard'
     return_to_admin_dashboard: 'Return to Admin dashboard'
     search: Search
+    my_resume: My Resume
 
   application:
     invalid_authenticity_token: "Can't verify CSRF token authenticity"
