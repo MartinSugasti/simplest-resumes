@@ -14,22 +14,7 @@ const ReferenceModal = ({ title, addItem }) => {
     };
     addItem(newItem);
 
-    // next is to clean form
-    document.getElementById(`new-${title}-reference-fullName`).value = '';
-    document.getElementById(`new-${title}-reference-mobile`).value = '';
-    document.getElementById(`new-${title}-reference-company`).value = '';
-    document.getElementById(`new-${title}-reference-position`).value = '';
-
-    // next is to hide modal
-    const modal = document.getElementById(`new${title}ReferenceModal`);
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('style', 'display: none');
-    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
-    for (let i = 0; i < modalsBackdrops.length; i += 1) {
-      document.body.removeChild(modalsBackdrops[i]);
-    }
-    document.body.classList.remove('modal-open');
+    document.getElementById(`new${title}ReferenceForm`).reset();
   }
 
   return (
@@ -37,7 +22,7 @@ const ReferenceModal = ({ title, addItem }) => {
       className="modal fade"
       id={`new${title}ReferenceModal`}
       tabIndex="-1"
-      aria-labelledby="newReference"
+      aria-labelledby={`new${title}Reference`}
       aria-hidden="true"
     >
       <div className="modal-dialog modal-dialog-centered">
@@ -49,9 +34,7 @@ const ReferenceModal = ({ title, addItem }) => {
                 {' '}
                 Reference
               </h3>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
 
             <div className="modal-body">
@@ -125,7 +108,7 @@ const ReferenceModal = ({ title, addItem }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light">
+              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
                 Add
               </button>
             </div>

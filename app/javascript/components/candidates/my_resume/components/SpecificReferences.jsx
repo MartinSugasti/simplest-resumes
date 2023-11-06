@@ -24,8 +24,8 @@ const SpecificReferences = ({ title, exampleReferences }) => {
         <span role="button">
           <i
             className="bi bi-plus-circle fa-xs ms-2"
-            data-toggle="modal"
-            data-target={`#new${title}ReferenceModal`}
+            data-bs-toggle="modal"
+            data-bs-target={`#new${title}ReferenceModal`}
           />
         </span>
       </h3>

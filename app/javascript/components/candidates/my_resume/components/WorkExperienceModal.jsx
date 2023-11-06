@@ -12,28 +12,11 @@ const WorkExperienceModal = ({ addItem }) => {
       startDate: document.getElementById('new-work-experience-item-start-date').value,
       endDate: document.getElementById('new-work-experience-item-end-date').value,
       location: document.getElementById('new-work-experience-item-location').value,
-      description: document.getElementById('new-work-experience-item-description').value,
+      description: document.getElementById('new-work-experience-item-description').value
     };
     addItem(newItem);
 
-    // next is to clean form
-    document.getElementById('new-work-experience-item-position').value = '';
-    document.getElementById('new-work-experience-item-company').value = '';
-    document.getElementById('new-work-experience-item-start-date').value = '';
-    document.getElementById('new-work-experience-item-end-date').value = '';
-    document.getElementById('new-work-experience-item-location').value = '';
-    document.getElementById('new-work-experience-item-description').value = '';
-
-    // next is to hide modal
-    const modal = document.getElementById('newWorkExperienceItemModal');
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('style', 'display: none');
-    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
-    for (let i = 0; i < modalsBackdrops.length; i += 1) {
-      document.body.removeChild(modalsBackdrops[i]);
-    }
-    document.body.classList.remove('modal-open');
+    document.getElementById('newWorkExperienceItemForm').reset();
   }
 
   return (
@@ -156,7 +139,7 @@ const WorkExperienceModal = ({ addItem }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light">
+              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
                 Add
               </button>
             </div>

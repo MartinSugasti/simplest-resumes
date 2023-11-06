@@ -9,20 +9,7 @@ const SkillModal = ({ addSkill }) => {
     const kind = document.getElementById('new-skill-kind').value;
     addSkill(name, kind);
 
-    // next is to clean form
-    document.getElementById('new-skill-name').value = '';
-    document.getElementById('new-skill-kind').value = 'primary';
-
-    // next is to hide modal
-    const modal = document.getElementById('newSkillModal');
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('style', 'display: none');
-    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
-    for (let i = 0; i < modalsBackdrops.length; i += 1) {
-      document.body.removeChild(modalsBackdrops[i]);
-    }
-    document.body.classList.remove('modal-open');
+    document.getElementById('newSkillForm').reset();
   }
 
   return (
@@ -76,7 +63,7 @@ const SkillModal = ({ addSkill }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light">
+              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
                 Add
               </button>
             </div>

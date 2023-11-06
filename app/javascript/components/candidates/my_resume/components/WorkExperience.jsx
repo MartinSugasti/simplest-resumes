@@ -33,33 +33,6 @@ const WorkExperience = () => {
         </span>
       </h3>
 
-      {items.map((item, index) => (
-        <div key={`${item.position}-${item.company}`} id={index} className="text-md-start mt-2">
-          <div className="row">
-            <div className="col-12 col-md-6 align-items-center">
-              <p className="mb-0 fw-bold">
-                {item.position}
-                <span role="button" onClick={() => removeItem(index)} tabIndex="0" onKeyDown={() => removeItem(index)}>
-                  <i className="bi bi-trash fa-sm ms-2" />
-                </span>
-              </p>
-              <p className="mb-0 fw-bold">{item.company}</p>
-            </div>
-
-            <div className="col-12 col-md-6 align-items-center">
-              <p className="mb-0 fw-bold text-md-end">
-                {formatDate(item.startDate)}
-                {' - '}
-                {item.endDate ? formatDate(item.endDate) : 'Present'}
-              </p>
-              <p className="mb-0 fw-bold text-md-end">{item.location}</p>
-            </div>
-          </div>
-
-          <p className="mb-0">{item.description}</p>
-        </div>
-      ))}
-
       {items.length > 0 ? (
         items.map((item, index) => (
           <div key={`${item.position}-${item.company}`} id={index} className="text-md-start mt-2">

@@ -97,27 +97,6 @@ const Skills = () => {
         )}
       </div>
 
-      {secondarySkills.length > 0 && (
-        <div className="d-md-flex text-md-start mt-2">
-          {secondarySkills.map((item, index) => (
-            <p key={item} id={index} className="mb-0">
-              {item}
-              <span
-                role="button"
-                onClick={() => removeSecondarySkill(index)}
-                tabIndex="0"
-                onKeyDown={() => removeSecondarySkill(index)}
-              >
-                <i className="bi bi-trash fa-sm ms-2" />
-              </span>
-              {secondarySkills.length !== index + 1 && (
-                <span className="d-none d-md-inline mx-1">-</span>
-              )}
-            </p>
-          ))}
-        </div>
-      )}
-
       <SkillModal addSkill={addSkill} />
     </div>
   );

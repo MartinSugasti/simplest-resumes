@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const EducationModal = ({ addItem }) => {
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     // create item and add it to the items list
@@ -14,23 +14,8 @@ const EducationModal = ({ addItem }) => {
     };
     addItem(newItem);
 
-    // next is to clean form
-    document.getElementById('new-education-item-degree').value = '';
-    document.getElementById('new-education-item-school').value = '';
-    document.getElementById('new-education-item-start-date').value = '';
-    document.getElementById('new-education-item-end-date').value = '';
-
-    // next is to hide modal
-    const modal = document.getElementById('newEducationItemModal');
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('style', 'display: none');
-    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
-    for (let i = 0; i < modalsBackdrops.length; i += 1) {
-      document.body.removeChild(modalsBackdrops[i]);
-    }
-    document.body.classList.remove('modal-open');
-  }
+    document.getElementById('newEducationItemForm').reset();
+  };
 
   return (
     <div
@@ -124,7 +109,7 @@ const EducationModal = ({ addItem }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light">
+              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
                 Add
               </button>
             </div>
