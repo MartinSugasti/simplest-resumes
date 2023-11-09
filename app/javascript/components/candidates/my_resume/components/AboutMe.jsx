@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import { updateTextInput } from '../store/actions';
 import { exampleAboutMe } from '../constants';
 
-const AboutMe = () => {
-  const [value, setValue] = useState('');
+const AboutMe = ({ text, onInputChange }) => {
   const [editing, setEditing] = useState(false);
 
   const editInput = () => {
     setEditing(true);
   };
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const inputFocusOut = () => {
+  const inputFocusOut = (event) => {
+    onInputChange(event.target.value);
     setEditing(false);
   };
 
@@ -24,15 +23,14 @@ const AboutMe = () => {
       <textarea
         className="bg-light border-0 w-100 py-0 no-outline"
         rows="5"
-        value={value}
-        onChange={handleChange}
+        defaultValue={text}
         onBlur={inputFocusOut}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus
       />
     );
   } else {
-    valueElement = value;
+    valueElement = text;
   }
 
   return (
@@ -45,7 +43,7 @@ const AboutMe = () => {
         </span>
       </h3>
 
-      {(value || editing) ? (
+      {(text || editing) ? (
         <p className="mt-2 mb-0 text-md-start">{valueElement}</p>
       ) : (
         <p className="mt-2 mb-0 text-md-start fst-italic text-black-50">{exampleAboutMe}</p>
@@ -54,4 +52,23 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+const mapStateToProps = (state) => ({
+  text: state.aboutMe.text
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onInputChange: (text) => {
+    dispatch(updateTextInput('aboutMe', text));
+  }
+});
+
+AboutMe.propTypes = {
+  text: PropTypes.string,
+  onInputChange: PropTypes.func.isRequired
+};
+
+AboutMe.defaultProps = {
+  text: null
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutMe);

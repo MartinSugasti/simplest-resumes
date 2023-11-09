@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const EditableInput = ({ exampleValue, iconOnNextLine }) => {
-  const [value, setValue] = useState('');
+import { connect } from 'react-redux';
+import { updateTextInput } from '../store/actions';
+
+const EditableInput = ({
+  inputName,
+  exampleValue,
+  iconOnNextLine,
+  text,
+  onInputChange
+}) => {
   const [editing, setEditing] = useState(false);
 
   const editInput = () => {
     setEditing(true);
   };
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const leaveInput = () => {
+  const leaveInput = (event) => {
+    onInputChange(inputName, event.target.value);
     setEditing(false);
   };
 
@@ -23,20 +28,19 @@ const EditableInput = ({ exampleValue, iconOnNextLine }) => {
       <input
         type="text"
         className="bg-light border-0 mw-100 text-center py-0 no-outline"
-        value={value}
-        onChange={handleChange}
+        defaultValue={text}
         onBlur={leaveInput}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus
       />
     );
   } else {
-    valueElement = value;
+    valueElement = text;
   }
 
   return (
     <div>
-      {(value || editing) ? (
+      {(text || editing) ? (
         valueElement
       ) : (
         <span className="fst-italic text-black-50">{exampleValue}</span>
@@ -51,14 +55,28 @@ const EditableInput = ({ exampleValue, iconOnNextLine }) => {
   );
 };
 
+const mapStateToProps = (state, ownProps) => ({
+  text: state[ownProps.inputName].text
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onInputChange: (inputName, text) => {
+    dispatch(updateTextInput(inputName, text));
+  }
+});
+
 EditableInput.propTypes = {
+  inputName: PropTypes.string.isRequired,
   exampleValue: PropTypes.string,
-  iconOnNextLine: PropTypes.bool
+  iconOnNextLine: PropTypes.bool,
+  text: PropTypes.string,
+  onInputChange: PropTypes.func.isRequired
 };
 
 EditableInput.defaultProps = {
   exampleValue: '',
-  iconOnNextLine: true
+  iconOnNextLine: true,
+  text: null
 };
 
-export default EditableInput;
+export default connect(mapStateToProps, mapDispatchToProps)(EditableInput);

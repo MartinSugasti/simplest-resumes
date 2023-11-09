@@ -1,26 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import { addItem, removeItem } from '../store/actions';
 import SkillModal from './SkillModal';
 import { examplePrimarySkills, exampleSecondarySkills } from '../constants';
 
-const Skills = () => {
-  const [primarySkills, setPrimarySkills] = useState([]);
-  const [secondarySkills, setSecondarySkills] = useState([]);
-
-  const addSkill = (name, kind) => {
-    if (kind === 'primary') {
-      setPrimarySkills([...primarySkills, name]);
-    } else {
-      setSecondarySkills([...secondarySkills, name]);
-    }
+const Skills = ({
+  primarySkills,
+  secondarySkills,
+  onItemAddition,
+  onItemRemoval
+}) => {
+  const addSkill = (name, type) => {
+    onItemAddition(type, name);
   };
 
-  const removePrimarySkill = (indexToRemove) => {
-    setPrimarySkills(primarySkills.filter((_, index) => index !== indexToRemove));
-  };
-
-  const removeSecondarySkill = (indexToRemove) => {
-    setSecondarySkills(secondarySkills.filter((_, index) => index !== indexToRemove));
+  const removeSkill = (index, type) => {
+    onItemRemoval(type, index);
   };
 
   return (
@@ -44,9 +41,9 @@ const Skills = () => {
               {item}
               <span
                 role="button"
-                onClick={() => removePrimarySkill(index)}
+                onClick={() => removeSkill(index, 'primary')}
                 tabIndex="0"
-                onKeyDown={() => removePrimarySkill(index)}
+                onKeyDown={() => removeSkill(index, 'primary')}
               >
                 <i className="bi bi-trash fa-sm ms-2" />
               </span>
@@ -74,9 +71,9 @@ const Skills = () => {
               {item}
               <span
                 role="button"
-                onClick={() => removeSecondarySkill(index)}
+                onClick={() => removeSkill(index, 'secondary')}
                 tabIndex="0"
-                onKeyDown={() => removeSecondarySkill(index)}
+                onKeyDown={() => removeSkill(index, 'secondary')}
               >
                 <i className="bi bi-trash fa-sm ms-2" />
               </span>
@@ -102,4 +99,34 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+const mapStateToProps = (state) => ({
+  primarySkills: state.primarySkillsItems.items,
+  secondarySkills: state.secondarySkillsItems.items
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onItemAddition: (skillType, item) => {
+    dispatch(addItem(`${skillType}SkillsItems`, item));
+  },
+  onItemRemoval: (skillType, index) => {
+    dispatch(removeItem(`${skillType}SkillsItems`, index));
+  }
+});
+
+Skills.propTypes = {
+  primarySkills: PropTypes.arrayOf(
+    PropTypes.string
+  ),
+  secondarySkills: PropTypes.arrayOf(
+    PropTypes.string
+  ),
+  onItemAddition: PropTypes.func.isRequired,
+  onItemRemoval: PropTypes.func.isRequired
+};
+
+Skills.defaultProps = {
+  primarySkills: [],
+  secondarySkills: []
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Skills);

@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import { addItem, removeItem } from '../store/actions';
 import WorkExperienceModal from './WorkExperienceModal';
 import { exampleWorkExperienceItems } from '../constants';
 
-const WorkExperience = () => {
-  const [items, setItems] = useState([]);
-
-  const addItem = (item) => {
-    setItems([...items, item]);
-  };
-
-  const removeItem = (indexToRemove) => {
-    setItems(items.filter((_, index) => index !== indexToRemove));
-  };
-
+const WorkExperience = ({ items, onItemAddition, onItemRemoval }) => {
   const formatDate = (date) => {
     const yearMonth = date.split('-');
     return `${parseInt(yearMonth[1], 10)}/${yearMonth[0]}`;
@@ -42,9 +35,9 @@ const WorkExperience = () => {
                   {item.position}
                   <span
                     role="button"
-                    onClick={() => removeItem(index)}
+                    onClick={() => onItemRemoval(index)}
                     tabIndex="0"
-                    onKeyDown={() => removeItem(index)}
+                    onKeyDown={() => onItemRemoval(index)}
                   >
                     <i className="bi bi-trash fa-sm ms-2" />
                   </span>
@@ -95,9 +88,34 @@ const WorkExperience = () => {
         ))
       )}
 
-      <WorkExperienceModal addItem={addItem} />
+      <WorkExperienceModal addItem={onItemAddition} />
     </div>
   );
 };
 
-export default WorkExperience;
+const mapStateToProps = (state) => ({
+  items: state.workExperienceItems.items
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onItemAddition: (item) => {
+    dispatch(addItem('workExperienceItems', item));
+  },
+  onItemRemoval: (index) => {
+    dispatch(removeItem('workExperienceItems', index));
+  }
+});
+
+WorkExperience.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({})
+  ),
+  onItemAddition: PropTypes.func.isRequired,
+  onItemRemoval: PropTypes.func.isRequired
+};
+
+WorkExperience.defaultProps = {
+  items: []
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WorkExperience);
