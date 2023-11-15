@@ -1,8 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { addItem, removeItem } from '../store/actions';
+
 import SkillModal from './SkillModal';
 import { examplePrimarySkills, exampleSecondarySkills } from '../constants';
 
@@ -37,29 +39,36 @@ const Skills = ({
       <div className="d-md-flex text-md-start mt-2">
         {primarySkills.length > 0 ? (
           primarySkills.map((item, index) => (
-            <p key={item} id={index} className="mb-0 fw-bold">
-              {item}
+            <div key={index} id={index} className="d-flex align-items-center fw-bold">
+              <p className="mb-0">
+                {item.name}
+              </p>
+
               <span
                 role="button"
                 onClick={() => removeSkill(index, 'primary')}
                 tabIndex="0"
                 onKeyDown={() => removeSkill(index, 'primary')}
               >
-                <i className="bi bi-trash fa-sm ms-2" />
+                <i className="bi bi-trash fa-sm ms-1" />
               </span>
+
               {primarySkills.length !== index + 1 && (
                 <span className="d-none d-md-inline mx-1">-</span>
               )}
-            </p>
+            </div>
           ))
         ) : (
           examplePrimarySkills.map((item, index) => (
-            <p key={item} id={index} className="mb-0 fw-bold fst-italic text-black-50">
-              {item}
+            <div key={index} id={index} className="d-flex align-items-center fw-bold fst-italic text-black-50">
+              <p className="mb-0">
+                {item.name}
+              </p>
+
               {examplePrimarySkills.length !== index + 1 && (
                 <span className="d-none d-md-inline mx-1">-</span>
               )}
-            </p>
+            </div>
           ))
         )}
       </div>
@@ -67,29 +76,36 @@ const Skills = ({
       <div className="d-md-flex text-md-start mt-2">
         {secondarySkills.length > 0 ? (
           secondarySkills.map((item, index) => (
-            <p key={item} id={index} className="mb-0">
-              {item}
+            <div key={index} id={index} className="d-flex align-items-center">
+              <p className="mb-0">
+                {item.name}
+              </p>
+
               <span
                 role="button"
                 onClick={() => removeSkill(index, 'secondary')}
                 tabIndex="0"
                 onKeyDown={() => removeSkill(index, 'secondary')}
               >
-                <i className="bi bi-trash fa-sm ms-2" />
+                <i className="bi bi-trash fa-sm ms-1" />
               </span>
+
               {secondarySkills.length !== index + 1 && (
                 <span className="d-none d-md-inline mx-1">-</span>
               )}
-            </p>
+            </div>
           ))
         ) : (
           exampleSecondarySkills.map((item, index) => (
-            <p key={item} id={index} className="mb-0 fst-italic text-black-50">
-              {item}
+            <div key={index} id={index} className="d-flex align-items-center fst-italic text-black-50">
+              <p className="mb-0">
+                {item.name}
+              </p>
+
               {exampleSecondarySkills.length !== index + 1 && (
                 <span className="d-none d-md-inline mx-1">-</span>
               )}
-            </p>
+            </div>
           ))
         )}
       </div>
@@ -115,10 +131,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 Skills.propTypes = {
   primarySkills: PropTypes.arrayOf(
-    PropTypes.string
+    PropTypes.shape({})
   ),
   secondarySkills: PropTypes.arrayOf(
-    PropTypes.string
+    PropTypes.shape({})
   ),
   onItemAddition: PropTypes.func.isRequired,
   onItemRemoval: PropTypes.func.isRequired

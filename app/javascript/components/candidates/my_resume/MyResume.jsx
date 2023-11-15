@@ -1,98 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { updateTextInput, addItem } from './store/actions';
+
+import Loader from '../../shared/Loader';
 import AboutMe from './components/AboutMe';
 import PersonalInformation from './components/PersonalInformation';
 import Education from './components/Education';
 import WorkExperience from './components/WorkExperience';
 import Skills from './components/Skills';
 import References from './components/References';
+import { getResume } from './api';
 
 const MyResume = ({
-  name,
-  email,
-  mobile,
-  location,
-  aboutMe,
-  educationItems,
-  workExperienceItems,
-  primarySkillsItems,
-  secondarySkillsItems,
-  personalReferencesItems,
-  jobReferencesItems
-}) => (
-  <>
-    { console.log('name: ' + name) }
-    { console.log('email: ' + email) }
-    { console.log('mobile: ' + mobile) }
-    { console.log('location: ' + location) }
-    { console.log('aboutMe: ' + aboutMe) }
-    { console.log('educationItems: ' + JSON.stringify(educationItems)) }
-    { console.log('workExperienceItems: ' + JSON.stringify(workExperienceItems)) }
-    { console.log('primarySkillsItems: ' + JSON.stringify(primarySkillsItems)) }
-    { console.log('secondarySkillsItems: ' + JSON.stringify(secondarySkillsItems)) }
-    { console.log('personalReferencesItems: ' + JSON.stringify(personalReferencesItems)) }
-    { console.log('jobReferencesItems: ' + JSON.stringify(jobReferencesItems)) }
+  onLoad
+}) => {
+  const [loading, setLoading] = useState(true);
 
-    <div className="mb-3">
-      <button type="button" className="btn btn-primary text-light me-2">Save</button>
-      <button type="button" className="btn btn-outline-primary">Download</button>
-    </div>
+  useEffect(() => {
+    getResume().then((response) => {
+      console.log(response.data);
+      onLoad(response.data);
+      setLoading(false);
+    });
+  }, [onLoad]);
 
-    <div className="card py-3 border-2 text-dark">
-      <PersonalInformation />
-      <AboutMe />
-      <Education />
-      <WorkExperience />
-      <Skills />
-      <References />
-    </div>
-  </>
-);
+  return (
+    <>
+      <div className="mb-3">
+        <button type="button" className="btn btn-outline-primary">Download</button>
+      </div>
 
-const mapStateToProps = (state) => ({
-  name: state.name.text,
-  email: state.email.text,
-  mobile: state.mobile.text,
-  location: state.location.text,
-  aboutMe: state.aboutMe.text,
-  educationItems: state.educationItems.items,
-  workExperienceItems: state.workExperienceItems.items,
-  primarySkillsItems: state.primarySkillsItems.items,
-  secondarySkillsItems: state.secondarySkillsItems.items,
-  personalReferencesItems: state.personalReferencesItems.items,
-  jobReferencesItems: state.jobReferencesItems.items
+      {loading ? (
+        <div className="align-items-center d-flex justify-content-center my-5 py-5"><Loader /></div>
+      ) : (
+        <div className="card py-3 border-2 text-dark">
+          <PersonalInformation />
+          <AboutMe />
+          <Education />
+          <WorkExperience />
+          <Skills />
+          <References />
+        </div>
+      )}
+    </>
+  );
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onLoad: (resume) => {
+    if (!resume) { return; }
+
+    dispatch(updateTextInput('name', resume.name));
+    dispatch(updateTextInput('email', resume.email));
+    dispatch(updateTextInput('mobile', resume.mobile));
+    dispatch(updateTextInput('location', resume.location));
+    dispatch(updateTextInput('aboutMe', resume.about_me));
+
+    resume.education_items.forEach((item) => {
+      dispatch(addItem('educationItems', item));
+    });
+    resume.work_experience_items.forEach((item) => {
+      dispatch(addItem('workExperienceItems', item));
+    });
+    resume.primary_skill_items.forEach((item) => {
+      dispatch(addItem('primarySkillsItems', item));
+    });
+    resume.secondary_skill_items.forEach((item) => {
+      dispatch(addItem('secondarySkillsItems', item));
+    });
+    resume.personal_reference_items.forEach((item) => {
+      dispatch(addItem('personalReferencesItems', item));
+    });
+    resume.job_reference_items.forEach((item) => {
+      dispatch(addItem('jobReferencesItems', item));
+    });
+  }
 });
 
 MyResume.propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  mobile: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  aboutMe: PropTypes.string.isRequired,
-  educationItems: PropTypes.arrayOf(
-    PropTypes.shape({})
-  ).isRequired,
-  workExperienceItems: PropTypes.arrayOf(
-    PropTypes.shape({})
-  ).isRequired,
-  primarySkillsItems: PropTypes.arrayOf(
-    PropTypes.string
-  ).isRequired,
-  secondarySkillsItems: PropTypes.arrayOf(
-    PropTypes.string
-  ).isRequired,
-  personalReferencesItems: PropTypes.arrayOf(
-    PropTypes.shape({})
-  ).isRequired,
-  jobReferencesItems: PropTypes.arrayOf(
-    PropTypes.shape({})
-  ).isRequired
+  onLoad: PropTypes.func.isRequired
 };
 
 MyResume.defaultProps = {
 
 };
 
-export default connect(mapStateToProps)(MyResume);
+export default connect(null, mapDispatchToProps)(MyResume);

@@ -7,10 +7,10 @@ const ReferenceModal = ({ title, addItem }) => {
 
     // create item and add it to the items list
     const newItem = {
-      fullName: document.getElementById(`new-${title}-reference-fullName`).value,
+      name: document.getElementById(`new-${title}-reference-name`).value,
       mobile: document.getElementById(`new-${title}-reference-mobile`).value,
       company: document.getElementById(`new-${title}-reference-company`).value,
-      position: document.getElementById(`new-${title}-reference-position`).value,
+      position: document.getElementById(`new-${title}-reference-position`).value
     };
     addItem(newItem);
 
@@ -40,7 +40,7 @@ const ReferenceModal = ({ title, addItem }) => {
             <div className="modal-body">
               <div className="form-group row mb-3">
                 <label
-                  htmlFor={`new-${title}-reference-fullName`}
+                  htmlFor={`new-${title}-reference-name`}
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
                   Full Name:
@@ -49,7 +49,7 @@ const ReferenceModal = ({ title, addItem }) => {
                   <input
                     type="text"
                     className="form-control"
-                    id={`new-${title}-reference-fullName`}
+                    id={`new-${title}-reference-name`}
                     required="required"
                   />
                 </div>

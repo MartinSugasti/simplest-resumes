@@ -1,8 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { addItem, removeItem } from '../store/actions';
+
 import EducationModal from './EducationModal';
 import { exampleEducationItems } from '../constants';
 
@@ -22,9 +24,9 @@ const Education = ({ items, onItemAddition, onItemRemoval }) => (
 
     {items.length > 0 ? (
       items.map((item, index) => (
-        <div key={item.degree} id={index} className="row align-items-center text-md-start mt-2">
+        <div key={index} id={index} className="row align-items-center text-md-start mt-2">
           <p className="col-12 col-md-4 mb-0 fw-bold">
-            {item.degree}
+            {item.name}
             <span
               role="button"
               onClick={() => onItemRemoval(index)}
@@ -34,29 +36,29 @@ const Education = ({ items, onItemAddition, onItemRemoval }) => (
               <i className="bi bi-trash fa-sm ms-2" />
             </span>
           </p>
-          <p className="col-12 col-md-5 mb-0">{item.school}</p>
+          <p className="col-12 col-md-5 mb-0">{item.institute}</p>
           <p className="col-12 col-md-3 mb-0 fw-bold text-md-end">
-            {item.startDate}
+            {item.start_year}
             {' - '}
-            {item.endDate ? item.endDate : 'Present'}
+            {item.end_year ? item.end_year : 'Present'}
           </p>
         </div>
       ))
     ) : (
       exampleEducationItems.map((item, index) => (
         <div
-          key={item.degree}
+          key={index}
           id={index}
           className="row align-items-center text-md-start mt-2 fst-italic text-black-50"
         >
           <p className="col-12 col-md-4 mb-0 fw-bold">
-            {item.degree}
+            {item.name}
           </p>
-          <p className="col-12 col-md-5 mb-0">{item.school}</p>
+          <p className="col-12 col-md-5 mb-0">{item.institute}</p>
           <p className="col-12 col-md-3 mb-0 fw-bold text-md-end">
-            {item.startDate}
+            {item.start_year}
             {' - '}
-            {item.endDate ? item.endDate : 'Present'}
+            {item.end_year ? item.end_year : 'Present'}
           </p>
         </div>
       ))

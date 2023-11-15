@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { updateTextInput } from '../store/actions';
+
 import { exampleAboutMe } from '../constants';
 
 const AboutMe = ({ text, onInputChange }) => {

@@ -10,7 +10,7 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  preferred_language     :integer          default(0), not null
+#  preferred_language     :integer          default("en"), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -34,6 +34,8 @@ class Candidate < ApplicationRecord
 
   has_one_attached :profile_picture
   validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
+
+  has_one :resume, dependent: :destroy
 
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |candidate|

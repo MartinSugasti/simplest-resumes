@@ -6,12 +6,19 @@ const WorkExperienceModal = ({ addItem }) => {
     event.preventDefault();
 
     // create item and add it to the items list
+    const startDate = document.getElementById('new-work-experience-item-start-date').value;
+    const startYearMonth = startDate.split('-');
+    const endDate = document.getElementById('new-work-experience-item-end-date').value;
+    const endYearMonth = endDate.split('-');
+
     const newItem = {
       position: document.getElementById('new-work-experience-item-position').value,
       company: document.getElementById('new-work-experience-item-company').value,
-      startDate: document.getElementById('new-work-experience-item-start-date').value,
-      endDate: document.getElementById('new-work-experience-item-end-date').value,
       location: document.getElementById('new-work-experience-item-location').value,
+      start_month: startYearMonth[1],
+      start_year: startYearMonth[0],
+      end_month: endYearMonth[1],
+      end_year: endYearMonth[0],
       description: document.getElementById('new-work-experience-item-description').value
     };
     addItem(newItem);

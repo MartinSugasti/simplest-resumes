@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_080229) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_14_162001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_080229) do
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end
 
+  create_table "education_items", force: :cascade do |t|
+    t.string "name", limit: 40, null: false
+    t.string "institute", limit: 40, null: false
+    t.integer "start_year", null: false
+    t.integer "end_year"
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_education_items_on_resume_id"
+  end
+
   create_table "invitation_requests", force: :cascade do |t|
     t.string "email", null: false
     t.integer "status", default: 0, null: false
@@ -116,6 +127,59 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_080229) do
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true
   end
 
+  create_table "reference_items", force: :cascade do |t|
+    t.integer "kind", default: 0, null: false
+    t.string "name", limit: 40, null: false
+    t.string "mobile", limit: 20, null: false
+    t.string "company", limit: 40, null: false
+    t.string "position", limit: 40, null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_reference_items_on_resume_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "name", limit: 40
+    t.string "email", limit: 40
+    t.string "mobile", limit: 20
+    t.string "location", limit: 40
+    t.text "about_me"
+    t.bigint "candidate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_resumes_on_candidate_id"
+  end
+
+  create_table "skill_items", force: :cascade do |t|
+    t.string "name", limit: 40, null: false
+    t.integer "kind", default: 0, null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_skill_items_on_resume_id"
+  end
+
+  create_table "work_experience_items", force: :cascade do |t|
+    t.string "position", limit: 40, null: false
+    t.string "company", limit: 40, null: false
+    t.integer "start_month", null: false
+    t.integer "start_year", null: false
+    t.integer "end_month"
+    t.integer "end_year"
+    t.string "location", limit: 40, null: false
+    t.text "description", null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_work_experience_items_on_resume_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "education_items", "resumes"
+  add_foreign_key "reference_items", "resumes"
+  add_foreign_key "resumes", "candidates"
+  add_foreign_key "skill_items", "resumes"
+  add_foreign_key "work_experience_items", "resumes"
 end

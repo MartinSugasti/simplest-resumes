@@ -1,8 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { addItem, removeItem } from '../store/actions';
+
 import ReferenceModal from './ReferenceModal';
 
 const SpecificReferences = ({
@@ -29,9 +31,9 @@ const SpecificReferences = ({
 
     {items.length > 0 ? (
       items.map((item, index) => (
-        <div key={item.fullName} id={index} className="row mt-2 align-items-center">
+        <div key={index} id={index} className="row mt-2 align-items-center">
           <p className="col-12 col-md-6 mb-0 fw-bold">
-            {item.fullName}
+            {item.name}
             <span
               role="button"
               onClick={() => onItemRemoval(index)}
@@ -48,9 +50,9 @@ const SpecificReferences = ({
       ))
     ) : (
       exampleReferences.map((item, index) => (
-        <div key={item.fullName} id={index} className="row mt-2 align-items-center fst-italic text-black-50">
+        <div key={index} id={index} className="row mt-2 align-items-center fst-italic text-black-50">
           <p className="col-12 col-md-6 mb-0 fw-bold">
-            {item.fullName}
+            {item.name}
           </p>
           <p className="col-12 col-md-5 mb-0 fw-bold text-md-start">{item.mobile}</p>
           <p className="col-12 col-md-6 mb-0">{item.company}</p>

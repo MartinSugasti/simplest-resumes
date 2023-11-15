@@ -7,7 +7,7 @@ const SkillModal = ({ addSkill }) => {
 
     const name = document.getElementById('new-skill-name').value;
     const kind = document.getElementById('new-skill-kind').value;
-    addSkill(name, kind);
+    addSkill({ name }, kind);
 
     document.getElementById('newSkillForm').reset();
   }

@@ -7,10 +7,10 @@ const EducationModal = ({ addItem }) => {
 
     // create item and add it to the items list
     const newItem = {
-      degree: document.getElementById('new-education-item-degree').value,
-      school: document.getElementById('new-education-item-school').value,
-      startDate: document.getElementById('new-education-item-start-date').value,
-      endDate: document.getElementById('new-education-item-end-date').value
+      name: document.getElementById('new-education-item-name').value,
+      institute: document.getElementById('new-education-item-institute').value,
+      start_year: document.getElementById('new-education-item-start-year').value,
+      end_year: document.getElementById('new-education-item-end-year').value
     };
     addItem(newItem);
 
@@ -36,16 +36,16 @@ const EducationModal = ({ addItem }) => {
             <div className="modal-body">
               <div className="form-group row mb-3">
                 <label
-                  htmlFor="new-education-item-degree"
+                  htmlFor="new-education-item-name"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Degree:
+                  Name:
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
                     type="text"
                     className="form-control"
-                    id="new-education-item-degree"
+                    id="new-education-item-name"
                     required="required"
                   />
                 </div>
@@ -53,16 +53,16 @@ const EducationModal = ({ addItem }) => {
 
               <div className="form-group row mb-3">
                 <label
-                  htmlFor="new-education-item-school"
+                  htmlFor="new-education-item-institute"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  School:
+                  Institute:
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
                     type="text"
                     className="form-control"
-                    id="new-education-item-school"
+                    id="new-education-item-institute"
                     required="required"
                   />
                 </div>
@@ -70,7 +70,7 @@ const EducationModal = ({ addItem }) => {
 
               <div className="form-group row mb-3">
                 <label
-                  htmlFor="new-education-item-start-date"
+                  htmlFor="new-education-item-start-year"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
                   Start:
@@ -79,7 +79,7 @@ const EducationModal = ({ addItem }) => {
                   <input
                     type="number"
                     className="form-control"
-                    id="new-education-item-start-date"
+                    id="new-education-item-start-year"
                     min="1970"
                     max="2030"
                     step="1"
@@ -90,7 +90,7 @@ const EducationModal = ({ addItem }) => {
 
               <div className="form-group row">
                 <label
-                  htmlFor="new-education-item-end-date"
+                  htmlFor="new-education-item-end-year"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
                   End:
@@ -99,7 +99,7 @@ const EducationModal = ({ addItem }) => {
                   <input
                     type="number"
                     className="form-control"
-                    id="new-education-item-end-date"
+                    id="new-education-item-end-year"
                     min="1970"
                     max="2030"
                     step="1"

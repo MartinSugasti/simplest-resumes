@@ -8,30 +8,36 @@ export const exampleAboutMe = 'I am an industrial engineer, with experience work
 + 'moved to Barcelona in August 2021 with my partner.';
 export const exampleEducationItems = [
   {
-    degree: 'Software Engineering',
-    school: 'Engineering Faculty, UDELAR',
-    startDate: '2018',
-    endDate: ''
+    id: 1,
+    name: 'Software Engineering',
+    institute: 'Engineering Faculty, UDELAR',
+    start_year: '2018',
+    end_year: ''
   },
   {
-    degree: 'Industrial and Mechanical Engineering',
-    school: 'Engineering Faculty, UDELAR',
-    startDate: '2009',
-    endDate: '2015'
+    id: 2,
+    name: 'Industrial and Mechanical Engineering',
+    institute: 'Engineering Faculty, UDELAR',
+    start_year: '2009',
+    end_year: '2015'
   },
   {
-    degree: 'First Certificate in English',
-    school: 'University of Cambridge',
-    startDate: '2000',
-    endDate: '2008'
+    id: 3,
+    name: 'First Certificate in English',
+    institute: 'University of Cambridge',
+    start_year: '2000',
+    end_year: '2008'
   }
 ];
 export const exampleWorkExperienceItems = [
   {
+    id: 1,
     position: 'Full Stack Developer',
     company: 'Vairix',
-    startDate: '2022-02',
-    endDate: '',
+    start_month: 2,
+    start_year: 2022,
+    end_month: null,
+    end_year: null,
     location: 'Montevideo, Uruguay',
     description:
       'I join the company to continue working with Ruby on Rails, my favorite language and in which I want '
@@ -39,10 +45,13 @@ export const exampleWorkExperienceItems = [
       + 'to start learning and working with React.'
   },
   {
+    id: 2,
     position: 'Full Stack Developer',
     company: 'EagerWorks SRL',
-    startDate: '2019-09',
-    endDate: '2022-02',
+    start_month: 9,
+    start_year: 2019,
+    end_month: 2,
+    end_year: 2022,
     location: 'Montevideo, Uruguay',
     description:
       'Since joining the team, I have worked as a full-stack developer using Ruby on Rails framework. Alongside '
@@ -52,10 +61,13 @@ export const exampleWorkExperienceItems = [
       + 'with clients daily, and reaching mutual agreements on ideas and next steps.'
   },
   {
+    id: 3,
     position: 'Maintenance Analyst',
     company: 'Montevideo Refrescos SRL',
-    startDate: '2017-04',
-    endDate: '2019-10',
+    start_month: 4,
+    start_year: 2017,
+    end_month: 10,
+    end_year: 2019,
     location: 'Montevideo, Uruguay',
     description:
       'Planned preventive and corrective maintenance for the Coca-Cola products bottling company in Uruguay. '
@@ -65,10 +77,13 @@ export const exampleWorkExperienceItems = [
       + 'approximately 1,800 maintenance plans were redesigned.'
   },
   {
+    id: 4,
     position: 'Production Coordinator',
     company: 'Yazaki Uruguay SA',
-    startDate: '2015-05',
-    endDate: '2016-12',
+    start_month: 5,
+    start_year: 2015,
+    end_month: 12,
+    end_year: 2016,
     location: 'Las Piedras, Uruguay',
     description:
       'Supervised production plan on a daily basis, coordinating activities with 3 production supervisors. Provided '
@@ -77,45 +92,52 @@ export const exampleWorkExperienceItems = [
       + 'bi-lateral meetings.'
   },
   {
+    id: 5,
     position: 'Technician Assistant',
     company: 'Abengoa Teyma SA',
-    startDate: '2012-11',
-    endDate: '2013-10',
+    start_month: 11,
+    start_year: 2012,
+    end_month: 10,
+    end_year: 2013,
     location: 'Montevideo, Uruguay',
     description:
       'Constructed the electro-mechanical cost-estimate of water purification plant and of concrete/cement plant '
       + 'extension.'
   }
 ];
-export const examplePrimarySkills = ['Rails', 'React', 'Scrum'];
+export const examplePrimarySkills = [{ id: 1, name: 'Rails' }, { id: 2, name: 'React' }, { id: 3, name: 'Scrum' }];
 export const exampleSecondarySkills = [
-  'Javascript',
-  'Bootstrap',
-  'SQL',
-  'Cucumber',
-  'Git'
+  { id: 1, name: 'Javascript' },
+  { id: 2, name: 'Bootstrap' },
+  { id: 3, name: 'SQL' },
+  { id: 4, name: 'Cucumber' },
+  { id: 5, name: 'Git' }
 ];
 export const examplePersonalReferences = [
   {
-    fullName: 'Eng. Guillermo Sugasti',
+    id: 1,
+    name: 'Eng. Guillermo Sugasti',
     mobile: '+1 786 451 7990',
     company: 'Youtube',
     position: 'Financial Analyst Specialist'
   },
   {
-    fullName: 'Eng. Agustín Prado',
+    id: 2,
+    name: 'Eng. Agustín Prado',
     mobile: '+34 662 08 72 35',
     company: 'Kodea Software',
     position: 'CEO'
   },
   {
-    fullName: 'Acct. Camila Rivero',
+    id: 3,
+    name: 'Acct. Camila Rivero',
     mobile: '+34 660 330 324',
     company: 'Global Shares',
     position: 'Team Leader'
   },
   {
-    fullName: 'Acct. Juan Martin Echeguia',
+    id: 4,
+    name: 'Acct. Juan Martin Echeguia',
     mobile: '+34 662 087 228',
     company: 'Kodea Software',
     position: 'CTO'
@@ -123,25 +145,29 @@ export const examplePersonalReferences = [
 ];
 export const exampleJobReferences = [
   {
-    fullName: 'Eng. Santiago Bertinat',
+    id: 1,
+    name: 'Eng. Santiago Bertinat',
     mobile: '+598 94 572 567',
     company: 'Eagerworks srl',
     position: 'CEO'
   },
   {
-    fullName: 'Ignacio Grondona',
+    id: 2,
+    name: 'Ignacio Grondona',
     mobile: '+598 98 554 624',
     company: 'Eagerworks srl',
     position: 'Technical Leader'
   },
   {
-    fullName: 'Eng. Jimena Vanoli',
+    id: 3,
+    name: 'Eng. Jimena Vanoli',
     mobile: '+598 99 459 100',
     company: 'Softys',
     position: 'Maintenance Manager'
   },
   {
-    fullName: 'Eng. Agustín Irazoqui',
+    id: 4,
+    name: 'Eng. Agustín Irazoqui',
     mobile: '+598 91 444 242',
     company: 'Yazaki Uruguay SA',
     position: 'General Manager'
