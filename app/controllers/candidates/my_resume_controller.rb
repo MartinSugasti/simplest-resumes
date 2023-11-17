@@ -11,4 +11,20 @@ class Candidates::MyResumeController < ApplicationController
       end
     end
   end
+
+  def update
+    resume = current_candidate.resume || current_candidate.create_resume
+
+    if resume.update(safe_params)
+      head :ok
+    else
+      render json: { errors: resume.errors.full_messages.join(', ') }, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def safe_params
+    params.require(:resume).permit(:name, :email, :mobile, :location, :about_me)
+  end
 end

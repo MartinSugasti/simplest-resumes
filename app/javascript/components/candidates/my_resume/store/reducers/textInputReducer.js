@@ -1,4 +1,4 @@
-import { UPDATE_TEXT_INPUT } from '../actions';
+import { SET_TEXT_INPUT } from '../actions';
 
 // eslint-disable-next-line default-param-last
 const textInputReducer = (inputName, initialValue = '') => (state = { text: initialValue }, action) => {
@@ -7,7 +7,7 @@ const textInputReducer = (inputName, initialValue = '') => (state = { text: init
   }
 
   switch (action.type) {
-    case UPDATE_TEXT_INPUT:
+    case SET_TEXT_INPUT:
       return {
         ...state,
         text: action.text

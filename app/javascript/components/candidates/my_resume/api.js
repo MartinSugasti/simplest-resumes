@@ -6,3 +6,9 @@ export const getResume = () => {
 
   return response;
 };
+
+export const updateResume = (params) => {
+  const response = axios.put('/candidates/my_resume.json', { resume: params });
+
+  return response;
+};

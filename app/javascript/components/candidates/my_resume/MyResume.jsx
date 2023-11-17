@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { updateTextInput, addItem } from './store/actions';
+import { populateInitialValues } from './store/actions';
 
 import Loader from '../../shared/Loader';
+import Toaster, { showErrorToast } from '../../shared/Toaster';
 import AboutMe from './components/AboutMe';
 import PersonalInformation from './components/PersonalInformation';
 import Education from './components/Education';
@@ -13,18 +14,18 @@ import Skills from './components/Skills';
 import References from './components/References';
 import { getResume } from './api';
 
-const MyResume = ({
-  onLoad
-}) => {
-  const [loading, setLoading] = useState(true);
+const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
+  useEffect(() => {
+    getResume()
+      .then((response) => populateValues(response.data))
+      .catch(() => showErrorToast('Something went wrong. Please, try again later!'));
+  }, [populateValues]);
 
   useEffect(() => {
-    getResume().then((response) => {
-      console.log(response.data);
-      onLoad(response.data);
-      setLoading(false);
-    });
-  }, [onLoad]);
+    if (requestStatus === 'failure') {
+      showErrorToast(errorMessage || 'Something went wrong. Please, try again later!');
+    }
+  }, [requestStatus, errorMessage]);
 
   return (
     <>
@@ -32,7 +33,7 @@ const MyResume = ({
         <button type="button" className="btn btn-outline-primary">Download</button>
       </div>
 
-      {loading ? (
+      {requestStatus === 'sending' ? (
         <div className="align-items-center d-flex justify-content-center my-5 py-5"><Loader /></div>
       ) : (
         <div className="card py-3 border-2 text-dark">
@@ -44,47 +45,31 @@ const MyResume = ({
           <References />
         </div>
       )}
+
+      <Toaster />
     </>
   );
 };
 
+const mapStateToProps = (state) => ({
+  requestStatus: state.requestStatus.status,
+  errorMessage: state.requestStatus.errorMessage
+});
+
 const mapDispatchToProps = (dispatch) => ({
-  onLoad: (resume) => {
-    if (!resume) { return; }
-
-    dispatch(updateTextInput('name', resume.name));
-    dispatch(updateTextInput('email', resume.email));
-    dispatch(updateTextInput('mobile', resume.mobile));
-    dispatch(updateTextInput('location', resume.location));
-    dispatch(updateTextInput('aboutMe', resume.about_me));
-
-    resume.education_items.forEach((item) => {
-      dispatch(addItem('educationItems', item));
-    });
-    resume.work_experience_items.forEach((item) => {
-      dispatch(addItem('workExperienceItems', item));
-    });
-    resume.primary_skill_items.forEach((item) => {
-      dispatch(addItem('primarySkillsItems', item));
-    });
-    resume.secondary_skill_items.forEach((item) => {
-      dispatch(addItem('secondarySkillsItems', item));
-    });
-    resume.personal_reference_items.forEach((item) => {
-      dispatch(addItem('personalReferencesItems', item));
-    });
-    resume.job_reference_items.forEach((item) => {
-      dispatch(addItem('jobReferencesItems', item));
-    });
+  populateValues: (resume) => {
+    dispatch(populateInitialValues(resume));
   }
 });
 
 MyResume.propTypes = {
-  onLoad: PropTypes.func.isRequired
+  populateValues: PropTypes.func.isRequired,
+  requestStatus: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string
 };
 
 MyResume.defaultProps = {
-
+  errorMessage: null
 };
 
-export default connect(null, mapDispatchToProps)(MyResume);
+export default connect(mapStateToProps, mapDispatchToProps)(MyResume);

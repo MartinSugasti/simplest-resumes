@@ -96,7 +96,7 @@ Rails.application.routes.draw do
       post :checkout, on: :collection
     end
 
-    resource :my_resume, only: %i[show update destroy], controller: :my_resume
+    resource :my_resume, only: %i[show update], controller: :my_resume
   end
 
   namespace :recruiters do

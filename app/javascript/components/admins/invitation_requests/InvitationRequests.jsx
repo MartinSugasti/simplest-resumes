@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+
+import Toaster, { showErrorToast, showSuccessToast } from '../../shared/Toaster';
 
 import {
   getInvitationRequests,
@@ -21,20 +22,6 @@ const InvitationRequests = () => {
     }).catch((error) => console.log(error));
   }, []);
 
-  const toastConfig = {
-    position: 'bottom-left',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-    theme: 'light'
-  };
-
-  const showSucessToast = (message) => toast.success(message, toastConfig);
-  const showErrorToast = (message) => toast.error(message, toastConfig);
-
   const showInvitationApprovalModal = (email, role) => {
     setEmailToRequest(email);
 
@@ -53,7 +40,7 @@ const InvitationRequests = () => {
 
   const handleInvitationRequestApproval = (email, role) => {
     approveInvitationRequest(email, role)
-      .then(() => showSucessToast(t('admins.invitation_requests.index.approval_success')))
+      .then(() => showSuccessToast(t('admins.invitation_requests.index.approval_success')))
       .catch(() => showErrorToast(t('admins.invitation_requests.index.approval_failure')))
       .finally(() => {
         getInvitationRequests().then((response) => setInvitationRequests(response.data));
@@ -62,7 +49,7 @@ const InvitationRequests = () => {
 
   const handleInvitationRequestDismiss = (id) => {
     dismissInvitationRequest(id)
-      .then((response) => showSucessToast(response.data))
+      .then((response) => showSuccessToast(response.data))
       .catch((error) => showErrorToast(error.response.data))
       .finally(() => {
         getInvitationRequests().then((response) => setInvitationRequests(response.data));
@@ -71,7 +58,7 @@ const InvitationRequests = () => {
 
   const handleInvitationRequestBan = (id) => {
     banInvitationRequest(id)
-      .then((response) => showSucessToast(response.data))
+      .then((response) => showSuccessToast(response.data))
       .catch((error) => showErrorToast(error.response.data))
       .finally(() => {
         getInvitationRequests().then((response) => setInvitationRequests(response.data));
@@ -229,18 +216,7 @@ const InvitationRequests = () => {
         </div>
       </div>
 
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        theme="light"
-      />
+      <Toaster />
     </>
   );
 };

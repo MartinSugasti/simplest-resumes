@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+
+import Toaster, { showErrorToast, showSuccessToast } from '../../shared/Toaster';
 
 import { postCheckout } from './api';
 
@@ -11,22 +12,8 @@ const Payments = () => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
 
-    const toastConfig = {
-      position: 'bottom-left',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: 'light'
-    };
-
-    const showSucessToast = (message) => toast.success(message, toastConfig);
-    const showErrorToast = (message) => toast.error(message, toastConfig);
-
     if (query.get('success')) {
-      showSucessToast(t('candidates.payments.index.checkout_success'));
+      showSuccessToast(t('candidates.payments.index.checkout_success'));
     }
 
     if (query.get('canceled')) {
@@ -50,18 +37,7 @@ const Payments = () => {
         </button>
       </form>
 
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        theme="light"
-      />
+      <Toaster />
     </>
   );
 };

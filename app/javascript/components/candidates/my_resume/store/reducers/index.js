@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import textInputReducer from './textInputReducer';
 import listReducer from './listReducer';
+import requestStatusReducer from './requestStatusReducer';
 
 export default combineReducers({
   name: textInputReducer('name'),
@@ -13,5 +14,6 @@ export default combineReducers({
   primarySkillsItems: listReducer('primarySkillsItems'),
   secondarySkillsItems: listReducer('secondarySkillsItems'),
   personalReferencesItems: listReducer('personalReferencesItems'),
-  jobReferencesItems: listReducer('jobReferencesItems')
+  jobReferencesItems: listReducer('jobReferencesItems'),
+  requestStatus: requestStatusReducer
 });

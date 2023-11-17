@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useTranslation } from 'react-i18next';
 
+import Toaster, { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
 import PrivacyPolicy from './PrivacyPolicy';
 
 import sendContactForm from '../api';
@@ -11,20 +11,6 @@ import { GOOGLE_RECAPTCHA_SITE_KEY } from '../constants';
 const Contact = () => {
   const recaptchaRef = useRef();
   const { t, i18n } = useTranslation();
-
-  const toastConfig = {
-    position: 'bottom-left',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-    theme: 'light'
-  };
-
-  const showSucessToast = (message) => toast.success(message, toastConfig);
-  const showErrorToast = () => toast.error(t('pages.home.contact.contact_failure'), toastConfig);
 
   const enableContactFormButton = () => {
     document.querySelector('#contact-form-button').disabled = false;
@@ -48,7 +34,7 @@ const Contact = () => {
     sendContactForm(data)
       .then((response) => {
         event.target.reset();
-        showSucessToast(response.data);
+        showSuccessToast(response.data);
       }).catch((error) => {
         console.log(error);
         showErrorToast();
@@ -157,18 +143,7 @@ const Contact = () => {
 
         <PrivacyPolicy />
 
-        <ToastContainer
-          position="bottom-left"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover={false}
-          theme="light"
-        />
+        <Toaster />
       </div>
     </section>
   );

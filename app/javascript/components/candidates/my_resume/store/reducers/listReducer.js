@@ -1,4 +1,7 @@
-import { ADD_ITEM, REMOVE_ITEM } from '../actions';
+import {
+  ADD_ITEM,
+  REMOVE_ITEM
+} from '../actions';
 
 // eslint-disable-next-line default-param-last
 const listReducer = (listName, initialValue = []) => (state = { items: initialValue, sample: 'Sample' }, action) => {
