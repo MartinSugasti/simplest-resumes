@@ -3,12 +3,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { addItem, removeItem } from '../store/actions';
+import { createItem, destroyItem } from '../store/actions';
 
 import WorkExperienceModal from './WorkExperienceModal';
 import { exampleWorkExperienceItems } from '../constants';
 
-const WorkExperience = ({ items, onItemAddition, onItemRemoval }) => (
+const WorkExperience = ({
+  resumeId,
+  items,
+  onItemAddition,
+  onItemRemoval
+}) => (
   <div className="card-body py-0">
     <h3 className="mt-3 mb-0 text-md-start">
       Work Experience
@@ -31,9 +36,9 @@ const WorkExperience = ({ items, onItemAddition, onItemRemoval }) => (
                 {item.position}
                 <span
                   role="button"
-                  onClick={() => onItemRemoval(index)}
+                  onClick={() => onItemRemoval(item.id)}
                   tabIndex="0"
-                  onKeyDown={() => onItemRemoval(index)}
+                  onKeyDown={() => onItemRemoval(item.id)}
                 >
                   <i className="bi bi-trash fa-sm ms-2" />
                 </span>
@@ -84,7 +89,7 @@ const WorkExperience = ({ items, onItemAddition, onItemRemoval }) => (
       ))
     )}
 
-    <WorkExperienceModal addItem={onItemAddition} />
+    <WorkExperienceModal resumeId={resumeId} createItem={onItemAddition} />
   </div>
 );
 
@@ -94,14 +99,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onItemAddition: (item) => {
-    dispatch(addItem('workExperienceItems', item));
+    dispatch(createItem('workExperienceItem', item));
   },
-  onItemRemoval: (index) => {
-    dispatch(removeItem('workExperienceItems', index));
+  onItemRemoval: (id) => {
+    dispatch(destroyItem('workExperienceItem', id));
   }
 });
 
 WorkExperience.propTypes = {
+  resumeId: PropTypes.number,
   items: PropTypes.arrayOf(
     PropTypes.shape({})
   ),
@@ -110,6 +116,7 @@ WorkExperience.propTypes = {
 };
 
 WorkExperience.defaultProps = {
+  resumeId: null,
   items: []
 };
 

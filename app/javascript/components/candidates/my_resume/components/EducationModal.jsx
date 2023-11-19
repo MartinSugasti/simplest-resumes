@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Modal } from 'bootstrap';
 
-const EducationModal = ({ addItem }) => {
+const EducationModal = ({ resumeId, createItem }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // create item and add it to the items list
     const newItem = {
+      resume_id: resumeId,
       name: document.getElementById('new-education-item-name').value,
       institute: document.getElementById('new-education-item-institute').value,
       start_year: document.getElementById('new-education-item-start-year').value,
       end_year: document.getElementById('new-education-item-end-year').value
     };
-    addItem(newItem);
+    createItem(newItem);
+
+    const modalElement = document.querySelector('#newEducationItemModal');
+    const modal = Modal.getInstance(modalElement);
+    modal.hide();
 
     document.getElementById('newEducationItemForm').reset();
   };
@@ -109,7 +115,7 @@ const EducationModal = ({ addItem }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
+              <button type="submit" className="btn btn-primary text-light">
                 Add
               </button>
             </div>
@@ -121,11 +127,13 @@ const EducationModal = ({ addItem }) => {
 };
 
 EducationModal.propTypes = {
-  addItem: PropTypes.func
+  resumeId: PropTypes.number,
+  createItem: PropTypes.func
 };
 
 EducationModal.defaultProps = {
-  addItem: () => {}
+  resumeId: null,
+  createItem: () => {}
 };
 
 export default EducationModal;

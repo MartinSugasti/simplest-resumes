@@ -12,3 +12,15 @@ export const updateResume = (params) => {
 
   return response;
 };
+
+export const postItem = (itemType, params) => {
+  const response = axios.post(`/candidates/${itemType}s.json`, params);
+
+  return response;
+};
+
+export const deleteItem = (itemType, id) => {
+  const response = axios.delete(`/candidates/${itemType}s/${id}.json`);
+
+  return response;
+};

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Modal } from 'bootstrap';
 
-const WorkExperienceModal = ({ addItem }) => {
+const WorkExperienceModal = ({ resumeId, createItem }) => {
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -12,6 +13,7 @@ const WorkExperienceModal = ({ addItem }) => {
     const endYearMonth = endDate.split('-');
 
     const newItem = {
+      resume_id: resumeId,
       position: document.getElementById('new-work-experience-item-position').value,
       company: document.getElementById('new-work-experience-item-company').value,
       location: document.getElementById('new-work-experience-item-location').value,
@@ -21,7 +23,11 @@ const WorkExperienceModal = ({ addItem }) => {
       end_year: endYearMonth[0],
       description: document.getElementById('new-work-experience-item-description').value
     };
-    addItem(newItem);
+    createItem(newItem);
+
+    const modalElement = document.querySelector('#newWorkExperienceItemModal');
+    const modal = Modal.getInstance(modalElement);
+    modal.hide();
 
     document.getElementById('newWorkExperienceItemForm').reset();
   }
@@ -146,7 +152,7 @@ const WorkExperienceModal = ({ addItem }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
+              <button type="submit" className="btn btn-primary text-light">
                 Add
               </button>
             </div>
@@ -158,11 +164,13 @@ const WorkExperienceModal = ({ addItem }) => {
 };
 
 WorkExperienceModal.propTypes = {
-  addItem: PropTypes.func
+  resumeId: PropTypes.number,
+  createItem: PropTypes.func
 };
 
 WorkExperienceModal.defaultProps = {
-  addItem: () => {}
+  resumeId: null,
+  createItem: () => {}
 };
 
 export default WorkExperienceModal;

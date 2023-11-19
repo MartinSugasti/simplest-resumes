@@ -4,7 +4,7 @@ import {
 } from '../actions';
 
 // eslint-disable-next-line default-param-last
-const listReducer = (listName, initialValue = []) => (state = { items: initialValue, sample: 'Sample' }, action) => {
+const listReducer = (listName, initialValue = []) => (state = { items: initialValue }, action) => {
   if (action.listName !== listName) {
     return state;
   }
@@ -18,7 +18,7 @@ const listReducer = (listName, initialValue = []) => (state = { items: initialVa
     case REMOVE_ITEM:
       return {
         ...state,
-        items: state.items.filter((_, index) => index !== action.index)
+        items: state.items.filter((item) => item.id !== action.id)
       };
     default:
       return state;

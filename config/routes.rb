@@ -97,6 +97,10 @@ Rails.application.routes.draw do
     end
 
     resource :my_resume, only: %i[show update], controller: :my_resume
+    resources :education_items, only: %i[create destroy]
+    resources :work_experience_items, only: %i[create destroy]
+    resources :skill_items, only: %i[create destroy]
+    resources :reference_items, only: %i[create destroy]
   end
 
   namespace :recruiters do

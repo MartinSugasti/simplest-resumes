@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Modal } from 'bootstrap';
 
-const SkillModal = ({ addSkill }) => {
+const SkillModal = ({ resumeId, createItem }) => {
   function handleSubmit(event) {
     event.preventDefault();
 
     const name = document.getElementById('new-skill-name').value;
     const kind = document.getElementById('new-skill-kind').value;
-    addSkill({ name }, kind);
+    createItem(kind, { resume_id: resumeId, name, kind });
+
+    const modalElement = document.querySelector('#newSkillModal');
+    const modal = Modal.getInstance(modalElement);
+    modal.hide();
 
     document.getElementById('newSkillForm').reset();
   }
@@ -63,7 +68,7 @@ const SkillModal = ({ addSkill }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
+              <button type="submit" className="btn btn-primary text-light">
                 Add
               </button>
             </div>
@@ -75,11 +80,13 @@ const SkillModal = ({ addSkill }) => {
 };
 
 SkillModal.propTypes = {
-  addSkill: PropTypes.func
+  resumeId: PropTypes.number,
+  createItem: PropTypes.func
 };
 
 SkillModal.defaultProps = {
-  addSkill: () => {}
+  resumeId: null,
+  createItem: () => {}
 };
 
 export default SkillModal;

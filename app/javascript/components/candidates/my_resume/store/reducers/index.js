@@ -11,9 +11,9 @@ export default combineReducers({
   aboutMe: textInputReducer('aboutMe'),
   educationItems: listReducer('educationItems'),
   workExperienceItems: listReducer('workExperienceItems'),
-  primarySkillsItems: listReducer('primarySkillsItems'),
-  secondarySkillsItems: listReducer('secondarySkillsItems'),
-  personalReferencesItems: listReducer('personalReferencesItems'),
-  jobReferencesItems: listReducer('jobReferencesItems'),
+  primarySkillItems: listReducer('primarySkillItems'),
+  secondarySkillItems: listReducer('secondarySkillItems'),
+  personalReferenceItems: listReducer('personalReferenceItems'),
+  jobReferenceItems: listReducer('jobReferenceItems'),
   requestStatus: requestStatusReducer
 });

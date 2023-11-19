@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ResumeSerializer < ActiveModel::Serializer
-  attributes :name, :email, :mobile, :location, :about_me
+  attributes :id, :name, :email, :mobile, :location, :about_me
 
   has_many :education_items
   has_many :work_experience_items

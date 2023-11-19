@@ -3,12 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { addItem, removeItem } from '../store/actions';
+import { createItem, destroyItem } from '../store/actions';
 
 import ReferenceModal from './ReferenceModal';
 
 const SpecificReferences = ({
   title,
+  resumeId,
   exampleReferences,
   items,
   onItemAddition,
@@ -36,9 +37,9 @@ const SpecificReferences = ({
             {item.name}
             <span
               role="button"
-              onClick={() => onItemRemoval(index)}
+              onClick={() => onItemRemoval(item.id)}
               tabIndex="0"
-              onKeyDown={() => onItemRemoval(index)}
+              onKeyDown={() => onItemRemoval(item.id)}
             >
               <i className="bi bi-trash fa-sm ms-2" />
             </span>
@@ -61,25 +62,26 @@ const SpecificReferences = ({
       ))
     )}
 
-    <ReferenceModal title={title} addItem={onItemAddition} />
+    <ReferenceModal title={title} resumeId={resumeId} createItem={onItemAddition} />
   </div>
 );
 
 const mapStateToProps = (state, ownProps) => ({
-  items: state[`${ownProps.title}ReferencesItems`].items
+  items: state[`${ownProps.title}ReferenceItems`].items
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onItemAddition: (item) => {
-    dispatch(addItem(`${ownProps.title}ReferencesItems`, item));
+    dispatch(createItem(`${ownProps.title}ReferenceItem`, item));
   },
-  onItemRemoval: (index) => {
-    dispatch(removeItem(`${ownProps.title}ReferencesItems`, index));
+  onItemRemoval: (id) => {
+    dispatch(destroyItem(`${ownProps.title}ReferenceItem`, id));
   }
 });
 
 SpecificReferences.propTypes = {
   title: PropTypes.string,
+  resumeId: PropTypes.number,
   exampleReferences: PropTypes.arrayOf(
     PropTypes.shape({})
   ),
@@ -92,6 +94,7 @@ SpecificReferences.propTypes = {
 
 SpecificReferences.defaultProps = {
   title: '',
+  resumeId: null,
   exampleReferences: [],
   items: []
 };

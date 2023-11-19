@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Modal } from 'bootstrap';
 
-const ReferenceModal = ({ title, addItem }) => {
+const ReferenceModal = ({ title, resumeId, createItem }) => {
   function handleSubmit(event) {
     event.preventDefault();
 
     // create item and add it to the items list
     const newItem = {
+      resume_id: resumeId,
       name: document.getElementById(`new-${title}-reference-name`).value,
       mobile: document.getElementById(`new-${title}-reference-mobile`).value,
       company: document.getElementById(`new-${title}-reference-company`).value,
       position: document.getElementById(`new-${title}-reference-position`).value
     };
-    addItem(newItem);
+    createItem(newItem);
+
+    const modalElement = document.querySelector(`#new${title}ReferenceModal`);
+    const modal = Modal.getInstance(modalElement);
+    modal.hide();
 
     document.getElementById(`new${title}ReferenceForm`).reset();
   }
@@ -108,7 +114,7 @@ const ReferenceModal = ({ title, addItem }) => {
             </div>
 
             <div className="modal-footer justify-content-center">
-              <button type="submit" className="btn btn-primary text-light" data-bs-dismiss="modal" aria-label="Close">
+              <button type="submit" className="btn btn-primary text-light">
                 Add
               </button>
             </div>
@@ -121,12 +127,14 @@ const ReferenceModal = ({ title, addItem }) => {
 
 ReferenceModal.propTypes = {
   title: PropTypes.string,
-  addItem: PropTypes.func
+  resumeId: PropTypes.number,
+  createItem: PropTypes.func
 };
 
 ReferenceModal.defaultProps = {
   title: '',
-  addItem: () => {}
+  resumeId: null,
+  createItem: () => {}
 };
 
 export default ReferenceModal;

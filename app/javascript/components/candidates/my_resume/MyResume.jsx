@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -15,9 +15,14 @@ import References from './components/References';
 import { getResume } from './api';
 
 const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
+  const [resumeId, setResumeId] = useState();
+
   useEffect(() => {
     getResume()
-      .then((response) => populateValues(response.data))
+      .then((response) => {
+        setResumeId(response.data.id);
+        populateValues(response.data);
+      })
       .catch(() => showErrorToast('Something went wrong. Please, try again later!'));
   }, [populateValues]);
 
@@ -39,10 +44,10 @@ const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
         <div className="card py-3 border-2 text-dark">
           <PersonalInformation />
           <AboutMe />
-          <Education />
-          <WorkExperience />
-          <Skills />
-          <References />
+          <Education resumeId={resumeId} />
+          <WorkExperience resumeId={resumeId} />
+          <Skills resumeId={resumeId} />
+          <References resumeId={resumeId} />
         </div>
       )}
 

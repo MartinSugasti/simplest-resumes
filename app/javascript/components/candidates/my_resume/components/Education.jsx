@@ -3,12 +3,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { addItem, removeItem } from '../store/actions';
+import { createItem, destroyItem } from '../store/actions';
 
 import EducationModal from './EducationModal';
 import { exampleEducationItems } from '../constants';
 
-const Education = ({ items, onItemAddition, onItemRemoval }) => (
+const Education = ({
+  resumeId,
+  items,
+  onItemAddition,
+  onItemRemoval
+}) => (
   <div className="card-body py-0">
     <h3 className="mt-3 mb-0 text-md-start">
       Education
@@ -29,9 +34,9 @@ const Education = ({ items, onItemAddition, onItemRemoval }) => (
             {item.name}
             <span
               role="button"
-              onClick={() => onItemRemoval(index)}
+              onClick={() => onItemRemoval(item.id)}
               tabIndex="0"
-              onKeyDown={() => onItemRemoval(index)}
+              onKeyDown={() => onItemRemoval(item.id)}
             >
               <i className="bi bi-trash fa-sm ms-2" />
             </span>
@@ -64,7 +69,7 @@ const Education = ({ items, onItemAddition, onItemRemoval }) => (
       ))
     )}
 
-    <EducationModal addItem={onItemAddition} />
+    <EducationModal resumeId={resumeId} createItem={onItemAddition} />
   </div>
 );
 
@@ -74,14 +79,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onItemAddition: (item) => {
-    dispatch(addItem('educationItems', item));
+    dispatch(createItem('educationItem', item));
   },
-  onItemRemoval: (index) => {
-    dispatch(removeItem('educationItems', index));
+  onItemRemoval: (id) => {
+    dispatch(destroyItem('educationItem', id));
   }
 });
 
 Education.propTypes = {
+  resumeId: PropTypes.number,
   items: PropTypes.arrayOf(
     PropTypes.shape({})
   ),
@@ -90,6 +96,7 @@ Education.propTypes = {
 };
 
 Education.defaultProps = {
+  resumeId: null,
   items: []
 };
 
