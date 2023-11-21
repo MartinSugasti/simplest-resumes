@@ -7,7 +7,7 @@ class Candidates::MyResumeController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: current_candidate.resume || Resume.new
+        render json: current_candidate.resume || current_candidate.create_resume
       end
     end
   end

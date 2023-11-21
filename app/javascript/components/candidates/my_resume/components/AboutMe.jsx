@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { connect } from 'react-redux';
 import { updateTextInput } from '../store/actions';
@@ -8,6 +9,7 @@ import { exampleAboutMe } from '../constants';
 
 const AboutMe = ({ text, onInputChange }) => {
   const [editing, setEditing] = useState(false);
+  const { t } = useTranslation();
 
   const editInput = () => {
     setEditing(true);
@@ -37,7 +39,7 @@ const AboutMe = ({ text, onInputChange }) => {
   return (
     <div className="card-body py-0">
       <h3 className="mt-3 mb-0 text-md-start">
-        About Me
+        {t('candidates.my_resume.show.about_me')}
 
         <span role="button" onClick={editInput} tabIndex="0" onKeyDown={editInput}>
           <i className="bi bi-pencil-square fa-xs ms-2" />

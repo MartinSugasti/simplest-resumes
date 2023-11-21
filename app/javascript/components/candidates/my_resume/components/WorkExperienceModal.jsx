@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const WorkExperienceModal = ({ resumeId, createItem }) => {
+  const { t } = useTranslation();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -44,7 +47,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
         <div className="modal-content text-dark">
           <form id="newWorkExperienceItemForm" onSubmit={handleSubmit}>
             <div className="modal-header text-center">
-              <h3 className="modal-title w-100">Work Experience</h3>
+              <h3 className="modal-title w-100">{t('candidates.my_resume.show.work_experience')}</h3>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
 
@@ -54,7 +57,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
                   htmlFor="new-work-experience-item-position"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Position:
+                  {`${t('candidates.my_resume.show.position')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -71,7 +74,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
                   htmlFor="new-work-experience-item-company"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Company:
+                  {`${t('candidates.my_resume.show.company')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -88,7 +91,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
                   htmlFor="new-work-experience-item-start-date"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Start:
+                  {`${t('candidates.my_resume.show.start')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -105,7 +108,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
                   htmlFor="new-work-experience-item-end-date"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  End:
+                  {`${t('candidates.my_resume.show.end')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -121,7 +124,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
                   htmlFor="new-work-experience-item-location"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Location:
+                  {`${t('candidates.my_resume.show.location')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -138,7 +141,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
                   htmlFor="new-work-experience-item-description"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Description:
+                  {`${t('candidates.my_resume.show.description')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <textarea
@@ -153,7 +156,7 @@ const WorkExperienceModal = ({ resumeId, createItem }) => {
 
             <div className="modal-footer justify-content-center">
               <button type="submit" className="btn btn-primary text-light">
-                Add
+                {t('candidates.my_resume.show.add')}
               </button>
             </div>
           </form>

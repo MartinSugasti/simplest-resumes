@@ -68,6 +68,12 @@
           "unlock_token": "Unlock token",
           "updated_at": "Updated at"
         },
+        "education_item": {
+          "end_year": "End Year",
+          "institute": "Institute",
+          "name": "Name",
+          "start_year": "Start Year"
+        },
         "invitation_request": {
           "created_at": "Created at",
           "email": "Email",
@@ -99,6 +105,42 @@
           "unconfirmed_email": "Unconfirmed email",
           "unlock_token": "Unlock token",
           "updated_at": "Updated at"
+        },
+        "reference_item": {
+          "company": "Company",
+          "kind": "Kind",
+          "kinds": {
+            "job": "Job",
+            "personal": "Personal"
+          },
+          "mobile": "Mobile",
+          "name": "Name",
+          "position": "Position"
+        },
+        "resume": {
+          "about_me": "About Me",
+          "email": "Email",
+          "location": "Location",
+          "mobile": "Mobile",
+          "name": "Name"
+        },
+        "skill_item": {
+          "kind": "Kind",
+          "kinds": {
+            "primary": "Primary",
+            "secondary": "Secondary"
+          },
+          "name": "Name"
+        },
+        "work_experience_item": {
+          "company": "Company",
+          "description": "Description",
+          "end_month": "End Month",
+          "end_year": "End Year",
+          "location": "Location",
+          "position": "Position",
+          "start_month": "Start Month",
+          "start_year": "Start Year"
         }
       },
       "errors": {
@@ -118,7 +160,7 @@
               "email": {
                 "admin_already_exists": "An Admin already exists for the email",
                 "blank": "%{attribute} can't be blank",
-                "cannot_be_changed": "Email cannot be changes",
+                "cannot_be_changed": "Email cannot be changed",
                 "custom_taken": "%{value} already has an invitation request. If you haven't receive an invitation, please contact <a href='mailto:%{email}' class='text-muted'>%{email}</a> for more information %{email}",
                 "format": "%{message}"
               },
@@ -126,6 +168,33 @@
                 "invitation_request_already_approved": "cannot be changed once the invitation request was approved"
               }
             }
+          },
+          "resume": {
+            "attributes": {
+              "education_items": {
+                "too_long": "can be %{count} at most"
+              },
+              "job_reference_items": {
+                "too_long": "can be %{count} at most"
+              },
+              "personal_reference_items": {
+                "too_long": "can be %{count} at most"
+              },
+              "primary_skill_items": {
+                "too_long": "can be %{count} at most"
+              },
+              "secondary_skill_items": {
+                "too_long": "can be %{count} at most"
+              },
+              "work_experience_items": {
+                "too_long": "can be %{count} at most"
+              }
+            }
+          }
+        },
+        "validators": {
+          "resume_associations_count_validator": {
+            "too_many_associations": "%{model_name} can have %{count} associated records at most"
           }
         }
       },
@@ -135,8 +204,12 @@
           "other": "Admins"
         },
         "candidate": {
-          "one": "Cadidate",
+          "one": "Candidate",
           "other": "Candidates"
+        },
+        "eduction_item": {
+          "one": "Eduction Item",
+          "other": "Eduction Items"
         },
         "invitation_request": {
           "one": "Invitation request",
@@ -145,6 +218,22 @@
         "recruiter": {
           "one": "Recruiter",
           "other": "Recruiters"
+        },
+        "reference_item": {
+          "one": "Reference Item",
+          "other": "Reference Items"
+        },
+        "resume": {
+          "one": "Resume",
+          "other": "Resumes"
+        },
+        "skill_item": {
+          "one": "Skill",
+          "other": "Skills"
+        },
+        "work_experience_item": {
+          "one": "Work Experience Item",
+          "other": "Work Experience Items"
         }
       }
     },
@@ -224,6 +313,37 @@
       "dashboard": {
         "show": {
           "welcome": "Welcome to the the Candidate's dashboard!"
+        }
+      },
+      "my_resume": {
+        "show": {
+          "about_me": "About Me",
+          "add": "Add",
+          "company": "Company",
+          "description": "Description",
+          "download": "Download",
+          "education": "Education",
+          "end": "End",
+          "full_name": "Full Name",
+          "institute": "Institute",
+          "job": "Job",
+          "job_reference": "Job Reference",
+          "job_references": "Job References",
+          "kind": "Kind",
+          "location": "Location",
+          "mobile": "Mobile",
+          "name": "Name",
+          "personal": "Personal",
+          "personal_reference": "Personal Reference",
+          "personal_references": "Personal References",
+          "position": "Position",
+          "present": "Present",
+          "primary": "Primary",
+          "secondary": "Secondary",
+          "skill": "Skill",
+          "skills": "Skills",
+          "start": "Start",
+          "work_experience": "Work Experience"
         }
       },
       "payments": {
@@ -675,6 +795,9 @@
         "es": "Spanish"
       },
       "no": "No",
+      "toast": {
+        "default_error_message": "Something went wrong. Please, try again later!"
+      },
       "yes": "Yes"
     },
     "helpers": {
@@ -952,6 +1075,12 @@
           "unlock_token": "Código de desbloqueo",
           "updated_at": "Actualizado en"
         },
+        "education_item": {
+          "end_year": "Año de finalización",
+          "institute": "Instituto",
+          "name": "Nombre",
+          "start_year": "Año de comienzo"
+        },
         "invitation_request": {
           "created_at": "Creado en",
           "email": "Email",
@@ -983,6 +1112,42 @@
           "unconfirmed_email": "Email no confirmado",
           "unlock_token": "Código de desbloqueo",
           "updated_at": "Actualizado en"
+        },
+        "reference_item": {
+          "company": "Compañia",
+          "kind": "Tipo",
+          "kinds": {
+            "job": "Laboral",
+            "personal": "Personal"
+          },
+          "mobile": "Mobil",
+          "name": "Nombre",
+          "position": "Puesto"
+        },
+        "resume": {
+          "about_me": "Sobre mi",
+          "email": "Email",
+          "location": "Ubicación",
+          "mobile": "Mobil",
+          "name": "Nombre"
+        },
+        "skill_item": {
+          "kind": "Tipo",
+          "kinds": {
+            "primary": "Primaria",
+            "secondary": "Secundaria"
+          },
+          "name": "Nombre"
+        },
+        "work_experience_item": {
+          "company": "Compañia",
+          "description": "Descripción",
+          "end_month": "Mes de finalización",
+          "end_year": "Año de finalización",
+          "location": "Localización",
+          "position": "Puesto",
+          "start_month": "Mes de comienzo",
+          "start_year": "Año de comienzo"
         }
       },
       "errors": {
@@ -1010,6 +1175,33 @@
                 "invitation_request_already_approved": "no se puede modificar una vez que la solicitus fue aprobada"
               }
             }
+          },
+          "resume": {
+            "attributes": {
+              "education_items": {
+                "too_long": "pueder tener %{count} como máximo"
+              },
+              "job_reference_items": {
+                "too_long": "pueder tener %{count} como máximo"
+              },
+              "personal_reference_items": {
+                "too_long": "pueder tener %{count} como máximo"
+              },
+              "primary_skill_items": {
+                "too_long": "pueder tener %{count} como máximo"
+              },
+              "secondary_skill_items": {
+                "too_long": "pueder tener %{count} como máximo"
+              },
+              "work_experience_items": {
+                "too_long": "pueder tener %{count} como máximo"
+              }
+            }
+          }
+        },
+        "validators": {
+          "resume_associations_count_validator": {
+            "too_many_associations": "%{model_name} puede tener %{count} records asociados como máximo"
           }
         }
       },
@@ -1022,6 +1214,10 @@
           "one": "Candidato",
           "other": "Candidatos"
         },
+        "eduction_item": {
+          "one": "Educación",
+          "other": "Items de Educación"
+        },
         "invitation_request": {
           "one": "Solicitud de invitación",
           "other": "Solicitudes de invitación"
@@ -1029,6 +1225,22 @@
         "recruiter": {
           "one": "Reclutador",
           "other": "Reclutadores"
+        },
+        "reference_item": {
+          "one": "Referencia",
+          "other": "Items de Referencia"
+        },
+        "resume": {
+          "one": "Curricilum",
+          "other": "Curricilums"
+        },
+        "skill_item": {
+          "one": "Habilidad",
+          "other": "Habilidades"
+        },
+        "work_experience_item": {
+          "one": "Experiencia Laboral",
+          "other": "Items de Experiencia Laboral"
         }
       }
     },
@@ -1108,6 +1320,37 @@
       "dashboard": {
         "show": {
           "welcome": "Bienvenido al panel para candidatos!"
+        }
+      },
+      "my_resume": {
+        "show": {
+          "about_me": "Sobre Mi",
+          "add": "Agregar",
+          "company": "Compañia",
+          "description": "Descripción",
+          "download": "Descargar",
+          "education": "Educación",
+          "end": "Fin",
+          "full_name": "Nombre Completo",
+          "institute": "Instituto",
+          "job": "Laboral",
+          "job_reference": "Referencia Laboral",
+          "job_references": "Referencias Laborales",
+          "kind": "Tipo",
+          "location": "Ubicación",
+          "mobile": "Mobil",
+          "name": "Nombre",
+          "personal": "Personal",
+          "personal_reference": "Referencia Personal",
+          "personal_references": "Referencias Personales",
+          "position": "Puesto",
+          "present": "Presente",
+          "primary": "Primaria",
+          "secondary": "Secundaria",
+          "skill": "Habilidad",
+          "skills": "Habilidades",
+          "start": "Comienzo",
+          "work_experience": "Experiencia Laboral"
         }
       },
       "payments": {
@@ -1541,6 +1784,9 @@
         "es": "Español"
       },
       "no": "No",
+      "toast": {
+        "default_error_message": "Algo salió mal. Por favor, intenta nuevamente más tarde!"
+      },
       "yes": "Si"
     },
     "helpers": {

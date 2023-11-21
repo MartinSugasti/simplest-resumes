@@ -9,6 +9,8 @@ en:
       abbreviations:
         en: EN
         es: SP
+    toast:
+      default_error_message: 'Something went wrong. Please, try again later!'
 
   dashboard:
     users: 'Users'
@@ -100,6 +102,35 @@ en:
         checkout_success: Order placed! You will receive an email confirmation.
         checkout_canceled: Order canceled -- continue to shop around and checkout when you're ready.
         make_5_dollars_payment: Make a US$5 payment
+    my_resume:
+      show:
+        download: Download
+        about_me: About Me
+        education: Education
+        present: Present
+        name: Name
+        institute: Institute
+        start: Start
+        end: End
+        add: Add
+        work_experience: Work Experience
+        position: Position
+        company: Company
+        location: Location
+        description: Description
+        skills: Skills
+        skill: Skill
+        kind: Kind
+        primary: Primary
+        secondary: Secondary
+        job: Job
+        personal: Personal
+        job_references: Job References
+        personal_references: Personal References
+        job_reference: Job Reference
+        personal_reference: Personal Reference
+        full_name: Full Name
+        mobile: Mobile
 
   recruiters:
     dashboard:
@@ -137,7 +168,7 @@ en:
         one: Admin
         other: Admins
       candidate:
-        one: Cadidate
+        one: Candidate
         other: Candidates
       recruiter:
         one: Recruiter
@@ -145,6 +176,21 @@ en:
       invitation_request:
         one: Invitation request
         other: Invitation requests
+      resume:
+        one: Resume
+        other:  Resumes
+      eduction_item:
+        one: Eduction Item
+        other: Eduction Items
+      work_experience_item:
+        one: Work Experience Item
+        other: Work Experience Items
+      skill_item:
+        one: Skill
+        other: Skills
+      reference_item:
+        one: Reference Item
+        other: Reference Items
     attributes:
       admin:
         role: Role
@@ -164,6 +210,41 @@ en:
         email: Email
         status: Status
         created_at: Created at
+      resume:
+        about_me: About Me
+        email: Email
+        location: Location
+        mobile: Mobile
+        name: Name
+      education_item:
+        end_year: End Year
+        institute: Institute
+        name: Name
+        start_year: Start Year
+      work_experience_item:
+        company: Company
+        description: Description
+        end_month: End Month
+        end_year: End Year
+        location: Location
+        position: Position
+        start_month: Start Month
+        start_year: Start Year
+      skill_item:
+        name: Name
+        kind: Kind
+        kinds:
+          primary: Primary
+          secondary: Secondary
+      reference_item:
+        company: Company
+        kind: Kind
+        mobile: Mobile
+        name: Name
+        position: Position
+        kinds:
+          personal: Personal
+          job: Job
     errors:
       models:
         invitation_request:
@@ -175,7 +256,24 @@ en:
               # custom_taken is used instead of taken, because I was not being able to pass the email variable when using taken
               custom_taken: "%{value} already has an invitation request. If you haven't receive an invitation, please contact <a href='mailto:%{email}' class='text-muted'>%{email}</a> for more information %{email}"
               blank: "%{attribute} can't be blank"
-              cannot_be_changed: 'Email cannot be changes'
+              cannot_be_changed: 'Email cannot be changed'
               admin_already_exists: 'An Admin already exists for the email'
             status:
               invitation_request_already_approved: 'cannot be changed once the invitation request was approved'
+        resume:
+          attributes:
+            education_items:
+              too_long: "can be %{count} at most"
+            work_experience_items:
+              too_long: "can be %{count} at most"
+            primary_skill_items:
+              too_long: "can be %{count} at most"
+            secondary_skill_items:
+              too_long: "can be %{count} at most"
+            personal_reference_items:
+              too_long: "can be %{count} at most"
+            job_reference_items:
+              too_long: "can be %{count} at most"
+      validators:
+        resume_associations_count_validator:
+          too_many_associations: '%{model_name} can have %{count} associated records at most'

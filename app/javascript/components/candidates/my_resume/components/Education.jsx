@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { connect } from 'react-redux';
 import { createItem, destroyItem } from '../store/actions';
@@ -13,65 +14,69 @@ const Education = ({
   items,
   onItemAddition,
   onItemRemoval
-}) => (
-  <div className="card-body py-0">
-    <h3 className="mt-3 mb-0 text-md-start">
-      Education
+}) => {
+  const { t } = useTranslation();
 
-      <span role="button">
-        <i
-          className="bi bi-plus-circle fa-xs ms-2"
-          data-bs-toggle="modal"
-          data-bs-target="#newEducationItemModal"
-        />
-      </span>
-    </h3>
+  return (
+    <div className="card-body py-0">
+      <h3 className="mt-3 mb-0 text-md-start">
+        {t('candidates.my_resume.show.education')}
 
-    {items.length > 0 ? (
-      items.map((item, index) => (
-        <div key={index} id={index} className="row align-items-center text-md-start mt-2">
-          <p className="col-12 col-md-4 mb-0 fw-bold">
-            {item.name}
-            <span
-              role="button"
-              onClick={() => onItemRemoval(item.id)}
-              tabIndex="0"
-              onKeyDown={() => onItemRemoval(item.id)}
-            >
-              <i className="bi bi-trash fa-sm ms-2" />
-            </span>
-          </p>
-          <p className="col-12 col-md-5 mb-0">{item.institute}</p>
-          <p className="col-12 col-md-3 mb-0 fw-bold text-md-end">
-            {item.start_year}
-            {' - '}
-            {item.end_year ? item.end_year : 'Present'}
-          </p>
-        </div>
-      ))
-    ) : (
-      exampleEducationItems.map((item, index) => (
-        <div
-          key={index}
-          id={index}
-          className="row align-items-center text-md-start mt-2 fst-italic text-black-50"
-        >
-          <p className="col-12 col-md-4 mb-0 fw-bold">
-            {item.name}
-          </p>
-          <p className="col-12 col-md-5 mb-0">{item.institute}</p>
-          <p className="col-12 col-md-3 mb-0 fw-bold text-md-end">
-            {item.start_year}
-            {' - '}
-            {item.end_year ? item.end_year : 'Present'}
-          </p>
-        </div>
-      ))
-    )}
+        <span role="button">
+          <i
+            className="bi bi-plus-circle fa-xs ms-2"
+            data-bs-toggle="modal"
+            data-bs-target="#newEducationItemModal"
+          />
+        </span>
+      </h3>
 
-    <EducationModal resumeId={resumeId} createItem={onItemAddition} />
-  </div>
-);
+      {items.length > 0 ? (
+        items.map((item, index) => (
+          <div key={index} id={index} className="row align-items-center text-md-start mt-2">
+            <p className="col-12 col-md-4 mb-0 fw-bold">
+              {item.name}
+              <span
+                role="button"
+                onClick={() => onItemRemoval(item.id)}
+                tabIndex="0"
+                onKeyDown={() => onItemRemoval(item.id)}
+              >
+                <i className="bi bi-trash fa-sm ms-2" />
+              </span>
+            </p>
+            <p className="col-12 col-md-5 mb-0">{item.institute}</p>
+            <p className="col-12 col-md-3 mb-0 fw-bold text-md-end">
+              {item.start_year}
+              {' - '}
+              {item.end_year ? item.end_year : t('candidates.my_resume.show.present')}
+            </p>
+          </div>
+        ))
+      ) : (
+        exampleEducationItems.map((item, index) => (
+          <div
+            key={index}
+            id={index}
+            className="row align-items-center text-md-start mt-2 fst-italic text-black-50"
+          >
+            <p className="col-12 col-md-4 mb-0 fw-bold">
+              {item.name}
+            </p>
+            <p className="col-12 col-md-5 mb-0">{item.institute}</p>
+            <p className="col-12 col-md-3 mb-0 fw-bold text-md-end">
+              {item.start_year}
+              {' - '}
+              {item.end_year ? item.end_year : t('candidates.my_resume.show.present')}
+            </p>
+          </div>
+        ))
+      )}
+
+      <EducationModal resumeId={resumeId} createItem={onItemAddition} />
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   items: state.educationItems.items

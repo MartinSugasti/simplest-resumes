@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const ReferenceModal = ({ title, resumeId, createItem }) => {
+  const { t } = useTranslation();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -36,9 +39,7 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
           <form id={`new${title}ReferenceForm`} onSubmit={handleSubmit}>
             <div className="modal-header text-center">
               <h3 className="modal-title w-100">
-                {title}
-                {' '}
-                Reference
+                {t(`candidates.my_resume.show.${title}_reference`)}
               </h3>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
@@ -49,7 +50,7 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
                   htmlFor={`new-${title}-reference-name`}
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Full Name:
+                  {`${t('candidates.my_resume.show.full_name')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -66,7 +67,7 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
                   htmlFor={`new-${title}-reference-mobile`}
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Mobile:
+                  {`${t('candidates.my_resume.show.mobile')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -83,7 +84,7 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
                   htmlFor={`new-${title}-reference-company`}
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Company:
+                  {`${t('candidates.my_resume.show.company')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -100,7 +101,7 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
                   htmlFor={`new-${title}-reference-position`}
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Position:
+                  {`${t('candidates.my_resume.show.position')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -115,7 +116,7 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
 
             <div className="modal-footer justify-content-center">
               <button type="submit" className="btn btn-primary text-light">
-                Add
+                {t('candidates.my_resume.show.add')}
               </button>
             </div>
           </form>

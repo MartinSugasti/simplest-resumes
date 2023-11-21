@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const SkillModal = ({ resumeId, createItem }) => {
+  const { t } = useTranslation();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -29,7 +32,7 @@ const SkillModal = ({ resumeId, createItem }) => {
         <div className="modal-content text-dark">
           <form id="newSkillForm" onSubmit={handleSubmit}>
             <div className="modal-header text-center">
-              <h3 className="modal-title w-100">Skill</h3>
+              <h3 className="modal-title w-100">{t('candidates.my_resume.show.skill')}</h3>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
 
@@ -39,7 +42,7 @@ const SkillModal = ({ resumeId, createItem }) => {
                   htmlFor="new-skill-name"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Skill:
+                  {`${t('candidates.my_resume.show.name')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -56,12 +59,12 @@ const SkillModal = ({ resumeId, createItem }) => {
                   htmlFor="new-skill-kind"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Kind:
+                  {`${t('candidates.my_resume.show.kind')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <select className="form-control" id="new-skill-kind" required="required">
-                    <option value="primary">Primary</option>
-                    <option value="secondary">Secondary</option>
+                    <option value="primary">{t('candidates.my_resume.show.primary')}</option>
+                    <option value="secondary">{t('candidates.my_resume.show.secondary')}</option>
                   </select>
                 </div>
               </div>
@@ -69,7 +72,7 @@ const SkillModal = ({ resumeId, createItem }) => {
 
             <div className="modal-footer justify-content-center">
               <button type="submit" className="btn btn-primary text-light">
-                Add
+                {t('candidates.my_resume.show.add')}
               </button>
             </div>
           </form>

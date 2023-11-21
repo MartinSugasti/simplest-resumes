@@ -26,22 +26,22 @@ class Resume < ApplicationRecord
   belongs_to :candidate
 
   has_many :education_items, dependent: :destroy
-  validates :education_items, length: { maximum: 5, message: 'can be 5 at most' }
+  validates :education_items, length: { maximum: 5 }
 
   has_many :work_experience_items, dependent: :destroy
-  validates :work_experience_items, length: { maximum: 5, message: 'can be 5 items at most' }
+  validates :work_experience_items, length: { maximum: 5 }
 
   has_many :primary_skill_items, -> { where(kind: :primary) }, class_name: 'SkillItem', dependent: :destroy
-  validates :primary_skill_items, length: { maximum: 5, message: 'can be 5 at most' }
+  validates :primary_skill_items, length: { maximum: 5 }
 
   has_many :secondary_skill_items, -> { where(kind: :secondary) }, class_name: 'SkillItem', dependent: :destroy
-  validates :secondary_skill_items, length: { maximum: 5, message: 'can be 5 at most' }
+  validates :secondary_skill_items, length: { maximum: 5 }
 
   has_many :personal_reference_items, -> { where(kind: :personal) }, class_name: 'ReferenceItem', dependent: :destroy
-  validates :personal_reference_items, length: { maximum: 4, message: 'can be 4 at most' }
+  validates :personal_reference_items, length: { maximum: 4 }
 
   has_many :job_reference_items, -> { where(kind: :job) }, class_name: 'ReferenceItem', dependent: :destroy
-  validates :job_reference_items, length: { maximum: 4, message: 'can be 4 at most' }
+  validates :job_reference_items, length: { maximum: 4 }
 
   validates :name, length: { maximum: 40 }
   validates :email, length: { maximum: 40 }, format: Devise.email_regexp, allow_blank: true

@@ -32,5 +32,6 @@ class ReferenceItem < ApplicationRecord
   validates :position, presence: true, length: { maximum: 40 }
   validates :mobile, presence: true, length: { maximum: 20 }
   validates :kind, presence: true
-  validates_associated :resume
+
+  validates_with ResumeAssociationsCountValidator
 end

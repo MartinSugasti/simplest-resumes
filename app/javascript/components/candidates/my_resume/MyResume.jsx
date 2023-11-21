@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { connect } from 'react-redux';
 import { populateInitialValues } from './store/actions';
@@ -16,6 +17,7 @@ import { getResume } from './api';
 
 const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
   const [resumeId, setResumeId] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     getResume()
@@ -23,19 +25,19 @@ const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
         setResumeId(response.data.id);
         populateValues(response.data);
       })
-      .catch(() => showErrorToast('Something went wrong. Please, try again later!'));
+      .catch(() => showErrorToast());
   }, [populateValues]);
 
   useEffect(() => {
     if (requestStatus === 'failure') {
-      showErrorToast(errorMessage || 'Something went wrong. Please, try again later!');
+      showErrorToast(errorMessage);
     }
   }, [requestStatus, errorMessage]);
 
   return (
     <>
       <div className="mb-3">
-        <button type="button" className="btn btn-outline-primary">Download</button>
+        <button type="button" className="btn btn-outline-primary">{t('candidates.my_resume.show.download')}</button>
       </div>
 
       {requestStatus === 'sending' ? (

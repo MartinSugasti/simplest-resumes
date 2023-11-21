@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const EducationModal = ({ resumeId, createItem }) => {
+  const { t } = useTranslation();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -35,7 +38,7 @@ const EducationModal = ({ resumeId, createItem }) => {
         <div className="modal-content text-dark">
           <form id="newEducationItemForm" onSubmit={handleSubmit}>
             <div className="modal-header text-center">
-              <h3 className="modal-title w-100">Education</h3>
+              <h3 className="modal-title w-100">{t('candidates.my_resume.show.education')}</h3>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
 
@@ -45,7 +48,7 @@ const EducationModal = ({ resumeId, createItem }) => {
                   htmlFor="new-education-item-name"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Name:
+                  {`${t('candidates.my_resume.show.name')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -62,7 +65,7 @@ const EducationModal = ({ resumeId, createItem }) => {
                   htmlFor="new-education-item-institute"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Institute:
+                  {`${t('candidates.my_resume.show.institute')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -79,7 +82,7 @@ const EducationModal = ({ resumeId, createItem }) => {
                   htmlFor="new-education-item-start-year"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  Start:
+                  {`${t('candidates.my_resume.show.start')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -99,7 +102,7 @@ const EducationModal = ({ resumeId, createItem }) => {
                   htmlFor="new-education-item-end-year"
                   className="col-form-label col-12 col-sm-4 text-sm-end me-2"
                 >
-                  End:
+                  {`${t('candidates.my_resume.show.end')}:`}
                 </label>
                 <div className="col-12 col-sm-6">
                   <input
@@ -116,7 +119,7 @@ const EducationModal = ({ resumeId, createItem }) => {
 
             <div className="modal-footer justify-content-center">
               <button type="submit" className="btn btn-primary text-light">
-                Add
+                {t('candidates.my_resume.show.add')}
               </button>
             </div>
           </form>

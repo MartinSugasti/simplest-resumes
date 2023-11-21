@@ -30,5 +30,6 @@ class EducationItem < ApplicationRecord
   validates :end_year, presence: true, allow_nil: true, numericality: {
     only_integer: true, in: 1900..2100, greater_than_or_equal_to: ->(item) { item.start_year }
   }
-  validates_associated :resume
+
+  validates_with ResumeAssociationsCountValidator
 end

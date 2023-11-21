@@ -9,6 +9,8 @@ es:
       abbreviations:
         en: IN
         es: ES
+    toast:
+      default_error_message: 'Algo salió mal. Por favor, intenta nuevamente más tarde!'
 
   dashboard:
     users: 'Usuarios'
@@ -100,6 +102,35 @@ es:
         checkout_success: Orden creada! Recibiras un email de confirmacion
         checkout_canceled: Orden cancelada -- continua comprando y pasa por caja una vez pronto.
         make_5_dollars_payment: Realizar un pago de US$5
+    my_resume:
+      show:
+        download: Descargar
+        about_me: Sobre Mi
+        education: Educación
+        present: Presente
+        name: Nombre
+        institute: Instituto
+        start: Comienzo
+        end: Fin
+        add: Agregar
+        work_experience: Experiencia Laboral
+        position: Puesto
+        company: Compañia
+        location: Ubicación
+        description: Descripción
+        skills: Habilidades
+        skill: Habilidad
+        kind: Tipo
+        primary: Primaria
+        secondary: Secundaria
+        job: Laboral
+        personal: Personal
+        job_references: Referencias Laborales
+        personal_references: Referencias Personales
+        job_reference: Referencia Laboral
+        personal_reference: Referencia Personal
+        full_name: Nombre Completo
+        mobile: Mobil
 
   recruiters:
     dashboard:
@@ -145,6 +176,21 @@ es:
       invitation_request:
         one: Solicitud de invitación
         other: Solicitudes de invitación
+      resume:
+        one: Curricilum
+        other:  Curricilums
+      eduction_item:
+        one: Educación
+        other: Items de Educación
+      work_experience_item:
+        one: Experiencia Laboral
+        other: Items de Experiencia Laboral
+      skill_item:
+        one: Habilidad
+        other: Habilidades
+      reference_item:
+        one: Referencia
+        other: Items de Referencia
     attributes:
       admin:
         role: Rol
@@ -164,6 +210,41 @@ es:
         email: Email
         status: Estado
         created_at: Creado en
+      resume:
+        about_me: Sobre mi
+        email: Email
+        location: Ubicación
+        mobile: Mobil
+        name: Nombre
+      education_item:
+        end_year: Año de finalización
+        institute: Instituto
+        name: Nombre
+        start_year: Año de comienzo
+      work_experience_item:
+        company: Compañia
+        description: Descripción
+        end_month: Mes de finalización
+        end_year: Año de finalización
+        location: Localización
+        position: Puesto
+        start_month: Mes de comienzo
+        start_year: Año de comienzo
+      skill_item:
+        name: Nombre
+        kind: Tipo
+        kinds:
+          primary: Primaria
+          secondary: Secundaria
+      reference_item:
+        company: Compañia
+        kind: Tipo
+        mobile: Mobil
+        name: Nombre
+        position: Puesto
+        kinds:
+          personal: Personal
+          job: Laboral
     errors:
       models:
         invitation_request:
@@ -179,3 +260,20 @@ es:
               admin_already_exists: 'Un Administrador ya existe para este email'
             status:
               invitation_request_already_approved: 'no se puede modificar una vez que la solicitus fue aprobada'
+        resume:
+          attributes:
+            education_items:
+              too_long: "pueder tener %{count} como máximo"
+            work_experience_items:
+              too_long: "pueder tener %{count} como máximo"
+            primary_skill_items:
+              too_long: "pueder tener %{count} como máximo"
+            secondary_skill_items:
+              too_long: "pueder tener %{count} como máximo"
+            personal_reference_items:
+              too_long: "pueder tener %{count} como máximo"
+            job_reference_items:
+              too_long: "pueder tener %{count} como máximo"
+      validators:
+        resume_associations_count_validator:
+          too_many_associations: '%{model_name} puede tener %{count} records asociados como máximo'

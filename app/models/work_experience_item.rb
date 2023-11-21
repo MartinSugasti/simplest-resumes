@@ -42,5 +42,6 @@ class WorkExperienceItem < ApplicationRecord
   validates :end_year, presence: true, numericality: {
     only_integer: true, in: 1900..2100, greater_than_or_equal_to: ->(item) { item.start_year }
   }, if: ->(item) { item.end_month.present? }
-  validates_associated :resume
+
+  validates_with ResumeAssociationsCountValidator
 end
