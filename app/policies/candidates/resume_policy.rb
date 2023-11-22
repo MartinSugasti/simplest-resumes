@@ -8,4 +8,8 @@ class Candidates::ResumePolicy < ApplicationPolicy
   def update?
     record.candidate == user
   end
+
+  def destroy?
+    record.candidate == user
+  end
 end

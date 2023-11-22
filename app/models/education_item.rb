@@ -33,5 +33,5 @@ class EducationItem < ApplicationRecord
     only_integer: true, in: 1900..2100, greater_than_or_equal_to: ->(item) { item.start_year }
   }
 
-  validates_with ResumeAssociationsCountValidator
+  validates_with ResumeAssociationsCountValidator, on: :create
 end

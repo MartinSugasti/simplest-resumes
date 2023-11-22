@@ -12,12 +12,13 @@ const ReferenceModal = ({ title, resumeId, createItem }) => {
     // create item and add it to the items list
     const newItem = {
       resume_id: resumeId,
+      kind: title,
       name: document.getElementById(`new-${title}-reference-name`).value,
       mobile: document.getElementById(`new-${title}-reference-mobile`).value,
       company: document.getElementById(`new-${title}-reference-company`).value,
       position: document.getElementById(`new-${title}-reference-position`).value
     };
-    createItem(newItem);
+    createItem(title, newItem);
 
     const modalElement = document.querySelector(`#new${title}ReferenceModal`);
     const modal = Modal.getInstance(modalElement);

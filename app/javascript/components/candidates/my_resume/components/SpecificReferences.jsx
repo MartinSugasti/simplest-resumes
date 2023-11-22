@@ -74,8 +74,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onItemAddition: (item) => {
-    dispatch(createItem(`${ownProps.title}ReferenceItem`, item));
+  onItemAddition: (referenceType, item) => {
+    dispatch(createItem(`${referenceType}ReferenceItem`, item));
   },
   onItemRemoval: (id) => {
     dispatch(destroyItem(`${ownProps.title}ReferenceItem`, id));

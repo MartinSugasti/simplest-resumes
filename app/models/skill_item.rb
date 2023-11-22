@@ -29,5 +29,5 @@ class SkillItem < ApplicationRecord
   validates :name, presence: true, length: { maximum: 40 }
   validates :kind, presence: true
 
-  validates_with ResumeAssociationsCountValidator
+  validates_with ResumeAssociationsCountValidator, on: :create
 end
