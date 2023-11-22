@@ -5,6 +5,7 @@ class Candidates::WorkExperienceItemsController < ApplicationController
 
   def create
     work_experience_item = WorkExperienceItem.new(safe_params)
+    authorize(work_experience_item, policy_class: Candidates::ResumePolicy)
 
     if work_experience_item.save
       render json: { id: work_experience_item.id }, status: :ok
@@ -15,6 +16,7 @@ class Candidates::WorkExperienceItemsController < ApplicationController
 
   def destroy
     work_experience_item = WorkExperienceItem.find(params[:id])
+    authorize(work_experience_item, policy_class: Candidates::ResumePolicy)
 
     if work_experience_item.destroy
       head :ok

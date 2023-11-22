@@ -5,6 +5,7 @@ class Candidates::ReferenceItemsController < ApplicationController
 
   def create
     reference_item = ReferenceItem.new(safe_params)
+    authorize(reference_item, policy_class: Candidates::ResumePolicy)
 
     if reference_item.save
       render json: { id: reference_item.id }, status: :ok
@@ -15,6 +16,7 @@ class Candidates::ReferenceItemsController < ApplicationController
 
   def destroy
     reference_item = ReferenceItem.find(params[:id])
+    authorize(reference_item, policy_class: Candidates::ResumePolicy)
 
     if reference_item.destroy
       head :ok

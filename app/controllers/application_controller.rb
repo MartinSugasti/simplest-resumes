@@ -20,8 +20,15 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = t('application.user_not_authorized')
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html do
+        flash[:alert] = t('application.user_not_authorized')
+        redirect_back(fallback_location: root_path)
+      end
+      format.json do
+        render json: { errors: t('application.user_not_authorized') }, status: :unauthorized
+      end
+    end
   end
 
   def set_locale

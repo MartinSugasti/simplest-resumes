@@ -20,9 +20,11 @@
 #  fk_rails_...  (resume_id => resumes.id)
 #
 class SkillItem < ApplicationRecord
+  enum kind: %i[primary secondary]
+
   belongs_to :resume
 
-  enum kind: %i[primary secondary]
+  delegate :candidate, to: :resume
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :kind, presence: true

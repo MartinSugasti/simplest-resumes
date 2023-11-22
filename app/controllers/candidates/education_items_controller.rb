@@ -5,6 +5,7 @@ class Candidates::EducationItemsController < ApplicationController
 
   def create
     education_item = EducationItem.new(safe_params)
+    authorize(education_item, policy_class: Candidates::ResumePolicy)
 
     if education_item.save
       render json: { id: education_item.id }, status: :ok
@@ -15,6 +16,7 @@ class Candidates::EducationItemsController < ApplicationController
 
   def destroy
     education_item = EducationItem.find(params[:id])
+    authorize(education_item, policy_class: Candidates::ResumePolicy)
 
     if education_item.destroy
       head :ok

@@ -14,6 +14,7 @@ class Candidates::MyResumeController < ApplicationController
 
   def update
     resume = current_candidate.resume || current_candidate.create_resume
+    authorize([:candidates, resume])
 
     if resume.update(safe_params)
       head :ok

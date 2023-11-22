@@ -23,9 +23,11 @@
 #  fk_rails_...  (resume_id => resumes.id)
 #
 class ReferenceItem < ApplicationRecord
+  enum kind: %i[personal job]
+
   belongs_to :resume
 
-  enum kind: %i[personal job]
+  delegate :candidate, to: :resume
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :company, presence: true, length: { maximum: 40 }

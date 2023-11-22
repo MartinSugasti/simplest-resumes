@@ -24,6 +24,8 @@
 class EducationItem < ApplicationRecord
   belongs_to :resume
 
+  delegate :candidate, to: :resume
+
   validates :name, presence: true, length: { maximum: 40 }
   validates :institute, presence: true, length: { maximum: 40 }
   validates :start_year, presence: true, numericality: { only_integer: true, in: 1900..2100 }

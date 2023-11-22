@@ -28,6 +28,8 @@
 class WorkExperienceItem < ApplicationRecord
   belongs_to :resume
 
+  delegate :candidate, to: :resume
+
   validates :position, presence: true, length: { maximum: 40 }
   validates :company, presence: true, length: { maximum: 40 }
   validates :location, presence: true, length: { maximum: 40 }
