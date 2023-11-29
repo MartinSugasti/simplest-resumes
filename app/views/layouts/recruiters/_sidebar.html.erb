@@ -1,4 +1,11 @@
 <li>
+  <%= link_to recruiters_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(recruiters_job_postings_path, new_recruiters_job_posting_path) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
+    <i class="bi bi-collection pe-2"></i>
+    Job Postings
+  <% end %>
+</li>
+
+<li>
   <%= link_to edit_recruiter_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_recruiter_registration_path) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     <%= t('dashboard.settings') %>

@@ -1,0 +1,8 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1">Job Postings</h2>
+  <p id="top-section-breadcrumbs" class="small text-muted mb-0">Job Postings / <strong>Edit</strong></p>
+<% end %>
+
+<%= content_tag(:div, "", id: "recruiters-job-postings-container", data: {
+  controller: "recruiters_job_postings"
+}) %>

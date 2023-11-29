@@ -32,6 +32,8 @@ class Recruiter < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :validatable, :confirmable, :masqueradable
 
+  has_many :job_postings, dependent: :destroy
+
   has_one_attached :profile_picture
   validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
 

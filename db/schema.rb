@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_14_162001) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_27_142736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -109,6 +109,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_162001) do
     t.index ["email"], name: "index_invitation_requests_on_email", unique: true
   end
 
+  create_table "job_postings", force: :cascade do |t|
+    t.string "title", limit: 40, null: false
+    t.string "company", limit: 40, null: false
+    t.string "skills", limit: 80, null: false
+    t.text "description", null: false
+    t.boolean "published", default: false, null: false
+    t.bigint "recruiter_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recruiter_id"], name: "index_job_postings_on_recruiter_id"
+  end
+
   create_table "recruiters", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -178,6 +190,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_162001) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "education_items", "resumes"
+  add_foreign_key "job_postings", "recruiters"
   add_foreign_key "reference_items", "resumes"
   add_foreign_key "resumes", "candidates"
   add_foreign_key "skill_items", "resumes"

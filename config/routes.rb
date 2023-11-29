@@ -105,6 +105,8 @@ Rails.application.routes.draw do
 
   namespace :recruiters do
     get 'dashboard/show'
+
+    resources :job_postings
   end
 
   resources :stripe_webhooks, only: [:create]
