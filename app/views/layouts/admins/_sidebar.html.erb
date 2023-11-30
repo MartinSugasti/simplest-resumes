@@ -4,15 +4,15 @@
     <%= t('dashboard.users') %>
   </a>
 
-  <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse <%= current_sidebar_option?(admins_admins_path, admins_candidates_path, admins_recruiters_path) ? "show" : '' %>" data-bs-parent="#sidebar">
+  <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse <%= active_sidebar_option?({ 'admins/admins' => ['index'], 'admins/candidates' => ['index'], 'admins/recruiters' => ['index'] }) ? "show" : '' %>" data-bs-parent="#sidebar">
     <li>
-      <%= link_to t('dashboard.admins'), admins_admins_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_admins_path) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.admins'), admins_admins_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/admins' => ['index'] }) ? "bg-primary-dark" : ''}" %>
     </li>
     <li>
-    <%= link_to t('dashboard.candidates'), admins_candidates_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_candidates_path) ? "bg-primary-dark" : ''}" %>
+    <%= link_to t('dashboard.candidates'), admins_candidates_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/candidates' => ['index'] }) ? "bg-primary-dark" : ''}" %>
     </li>
     <li>
-      <%= link_to t('dashboard.recruiters'), admins_recruiters_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_recruiters_path) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.recruiters'), admins_recruiters_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/recruiters' => ['index'] }) ? "bg-primary-dark" : ''}" %>
     </li>
   </ul>
 </li>
@@ -24,19 +24,19 @@
       <%= t('dashboard.invitations') %>
     </a>
 
-    <ul id="invitations-dropdown" class="sidebar-dropdown list-unstyled collapse <%= current_sidebar_option?(new_admin_invitation_path, admins_invitation_requests_path) ? "show" : '' %>" data-bs-parent="#sidebar">
+    <ul id="invitations-dropdown" class="sidebar-dropdown list-unstyled collapse <%= active_sidebar_option?({ 'admins/invitations' => ['new'], 'admins/invitation_requests' => ['index'] }) ? "show" : '' %>" data-bs-parent="#sidebar">
       <li>
-        <%= link_to t('dashboard.send_invitation'), new_admin_invitation_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(new_admin_invitation_path) ? "bg-primary-dark" : ''}" %>
+        <%= link_to t('dashboard.send_invitation'), new_admin_invitation_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/invitations' => ['new'] }) ? "bg-primary-dark" : ''}" %>
       </li>
       <li>
-        <%= link_to t('dashboard.requests'), admins_invitation_requests_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(admins_invitation_requests_path) ? "bg-primary-dark" : ''}" %>
+        <%= link_to t('dashboard.requests'), admins_invitation_requests_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/invitation_requests' => ['index'] }) ? "bg-primary-dark" : ''}" %>
       </li>
     </ul>
   </li>
 <% end %>
 
 <li>
-  <%= link_to edit_admin_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_admin_registration_path) ? "bg-primary-dark" : ''}" do %>
+  <%= link_to edit_admin_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/registrations' => ['edit'] }) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     <%= t('dashboard.settings') %>
   <% end %>
@@ -44,7 +44,7 @@
 
 
 <li>
-  <%= button_to destroy_admin_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_admin_session_path) ? "bg-primary-dark" : ''}", method: :delete do %>
+  <%= button_to destroy_admin_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0", method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
     <%= t('dashboard.sign_out') %>
   </a>

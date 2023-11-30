@@ -1,19 +1,19 @@
 <li>
-  <%= link_to recruiters_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(recruiters_job_postings_path, new_recruiters_job_posting_path) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
+  <%= link_to recruiters_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'recruiters/job_postings' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
     <i class="bi bi-collection pe-2"></i>
     Job Postings
   <% end %>
 </li>
 
 <li>
-  <%= link_to edit_recruiter_registration_path, class: "sidebar-link text-light px-4 py-2 #{current_sidebar_option?(edit_recruiter_registration_path) ? "bg-primary-dark" : ''}" do %>
+  <%= link_to edit_recruiter_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'recruiters/registrations' => ['edit'] }) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     <%= t('dashboard.settings') %>
   <% end %>
 </li>
 
 <li>
-  <%= button_to destroy_recruiter_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0 #{current_sidebar_option?(destroy_recruiter_session_path) ? "bg-primary-dark" : ''}", method: :delete do %>
+  <%= button_to destroy_recruiter_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0", method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
     <%= t('dashboard.sign_out') %>
   <% end %>
