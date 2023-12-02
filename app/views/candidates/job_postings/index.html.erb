@@ -1,0 +1,9 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1"><%= t('dashboard.candidates') %></h2>
+  <p id="top-section-breadcrumbs" class="small text-muted mb-0"><strong>Job Postings</strong></p>
+<% end %>
+
+<%= content_tag(:div, "", id: "candidates-job-postings-container", data: {
+  controller: "candidates_job_postings"
+}) %>
+

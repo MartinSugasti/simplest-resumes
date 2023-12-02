@@ -6,6 +6,13 @@
 </li>
 
 <li>
+  <%= link_to candidates_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/job_postings' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
+    <i class="bi bi-collection pe-2"></i>
+    Job Postings
+  <% end %>
+</li>
+
+<li>
   <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#users-dropdown" aria-expanded="false" aria-controls="users-dropdown">
     <i class="bi bi-credit-card pe-2 pe-2"></i>
     <%= t('dashboard.payments') %>

@@ -17,6 +17,7 @@ import AdminsInvitationRequestsController from './admins/invitation_requests_con
 // Candidates components
 import CandidatesPaymentsController from './candidates/payments_controller';
 import CandidatesMyResumeController from './candidates/my_resume_controller';
+import CandidatesJobPostingsController from './candidates/job_postings_controller';
 
 // Recruiters components
 import RecruitersJobPostingsController from './recruiters/job_postings_controller';
@@ -35,6 +36,7 @@ application.register('admins_invitation_requests', AdminsInvitationRequestsContr
 // Cadidates controllers
 application.register('candidates_payments', CandidatesPaymentsController);
 application.register('candidates_my_resume', CandidatesMyResumeController);
+application.register('candidates_job_postings', CandidatesJobPostingsController);
 
 // Recruiters controllers
 application.register('recruiters_job_postings', RecruitersJobPostingsController);

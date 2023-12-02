@@ -101,6 +101,8 @@ Rails.application.routes.draw do
     resources :work_experience_items, only: %i[create destroy]
     resources :skill_items, only: %i[create destroy]
     resources :reference_items, only: %i[create destroy]
+
+    resources :job_postings, only: %i[index show]
   end
 
   namespace :recruiters do

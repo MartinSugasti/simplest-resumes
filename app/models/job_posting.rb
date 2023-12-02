@@ -30,4 +30,6 @@ class JobPosting < ApplicationRecord
   validates :skills, length: { maximum: 80 }
   validates :description, length: { maximum: 800 }
   validates :published, inclusion: [true, false]
+
+  scope :published, -> { where(published: true) }
 end

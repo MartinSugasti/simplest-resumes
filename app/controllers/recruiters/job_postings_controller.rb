@@ -6,9 +6,7 @@ class Recruiters::JobPostingsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json do
-        render json: current_recruiter.job_postings
-      end
+      format.json { render json: current_recruiter.job_postings }
     end
   end
 

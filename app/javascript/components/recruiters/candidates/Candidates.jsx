@@ -23,11 +23,7 @@ const router = createBrowserRouter([
         path: '/recruiters/candidates/:id',
         element: <Candidate />,
         loader: showLoader
-      },
-      // {
-      //   path: '/recruiters/job_postings/:id/destroy',
-      //   action: destroyAction
-      // }
+      }
     ]
   }
 ]);
