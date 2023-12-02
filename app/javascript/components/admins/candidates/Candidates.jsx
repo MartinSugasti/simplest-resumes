@@ -35,8 +35,8 @@ const Candidates = ({ hasMasqueradePermissions }) => {
           {candidates.map((candidate, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <tr key={index}>
-              <td>{candidate.id}</td>
-              <td className="image-cell">
+              <td className="align-middle">{candidate.id}</td>
+              <td className="image-cell align-middle">
                 <span>
                   {candidate.email}
                   {candidate.profile_picture_url && (
@@ -44,10 +44,10 @@ const Candidates = ({ hasMasqueradePermissions }) => {
                   )}
                 </span>
               </td>
-              <td>{candidate.created_at}</td>
-              <td>{candidate['confirmed?'] ? t('general.yes') : t('general.no') }</td>
+              <td className="align-middle">{candidate.created_at}</td>
+              <td className="align-middle">{candidate['confirmed?'] ? t('general.yes') : t('general.no') }</td>
               {hasMasqueradePermissions && (
-                <td>
+                <td className="align-middle">
                   <a href={`${candidate.sign_in_path}?resource_id=${candidate.id}`}>
                     {t('devise.shared.links.sign_in')}
                   </a>

@@ -6,6 +6,13 @@
 </li>
 
 <li>
+  <%= link_to recruiters_candidates_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'recruiters/candidates' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
+    <i class="bi bi-person-fill pe-2"></i>
+    Candidates
+  <% end %>
+</li>
+
+<li>
   <%= link_to edit_recruiter_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'recruiters/registrations' => ['edit'] }) ? "bg-primary-dark" : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     <%= t('dashboard.settings') %>

@@ -20,6 +20,7 @@ import CandidatesMyResumeController from './candidates/my_resume_controller';
 
 // Recruiters components
 import RecruitersJobPostingsController from './recruiters/job_postings_controller';
+import RecruitersCandidatesController from './recruiters/candidates_controller';
 
 // Shared controllers
 application.register('home', HomeController);
@@ -37,3 +38,4 @@ application.register('candidates_my_resume', CandidatesMyResumeController);
 
 // Recruiters controllers
 application.register('recruiters_job_postings', RecruitersJobPostingsController);
+application.register('recruiters_candidates', RecruitersCandidatesController);

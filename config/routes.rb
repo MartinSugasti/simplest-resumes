@@ -107,6 +107,8 @@ Rails.application.routes.draw do
     get 'dashboard/show'
 
     resources :job_postings
+    resources :candidates, only: %i[index show]
+    resources :resumes, only: %i[show]
   end
 
   resources :stripe_webhooks, only: [:create]

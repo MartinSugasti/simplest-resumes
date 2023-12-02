@@ -36,6 +36,11 @@ class Candidate < ApplicationRecord
   validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
 
   has_one :resume, dependent: :destroy
+  has_many :primary_skill_items, through: :resume
+
+  delegate :about_me, to: :resume, allow_nil: true
+
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |candidate|
