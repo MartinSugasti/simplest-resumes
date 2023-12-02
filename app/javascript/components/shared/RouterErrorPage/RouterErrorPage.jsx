@@ -1,20 +1,26 @@
 import React from 'react';
-import { useRouteError } from 'react-router-dom';
+import { useRouteError, useNavigate } from 'react-router-dom';
+
+import ErrorPage from '../ErrorPage';
 
 const RouterErrorPage = () => {
   const error = useRouteError();
-  // console.error(error);
+  const navigate = useNavigate();
 
   return (
-    <div className="align-items-center d-flex justify-content-center my-5 py-5">
-      <div id="error-page" className="text-center text-dark">
-        <h2 className="mb-1">Oops!</h2>
-        <p className="mb-1">Sorry, an unexpected error has occurred.</p>
-        <p className="mb-0">
-          <i>{error.statusText || error.message}</i>
-        </p>
+    <>
+      <div className="mb-3">
+        <button
+          type="button"
+          className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </button>
       </div>
-    </div>
+
+      <ErrorPage message={error?.response?.data?.errors || error?.statusText || error?.message} />
+    </>
   );
 };
 

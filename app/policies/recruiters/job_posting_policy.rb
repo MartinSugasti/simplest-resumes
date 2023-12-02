@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Recruiters::JobPostingPolicy < ApplicationPolicy
-  def new
+  def new?
     record.recruiter == user
   end
 
@@ -9,11 +9,11 @@ class Recruiters::JobPostingPolicy < ApplicationPolicy
     record.recruiter == user
   end
 
-  def show
+  def show?
     record.recruiter == user
   end
 
-  def edit
+  def edit?
     record.recruiter == user
   end
 

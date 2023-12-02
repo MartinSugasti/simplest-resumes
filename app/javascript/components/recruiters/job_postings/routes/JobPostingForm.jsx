@@ -2,16 +2,21 @@ import React, { useEffect } from 'react';
 import {
   useLoaderData,
   Form,
-  Link,
   useOutletContext,
   useParams,
   redirect,
-  useSubmit
+  useSubmit,
+  useNavigate,
+  useActionData
 } from 'react-router-dom';
 
 import { editJobPosting, createJobPosting, updateJobPosting } from '../api';
+import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
 
-export const newLoader = () => ({ jobPosting: {} });
+export const newLoader = ({ request, params }) => {
+
+  return { jobPosting: {} };
+}
 
 export const editLoader = async ({ params }) => {
   const response = await editJobPosting(params.id);
@@ -22,27 +27,35 @@ export const editLoader = async ({ params }) => {
 export const createAction = async ({ request }) => {
   const formData = await request.formData();
   const formParams = Object.fromEntries(formData);
-  await createJobPosting({ job_posting: formParams });
 
-  return redirect('/recruiters/job_postings');
+  try {
+    await createJobPosting({ job_posting: formParams });
+    showSuccessToast('Job Posting successfully created!');
+
+    return redirect('/recruiters/job_postings');
+  } catch (error) {
+    const errorMessage = error.response?.data?.errors || error.message;
+    showErrorToast(errorMessage);
+
+    return { errors: error.response?.data?.errors };
+  }
 };
 
 export const updateAction = async ({ request, params }) => {
   const formData = await request.formData();
   const formParams = Object.fromEntries(formData);
 
-  await updateJobPosting(params.id, { job_posting: formParams });
+  try {
+    await updateJobPosting(params.id, { job_posting: formParams });
+    showSuccessToast('Job Posting successfully updated!');
 
-  return redirect('/recruiters/job_postings');
-};
+    return redirect('/recruiters/job_postings');
+  } catch (error) {
+    const errorMessage = error.response?.data?.errors || error.message;
+    showErrorToast(errorMessage);
 
-export const destroyAction = async ({ request, params }) => {
-  const formData = await request.formData();
-  const formParams = Object.fromEntries(formData);
-
-  await updateJobPosting(params.id, { job_posting: formParams });
-
-  return redirect('/recruiters/job_postings');
+    return { errors: error.response?.data?.errors };
+  }
 };
 
 const JobPostingForm = () => {
@@ -50,6 +63,8 @@ const JobPostingForm = () => {
   const [setBreadcrumbs] = useOutletContext();
   const { id } = useParams();
   const submit = useSubmit();
+  const navigate = useNavigate();
+  const data = useActionData();
 
   useEffect(() => {
     let breadcrumbs;
@@ -65,57 +80,108 @@ const JobPostingForm = () => {
   return (
     <>
       <div className="mb-3">
-        <Link to="/recruiters/job_postings" className="text-primary">
+        <button
+          type="button"
+          className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
+          onClick={() => navigate(-1)}
+        >
           Back
-        </Link>
+        </button>
       </div>
 
       <Form method="post">
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title</label>
+
           <input
             type="text"
-            className="form-control"
+            className={`form-control ${data?.errors?.title ? 'is-invalid' : '' }`}
             id="title"
             name="title"
             defaultValue={jobPosting.title}
             required
           />
+
+          {data?.errors?.title && (
+            <div className="invalid-feedback">
+              {`Title ${data?.errors?.title[0]}`}
+            </div>
+          )}
         </div>
 
         <div className="mb-3">
           <label htmlFor="company" className="form-label">Company</label>
-          <input type="text" className="form-control" id="company" name="company" defaultValue={jobPosting.company} />
+
+          <input
+            type="text"
+            className={`form-control ${data?.errors?.company ? 'is-invalid' : '' }`}
+            id="company"
+            name="company"
+            defaultValue={jobPosting.company}
+          />
+
+          {data?.errors?.company && (
+            <div className="invalid-feedback">
+              {`Company ${data?.errors?.company[0]}`}
+            </div>
+          )}
         </div>
 
         <div className="mb-3">
           <label htmlFor="skills" className="form-label">Skills</label>
-          <input type="text" className="form-control" id="skills" name="skills" defaultValue={jobPosting.skills} />
+
+          <input
+            type="text"
+            className={`form-control ${data?.errors?.skills ? 'is-invalid' : '' }`}
+            id="skills"
+            name="skills"
+            defaultValue={jobPosting.skills}
+          />
+
+          {data?.errors?.skills && (
+            <div className="invalid-feedback">
+              {`Skills ${data?.errors?.skills[0]}`}
+            </div>
+          )}
         </div>
 
         <div className="mb-3">
           <label htmlFor="description" className="form-label">Description</label>
+
           <textarea
-            className="form-control"
+            className={`form-control ${data?.errors?.description ? 'is-invalid' : '' }`}
             id="description"
             name="description"
             rows="3"
             defaultValue={jobPosting.description}
           />
+
+          {data?.errors?.description && (
+            <div className="invalid-feedback">
+              {`Description ${data?.errors?.description[0]}`}
+            </div>
+          )}
         </div>
 
         <div className="mb-3 form-check">
           <input type="hidden" value={false} name="published" />
           <input
             type="checkbox"
-            className="form-check-input"
+            className={`form-check-input ${data?.errors?.published ? 'is-invalid' : '' }`}
             id="published"
             name="published"
             defaultChecked={jobPosting.published}
           />
+
           <label className="form-check-label" htmlFor="published">
             Publish?
           </label>
+
+          {data?.errors?.published && (
+            <div className="invalid-feedback">
+              {`Publish ${data?.errors?.published[0]}`}
+            </div>
+          )}
         </div>
 
         <button type="submit" className="btn btn-primary text-light">Save</button>

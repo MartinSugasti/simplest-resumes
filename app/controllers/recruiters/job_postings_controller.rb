@@ -12,6 +12,18 @@ class Recruiters::JobPostingsController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.json do
+        job_posting = JobPosting.find(params[:id])
+        authorize(job_posting, policy_class: Recruiters::JobPostingPolicy)
+
+        render json: job_posting
+      end
+    end
+  end
+
   def new; end
 
   def create
@@ -21,11 +33,9 @@ class Recruiters::JobPostingsController < ApplicationController
     if job_posting.save
       render json: { id: job_posting.id }, status: :ok
     else
-      render json: { errors: job_posting.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      render json: { errors: job_posting.errors }, status: :unprocessable_entity
     end
   end
-
-  def show; end
 
   def edit
     respond_to do |format|
@@ -46,7 +56,7 @@ class Recruiters::JobPostingsController < ApplicationController
     if job_posting.update(safe_params)
       render json: { id: job_posting.id }, status: :ok
     else
-      render json: { errors: job_posting.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      render json: { errors: job_posting.errors }, status: :unprocessable_entity
     end
   end
 
