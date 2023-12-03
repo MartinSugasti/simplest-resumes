@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import JobPostingsRoot from './routes/JobPostingsRoot';
 import JobPostingsList, { loader as listLoader } from './routes/JobPostingsList';
-import JobPosting, { loader as showLoader } from './routes/JobPosting';
+import JobPosting, { loader as showLoader, action as showAction } from './routes/JobPosting';
 import RouterErrorPage from '../../shared/RouterErrorPage';
 import Toaster from '../../shared/Toaster';
 
@@ -21,7 +21,9 @@ const router = createBrowserRouter([
       {
         path: '/candidates/job_postings/:id',
         element: <JobPosting />,
-        loader: showLoader
+        loader: showLoader,
+        action: showAction,
+        shouldRevalidate: () => false
       }
     ]
   }

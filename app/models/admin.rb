@@ -38,6 +38,7 @@
 #
 class Admin < ApplicationRecord
   include Internationalizable
+  include Userable
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable

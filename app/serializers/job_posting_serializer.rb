@@ -26,8 +26,19 @@ class JobPostingSerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
 
   attributes :id, :title, :company, :skills, :description, :published, :created_at
+  attribute :published, if: -> { scope.recruiter? }
+  attribute :postulation_id, if: -> { scope.candidate? }
+  attribute :postulation_status, if: -> { scope.candidate? }
 
   def created_at
     "#{time_ago_in_words(object.created_at)} ago"
+  end
+
+  def postulation_id
+    object.postulations.find_by(candidate_id: scope.id)&.id
+  end
+
+  def postulation_status
+    object.postulations.find_by(candidate_id: scope.id)&.status&.titleize
   end
 end

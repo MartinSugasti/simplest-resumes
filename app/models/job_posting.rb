@@ -24,6 +24,8 @@
 #
 class JobPosting < ApplicationRecord
   belongs_to :recruiter
+  has_many :postulations, dependent: :destroy
+  has_many :candidates, through: :postulations
 
   validates :title, length: { maximum: 40 }
   validates :company, length: { maximum: 40 }

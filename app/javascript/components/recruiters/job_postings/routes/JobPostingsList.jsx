@@ -42,9 +42,9 @@ const JobPostingsList = () => {
             <tr>
               <th>Id</th>
               <th>Title</th>
-              <th>Created At</th>
               <th>Company</th>
               <th>Skills</th>
+              <th>Created At</th>
               <th>Published</th>
               <th>Actions</th>
             </tr>
@@ -60,9 +60,9 @@ const JobPostingsList = () => {
                     {jobPosting.title}
                   </Link>
                 </td>
-                <td className="align-middle">{jobPosting.created_at}</td>
                 <td className="align-middle">{jobPosting.company}</td>
                 <td className="align-middle">{jobPosting.skills}</td>
+                <td className="align-middle">{jobPosting.created_at}</td>
                 <td className="align-middle">{jobPosting.published ? 'Published' : 'Unpublished'}</td>
                 <td className="align-middle">
                   <Link to={`/recruiters/job_postings/${jobPosting.id}/edit`} className="text-dark">

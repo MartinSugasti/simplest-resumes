@@ -26,6 +26,7 @@
 #
 class Candidate < ApplicationRecord
   include Internationalizable
+  include Userable
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :trackable
@@ -37,6 +38,8 @@ class Candidate < ApplicationRecord
 
   has_one :resume, dependent: :destroy
   has_many :primary_skill_items, through: :resume
+  has_many :postulations, dependent: :destroy
+  has_many :job_postings, through: :postulations
 
   delegate :about_me, to: :resume, allow_nil: true
 

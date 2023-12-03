@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import {
   Link,
   useLoaderData,
-  useOutletContext,
-  useSubmit
+  useOutletContext
 } from 'react-router-dom';
 
 import { getJobPostings } from '../api';
@@ -22,7 +21,6 @@ export const loader = async () => {
 const JobPostingsList = () => {
   const data = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
-  const submit = useSubmit();
 
   useEffect(() => {
     setBreadcrumbs('<strong>Job Postings</strong>');
@@ -36,9 +34,10 @@ const JobPostingsList = () => {
             <tr>
               <th>Id</th>
               <th>Title</th>
-              <th>Created At</th>
               <th>Company</th>
               <th>Skills</th>
+              <th>Created At</th>
+              <th>Status</th>
             </tr>
           </thead>
 
@@ -52,9 +51,20 @@ const JobPostingsList = () => {
                     {jobPosting.title}
                   </Link>
                 </td>
-                <td className="align-middle">{jobPosting.created_at}</td>
                 <td className="align-middle">{jobPosting.company}</td>
                 <td className="align-middle">{jobPosting.skills}</td>
+                <td className="align-middle">{jobPosting.created_at}</td>
+                <td className="align-middle">
+                  {!jobPosting.postulation_status ? (
+                    '-'
+                  ) : jobPosting.postulation_status === 'Approved' ? (
+                    <i className="bi bi-check-circle fa-2x text-success" />
+                  ) : jobPosting.postulation_status === 'Rejected' ? (
+                    <i className="bi bi-x-circle fa-2x text-danger" />
+                  ) : (
+                    <i className="bi bi-hourglass-split fa-2x text-dark" />
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

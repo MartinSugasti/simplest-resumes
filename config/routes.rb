@@ -103,6 +103,7 @@ Rails.application.routes.draw do
     resources :reference_items, only: %i[create destroy]
 
     resources :job_postings, only: %i[index show]
+    resources :postulations, only: :create
   end
 
   namespace :recruiters do

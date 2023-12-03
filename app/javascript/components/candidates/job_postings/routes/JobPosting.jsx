@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useLoaderData,
   useOutletContext,
-  useNavigate
+  useNavigate,
+  Form,
+  redirect
 } from 'react-router-dom';
 
-import { getJobPosting } from '../api';
+import { getJobPosting, createPostulation } from '../api';
+import { showSuccessToast, showErrorToast } from '../../../shared/Toaster';
 
 export const loader = async ({ params }) => {
   const response = await getJobPosting(params.id);
@@ -13,12 +16,50 @@ export const loader = async ({ params }) => {
   return { jobPosting: response.data };
 };
 
+export const action = async ({ params }) => {
+  try {
+    await createPostulation({ postulation: { job_posting_id: params.id } });
+    showSuccessToast('You have successfully postulated!');
+
+    return redirect('/candidates/job_postings');
+  } catch (error) {
+    const errorMessage = error.response?.data?.errors || error.message;
+    showErrorToast(errorMessage);
+
+    return null;
+  }
+};
+
 const JobPosting = () => {
   const { jobPosting } = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
   const navigate = useNavigate();
+  const [postulationClass, setPostulationClass] = useState();
 
   useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), []);
+
+  useEffect(() => {
+    if (!jobPosting.postulation_id) { return; }
+
+    setPostulationClass(() => {
+      let className;
+
+      switch (jobPosting.postulation_status) {
+        case 'Pending':
+          className = 'dark';
+          break;
+        case 'Approved':
+          className = 'success';
+          break;
+        case 'Rejected':
+          className = 'danger';
+          break;
+      }
+
+      return className;
+    })
+  }, [jobPosting]);
+
 
   return (
     <>
@@ -40,11 +81,17 @@ const JobPosting = () => {
 
       <p className="fst-italic mb-0">{jobPosting.skills}</p>
 
-      <div className="mt-3">
+      <div className="my-3">
         {jobPosting.description}
       </div>
 
-      <p>{jobPosting.published}</p>
+      {jobPosting.postulation_id ? (
+        <span className={`btn disabled btn-${postulationClass}`}>{jobPosting.postulation_status}</span>
+      ) : (
+        <Form method="post">
+          <button type="submit" className="btn btn-primary text-light">Postulate</button>
+        </Form>
+      )}
     </>
   );
 };

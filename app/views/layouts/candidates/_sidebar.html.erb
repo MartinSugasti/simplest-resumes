@@ -13,16 +13,10 @@
 </li>
 
 <li>
-  <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#users-dropdown" aria-expanded="false" aria-controls="users-dropdown">
+  <%= link_to candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/payments' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
     <i class="bi bi-credit-card pe-2 pe-2"></i>
     <%= t('dashboard.payments') %>
-  </a>
-
-  <ul id="users-dropdown" class="sidebar-dropdown list-unstyled collapse <%= active_sidebar_option?({ 'candidates/payments' => ['index'] }) ? "show" : '' %>" data-bs-parent="#sidebar">
-    <li>
-      <%= link_to t('dashboard.make_a_payment'), candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/payments' => ['index'] }) ? "bg-primary-dark" : ''}" %>
-    </li>
-  </ul>
+  <% end %>
 </li>
 
 <li>

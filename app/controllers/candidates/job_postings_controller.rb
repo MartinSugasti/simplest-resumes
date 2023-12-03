@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Candidates::JobPostingsController < ApplicationController
-  before_action :authenticate_candidate!, except: :show
+  before_action :authenticate_candidate!
 
   def index
     respond_to do |format|
