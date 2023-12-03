@@ -27,7 +27,7 @@ class Postulation < ApplicationRecord
   belongs_to :job_posting
 
   validates :candidate_id, uniqueness: { scope: :job_posting_id }
-  validate :job_posting_published, on: :create
+  validate :job_posting_published, on: :update
 
   enum status: {
     pending: 0,

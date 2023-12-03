@@ -30,6 +30,8 @@ class JobPostingSerializer < ActiveModel::Serializer
   attribute :postulation_id, if: -> { scope.candidate? }
   attribute :postulation_status, if: -> { scope.candidate? }
 
+  has_many :postulations, if: -> { scope.recruiter? }
+
   def created_at
     "#{time_ago_in_words(object.created_at)} ago"
   end

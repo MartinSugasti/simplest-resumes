@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Candidates::PostulationsController < ApplicationController
-  before_action :authenticate_candidate!, except: :show
+  before_action :authenticate_candidate!
 
   def create
     postulation = current_candidate.postulations.build(safe_params)

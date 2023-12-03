@@ -17,7 +17,7 @@ class Recruiters::JobPostingsController < ApplicationController
         job_posting = JobPosting.find(params[:id])
         authorize(job_posting, policy_class: Recruiters::JobPostingPolicy)
 
-        render json: job_posting
+        render json: job_posting, include: ['postulations', 'postulations.candidate']
       end
     end
   end

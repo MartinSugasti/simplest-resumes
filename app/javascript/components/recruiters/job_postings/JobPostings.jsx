@@ -11,6 +11,8 @@ import JobPostingForm, {
   updateAction
 } from './routes/JobPostingForm';
 import { destroyAction } from './routes/JobPostingDestroy';
+import { action as approveAction } from './routes/PostulationApprove';
+import { action as rejectAction } from './routes/PostulationReject';
 import RouterErrorPage from '../../shared/RouterErrorPage';
 import Toaster from '../../shared/Toaster';
 
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: '/recruiters/job_postings/:id/destroy',
         action: destroyAction
+      },
+      {
+        path: '/recruiters/job_postings/:id/postulations/:postulationId/approve',
+        action: approveAction
+      },
+      {
+        path: '/recruiters/job_postings/:id/postulations/:postulationId/reject',
+        action: rejectAction
       }
     ]
   }

@@ -11,3 +11,11 @@ export const createJobPosting = (params) => axios.post('/recruiters/job_postings
 export const updateJobPosting = (id, params) => axios.put(`/recruiters/job_postings/${id}.json`, params);
 
 export const destroyJobPosting = (id) => axios.delete(`/recruiters/job_postings/${id}.json`);
+
+export const approvePostulation = (id, postulationId) => (
+  axios.post(`/recruiters/job_postings/${id}/postulations/${postulationId}/approve.json`)
+);
+
+export const rejectPostulation = (id, postulationId) => (
+  axios.post(`/recruiters/job_postings/${id}/postulations/${postulationId}/reject.json`)
+);

@@ -86,7 +86,12 @@ const JobPosting = () => {
       </div>
 
       {jobPosting.postulation_id ? (
-        <span className={`btn disabled btn-${postulationClass}`}>{jobPosting.postulation_status}</span>
+        <div className="d-flex">
+          <span className={`align-self-center btn disabled btn-${postulationClass}`}>{jobPosting.postulation_status}</span>
+          {jobPosting.postulation_status === 'Approved' && (
+            <p className="align-self-center mb-0 ms-2">The recruiter will get in touch soon!</p>
+          )}
+        </div>
       ) : (
         <Form method="post">
           <button type="submit" className="btn btn-primary text-light">Postulate</button>

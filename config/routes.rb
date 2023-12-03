@@ -109,7 +109,12 @@ Rails.application.routes.draw do
   namespace :recruiters do
     get 'dashboard/show'
 
-    resources :job_postings
+    resources :job_postings do
+      resources :postulations, only: [] do
+        post :approve
+        post :reject
+      end
+    end
     resources :candidates, only: %i[index show]
     resources :resumes, only: %i[show]
   end

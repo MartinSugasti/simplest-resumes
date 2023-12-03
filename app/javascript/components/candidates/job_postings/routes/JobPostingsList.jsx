@@ -58,11 +58,11 @@ const JobPostingsList = () => {
                   {!jobPosting.postulation_status ? (
                     '-'
                   ) : jobPosting.postulation_status === 'Approved' ? (
-                    <i className="bi bi-check-circle fa-2x text-success" />
+                    <i className="bi bi-check-circle text-success" />
                   ) : jobPosting.postulation_status === 'Rejected' ? (
-                    <i className="bi bi-x-circle fa-2x text-danger" />
+                    <i className="bi bi-x-circle text-danger" />
                   ) : (
-                    <i className="bi bi-hourglass-split fa-2x text-dark" />
+                    <i className="bi bi-hourglass-split text-dark" />
                   )}
                 </td>
               </tr>
