@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
   const { t } = useTranslation();
 
   return (
@@ -31,14 +30,6 @@ const Navbar = ({ user }) => {
       </form>
     </div>
   );
-};
-
-Navbar.propTypes = {
-  user: PropTypes.shape({})
-};
-
-Navbar.defaultProps = {
-  user: {}
 };
 
 export default Navbar;

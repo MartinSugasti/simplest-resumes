@@ -26,6 +26,6 @@ const QualityPolicy = () => {
       </div>
     </section>
   );
-}
+};
 
 export default QualityPolicy;

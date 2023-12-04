@@ -26,7 +26,7 @@ const CandidatesList = () => {
 
   useEffect(() => {
     setBreadcrumbs('<strong>Candidates</strong>');
-  }, []);
+  }, [setBreadcrumbs]);
 
   return (
     <div className="table-responsive" id="admins-candidates-report">
@@ -61,10 +61,10 @@ const CandidatesList = () => {
       </table>
 
       {data.errorMessage && (
-          <div className="align-items-center d-flex justify-content-center my-5 py-5">
-            <ErrorPage message={data.errorMessage} />
-          </div>
-        )}
+        <div className="align-items-center d-flex justify-content-center my-5 py-5">
+          <ErrorPage message={data.errorMessage} />
+        </div>
+      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ class Candidates::PostulationsController < ApplicationController
     authorize(postulation, policy_class: Candidates::PostulationPolicy)
 
     if postulation.save
-      render json: { id: postulation.id }, status: :ok
+      head :ok
     else
       render json: { errors: postulation.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end

@@ -3,7 +3,8 @@ import { redirect } from 'react-router-dom';
 import { destroyJobPosting } from '../api';
 import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
 
-export const destroyAction = async ({ request, params }) => {
+// eslint-disable-next-line import/prefer-default-export
+export const destroyAction = async ({ params }) => {
   try {
     await destroyJobPosting(params.id);
     showSuccessToast('Job Posting successfully deleted!');

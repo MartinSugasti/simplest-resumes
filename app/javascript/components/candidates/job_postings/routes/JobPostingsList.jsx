@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import {
   Link,
@@ -24,59 +25,57 @@ const JobPostingsList = () => {
 
   useEffect(() => {
     setBreadcrumbs('<strong>Job Postings</strong>');
-  }, []);
+  }, [setBreadcrumbs]);
 
   return (
-    <>
-      <div className="table-responsive">
-        <table className="table table-striped text-center mb-0">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Title</th>
-              <th>Company</th>
-              <th>Skills</th>
-              <th>Created At</th>
-              <th>Status</th>
+    <div className="table-responsive">
+      <table className="table table-striped text-center mb-0">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Skills</th>
+            <th>Created At</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {data.jobPostings && data.jobPostings.map((jobPosting) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <tr key={jobPosting.id}>
+              <td className="align-middle">{jobPosting.id}</td>
+              <td className="align-middle">
+                <Link to={`/candidates/job_postings/${jobPosting.id}`}>
+                  {jobPosting.title}
+                </Link>
+              </td>
+              <td className="align-middle">{jobPosting.company}</td>
+              <td className="align-middle">{jobPosting.skills}</td>
+              <td className="align-middle">{jobPosting.created_at}</td>
+              <td className="align-middle">
+                {!jobPosting.postulation_status ? (
+                  '-'
+                ) : jobPosting.postulation_status === 'Approved' ? (
+                  <i className="bi bi-check-circle text-success" />
+                ) : jobPosting.postulation_status === 'Rejected' ? (
+                  <i className="bi bi-x-circle text-danger" />
+                ) : (
+                  <i className="bi bi-hourglass-split text-dark" />
+                )}
+              </td>
             </tr>
-          </thead>
+          ))}
+        </tbody>
+      </table>
 
-          <tbody>
-            {data.jobPostings && data.jobPostings.map((jobPosting) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <tr key={jobPosting.id}>
-                <td className="align-middle">{jobPosting.id}</td>
-                <td className="align-middle">
-                  <Link to={`/candidates/job_postings/${jobPosting.id}`}>
-                    {jobPosting.title}
-                  </Link>
-                </td>
-                <td className="align-middle">{jobPosting.company}</td>
-                <td className="align-middle">{jobPosting.skills}</td>
-                <td className="align-middle">{jobPosting.created_at}</td>
-                <td className="align-middle">
-                  {!jobPosting.postulation_status ? (
-                    '-'
-                  ) : jobPosting.postulation_status === 'Approved' ? (
-                    <i className="bi bi-check-circle text-success" />
-                  ) : jobPosting.postulation_status === 'Rejected' ? (
-                    <i className="bi bi-x-circle text-danger" />
-                  ) : (
-                    <i className="bi bi-hourglass-split text-dark" />
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {data.errorMessage && (
-          <div className="align-items-center d-flex justify-content-center my-5 py-5">
-            <ErrorPage message={data.errorMessage} />
-          </div>
-        )}
-      </div>
-    </>
+      {data.errorMessage && (
+        <div className="align-items-center d-flex justify-content-center my-5 py-5">
+          <ErrorPage message={data.errorMessage} />
+        </div>
+      )}
+    </div>
   );
 };
 

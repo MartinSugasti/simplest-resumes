@@ -25,6 +25,7 @@
 class Postulation < ApplicationRecord
   belongs_to :candidate
   belongs_to :job_posting
+  belongs_to :recruiter, through: :job_posting
 
   validates :candidate_id, uniqueness: { scope: :job_posting_id }
   validate :job_posting_published, on: :update

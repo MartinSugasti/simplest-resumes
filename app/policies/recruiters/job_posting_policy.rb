@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Recruiters::JobPostingPolicy < ApplicationPolicy
-  def new?
-    record.recruiter == user
-  end
-
   def create?
     record.recruiter == user
   end

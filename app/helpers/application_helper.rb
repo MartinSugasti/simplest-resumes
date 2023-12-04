@@ -3,11 +3,6 @@ module ApplicationHelper
     user_signed_in? && controller_name != 'pages'
   end
 
-  # example for actions_by_controller:
-  # {
-  #   'job_postings' => ['index', 'new', 'edit'],
-  #   'another_controller' => []
-  # }
   def active_sidebar_option?(actions_by_controller)
     actions_by_controller.any? do |controller, actions|
       next false if controller != controller_path

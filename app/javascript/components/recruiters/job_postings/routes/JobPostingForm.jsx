@@ -13,10 +13,7 @@ import {
 import { editJobPosting, createJobPosting, updateJobPosting } from '../api';
 import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
 
-export const newLoader = ({ request, params }) => {
-
-  return { jobPosting: {} };
-}
+export const newLoader = () => ({ jobPosting: {} });
 
 export const editLoader = async ({ params }) => {
   const response = await editJobPosting(params.id);
@@ -75,7 +72,7 @@ const JobPostingForm = () => {
     }
 
     setBreadcrumbs(breadcrumbs);
-  }, []);
+  }, [setBreadcrumbs, id]);
 
   return (
     <>
@@ -95,7 +92,7 @@ const JobPostingForm = () => {
 
           <input
             type="text"
-            className={`form-control ${data?.errors?.title ? 'is-invalid' : '' }`}
+            className={`form-control ${data?.errors?.title ? 'is-invalid' : ''}`}
             id="title"
             name="title"
             defaultValue={jobPosting.title}
@@ -114,7 +111,7 @@ const JobPostingForm = () => {
 
           <input
             type="text"
-            className={`form-control ${data?.errors?.company ? 'is-invalid' : '' }`}
+            className={`form-control ${data?.errors?.company ? 'is-invalid' : ''}`}
             id="company"
             name="company"
             defaultValue={jobPosting.company}
@@ -132,7 +129,7 @@ const JobPostingForm = () => {
 
           <input
             type="text"
-            className={`form-control ${data?.errors?.skills ? 'is-invalid' : '' }`}
+            className={`form-control ${data?.errors?.skills ? 'is-invalid' : ''}`}
             id="skills"
             name="skills"
             defaultValue={jobPosting.skills}
@@ -149,7 +146,7 @@ const JobPostingForm = () => {
           <label htmlFor="description" className="form-label">Description</label>
 
           <textarea
-            className={`form-control ${data?.errors?.description ? 'is-invalid' : '' }`}
+            className={`form-control ${data?.errors?.description ? 'is-invalid' : ''}`}
             id="description"
             name="description"
             rows="3"
@@ -167,7 +164,7 @@ const JobPostingForm = () => {
           <input type="hidden" value={false} name="published" />
           <input
             type="checkbox"
-            className={`form-check-input ${data?.errors?.published ? 'is-invalid' : '' }`}
+            className={`form-check-input ${data?.errors?.published ? 'is-invalid' : ''}`}
             id="published"
             name="published"
             defaultChecked={jobPosting.published}

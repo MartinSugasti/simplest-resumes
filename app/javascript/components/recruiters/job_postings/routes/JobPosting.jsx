@@ -19,7 +19,7 @@ const JobPosting = () => {
   const [setBreadcrumbs] = useOutletContext();
   const navigate = useNavigate();
 
-  useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), []);
+  useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), [setBreadcrumbs]);
 
   return (
     <>

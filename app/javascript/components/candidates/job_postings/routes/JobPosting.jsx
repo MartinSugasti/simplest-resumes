@@ -36,7 +36,7 @@ const JobPosting = () => {
   const navigate = useNavigate();
   const [postulationClass, setPostulationClass] = useState();
 
-  useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), []);
+  useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), [setBreadcrumbs]);
 
   useEffect(() => {
     if (!jobPosting.postulation_id) { return; }
@@ -54,12 +54,13 @@ const JobPosting = () => {
         case 'Rejected':
           className = 'danger';
           break;
+        default:
+          className = 'dark';
       }
 
       return className;
-    })
+    });
   }, [jobPosting]);
-
 
   return (
     <>
@@ -87,7 +88,11 @@ const JobPosting = () => {
 
       {jobPosting.postulation_id ? (
         <div className="d-flex">
-          <span className={`align-self-center btn disabled btn-${postulationClass}`}>{jobPosting.postulation_status}</span>
+          <span
+            className={`align-self-center btn disabled btn-${postulationClass}`}
+          >
+            {jobPosting.postulation_status}
+          </span>
           {jobPosting.postulation_status === 'Approved' && (
             <p className="align-self-center mb-0 ms-2">The recruiter will get in touch soon!</p>
           )}

@@ -29,7 +29,7 @@ class Recruiters::JobPostingsController < ApplicationController
     authorize(job_posting, policy_class: Recruiters::JobPostingPolicy)
 
     if job_posting.save
-      render json: { id: job_posting.id }, status: :ok
+      head :ok
     else
       render json: { errors: job_posting.errors }, status: :unprocessable_entity
     end
@@ -52,7 +52,7 @@ class Recruiters::JobPostingsController < ApplicationController
     authorize(job_posting, policy_class: Recruiters::JobPostingPolicy)
 
     if job_posting.update(safe_params)
-      render json: { id: job_posting.id }, status: :ok
+      head :ok
     else
       render json: { errors: job_posting.errors }, status: :unprocessable_entity
     end

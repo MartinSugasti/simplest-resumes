@@ -26,7 +26,7 @@ const JobPostingsList = () => {
 
   useEffect(() => {
     setBreadcrumbs('<strong>Job Postings</strong>');
-  }, []);
+  }, [setBreadcrumbs]);
 
   return (
     <>
@@ -69,6 +69,8 @@ const JobPostingsList = () => {
                     <i className="bi bi-pencil-square me-2" />
                   </Link>
 
+                  {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+                  jsx-a11y/no-static-element-interactions */}
                   <span
                     onClick={() => {
                       // eslint-disable-next-line no-restricted-globals

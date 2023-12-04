@@ -19,7 +19,7 @@ const Payments = () => {
     if (query.get('canceled')) {
       showErrorToast(t('candidates.payments.index.checkout_canceled'));
     }
-  }, []);
+  }, [t]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

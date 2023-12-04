@@ -22,7 +22,7 @@ const Candidate = () => {
 
   const [resumeData, setResumeData] = useState();
 
-  useEffect(() => setBreadcrumbs('Candidates / <strong>Show</strong>'), []);
+  useEffect(() => setBreadcrumbs('Candidates / <strong>Show</strong>'), [setBreadcrumbs]);
 
   useEffect(() => {
     if (!candidate.resume_id) { return; }

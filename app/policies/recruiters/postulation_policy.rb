@@ -2,10 +2,10 @@
 
 class Recruiters::PostulationPolicy < ApplicationPolicy
   def approve?
-    record.job_posting.recruiter == user
+    record.recruiter == user
   end
 
   def reject?
-    record.job_posting.recruiter == user
+    record.recruiter == user
   end
 end
