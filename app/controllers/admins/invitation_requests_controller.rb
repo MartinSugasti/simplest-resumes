@@ -10,10 +10,7 @@ class Admins::InvitationRequestsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json do
-        render json: InvitationRequest.all.order(:status),
-               each_serializer: Admins::InvitationRequestSerializer
-      end
+      format.json { render json: InvitationRequest.all.order(:status) }
     end
   end
 

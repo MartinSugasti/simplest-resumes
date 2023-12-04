@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admins::InvitationRequestSerializer < ActiveModel::Serializer
+class InvitationRequestSerializer < ActiveModel::Serializer
   attributes :id, :email, :status, :invited_as, :created_at
 
   def status

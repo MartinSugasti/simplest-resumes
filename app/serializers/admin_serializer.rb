@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admins::AdminSerializer < ActiveModel::Serializer
+class AdminSerializer < ActiveModel::Serializer
   attributes :id, :email, :role, :created_at, :admins_invited, :invited_by, :invitation_accepted
 
   def role

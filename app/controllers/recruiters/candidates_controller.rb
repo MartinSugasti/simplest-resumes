@@ -6,7 +6,7 @@ class Recruiters::CandidatesController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render json: Candidate.confirmed.order(:id), each_serializer: Recruiters::CandidateSerializer }
+      format.json { render json: Candidate.confirmed.order(:id) }
     end
   end
 
