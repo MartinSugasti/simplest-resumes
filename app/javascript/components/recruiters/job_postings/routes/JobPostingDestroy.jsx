@@ -1,4 +1,5 @@
 import { redirect } from 'react-router-dom';
+import translations from '../../../../locales/translations.json';
 
 import { destroyJobPosting } from '../api';
 import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
@@ -7,7 +8,9 @@ import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
 export const destroyAction = async ({ params }) => {
   try {
     await destroyJobPosting(params.id);
-    showSuccessToast('Job Posting successfully deleted!');
+    const lang = document.querySelector('body').dataset.locale || 'en';
+    const message = translations[lang].recruiters.job_postings.deleted;
+    showSuccessToast(message);
 
     return redirect('/recruiters/job_postings');
   } catch (error) {

@@ -9,6 +9,8 @@ import {
   useNavigate,
   useActionData
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import translations from '../../../../locales/translations.json';
 
 import { editJobPosting, createJobPosting, updateJobPosting } from '../api';
 import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
@@ -27,7 +29,9 @@ export const createAction = async ({ request }) => {
 
   try {
     await createJobPosting({ job_posting: formParams });
-    showSuccessToast('Job Posting successfully created!');
+    const lang = document.querySelector('body').dataset.locale || 'en';
+    const message = translations[lang].recruiters.job_postings.created;
+    showSuccessToast(message);
 
     return redirect('/recruiters/job_postings');
   } catch (error) {
@@ -44,7 +48,9 @@ export const updateAction = async ({ request, params }) => {
 
   try {
     await updateJobPosting(params.id, { job_posting: formParams });
-    showSuccessToast('Job Posting successfully updated!');
+    const lang = document.querySelector('body').dataset.locale || 'en';
+    const message = translations[lang].recruiters.job_postings.updated;
+    showSuccessToast(message);
 
     return redirect('/recruiters/job_postings');
   } catch (error) {
@@ -62,17 +68,18 @@ const JobPostingForm = () => {
   const submit = useSubmit();
   const navigate = useNavigate();
   const data = useActionData();
+  const { t } = useTranslation();
 
   useEffect(() => {
     let breadcrumbs;
     if (id) {
-      breadcrumbs = 'Job Postings / <strong>Edit</strong>';
+      breadcrumbs = `${t('dashboard.job_postings')} / <strong>${t('dashboard.edit')}</strong>`;
     } else {
-      breadcrumbs = 'Job Postings / <strong>New</strong>';
+      breadcrumbs = `${t('dashboard.job_postings')} / <strong>${t('dashboard.new')}</strong>`;
     }
 
     setBreadcrumbs(breadcrumbs);
-  }, [setBreadcrumbs, id]);
+  }, [setBreadcrumbs, id, t]);
 
   return (
     <>
@@ -82,13 +89,15 @@ const JobPostingForm = () => {
           className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
           onClick={() => navigate(-1)}
         >
-          Back
+          {t('general.back')}
         </button>
       </div>
 
       <Form method="post">
         <div className="mb-3">
-          <label htmlFor="title" className="form-label">Title</label>
+          <label htmlFor="title" className="form-label">
+            {t('activerecord.attributes.job_posting.title')}
+          </label>
 
           <input
             type="text"
@@ -101,13 +110,13 @@ const JobPostingForm = () => {
 
           {data?.errors?.title && (
             <div className="invalid-feedback">
-              {`Title ${data?.errors?.title[0]}`}
+              {`${t('activerecord.attributes.job_posting.title')} ${data?.errors?.title[0]}`}
             </div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="company" className="form-label">Company</label>
+          <label htmlFor="company" className="form-label">{t('activerecord.attributes.job_posting.company')}</label>
 
           <input
             type="text"
@@ -119,13 +128,13 @@ const JobPostingForm = () => {
 
           {data?.errors?.company && (
             <div className="invalid-feedback">
-              {`Company ${data?.errors?.company[0]}`}
+              {`${t('activerecord.attributes.job_posting.company')} ${data?.errors?.company[0]}`}
             </div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="skills" className="form-label">Skills</label>
+          <label htmlFor="skills" className="form-label">{t('activerecord.attributes.job_posting.skills')}</label>
 
           <input
             type="text"
@@ -137,13 +146,15 @@ const JobPostingForm = () => {
 
           {data?.errors?.skills && (
             <div className="invalid-feedback">
-              {`Skills ${data?.errors?.skills[0]}`}
+              {`${t('activerecord.attributes.job_posting.skills')} ${data?.errors?.skills[0]}`}
             </div>
           )}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">Description</label>
+          <label htmlFor="description" className="form-label">
+            {t('activerecord.attributes.job_posting.description')}
+          </label>
 
           <textarea
             className={`form-control ${data?.errors?.description ? 'is-invalid' : ''}`}
@@ -155,7 +166,7 @@ const JobPostingForm = () => {
 
           {data?.errors?.description && (
             <div className="invalid-feedback">
-              {`Description ${data?.errors?.description[0]}`}
+              {`${t('activerecord.attributes.job_posting.description')} ${data?.errors?.description[0]}`}
             </div>
           )}
         </div>
@@ -171,23 +182,23 @@ const JobPostingForm = () => {
           />
 
           <label className="form-check-label" htmlFor="published">
-            Publish?
+            {t('activerecord.attributes.job_posting.publish_inquiry')}
           </label>
 
           {data?.errors?.published && (
             <div className="invalid-feedback">
-              {`Publish ${data?.errors?.published[0]}`}
+              {`${t('activerecord.attributes.job_posting.publish')} ${data?.errors?.published[0]}`}
             </div>
           )}
         </div>
 
-        <button type="submit" className="btn btn-primary text-light">Save</button>
+        <button type="submit" className="btn btn-primary text-light">{t('general.save')}</button>
         {id && (
           <button
             type="button"
             onClick={() => {
               // eslint-disable-next-line no-restricted-globals
-              if (confirm('Please confirm you want to delete this record.')) {
+              if (confirm(t('general.confirm_record_deletion'))) {
                 submit(null, {
                   method: 'delete',
                   action: `/recruiters/job_postings/${id}/destroy`
@@ -196,7 +207,7 @@ const JobPostingForm = () => {
             }}
             className="btn btn-danger ms-3"
           >
-            Delete
+            {t('general.delete')}
           </button>
         )}
       </Form>

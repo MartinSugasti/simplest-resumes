@@ -6,6 +6,8 @@ import {
   Form,
   redirect
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import translations from '../../../../locales/translations.json';
 
 import { getJobPosting, createPostulation } from '../api';
 import { showSuccessToast, showErrorToast } from '../../../shared/Toaster';
@@ -19,7 +21,9 @@ export const loader = async ({ params }) => {
 export const action = async ({ params }) => {
   try {
     await createPostulation({ postulation: { job_posting_id: params.id } });
-    showSuccessToast('You have successfully postulated!');
+    const lang = document.querySelector('body').dataset.locale || 'en';
+    const message = translations[lang].candidates.job_postings.successfully_postulated;
+    showSuccessToast(message);
 
     return redirect('/candidates/job_postings');
   } catch (error) {
@@ -35,8 +39,11 @@ const JobPosting = () => {
   const [setBreadcrumbs] = useOutletContext();
   const navigate = useNavigate();
   const [postulationClass, setPostulationClass] = useState();
+  const { t } = useTranslation();
 
-  useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), [setBreadcrumbs]);
+  useEffect(() => {
+    setBreadcrumbs(`${t('dashboard.job_postings')} / <strong>${t('dashboard.show')}</strong>`);
+  }, [setBreadcrumbs, t]);
 
   useEffect(() => {
     if (!jobPosting.postulation_id) { return; }
@@ -45,13 +52,13 @@ const JobPosting = () => {
       let className;
 
       switch (jobPosting.postulation_status) {
-        case 'Pending':
+        case t('activerecord.attributes.postulation.statuses.pending'):
           className = 'dark';
           break;
-        case 'Approved':
+        case t('activerecord.attributes.postulation.statuses.approved'):
           className = 'success';
           break;
-        case 'Rejected':
+        case t('activerecord.attributes.postulation.statuses.rejected'):
           className = 'danger';
           break;
         default:
@@ -60,7 +67,7 @@ const JobPosting = () => {
 
       return className;
     });
-  }, [jobPosting]);
+  }, [jobPosting, t]);
 
   return (
     <>
@@ -70,13 +77,13 @@ const JobPosting = () => {
           className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
           onClick={() => navigate(-1)}
         >
-          Back
+          {t('general.back')}
         </button>
       </div>
 
       <h2 className="mb-0">
         {jobPosting.title}
-        {' at '}
+        {` ${t('general.at')} `}
         {jobPosting.company}
       </h2>
 
@@ -93,13 +100,13 @@ const JobPosting = () => {
           >
             {jobPosting.postulation_status}
           </span>
-          {jobPosting.postulation_status === 'Approved' && (
-            <p className="align-self-center mb-0 ms-2">The recruiter will get in touch soon!</p>
+          {jobPosting.postulation_status === t('activerecord.attributes.postulation.statuses.approved') && (
+            <p className="align-self-center mb-0 ms-2">{t('candidates.job_postings.recruiter_will_get_in_touch')}</p>
           )}
         </div>
       ) : (
         <Form method="post">
-          <button type="submit" className="btn btn-primary text-light">Postulate</button>
+          <button type="submit" className="btn btn-primary text-light">{t('candidates.job_postings.postulate')}</button>
         </Form>
       )}
     </>

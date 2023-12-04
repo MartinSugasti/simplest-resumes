@@ -25,10 +25,10 @@
 class Postulation < ApplicationRecord
   belongs_to :candidate
   belongs_to :job_posting
-  belongs_to :recruiter, through: :job_posting
+  delegate :recruiter, to: :job_posting
 
   validates :candidate_id, uniqueness: { scope: :job_posting_id }
-  validate :job_posting_published, on: :update
+  validate :job_posting_published
 
   enum status: {
     pending: 0,
@@ -41,6 +41,6 @@ class Postulation < ApplicationRecord
   def job_posting_published
     return if job_posting.published?
 
-    errors.add(:job_posting, 'is not published')
+    errors.add(:job_posting, :not_published)
   end
 end

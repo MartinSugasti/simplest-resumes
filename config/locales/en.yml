@@ -11,6 +11,13 @@ en:
         es: SP
     toast:
       default_error_message: 'Something went wrong. Please, try again later!'
+    unexpected_error: Sorry, an unexpected error has occurred.
+    back: Back
+    at: at
+    save: Save
+    delete: Delete
+    confirm_record_deletion: Please confirm you want to delete this record.
+    ago: ago
 
   dashboard:
     users: 'Users'
@@ -28,6 +35,12 @@ en:
     return_to_admin_dashboard: 'Return to Admin dashboard'
     search: Search
     my_resume: My Resume
+    job_postings: Job Postings
+    job_posting: Job Posting
+    show: Show
+    edit: Edit
+    new: New
+    new_job_posting: New Job Posting
 
   application:
     invalid_authenticity_token: "Can't verify CSRF token authenticity"
@@ -131,11 +144,24 @@ en:
         personal_reference: Personal Reference
         full_name: Full Name
         mobile: Mobile
+    job_postings:
+      recruiter_will_get_in_touch: The recruiter will get in touch soon!
+      postulate: Postulate
+      successfully_postulated: You have successfully postulated!
 
   recruiters:
     dashboard:
       show:
         welcome: "Welcome to the the Recruiter's dashboard!"
+    job_postings:
+      candidates_postulated: Candidates Postulated
+      approve: Approve
+      reject: Reject
+      deleted: Job Posting successfully deleted!
+      created: Job Posting successfully created!
+      updated: Job Posting successfully updated!
+      postulation_approved: Postulation successfully approved!
+      postulation_rejected: Postulation successfully rejected!
 
   omniauth_callbacks:
     no_email: "We weren't able to get an email from your #{provider_name} account. Please, set an email in your account or allow access to read your email address in the app settings."
@@ -203,6 +229,7 @@ en:
       candidate:
         profile_picture: Profile picture
         confirmed: Confirmed?
+        primary_skill_items: Skills
       recruiter:
         profile_picture: Profile picture
         confirmed: Confirmed?
@@ -245,6 +272,24 @@ en:
         kinds:
           personal: Personal
           job: Job
+      job_posting:
+        company: Company
+        description: Description
+        published: Published
+        unpublished: Unpublished
+        skills: Skills
+        title: Title
+        created_at: Created at
+        status: Status
+        publish: Publish
+        publish_inquiry: Publish?
+      postulation:
+        status: Status
+        statuses:
+          pending: Pending
+          approved: Approved
+          rejected: Rejected
+        job_posting: Job Posting
     errors:
       models:
         invitation_request:
@@ -274,6 +319,10 @@ en:
               too_long: "can be %{count} at most"
             job_reference_items:
               too_long: "can be %{count} at most"
+        postulation:
+          attributes:
+            job_posting:
+              not_published: is not published
       validators:
         resume_associations_count_validator:
           too_many_associations: '%{model_name} can have %{count} associated records at most'

@@ -11,6 +11,13 @@ es:
         es: ES
     toast:
       default_error_message: 'Algo salió mal. Por favor, intenta nuevamente más tarde!'
+    unexpected_error: Lo sentimos, ha ocurrido un error.
+    back: Atras
+    at: en
+    save: Guardar
+    delete: Borrar
+    confirm_record_deletion: Por favor, confirme que quiere eliminar este registro.
+    ago: atras
 
   dashboard:
     users: 'Usuarios'
@@ -28,6 +35,12 @@ es:
     return_to_admin_dashboard: 'Regresar al panel de administrador'
     search: Buscar
     my_resume: Mi CV
+    job_postings: Anuncios De Empleo
+    job_posting: Anuncio De Empleo
+    show: Vista
+    edit: Editar
+    new: Nuevo
+    new_job_posting: Nuevo Anuncio De Empleo
 
   application:
     invalid_authenticity_token: 'CSRF token de autenticidad inválido'
@@ -131,11 +144,24 @@ es:
         personal_reference: Referencia Personal
         full_name: Nombre Completo
         mobile: Mobil
+    job_postings:
+      recruiter_will_get_in_touch: Pronto se pondran en contacto!
+      postulate: Postularse
+      successfully_postulated: Te has postulado con exito!
 
   recruiters:
     dashboard:
       show:
         welcome: "Bienvenido al panel para reclutadores!"
+    job_postings:
+      candidates_postulated: Postulaciones De Candidatos
+      approve: Aprobar
+      reject: Rechazar
+      deleted: Anuncio eliminado con exito!
+      created: Anuncio creado con exito!
+      updated: Anuncio actualizado con exito!
+      postulation_approved: Anuncio aprobado con exito!
+      postulation_rejected: Anuncio rechazado con exito!
 
   omniauth_callbacks:
     no_email: 'No pudimos conseguir un email desde tu cuenta con #{provider_name}. Por favor, configura un email en tu cuenta o permite acceso a tu email desde la configuración de #{provider_name}'
@@ -203,6 +229,7 @@ es:
       candidate:
         profile_picture: Foto de perfil
         confirmed: Confirmado?
+        primary_skill_items: Habilidades
       recruiter:
         profile_picture: Foto de perfil
         confirmed: Confirmado?
@@ -245,6 +272,24 @@ es:
         kinds:
           personal: Personal
           job: Laboral
+      job_posting:
+        company: Compañia
+        description: Descripcion
+        published: Publicado
+        unpublished: No Publicado
+        skills: Habilidades
+        title: Titulo
+        created_at: Creado En
+        status: Estado
+        publish: Publicar
+        publish_inquiry: Publicado?
+      postulation:
+        status: Estado
+        statuses:
+          pending: Pendiente
+          approved: Aprobado
+          rejected: Rechazado
+        job_posting: Anuncio De Empleo
     errors:
       models:
         invitation_request:
@@ -274,6 +319,10 @@ es:
               too_long: "pueder tener %{count} como máximo"
             job_reference_items:
               too_long: "pueder tener %{count} como máximo"
+        postulation:
+          attributes:
+            job_posting:
+              not_published: no esta publicado
       validators:
         resume_associations_count_validator:
           too_many_associations: '%{model_name} puede tener %{count} records asociados como máximo'

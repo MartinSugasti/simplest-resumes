@@ -1,14 +1,14 @@
 <li>
   <%= link_to recruiters_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'recruiters/job_postings' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
     <i class="bi bi-collection pe-2"></i>
-    Job Postings
+    <%= t('dashboard.job_postings') %>
   <% end %>
 </li>
 
 <li>
   <%= link_to recruiters_candidates_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'recruiters/candidates' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
     <i class="bi bi-person-fill pe-2"></i>
-    Candidates
+    <%= t('dashboard.candidates') %>
   <% end %>
 </li>
 

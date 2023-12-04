@@ -1,6 +1,6 @@
 <% content_for :top_section do %>
   <h2 class="mb-1"><%= t('dashboard.candidates') %></h2>
-  <p id="top-section-breadcrumbs" class="small text-muted mb-0"><strong><%= t('dashboard.candidates') %></strong></p>
+  <p id="top-section-breadcrumbs" class="small text-muted mb-0"><%= t('dashboard.candidates') %> / <strong><%= t('dashboard.show') %></strong></p>
 <% end %>
 
 <%= content_tag(:div, "", id: "recruiters-candidates-container", data: {

@@ -15,4 +15,10 @@ module ApplicationHelper
   def omniauth_authorize_path_for(resource, provider)
     public_send("#{resource.class.name.downcase}_#{provider}_omniauth_authorize_path")
   end
+
+  def translate_enum_value(model, enum, value)
+    I18n.t("activerecord.attributes.#{model}.#{enum}.#{value}")
+  end
+
+  module_function :translate_enum_value
 end

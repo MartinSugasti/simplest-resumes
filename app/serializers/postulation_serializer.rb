@@ -7,6 +7,6 @@ class PostulationSerializer < ActiveModel::Serializer
   belongs_to :candidate
 
   def status
-    object.status.titleize
+    ApplicationHelper.translate_enum_value('postulation', 'statuses', object.status)
   end
 end

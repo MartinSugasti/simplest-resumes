@@ -1,4 +1,5 @@
 import { redirect } from 'react-router-dom';
+import translations from '../../../../locales/translations.json';
 
 import { approvePostulation } from '../api';
 import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
@@ -7,7 +8,9 @@ import { showErrorToast, showSuccessToast } from '../../../shared/Toaster';
 export const action = async ({ params }) => {
   try {
     await approvePostulation(params.id, params.postulationId);
-    showSuccessToast('Postulation successfully approved!');
+    const lang = document.querySelector('body').dataset.locale || 'en';
+    const message = translations[lang].recruiters.job_postings.postulation_approved;
+    showSuccessToast(message);
 
     return redirect(`/recruiters/job_postings/${params.id}`);
   } catch (error) {

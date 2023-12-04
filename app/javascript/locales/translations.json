@@ -58,6 +58,7 @@
           "locked_at": "Locked at",
           "password": "Password",
           "password_confirmation": "Password confirmation",
+          "primary_skill_items": "Skills",
           "profile_picture": "Profile picture",
           "remember_created_at": "Remember created at",
           "remember_me": "Remember me",
@@ -78,6 +79,27 @@
           "created_at": "Created at",
           "email": "Email",
           "status": "Status"
+        },
+        "job_posting": {
+          "company": "Company",
+          "created_at": "Created at",
+          "description": "Description",
+          "publish": "Publish",
+          "publish_inquiry": "Publish?",
+          "published": "Published",
+          "skills": "Skills",
+          "status": "Status",
+          "title": "Title",
+          "unpublished": "Unpublished"
+        },
+        "postulation": {
+          "job_posting": "Job Posting",
+          "status": "Status",
+          "statuses": {
+            "approved": "Approved",
+            "pending": "Pending",
+            "rejected": "Rejected"
+          }
         },
         "recruiter": {
           "confirmation_sent_at": "Confirmation sent at",
@@ -166,6 +188,13 @@
               },
               "status": {
                 "invitation_request_already_approved": "cannot be changed once the invitation request was approved"
+              }
+            }
+          },
+          "postulation": {
+            "attributes": {
+              "job_posting": {
+                "not_published": "is not published"
               }
             }
           },
@@ -315,6 +344,11 @@
           "welcome": "Welcome to the the Candidate's dashboard!"
         }
       },
+      "job_postings": {
+        "postulate": "Postulate",
+        "recruiter_will_get_in_touch": "The recruiter will get in touch soon!",
+        "successfully_postulated": "You have successfully postulated!"
+      },
       "my_resume": {
         "show": {
           "about_me": "About Me",
@@ -374,9 +408,14 @@
       "admins": "Admins",
       "candidates": "Candidates",
       "dashboard": "Dashboard",
+      "edit": "Edit",
       "invitations": "Invitations",
+      "job_posting": "Job Posting",
+      "job_postings": "Job Postings",
       "make_a_payment": "Make A Payment",
       "my_resume": "My Resume",
+      "new": "New",
+      "new_job_posting": "New Job Posting",
       "payments": "Payments",
       "recruiters": "Recruiters",
       "requests": "Requests",
@@ -384,6 +423,7 @@
       "search": "Search",
       "send_invitation": "Send Invitation",
       "settings": "Settings",
+      "show": "Show",
       "sign_out": "Sign Out",
       "users": "Users"
     },
@@ -786,6 +826,11 @@
     },
     "general": {
       "actions": "Actions",
+      "ago": "ago",
+      "at": "at",
+      "back": "Back",
+      "confirm_record_deletion": "Please confirm you want to delete this record.",
+      "delete": "Delete",
       "languages": {
         "abbreviations": {
           "en": "EN",
@@ -795,9 +840,11 @@
         "es": "Spanish"
       },
       "no": "No",
+      "save": "Save",
       "toast": {
         "default_error_message": "Something went wrong. Please, try again later!"
       },
+      "unexpected_error": "Sorry, an unexpected error has occurred.",
       "yes": "Yes"
     },
     "helpers": {
@@ -980,6 +1027,16 @@
         "show": {
           "welcome": "Welcome to the the Recruiter's dashboard!"
         }
+      },
+      "job_postings": {
+        "approve": "Approve",
+        "candidates_postulated": "Candidates Postulated",
+        "created": "Job Posting successfully created!",
+        "deleted": "Job Posting successfully deleted!",
+        "postulation_approved": "Postulation successfully approved!",
+        "postulation_rejected": "Postulation successfully rejected!",
+        "reject": "Reject",
+        "updated": "Job Posting successfully updated!"
       }
     },
     "support": {
@@ -1065,6 +1122,7 @@
           "locked_at": "Fecha de bloqueo",
           "password": "Contraseña",
           "password_confirmation": "Confirmación de la contraseña",
+          "primary_skill_items": "Habilidades",
           "profile_picture": "Foto de perfil",
           "remember_created_at": "Fecha de 'Recordarme'",
           "remember_me": "Recordarme",
@@ -1085,6 +1143,27 @@
           "created_at": "Creado en",
           "email": "Email",
           "status": "Estado"
+        },
+        "job_posting": {
+          "company": "Compañia",
+          "created_at": "Creado En",
+          "description": "Descripcion",
+          "publish": "Publicar",
+          "publish_inquiry": "Publicado?",
+          "published": "Publicado",
+          "skills": "Habilidades",
+          "status": "Estado",
+          "title": "Titulo",
+          "unpublished": "No Publicado"
+        },
+        "postulation": {
+          "job_posting": "Anuncio De Empleo",
+          "status": "Estado",
+          "statuses": {
+            "approved": "Aprobado",
+            "pending": "Pendiente",
+            "rejected": "Rechazado"
+          }
         },
         "recruiter": {
           "confirmation_sent_at": "Confirmación enviada a",
@@ -1173,6 +1252,13 @@
               },
               "status": {
                 "invitation_request_already_approved": "no se puede modificar una vez que la solicitus fue aprobada"
+              }
+            }
+          },
+          "postulation": {
+            "attributes": {
+              "job_posting": {
+                "not_published": "no esta publicado"
               }
             }
           },
@@ -1322,6 +1408,11 @@
           "welcome": "Bienvenido al panel para candidatos!"
         }
       },
+      "job_postings": {
+        "postulate": "Postularse",
+        "recruiter_will_get_in_touch": "Pronto se pondran en contacto!",
+        "successfully_postulated": "Te has postulado con exito!"
+      },
       "my_resume": {
         "show": {
           "about_me": "Sobre Mi",
@@ -1381,9 +1472,14 @@
       "admins": "Administradores",
       "candidates": "Candidatos",
       "dashboard": "Panel",
+      "edit": "Editar",
       "invitations": "Invitaciones",
+      "job_posting": "Anuncio De Empleo",
+      "job_postings": "Anuncios De Empleo",
       "make_a_payment": "Realizar Un Pago",
       "my_resume": "Mi CV",
+      "new": "Nuevo",
+      "new_job_posting": "Nuevo Anuncio De Empleo",
       "payments": "Pagos",
       "recruiters": "Reclutadores",
       "requests": "Solicitudes",
@@ -1391,6 +1487,7 @@
       "search": "Buscar",
       "send_invitation": "Enviar Invitación",
       "settings": "Configuración",
+      "show": "Vista",
       "sign_out": "Cerrar Sesión",
       "users": "Usuarios"
     },
@@ -1775,6 +1872,11 @@
     },
     "general": {
       "actions": "Acciones",
+      "ago": "atras",
+      "at": "en",
+      "back": "Atras",
+      "confirm_record_deletion": "Por favor, confirme que quiere eliminar este registro.",
+      "delete": "Borrar",
       "languages": {
         "abbreviations": {
           "en": "IN",
@@ -1784,9 +1886,11 @@
         "es": "Español"
       },
       "no": "No",
+      "save": "Guardar",
       "toast": {
         "default_error_message": "Algo salió mal. Por favor, intenta nuevamente más tarde!"
       },
+      "unexpected_error": "Lo sentimos, ha ocurrido un error.",
       "yes": "Si"
     },
     "helpers": {
@@ -1973,6 +2077,16 @@
         "show": {
           "welcome": "Bienvenido al panel para reclutadores!"
         }
+      },
+      "job_postings": {
+        "approve": "Aprobar",
+        "candidates_postulated": "Postulaciones De Candidatos",
+        "created": "Anuncio creado con exito!",
+        "deleted": "Anuncio eliminado con exito!",
+        "postulation_approved": "Anuncio aprobado con exito!",
+        "postulation_rejected": "Anuncio rechazado con exito!",
+        "reject": "Rechazar",
+        "updated": "Anuncio actualizado con exito!"
       }
     },
     "support": {

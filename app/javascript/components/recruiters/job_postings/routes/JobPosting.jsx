@@ -5,6 +5,7 @@ import {
   useNavigate,
   Form
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { getJobPosting } from '../api';
 
@@ -18,8 +19,11 @@ const JobPosting = () => {
   const { jobPosting } = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  useEffect(() => setBreadcrumbs('Job Postings / <strong>Show</strong>'), [setBreadcrumbs]);
+  useEffect(() => {
+    setBreadcrumbs(`${t('dashboard.job_postings')} / <strong>${t('dashboard.show')}</strong>`);
+  }, [setBreadcrumbs, t]);
 
   return (
     <>
@@ -29,20 +33,24 @@ const JobPosting = () => {
           className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
           onClick={() => navigate(-1)}
         >
-          Back
+          {t('general.back')}
         </button>
       </div>
 
       <div className="d-flex">
         <h2 className="mb-0">
           {jobPosting.title}
-          {' at '}
+          {` ${t('general.at')} `}
           {jobPosting.company}
         </h2>
 
         {/* eslint-disable-next-line max-len */}
         <div className={`align-middle align-self-center btn btn-outline-${jobPosting.published ? 'success' : 'danger'} btn-sm ms-3 rounded-pill`}>
-          {jobPosting.published ? 'Published' : 'Unpublished'}
+          {jobPosting.published ? (
+            t('activerecord.attributes.job_posting.published')
+          ) : (
+            t('activerecord.attributes.job_posting.unpublished')
+          )}
         </div>
       </div>
 
@@ -53,7 +61,7 @@ const JobPosting = () => {
       </div>
 
       <h4 className="mt-4 mb-0">
-        Candidates Postulated
+        {t('recruiters.job_postings.candidates_postulated')}
       </h4>
 
       <div className="table-responsive">
@@ -61,10 +69,10 @@ const JobPosting = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Email</th>
-              <th>Skills</th>
-              <th>Status</th>
-              <th>Actions</th>
+              <th>{t('activerecord.attributes.candidate.email')}</th>
+              <th>{t('activerecord.attributes.candidate.primary_skill_items')}</th>
+              <th>{t('activerecord.attributes.postulation.status')}</th>
+              <th>{t('general.actions')}</th>
             </tr>
           </thead>
 
@@ -81,21 +89,22 @@ const JobPosting = () => {
                 <td className="align-middle">{postulation.status}</td>
                 <td className="align-middle">
                   <div className="d-flex justify-content-center">
-                    {postulation.status !== 'Approved' && (
+                    {postulation.status !== t('activerecord.attributes.postulation.statuses.approved') && (
                       <Form
                         method="post"
                         action={`/recruiters/job_postings/${jobPosting.id}/postulations/${postulation.id}/approve`}
-                        className={`${postulation.status === 'Rejected' ? '' : 'me-2'}`}
+                        // eslint-disable-next-line max-len
+                        className={`${postulation.status === t('activerecord.attributes.postulation.statuses.rejected') ? '' : 'me-2'}`}
                       >
                         <button
                           type="submit"
                           className="btn btn-success btn-sm rounded-pill"
                         >
-                          Approve
+                          {t('recruiters.job_postings.approve')}
                         </button>
                       </Form>
                     )}
-                    {postulation.status !== 'Rejected' && (
+                    {postulation.status !== t('activerecord.attributes.postulation.statuses.rejected') && (
                       <Form
                         method="post"
                         action={`/recruiters/job_postings/${jobPosting.id}/postulations/${postulation.id}/reject`}
@@ -104,7 +113,7 @@ const JobPosting = () => {
                           type="submit"
                           className="btn btn-danger btn-sm rounded-pill"
                         >
-                          Reject
+                          {t('recruiters.job_postings.reject')}
                         </button>
                       </Form>
                     )}

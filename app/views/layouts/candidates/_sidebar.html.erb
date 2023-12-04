@@ -8,7 +8,7 @@
 <li>
   <%= link_to candidates_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/job_postings' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
     <i class="bi bi-collection pe-2"></i>
-    Job Postings
+    <%= t('dashboard.job_postings') %>
   <% end %>
 </li>
 

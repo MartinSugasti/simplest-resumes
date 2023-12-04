@@ -33,7 +33,7 @@ class JobPostingSerializer < ActiveModel::Serializer
   has_many :postulations, if: -> { scope.recruiter? }
 
   def created_at
-    "#{time_ago_in_words(object.created_at)} ago"
+    "#{time_ago_in_words(object.created_at)} #{I18n.t('general.ago')}"
   end
 
   def postulation_id

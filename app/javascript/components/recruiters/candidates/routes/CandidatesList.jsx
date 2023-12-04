@@ -35,7 +35,7 @@ const CandidatesList = () => {
           <tr>
             <th>Id</th>
             <th>{t('activerecord.attributes.candidate.email')}</th>
-            <th>Skills</th>
+            <th>{t('activerecord.attributes.candidate.primary_skill_items')}</th>
           </tr>
         </thead>
 

@@ -26,7 +26,7 @@ const InvitationRequests = () => {
     setEmailToRequest(email);
 
     setRoleToRequest(() => {
-      if (role === 'Collaborator') {
+      if (role === t('activerecord.attributes.admin.roles.collaborator')) {
         return 'collaborator';
       }
 

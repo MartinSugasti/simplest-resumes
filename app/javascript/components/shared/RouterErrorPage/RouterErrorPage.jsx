@@ -1,11 +1,13 @@
 import React from 'react';
 import { useRouteError, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import ErrorPage from '../ErrorPage';
 
 const RouterErrorPage = () => {
   const error = useRouteError();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -15,7 +17,7 @@ const RouterErrorPage = () => {
           className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
           onClick={() => navigate(-1)}
         >
-          Back
+          {t('general.back')}
         </button>
       </div>
 

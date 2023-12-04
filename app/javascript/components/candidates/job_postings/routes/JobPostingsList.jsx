@@ -5,6 +5,7 @@ import {
   useLoaderData,
   useOutletContext
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { getJobPostings } from '../api';
 import ErrorPage from '../../../shared/ErrorPage';
@@ -22,10 +23,11 @@ export const loader = async () => {
 const JobPostingsList = () => {
   const data = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
+  const { t } = useTranslation();
 
   useEffect(() => {
-    setBreadcrumbs('<strong>Job Postings</strong>');
-  }, [setBreadcrumbs]);
+    setBreadcrumbs(`<strong>${t('dashboard.job_postings')}</strong>`);
+  }, [setBreadcrumbs, t]);
 
   return (
     <div className="table-responsive">
@@ -33,11 +35,11 @@ const JobPostingsList = () => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>Company</th>
-            <th>Skills</th>
-            <th>Created At</th>
-            <th>Status</th>
+            <th>{t('activerecord.attributes.job_posting.title')}</th>
+            <th>{t('activerecord.attributes.job_posting.company')}</th>
+            <th>{t('activerecord.attributes.job_posting.skills')}</th>
+            <th>{t('activerecord.attributes.job_posting.created_at')}</th>
+            <th>{t('activerecord.attributes.job_posting.status')}</th>
           </tr>
         </thead>
 
@@ -57,9 +59,9 @@ const JobPostingsList = () => {
               <td className="align-middle">
                 {!jobPosting.postulation_status ? (
                   '-'
-                ) : jobPosting.postulation_status === 'Approved' ? (
+                ) : jobPosting.postulation_status === t('activerecord.attributes.postulation.statuses.approved') ? (
                   <i className="bi bi-check-circle text-success" />
-                ) : jobPosting.postulation_status === 'Rejected' ? (
+                ) : jobPosting.postulation_status === t('activerecord.attributes.postulation.statuses.rejected') ? (
                   <i className="bi bi-x-circle text-danger" />
                 ) : (
                   <i className="bi bi-hourglass-split text-dark" />

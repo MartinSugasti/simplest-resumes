@@ -4,6 +4,7 @@ import {
   useOutletContext,
   useNavigate
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Resume from '../components/Resume';
 import { getCandidate, getResume } from '../api';
@@ -19,17 +20,20 @@ const Candidate = () => {
   const { candidate } = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [resumeData, setResumeData] = useState();
 
-  useEffect(() => setBreadcrumbs('Candidates / <strong>Show</strong>'), [setBreadcrumbs]);
+  useEffect(() => {
+    setBreadcrumbs(`${t('dashboard.candidates')} / <strong>${t('dashboard.show')}</strong>`);
+  }, [setBreadcrumbs, t]);
 
   useEffect(() => {
     if (!candidate.resume_id) { return; }
 
     getResume(candidate.resume_id)
       .then((response) => setResumeData(response.data))
-      .catch(() => showErrorToast("Someting went wrong when retrieving candidate's resume"));
+      .catch(() => showErrorToast());
   }, [candidate]);
 
   return (
@@ -40,7 +44,7 @@ const Candidate = () => {
           className="border-0 btn m-0 p-0 text-decoration-underline text-primary"
           onClick={() => navigate(-1)}
         >
-          Back
+          {t('general.back')}
         </button>
       </div>
 
