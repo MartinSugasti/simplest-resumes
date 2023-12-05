@@ -90,7 +90,7 @@ const InvitationRequests = () => {
                 <td>{invitationRequest.invited_as}</td>
                 <td>{invitationRequest.created_at}</td>
                 <td>
-                  {invitationRequest.status === 'Pending' && (
+                  {invitationRequest.status === t('activerecord.attributes.invitation_request.statuses.pending') && (
                     <>
                       <div className="row mx-0 justify-content-center">
                         <button
@@ -128,7 +128,7 @@ const InvitationRequests = () => {
                     </>
                   )}
 
-                  {invitationRequest.status === 'Approved' && (
+                  {invitationRequest.status === t('activerecord.attributes.invitation_request.statuses.approved') && (
                     <div className="row mx-0 justify-content-center">
                       <button
                         className="col-12 btn btn-ou btn-outline-primary-dark btn-sm rounded-pill"
@@ -144,7 +144,10 @@ const InvitationRequests = () => {
                     </div>
                   )}
 
-                  {['Dismissed', 'Banned'].includes(invitationRequest.status) && (
+                  {[
+                    t('activerecord.attributes.invitation_request.statuses.dismissed'),
+                    t('activerecord.attributes.invitation_request.statuses.banned')
+                  ].includes(invitationRequest.status) && (
                     <div className="row mx-0 justify-content-center">
                       <button
                         className="col-12 btn btn-ou btn-outline-primary-dark btn-sm rounded-pill"

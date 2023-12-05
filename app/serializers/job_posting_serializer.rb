@@ -41,6 +41,9 @@ class JobPostingSerializer < ActiveModel::Serializer
   end
 
   def postulation_status
-    object.postulations.find_by(candidate_id: scope.id)&.status&.titleize
+    status = object.postulations.find_by(candidate_id: scope.id)&.status
+    return if status.nil?
+
+    ApplicationHelper.translate_enum_value('postulation', 'statuses', status)
   end
 end

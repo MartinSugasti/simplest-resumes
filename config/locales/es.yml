@@ -67,13 +67,13 @@ es:
       dismiss:
         notice: 'Solicitud desestimada'
       ban:
-        notice: 'Solicitud cancelada'
+        notice: 'Solicitud rechazada'
       new:
         submit: 'Enviar Solicitud'
       index:
         approve: Aprobar
         dismiss: Desestimar
-        ban: Vetar
+        ban: Rechazar
         approve_invitation_request: Aprobar Solicitud de Invitación
         send_invitation: Enviar Invitación
         approval_success: La invitación fue enviada con exito
@@ -160,8 +160,8 @@ es:
       deleted: Anuncio eliminado con exito!
       created: Anuncio creado con exito!
       updated: Anuncio actualizado con exito!
-      postulation_approved: Anuncio aprobado con exito!
-      postulation_rejected: Anuncio rechazado con exito!
+      postulation_approved: Postulación aprobada con exito!
+      postulation_rejected: Postulación rechazada con exito!
 
   omniauth_callbacks:
     no_email: 'No pudimos conseguir un email desde tu cuenta con #{provider_name}. Por favor, configura un email en tu cuenta o permite acceso a tu email desde la configuración de #{provider_name}'
@@ -236,6 +236,11 @@ es:
       invitation_request:
         email: Email
         status: Estado
+        statuses:
+          pending: Pendiente
+          approved: Aprobada
+          dismissed: Descartada
+          banned: Rechazada
         created_at: Creado en
       resume:
         about_me: Sobre mi

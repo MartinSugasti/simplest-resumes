@@ -236,6 +236,11 @@ en:
       invitation_request:
         email: Email
         status: Status
+        statuses:
+          pending: Pending
+          approved: Approved
+          dismissed: Dismissed
+          banned: Banned
         created_at: Created at
       resume:
         about_me: About Me

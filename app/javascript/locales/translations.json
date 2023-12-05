@@ -78,7 +78,13 @@
         "invitation_request": {
           "created_at": "Created at",
           "email": "Email",
-          "status": "Status"
+          "status": "Status",
+          "statuses": {
+            "approved": "Approved",
+            "banned": "Banned",
+            "dismissed": "Dismissed",
+            "pending": "Pending"
+          }
         },
         "job_posting": {
           "company": "Company",
@@ -1142,7 +1148,13 @@
         "invitation_request": {
           "created_at": "Creado en",
           "email": "Email",
-          "status": "Estado"
+          "status": "Estado",
+          "statuses": {
+            "approved": "Aprobada",
+            "banned": "Rechazada",
+            "dismissed": "Descartada",
+            "pending": "Pendiente"
+          }
         },
         "job_posting": {
           "company": "Compañia",
@@ -1345,7 +1357,7 @@
       },
       "invitation_requests": {
         "ban": {
-          "notice": "Solicitud cancelada"
+          "notice": "Solicitud rechazada"
         },
         "create": {
           "notice": "La solicitud sera revisada a la brevedad"
@@ -1358,7 +1370,7 @@
           "approval_success": "La invitación fue enviada con exito",
           "approve": "Aprobar",
           "approve_invitation_request": "Aprobar Solicitud de Invitación",
-          "ban": "Vetar",
+          "ban": "Rechazar",
           "dismiss": "Desestimar",
           "send_invitation": "Enviar Invitación"
         },
@@ -2083,8 +2095,8 @@
         "candidates_postulated": "Postulaciones De Candidatos",
         "created": "Anuncio creado con exito!",
         "deleted": "Anuncio eliminado con exito!",
-        "postulation_approved": "Anuncio aprobado con exito!",
-        "postulation_rejected": "Anuncio rechazado con exito!",
+        "postulation_approved": "Postulación aprobada con exito!",
+        "postulation_rejected": "Postulación rechazada con exito!",
         "reject": "Rechazar",
         "updated": "Anuncio actualizado con exito!"
       }

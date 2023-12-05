@@ -32,13 +32,13 @@ const Admins = () => {
           {admins.map((admin, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <tr key={index}>
-              <td>{admin.id}</td>
-              <td>{admin.email}</td>
-              <td>{admin.role}</td>
-              <td>{admin.created_at}</td>
-              <td>{admin.invited_by}</td>
-              <td>{admin.invitation_accepted}</td>
-              <td>{admin.admins_invited}</td>
+              <td className="align-middle">{admin.id}</td>
+              <td className="align-middle">{admin.email}</td>
+              <td className="align-middle">{admin.role}</td>
+              <td className="align-middle">{admin.created_at}</td>
+              <td className="align-middle">{admin.invited_by}</td>
+              <td className="align-middle">{admin.invitation_accepted}</td>
+              <td className="align-middle">{admin.admins_invited}</td>
             </tr>
           ))}
         </tbody>
