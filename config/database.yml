@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: simplest_resumes_production
-  username: simplest_resumes
-  password: <%= ENV["SIMLEST_RESUMES_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
