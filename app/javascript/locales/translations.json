@@ -392,6 +392,19 @@
           "checkout_success": "Order placed! You will receive an email confirmation.",
           "make_5_dollars_payment": "Make a US$5 payment"
         }
+      },
+      "postulation_approved_job": {
+        "sms_message": "Congratulations! Your postulation for %{job_posting_title} was approved."
+      },
+      "postulations_mailer": {
+        "postulation_approved": {
+          "body": "Congratulations! Your postulation for %{job_posting_title} was approved.",
+          "subject": "Postulation Approved"
+        },
+        "postulation_rejected": {
+          "body": "We're sorry. Your postulation for %{job_posting_title} was rejected.",
+          "subject": "Postulation Rejected"
+        }
       }
     },
     "contact_form": {
@@ -1023,7 +1036,7 @@
     "payments": {
       "checkout_session_mailer": {
         "completed": {
-          "body": "Your payment was accepted",
+          "body": "Your payment was accepted!",
           "subject": "Payment Accepted"
         }
       }
@@ -1461,6 +1474,19 @@
           "checkout_canceled": "Orden cancelada -- continua comprando y pasa por caja una vez pronto.",
           "checkout_success": "Orden creada! Recibiras un email de confirmacion",
           "make_5_dollars_payment": "Realizar un pago de US$5"
+        }
+      },
+      "postulation_approved_job": {
+        "sms_message": "Felicitaciones! Tu postulación para %{job_posting_title} fue aprobada."
+      },
+      "postulations_mailer": {
+        "postulation_approved": {
+          "body": "Felicitaciones! Tu postulación para %{job_posting_title} fue aprobada.",
+          "subject": "Postulación Aprobada"
+        },
+        "postulation_rejected": {
+          "body": "Lo sentimos. Tu postulación para %{job_posting_title} fue rechazada.",
+          "subject": "Postulación Rechazada"
         }
       }
     },
@@ -2079,7 +2105,7 @@
     "payments": {
       "checkout_session_mailer": {
         "completed": {
-          "body": "Tu pago fue aceptado",
+          "body": "Tu pago fue aceptado!",
           "subject": "Pago Aceptado"
         }
       }

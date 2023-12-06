@@ -155,6 +155,8 @@ en:
       postulation_rejected:
         subject: Postulation Rejected
         body: "We're sorry. Your postulation for %{job_posting_title} was rejected."
+    postulation_approved_job:
+      sms_message: "Congratulations! Your postulation for %{job_posting_title} was approved."
 
   recruiters:
     dashboard:

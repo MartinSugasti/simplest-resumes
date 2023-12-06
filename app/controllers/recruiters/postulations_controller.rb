@@ -9,6 +9,7 @@ class Recruiters::PostulationsController < ApplicationController
 
     if postulation.update(status: :approved)
       Candidates::PostulationsMailer.postulation_approved(postulation.id).deliver_later
+      Candidates::PostulationApprovedJob.perform_later(postulation.id)
 
       head :ok
     else
