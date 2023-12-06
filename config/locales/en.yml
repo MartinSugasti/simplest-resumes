@@ -148,6 +148,13 @@ en:
       recruiter_will_get_in_touch: The recruiter will get in touch soon!
       postulate: Postulate
       successfully_postulated: You have successfully postulated!
+    postulations_mailer:
+      postulation_approved:
+        subject: Postulation Approved
+        body: "Congratulations! Your postulation for %{job_posting_title} was approved."
+      postulation_rejected:
+        subject: Postulation Rejected
+        body: "We're sorry. Your postulation for %{job_posting_title} was rejected."
 
   recruiters:
     dashboard:
@@ -172,7 +179,7 @@ en:
     checkout_session_mailer:
       completed:
         subject: 'Payment Accepted'
-        body: 'Your payment was accepted'
+        body: 'Your payment was accepted!'
 
   contact_form:
     create:

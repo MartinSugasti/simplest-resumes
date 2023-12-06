@@ -8,6 +8,8 @@ class Recruiters::PostulationsController < ApplicationController
     authorize(postulation, policy_class: Recruiters::PostulationPolicy)
 
     if postulation.update(status: :approved)
+      Candidates::PostulationsMailer.postulation_approved(postulation.id).deliver_later
+
       head :ok
     else
       render json: { errors: postulation.errors.full_messages.join(', ') }, status: :unprocessable_entity
@@ -19,6 +21,8 @@ class Recruiters::PostulationsController < ApplicationController
     authorize(postulation, policy_class: Recruiters::PostulationPolicy)
 
     if postulation.update(status: :rejected)
+      Candidates::PostulationsMailer.postulation_rejected(postulation.id).deliver_later
+
       head :ok
     else
       render json: { errors: postulation.errors.full_messages.join(', ') }, status: :unprocessable_entity
