@@ -32,9 +32,8 @@ const Candidates = ({ hasMasqueradePermissions }) => {
         </thead>
 
         <tbody>
-          {candidates.map((candidate, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <tr key={index}>
+          {candidates.map((candidate) => (
+            <tr key={candidate.id}>
               <td className="align-middle">{candidate.id}</td>
               <td className="image-cell align-middle">
                 <span>

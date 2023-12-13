@@ -32,9 +32,8 @@ const Recruiters = ({ hasMasqueradePermissions }) => {
         </thead>
 
         <tbody>
-          {recruiters.map((recruiter, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <tr key={index}>
+          {recruiters.map((recruiter) => (
+            <tr key={recruiter.id}>
               <td>{recruiter.id}</td>
               <td className="image-cell">
                 <span>

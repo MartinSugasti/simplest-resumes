@@ -144,6 +144,9 @@ es:
         personal_reference: Referencia Personal
         full_name: Nombre Completo
         mobile: Mobil
+        external_links: Links De Interes
+        external_link: Link De Interes
+        url: URL
     job_postings:
       recruiter_will_get_in_touch: Pronto se pondran en contacto!
       postulate: Postularse
@@ -171,6 +174,8 @@ es:
       updated: Anuncio actualizado con exito!
       postulation_approved: Postulación aprobada con exito!
       postulation_rejected: Postulación rechazada con exito!
+    candidates:
+      no_resume: Este Candidate aun no ha creado su CV
 
   omniauth_callbacks:
     no_email: 'No pudimos conseguir un email desde tu cuenta con #{provider_name}. Por favor, configura un email en tu cuenta o permite acceso a tu email desde la configuración de #{provider_name}'

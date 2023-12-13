@@ -29,9 +29,8 @@ const Admins = () => {
         </thead>
 
         <tbody>
-          {admins.map((admin, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <tr key={index}>
+          {admins.map((admin) => (
+            <tr key={admin.id}>
               <td className="align-middle">{admin.id}</td>
               <td className="align-middle">{admin.email}</td>
               <td className="align-middle">{admin.role}</td>

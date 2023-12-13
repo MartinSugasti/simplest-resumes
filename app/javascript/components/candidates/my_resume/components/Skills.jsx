@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -35,7 +34,7 @@ const Skills = ({
       <div className="d-md-flex text-md-start mt-2">
         {primarySkills.length > 0 ? (
           primarySkills.map((item, index) => (
-            <div key={index} id={index} className="d-flex align-items-center fw-bold">
+            <div key={item.id} id={item.id} className="d-flex align-items-center fw-bold">
               <p className="mb-0">
                 {item.name}
               </p>
@@ -56,7 +55,7 @@ const Skills = ({
           ))
         ) : (
           examplePrimarySkills.map((item, index) => (
-            <div key={index} id={index} className="d-flex align-items-center fw-bold fst-italic text-black-50">
+            <div key={item.id} id={item.id} className="d-flex align-items-center fw-bold fst-italic text-black-50">
               <p className="mb-0">
                 {item.name}
               </p>
@@ -72,7 +71,7 @@ const Skills = ({
       <div className="d-md-flex text-md-start mt-2">
         {secondarySkills.length > 0 ? (
           secondarySkills.map((item, index) => (
-            <div key={index} id={index} className="d-flex align-items-center">
+            <div key={item.id} id={item.id} className="d-flex align-items-center">
               <p className="mb-0">
                 {item.name}
               </p>
@@ -93,7 +92,7 @@ const Skills = ({
           ))
         ) : (
           exampleSecondarySkills.map((item, index) => (
-            <div key={index} id={index} className="d-flex align-items-center fst-italic text-black-50">
+            <div key={item.id} id={item.id} className="d-flex align-items-center fst-italic text-black-50">
               <p className="mb-0">
                 {item.name}
               </p>

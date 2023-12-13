@@ -144,6 +144,9 @@ en:
         personal_reference: Personal Reference
         full_name: Full Name
         mobile: Mobile
+        external_links: Links Of Interest
+        external_link: Link Of Interest
+        url: URL
     job_postings:
       recruiter_will_get_in_touch: The recruiter will get in touch soon!
       postulate: Postulate
@@ -171,6 +174,8 @@ en:
       updated: Job Posting successfully updated!
       postulation_approved: Postulation successfully approved!
       postulation_rejected: Postulation successfully rejected!
+    candidates:
+      no_resume: This Candidate has not complete his Resume yet
 
   omniauth_callbacks:
     no_email: "We weren't able to get an email from your #{provider_name} account. Please, set an email in your account or allow access to read your email address in the app settings."

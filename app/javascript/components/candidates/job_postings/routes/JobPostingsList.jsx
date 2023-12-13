@@ -45,7 +45,6 @@ const JobPostingsList = () => {
 
         <tbody>
           {data.jobPostings && data.jobPostings.map((jobPosting) => (
-            // eslint-disable-next-line react/no-array-index-key
             <tr key={jobPosting.id}>
               <td className="align-middle">{jobPosting.id}</td>
               <td className="align-middle">

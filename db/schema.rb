@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_03_085623) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_13_135116) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,6 +99,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_085623) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_education_items_on_resume_id"
+  end
+
+  create_table "external_link_items", force: :cascade do |t|
+    t.string "name", limit: 40, null: false
+    t.string "url", limit: 80, null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_external_link_items_on_resume_id"
   end
 
   create_table "invitation_requests", force: :cascade do |t|
@@ -201,6 +210,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_085623) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "education_items", "resumes"
+  add_foreign_key "external_link_items", "resumes"
   add_foreign_key "job_postings", "recruiters"
   add_foreign_key "postulations", "candidates"
   add_foreign_key "postulations", "job_postings"

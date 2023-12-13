@@ -43,6 +43,9 @@ class Resume < ApplicationRecord
   has_many :job_reference_items, -> { where(kind: :job) }, class_name: 'ReferenceItem', dependent: :destroy
   validates :job_reference_items, length: { maximum: 4 }
 
+  has_many :external_link_items, dependent: :destroy
+  validates :external_link_items, length: { maximum: 5 }
+
   validates :name, length: { maximum: 40 }
   validates :email, length: { maximum: 40 }, format: Devise.email_regexp, allow_blank: true
   validates :mobile, length: { maximum: 20 }
