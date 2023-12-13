@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -32,8 +31,8 @@ const WorkExperience = ({
       </h3>
 
       {items.length > 0 ? (
-        items.map((item, index) => (
-          <div key={index} id={index} className="text-md-start mt-2">
+        items.map((item) => (
+          <div key={item.id} id={item.id} className="text-md-start mt-2">
             <div className="row">
               <div className="col-12 col-md-6 align-items-center">
                 <p className="mb-0 fw-bold">

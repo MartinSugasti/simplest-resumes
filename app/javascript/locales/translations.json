@@ -364,6 +364,8 @@
           "download": "Download",
           "education": "Education",
           "end": "End",
+          "external_link": "Link Of Interest",
+          "external_links": "Links Of Interest",
           "full_name": "Full Name",
           "institute": "Institute",
           "job": "Job",
@@ -383,6 +385,7 @@
           "skill": "Skill",
           "skills": "Skills",
           "start": "Start",
+          "url": "URL",
           "work_experience": "Work Experience"
         }
       },
@@ -1042,6 +1045,9 @@
       }
     },
     "recruiters": {
+      "candidates": {
+        "no_resume": "This Candidate has not complete his Resume yet"
+      },
       "dashboard": {
         "show": {
           "welcome": "Welcome to the the Recruiter's dashboard!"
@@ -1447,6 +1453,8 @@
           "download": "Descargar",
           "education": "Educación",
           "end": "Fin",
+          "external_link": "Link De Interes",
+          "external_links": "Links De Interes",
           "full_name": "Nombre Completo",
           "institute": "Instituto",
           "job": "Laboral",
@@ -1466,6 +1474,7 @@
           "skill": "Habilidad",
           "skills": "Habilidades",
           "start": "Comienzo",
+          "url": "URL",
           "work_experience": "Experiencia Laboral"
         }
       },
@@ -2111,6 +2120,9 @@
       }
     },
     "recruiters": {
+      "candidates": {
+        "no_resume": "Este Candidate aun no ha creado su CV"
+      },
       "dashboard": {
         "show": {
           "welcome": "Bienvenido al panel para reclutadores!"

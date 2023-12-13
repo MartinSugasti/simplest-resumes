@@ -6,6 +6,7 @@ export const exampleAboutMe = 'I am an industrial engineer, with experience work
 + 'vocational preferences, I decided on a change in my professional profile and started studying Software '
 + 'Engineering and working as a full-stack developer. As a personal challenge and in search of new experiences, I '
 + 'moved to Barcelona in August 2021 with my partner.';
+
 export const exampleEducationItems = [
   {
     id: 1,
@@ -29,6 +30,7 @@ export const exampleEducationItems = [
     end_year: '2008'
   }
 ];
+
 export const exampleWorkExperienceItems = [
   {
     id: 1,
@@ -105,7 +107,9 @@ export const exampleWorkExperienceItems = [
       + 'extension.'
   }
 ];
+
 export const examplePrimarySkills = [{ id: 1, name: 'Rails' }, { id: 2, name: 'React' }, { id: 3, name: 'Scrum' }];
+
 export const exampleSecondarySkills = [
   { id: 1, name: 'Javascript' },
   { id: 2, name: 'Bootstrap' },
@@ -113,6 +117,12 @@ export const exampleSecondarySkills = [
   { id: 4, name: 'Cucumber' },
   { id: 5, name: 'Git' }
 ];
+
+export const exampleExternalLinks = [
+  { id: 1, name: 'Linkedin', url: 'https://www.linkedin.com/in/martin-sugasti-ab2aa391/' },
+  { id: 5, name: 'Github', url: 'https://github.com/MartinSugasti' }
+];
+
 export const examplePersonalReferences = [
   {
     id: 1,
@@ -143,6 +153,7 @@ export const examplePersonalReferences = [
     position: 'CTO'
   }
 ];
+
 export const exampleJobReferences = [
   {
     id: 1,

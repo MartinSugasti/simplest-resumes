@@ -15,5 +15,6 @@ export default combineReducers({
   secondarySkillItems: listReducer('secondarySkillItems'),
   personalReferenceItems: listReducer('personalReferenceItems'),
   jobReferenceItems: listReducer('jobReferenceItems'),
+  externalLinkItems: listReducer('externalLinkItems'),
   requestStatus: requestStatusReducer
 });

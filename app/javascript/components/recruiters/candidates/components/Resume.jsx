@@ -145,6 +145,26 @@ const Resume = ({ resumeData }) => {
         </div>
       )}
 
+      {resumeData.external_link_items && (
+        <div className="card-body py-0">
+          <h3 className="mt-3 mb-0 text-md-start">
+            {t('candidates.my_resume.show.external_links')}
+          </h3>
+
+          {resumeData.external_link_items && (
+            resumeData.external_link_items.map((item, index) => (
+              <div key={item.id} id={index} className="fst-italic mt-2">
+                <p className="mb-0">
+                  <span className="fw-bold">{item.name}</span>
+                  {' - '}
+                  {item.url}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
       {(resumeData.personal_reference_items || resumeData.job_reference_items) && (
         <div className="card-body row py-0">
           {resumeData.personal_reference_items && (
@@ -203,6 +223,7 @@ Resume.propTypes = {
     primary_skill_items: PropTypes.arrayOf(PropTypes.shape({})),
     secondary_skill_items: PropTypes.arrayOf(PropTypes.shape({})),
     personal_reference_items: PropTypes.arrayOf(PropTypes.shape({})),
+    external_link_items: PropTypes.arrayOf(PropTypes.shape({})),
     job_reference_items: PropTypes.arrayOf(PropTypes.shape({}))
   }).isRequired
 };

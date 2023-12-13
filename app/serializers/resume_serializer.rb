@@ -31,4 +31,5 @@ class ResumeSerializer < ActiveModel::Serializer
   has_many :secondary_skill_items, serializer: SkillItemSerializer
   has_many :personal_reference_items, serializer: ReferenceItemSerializer
   has_many :job_reference_items, serializer: ReferenceItemSerializer
+  has_many :external_link_items
 end

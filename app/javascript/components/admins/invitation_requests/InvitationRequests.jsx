@@ -81,9 +81,8 @@ const InvitationRequests = () => {
           </thead>
 
           <tbody className="align-middle">
-            {invitationRequests.map((invitationRequest, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <tr key={index}>
+            {invitationRequests.map((invitationRequest) => (
+              <tr key={invitationRequest.id}>
                 <td>{invitationRequest.id}</td>
                 <td>{invitationRequest.email}</td>
                 <td>{invitationRequest.status}</td>

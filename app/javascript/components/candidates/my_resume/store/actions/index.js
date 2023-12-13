@@ -112,6 +112,9 @@ export const populateInitialValues = (resume) => ((dispatch) => {
   resume.secondary_skill_items.forEach((item) => {
     dispatch(addItem('secondarySkillItems', item));
   });
+  resume.external_link_items.forEach((item) => {
+    dispatch(addItem('externalLinkItems', item));
+  });
   resume.personal_reference_items.forEach((item) => {
     dispatch(addItem('personalReferenceItems', item));
   });

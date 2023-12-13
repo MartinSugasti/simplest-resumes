@@ -56,7 +56,11 @@ const Candidate = () => {
         </div>
       </div>
 
-      {resumeData && <Resume resumeData={resumeData} />}
+      {resumeData ? (
+        <Resume resumeData={resumeData} />
+      ) : (
+        <p className="h5 mb-0 text-center text-dark">{t('recruiters.candidates.no_resume')}</p>
+      )}
     </>
   );
 };
