@@ -190,6 +190,12 @@ SkillItem.create(
   kind: :secondary,
 )
 
+ExternalLinkItem.create(
+  resume: resume_1,
+  name: 'Linkedin',
+  url: 'https://www.linkedin.com/'
+)
+
 ReferenceItem.create(
   resume: resume_1,
   name: 'John Smith',
@@ -312,6 +318,18 @@ SkillItem.create(
   kind: :secondary,
 )
 
+ExternalLinkItem.create(
+  resume: resume_2,
+  name: 'Linkedin',
+  url: 'https://www.linkedin.com/'
+)
+
+ExternalLinkItem.create(
+  resume: resume_2,
+  name: 'Github',
+  url: 'https://github.com/'
+)
+
 ReferenceItem.create(
   resume: resume_2,
   name: 'Mary Brown',
@@ -416,6 +434,12 @@ SkillItem.create(
   kind: :secondary,
 )
 
+ExternalLinkItem.create(
+  resume: resume_3,
+  name: 'Github',
+  url: 'https://github.com/'
+)
+
 ReferenceItem.create(
   resume: resume_3,
   name: 'Michael Davis',
@@ -517,6 +541,12 @@ SkillItem.create(
   resume: resume_4,
   name: 'Public relations',
   kind: :secondary,
+)
+
+ExternalLinkItem.create(
+  resume: resume_4,
+  name: 'Linkedin',
+  url: 'https://www.linkedin.com/'
 )
 
 ReferenceItem.create(
@@ -623,6 +653,18 @@ SkillItem.create(
   resume: resume_5,
   name: 'Git',
   kind: :secondary,
+)
+
+ExternalLinkItem.create(
+  resume: resume_5,
+  name: 'Linkedin',
+  url: 'https://www.linkedin.com/'
+)
+
+ExternalLinkItem.create(
+  resume: resume_5,
+  name: 'Github',
+  url: 'https://github.com/'
 )
 
 ReferenceItem.create(
