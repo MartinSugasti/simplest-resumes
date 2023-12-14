@@ -51,7 +51,7 @@ const Resume = ({ resumeData }) => {
         </div>
       )}
 
-      {resumeData.education_items && (
+      {resumeData.education_items.length > 0 && (
         <div className="card-body py-0">
           <h3 className="mt-3 mb-0 text-md-start">
             {t('candidates.my_resume.show.education')}
@@ -73,7 +73,7 @@ const Resume = ({ resumeData }) => {
         </div>
       )}
 
-      {resumeData.education_items && (
+      {resumeData.work_experience_items.length > 0 && (
         <div className="card-body py-0">
           <h3 className="mt-3 mb-0 text-md-start">
             {t('candidates.my_resume.show.work_experience')}
@@ -105,13 +105,13 @@ const Resume = ({ resumeData }) => {
         </div>
       )}
 
-      {(resumeData.primary_skill_items || resumeData.secondary_skill_items) && (
+      {(resumeData.primary_skill_items.length > 0 || resumeData.secondary_skill_items.length > 0 ) && (
         <div className="card-body py-0">
           <h3 className="mt-3 mb-0 text-md-start">
             {t('candidates.my_resume.show.skills')}
           </h3>
 
-          {resumeData.primary_skill_items && (
+          {resumeData.primary_skill_items.length > 0 && (
             <div className="d-md-flex text-md-start mt-2">
               {resumeData.primary_skill_items.map((item, index) => (
                 <div key={item.id} id={index} className="d-flex align-items-center fw-bold">
@@ -127,7 +127,7 @@ const Resume = ({ resumeData }) => {
             </div>
           )}
 
-          {resumeData.secondary_skill_items && (
+          {resumeData.secondary_skill_items.length > 0 && (
             <div className="d-md-flex text-md-start mt-2">
               {resumeData.secondary_skill_items.map((item, index) => (
                 <div key={item.id} id={index} className="d-flex align-items-center">
@@ -145,29 +145,27 @@ const Resume = ({ resumeData }) => {
         </div>
       )}
 
-      {resumeData.external_link_items && (
+      {resumeData.external_link_items.length > 0 && (
         <div className="card-body py-0">
           <h3 className="mt-3 mb-0 text-md-start">
             {t('candidates.my_resume.show.external_links')}
           </h3>
 
-          {resumeData.external_link_items && (
-            resumeData.external_link_items.map((item, index) => (
-              <div key={item.id} id={index} className="fst-italic mt-2">
-                <p className="mb-0">
-                  <span className="fw-bold">{item.name}</span>
-                  {' - '}
-                  {item.url}
-                </p>
-              </div>
-            ))
-          )}
+          {resumeData.external_link_items.map((item, index) => (
+            <div key={item.id} id={index} className="mt-2">
+              <p className="mb-0">
+                <span className="fw-bold">{item.name}</span>
+                {' - '}
+                {item.url}
+              </p>
+            </div>
+          ))}
         </div>
       )}
 
-      {(resumeData.personal_reference_items || resumeData.job_reference_items) && (
+      {(resumeData.personal_reference_items.length > 0 || resumeData.job_reference_items.length > 0 ) && (
         <div className="card-body row py-0">
-          {resumeData.personal_reference_items && (
+          {resumeData.personal_reference_items.length > 0 && (
             <div className="col-12 col-md-6 mt-3 text-md-start">
               <h3>
                 {t('candidates.my_resume.show.personal_references')}
@@ -186,7 +184,7 @@ const Resume = ({ resumeData }) => {
             </div>
           )}
 
-          {resumeData.job_reference_items && (
+          {resumeData.job_reference_items.length > 0 && (
             <div className="col-12 col-md-6 mt-3 text-md-start">
               <h3>
                 {t('candidates.my_resume.show.job_references')}

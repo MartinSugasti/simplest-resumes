@@ -375,6 +375,7 @@
           "location": "Location",
           "mobile": "Mobile",
           "name": "Name",
+          "pdf_title": "MY RESUME",
           "personal": "Personal",
           "personal_reference": "Personal Reference",
           "personal_references": "Personal References",
@@ -386,7 +387,7 @@
           "skills": "Skills",
           "start": "Start",
           "url": "URL",
-          "work_experience": "Work Experience"
+          "work_experience": "Professional Experience"
         }
       },
       "payments": {
@@ -1046,7 +1047,7 @@
     },
     "recruiters": {
       "candidates": {
-        "no_resume": "This Candidate has not complete his Resume yet"
+        "no_resume": "Candidate has not completed his/her Resume yet"
       },
       "dashboard": {
         "show": {
@@ -1464,6 +1465,7 @@
           "location": "Ubicación",
           "mobile": "Mobil",
           "name": "Nombre",
+          "pdf_title": "MI CV",
           "personal": "Personal",
           "personal_reference": "Referencia Personal",
           "personal_references": "Referencias Personales",

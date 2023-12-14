@@ -20,12 +20,14 @@ import { getResume } from './api';
 
 const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
   const [resumeId, setResumeId] = useState();
+  const [dataForDownload, setDataForDownload] = useState({});
   const { t } = useTranslation();
 
   useEffect(() => {
     getResume()
       .then((response) => {
         setResumeId(response.data.id);
+        setDataForDownload(response.data);
         populateValues(response.data);
       })
       .catch(() => showErrorToast());
@@ -40,9 +42,9 @@ const MyResume = ({ requestStatus, errorMessage, populateValues }) => {
   return (
     <>
       <div className="mb-3">
-        <PDFDownloadLink document={<Pdf />} filName="myresume.pdf">
+        <PDFDownloadLink document={<Pdf resume={dataForDownload} />} filName="myresume.pdf">
           {({ loading }) => (
-            <button type="button" className="btn btn-outline-primary" disabled={loading}>
+            <button type="button" className="btn btn-outline-primary" disabled={loading || !dataForDownload}>
               {t('candidates.my_resume.show.download')}
             </button>
           )}
