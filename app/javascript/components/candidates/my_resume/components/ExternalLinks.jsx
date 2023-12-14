@@ -32,7 +32,7 @@ const ExternalLinks = ({
 
       {externalLinks.length > 0 ? (
         externalLinks.map((item) => (
-          <div key={item.id} id={item.id} className="fst-italic mt-2">
+          <div key={item.id} id={item.id} className="mt-2">
             <p className="mb-0">
               <span className="fw-bold">{item.name}</span>
               {' - '}
