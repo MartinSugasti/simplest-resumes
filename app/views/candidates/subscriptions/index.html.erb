@@ -1,0 +1,8 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1"><%= t('dashboard.subscription') %></h2>
+  <p class="small text-muted mb-0"><%= t('dashboard.subscription') %> / <strong><%= t('dashboard.subscribe') %></strong></p>
+<% end %>
+
+<%= content_tag(:div, "", id: "candidates-subscriptions-container", data: {
+  controller: "candidates_subscriptions"
+}) %>

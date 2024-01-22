@@ -30,7 +30,9 @@ en:
     settings: 'Settings'
     sign_out: 'Sign Out'
     payments: 'Payments'
-    make_a_payment: 'Make A Payment'
+    subscription: 'Subscription'
+    subscribe: 'Subscribe'
+    billing_portal: 'Billing Portal'
     dashboard: 'Dashboard'
     return_to_admin_dashboard: 'Return to Admin dashboard'
     search: Search
@@ -110,11 +112,17 @@ en:
     dashboard:
       show:
         welcome: "Welcome to the the Candidate's dashboard!"
-    payments:
+    subscriptions:
       index:
         checkout_success: Order placed! You will receive an email confirmation.
         checkout_canceled: Order canceled -- continue to shop around and checkout when you're ready.
-        make_5_dollars_payment: Make a US$5 payment
+        monthly: Monthly
+        yearly: Yearly
+        unlimited_job_postulations: Unlimited Job Postulations
+        two_months_free: 2 Months Free
+        subscribe: Subscribe
+        subscription_ends_at: "You subscription ends at"
+        manage_subscription_at_the_billing_portal: "Please, access the <a href='/candidates/subscriptions/billing_portal'>Billing Portal</a> if you want to manage your subscription."
     my_resume:
       show:
         download: Download
@@ -244,6 +252,7 @@ en:
       candidate:
         profile_picture: Profile picture
         confirmed: Confirmed?
+        subscribed: Subscribed?
         primary_skill_items: Skills
       recruiter:
         profile_picture: Profile picture
@@ -343,6 +352,8 @@ en:
           attributes:
             job_posting:
               not_published: is not published
+            candidate:
+              max_number_of_postulations_reached: "can't have more than 3 pending postulations. Please, subscribe to unlock more postulations"
       validators:
         resume_associations_count_validator:
           too_many_associations: '%{model_name} can have %{count} associated records at most'

@@ -13,10 +13,19 @@
 </li>
 
 <li>
-  <%= link_to candidates_payments_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/payments' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
-    <i class="bi bi-credit-card pe-2 pe-2"></i>
-    <%= t('dashboard.payments') %>
-  <% end %>
+  <a href="/" class="sidebar-link text-light px-4 py-2 collapsed" data-bs-toggle="collapse" data-bs-target="#subscription-dropdown" aria-expanded="false" aria-controls="subscription-dropdown">
+    <i class="bi bi-person-fill pe-2 pe-2"></i>
+    <%= t('dashboard.subscription') %>
+  </a>
+
+  <ul id="subscription-dropdown" class="sidebar-dropdown list-unstyled collapse <%= active_sidebar_option?({ 'candidates/payments' => ['index'], 'candidates/subscriptions' => ['index'] }) ? "show" : '' %>" data-bs-parent="#sidebar">
+    <li>
+      <%= link_to t('dashboard.subscribe'), candidates_subscriptions_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/subscriptions' => ['index'] }) ? "bg-primary-dark" : ''}" %>
+    </li>
+    <li>
+      <%= link_to t('dashboard.billing_portal'), billing_portal_candidates_subscriptions_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/subscriptions' => ['billing_portal'] }) ? "bg-primary-dark" : ''}" %>
+    </li>
+  </ul>
 </li>
 
 <li>
