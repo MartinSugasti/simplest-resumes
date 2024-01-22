@@ -105,7 +105,7 @@ const Resume = ({ resumeData }) => {
         </div>
       )}
 
-      {(resumeData.primary_skill_items.length > 0 || resumeData.secondary_skill_items.length > 0 ) && (
+      {(resumeData.primary_skill_items.length > 0 || resumeData.secondary_skill_items.length > 0) && (
         <div className="card-body py-0">
           <h3 className="mt-3 mb-0 text-md-start">
             {t('candidates.my_resume.show.skills')}

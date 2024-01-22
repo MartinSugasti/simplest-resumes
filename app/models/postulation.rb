@@ -23,12 +23,15 @@
 #  fk_rails_...  (job_posting_id => job_postings.id)
 #
 class Postulation < ApplicationRecord
+  MAX_NUMBER_OF_POSTULATIONS_WO_SUBSCRIPTION = 3
+
   belongs_to :candidate
   belongs_to :job_posting
   delegate :recruiter, to: :job_posting
 
   validates :candidate_id, uniqueness: { scope: :job_posting_id }
   validate :job_posting_published
+  validate :candidate_can_postulate
 
   enum status: {
     pending: 0,
@@ -42,5 +45,11 @@ class Postulation < ApplicationRecord
     return if job_posting.published?
 
     errors.add(:job_posting, :not_published)
+  end
+
+  def candidate_can_postulate
+    return if candidate.active_subscription? || candidate.postulations.pending.count < MAX_NUMBER_OF_POSTULATIONS_WO_SUBSCRIPTION
+
+    errors.add(:candidate, :max_number_of_postulations_reached)
   end
 end

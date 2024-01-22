@@ -10,13 +10,16 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  plan                   :string
 #  preferred_language     :integer          default("en"), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  subscription_ends_at   :datetime
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  stripe_customer_id     :string
 #
 # Indexes
 #
@@ -30,6 +33,7 @@ class CandidateSerializer < ActiveModel::Serializer
   attributes :id, :email, :created_at, :profile_picture_url
 
   attribute :confirmed?, if: -> { scope.admin? }
+  attribute :suscribed?, if: -> { scope.admin? }
   attribute :created_at, if: -> { scope.admin? }
   attribute :sign_in_path, if: -> { scope.admin? }
 
@@ -55,5 +59,9 @@ class CandidateSerializer < ActiveModel::Serializer
 
   def resume_id
     object.resume&.id
+  end
+
+  def suscribed?
+    object.active_subscription?.present?
   end
 end

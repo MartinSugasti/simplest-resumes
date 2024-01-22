@@ -10,13 +10,16 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  plan                   :string
 #  preferred_language     :integer          default("en"), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  subscription_ends_at   :datetime
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  stripe_customer_id     :string
 #
 # Indexes
 #
@@ -43,6 +46,8 @@ class Candidate < ApplicationRecord
 
   delegate :about_me, to: :resume, allow_nil: true
 
+  after_create :create_stripe_customer
+
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   def self.from_omniauth(auth)
@@ -53,5 +58,16 @@ class Candidate < ApplicationRecord
       # uncomment the line below to skip the confirmation emails.
       candidate.skip_confirmation!
     end
+  end
+
+  def active_subscription?
+    subscription_ends_at.present? && subscription_ends_at > Time.current.beginning_of_day
+  end
+
+  def create_stripe_customer
+    # This will create a customer in Stripe
+    # Then, Stripe will hit stripe_webhooks/create with the evet 'customer.created'
+    # There, we must associate the customer the the candidate
+    Stripe::Customer.create(email: email)
   end
 end

@@ -23,6 +23,7 @@ const Candidates = ({ hasMasqueradePermissions }) => {
             <th>{t('activerecord.attributes.candidate.email')}</th>
             <th>{t('activerecord.attributes.candidate.created_at')}</th>
             <th>{t('activerecord.attributes.candidate.confirmed')}</th>
+            <th>{t('activerecord.attributes.candidate.subscribed')}</th>
             {hasMasqueradePermissions && (
               <th>
                 <i className="bi bi-box-arrow-in-right" />
@@ -45,6 +46,7 @@ const Candidates = ({ hasMasqueradePermissions }) => {
               </td>
               <td className="align-middle">{candidate.created_at}</td>
               <td className="align-middle">{candidate['confirmed?'] ? t('general.yes') : t('general.no') }</td>
+              <td className="align-middle">{candidate['suscribed?'] ? t('general.yes') : t('general.no') }</td>
               {hasMasqueradePermissions && (
                 <td className="align-middle">
                   <a href={`${candidate.sign_in_path}?resource_id=${candidate.id}`}>

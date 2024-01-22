@@ -30,7 +30,9 @@ es:
     settings: 'Configuración'
     sign_out: 'Cerrar Sesión'
     payments: 'Pagos'
-    make_a_payment: 'Realizar Un Pago'
+    subscription: 'Suscripcion'
+    subscribe: 'Suscribirse'
+    billing_portal: 'Portal de Facturación'
     dashboard: 'Panel'
     return_to_admin_dashboard: 'Regresar al panel de administrador'
     search: Buscar
@@ -110,11 +112,17 @@ es:
     dashboard:
       show:
         welcome: "Bienvenido al panel para candidatos!"
-    payments:
+    subscriptions:
       index:
         checkout_success: Orden creada! Recibiras un email de confirmacion
         checkout_canceled: Orden cancelada -- continua comprando y pasa por caja una vez pronto.
-        make_5_dollars_payment: Realizar un pago de US$5
+        monthly: Mensual
+        yearly: Anual
+        unlimited_job_postulations: Sin Limite de Postulaciones
+        two_months_free: 2 Meses Gratis
+        subscribe: Suscribirse
+        subscription_ends_at: "Tu suscripción finaliza el"
+        manage_subscription_at_the_billing_portal: "Por favor, accede al <a href='/candidates/subscriptions/billing_portal'>Billing Portal</a> para gestionar tu suscripción."
     my_resume:
       show:
         download: Descargar
@@ -244,6 +252,7 @@ es:
       candidate:
         profile_picture: Foto de perfil
         confirmed: Confirmado?
+        subscribed: Suscripto?
         primary_skill_items: Habilidades
       recruiter:
         profile_picture: Foto de perfil
@@ -343,6 +352,8 @@ es:
           attributes:
             job_posting:
               not_published: no esta publicado
+            candidate:
+              max_number_of_postulations_reached: "no puede tener mas de 3 postulaciones pendientes. Por favor, subscribase para desbloquear mas postulaciones"
       validators:
         resume_associations_count_validator:
           too_many_associations: '%{model_name} puede tener %{count} records asociados como máximo'

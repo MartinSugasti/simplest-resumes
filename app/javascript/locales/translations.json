@@ -65,6 +65,7 @@
           "reset_password_sent_at": "Reset password sent at",
           "reset_password_token": "Reset password token",
           "sign_in_count": "Sign in count",
+          "subscribed": "Subscribed?",
           "unconfirmed_email": "Unconfirmed email",
           "unlock_token": "Unlock token",
           "updated_at": "Updated at"
@@ -199,6 +200,9 @@
           },
           "postulation": {
             "attributes": {
+              "candidate": {
+                "max_number_of_postulations_reached": "can't have more than 3 pending postulations. Please, subscribe to unlock more postulations"
+              },
               "job_posting": {
                 "not_published": "is not published"
               }
@@ -390,13 +394,6 @@
           "work_experience": "Professional Experience"
         }
       },
-      "payments": {
-        "index": {
-          "checkout_canceled": "Order canceled -- continue to shop around and checkout when you're ready.",
-          "checkout_success": "Order placed! You will receive an email confirmation.",
-          "make_5_dollars_payment": "Make a US$5 payment"
-        }
-      },
       "postulation_approved_job": {
         "sms_message": "Congratulations! Your postulation for %{job_posting_title} was approved."
       },
@@ -408,6 +405,19 @@
         "postulation_rejected": {
           "body": "We're sorry. Your postulation for %{job_posting_title} was rejected.",
           "subject": "Postulation Rejected"
+        }
+      },
+      "subscriptions": {
+        "index": {
+          "checkout_canceled": "Order canceled -- continue to shop around and checkout when you're ready.",
+          "checkout_success": "Order placed! You will receive an email confirmation.",
+          "manage_subscription_at_the_billing_portal": "Please, access the <a href='/candidates/subscriptions/billing_portal'>Billing Portal</a> if you want to manage your subscription.",
+          "monthly": "Monthly",
+          "subscribe": "Subscribe",
+          "subscription_ends_at": "You subscription ends at",
+          "two_months_free": "2 Months Free",
+          "unlimited_job_postulations": "Unlimited Job Postulations",
+          "yearly": "Yearly"
         }
       }
     },
@@ -429,13 +439,13 @@
     },
     "dashboard": {
       "admins": "Admins",
+      "billing_portal": "Billing Portal",
       "candidates": "Candidates",
       "dashboard": "Dashboard",
       "edit": "Edit",
       "invitations": "Invitations",
       "job_posting": "Job Posting",
       "job_postings": "Job Postings",
-      "make_a_payment": "Make A Payment",
       "my_resume": "My Resume",
       "new": "New",
       "new_job_posting": "New Job Posting",
@@ -448,6 +458,8 @@
       "settings": "Settings",
       "show": "Show",
       "sign_out": "Sign Out",
+      "subscribe": "Subscribe",
+      "subscription": "Subscription",
       "users": "Users"
     },
     "date": {
@@ -1155,6 +1167,7 @@
           "reset_password_sent_at": "Fecha de envío de código para contraseña",
           "reset_password_token": "Código para restablecer contraseña",
           "sign_in_count": "Cantidad de ingresos",
+          "subscribed": "Suscripto?",
           "unconfirmed_email": "Email no confirmado",
           "unlock_token": "Código de desbloqueo",
           "updated_at": "Actualizado en"
@@ -1289,6 +1302,9 @@
           },
           "postulation": {
             "attributes": {
+              "candidate": {
+                "max_number_of_postulations_reached": "no puede tener mas de 3 postulaciones pendientes. Por favor, subscribase para desbloquear mas postulaciones"
+              },
               "job_posting": {
                 "not_published": "no esta publicado"
               }
@@ -1480,13 +1496,6 @@
           "work_experience": "Experiencia Laboral"
         }
       },
-      "payments": {
-        "index": {
-          "checkout_canceled": "Orden cancelada -- continua comprando y pasa por caja una vez pronto.",
-          "checkout_success": "Orden creada! Recibiras un email de confirmacion",
-          "make_5_dollars_payment": "Realizar un pago de US$5"
-        }
-      },
       "postulation_approved_job": {
         "sms_message": "Felicitaciones! Tu postulación para %{job_posting_title} fue aprobada."
       },
@@ -1498,6 +1507,19 @@
         "postulation_rejected": {
           "body": "Lo sentimos. Tu postulación para %{job_posting_title} fue rechazada.",
           "subject": "Postulación Rechazada"
+        }
+      },
+      "subscriptions": {
+        "index": {
+          "checkout_canceled": "Orden cancelada -- continua comprando y pasa por caja una vez pronto.",
+          "checkout_success": "Orden creada! Recibiras un email de confirmacion",
+          "manage_subscription_at_the_billing_portal": "Por favor, accede al <a href='/candidates/subscriptions/billing_portal'>Billing Portal</a> para gestionar tu suscripción.",
+          "monthly": "Mensual",
+          "subscribe": "Suscribirse",
+          "subscription_ends_at": "Tu suscripción finaliza el",
+          "two_months_free": "2 Meses Gratis",
+          "unlimited_job_postulations": "Sin Limite de Postulaciones",
+          "yearly": "Anual"
         }
       }
     },
@@ -1519,13 +1541,13 @@
     },
     "dashboard": {
       "admins": "Administradores",
+      "billing_portal": "Portal de Facturación",
       "candidates": "Candidatos",
       "dashboard": "Panel",
       "edit": "Editar",
       "invitations": "Invitaciones",
       "job_posting": "Anuncio De Empleo",
       "job_postings": "Anuncios De Empleo",
-      "make_a_payment": "Realizar Un Pago",
       "my_resume": "Mi CV",
       "new": "Nuevo",
       "new_job_posting": "Nuevo Anuncio De Empleo",
@@ -1538,6 +1560,8 @@
       "settings": "Configuración",
       "show": "Vista",
       "sign_out": "Cerrar Sesión",
+      "subscribe": "Suscribirse",
+      "subscription": "Suscripcion",
       "users": "Usuarios"
     },
     "date": {

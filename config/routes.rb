@@ -92,8 +92,9 @@ Rails.application.routes.draw do
   namespace :candidates do
     get 'dashboard/show'
 
-    resources :payments, only: %i[index] do
-      post :checkout, on: :collection
+    resources :subscriptions, only: %i[index create] do
+      get :prices, on: :collection
+      get :billing_portal, on: :collection
     end
 
     resource :my_resume, only: %i[show update], controller: :my_resume

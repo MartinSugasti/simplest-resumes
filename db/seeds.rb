@@ -8,6 +8,8 @@
 
 password = ENV['GENERAL_PASSWORD']
 
+Candidate.skip_callback(:create, :after, :create_stripe_customer)
+
 # Admin user
 admin = Admin.new(email: 'admin@simplestresumes.com', password: password, role: :super_admin)
 admin.skip_confirmation!
@@ -951,3 +953,5 @@ Postulation.create(
   job_posting: job_posting_8,
   status: :approved
 )
+
+Candidate.set_callback(:create, :after, :create_stripe_customer)
