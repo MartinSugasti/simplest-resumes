@@ -43,6 +43,7 @@ es:
     edit: Editar
     new: Nuevo
     new_job_posting: Nuevo Anuncio De Empleo
+    payments: Pagos
 
   application:
     invalid_authenticity_token: 'CSRF token de autenticidad inválido'
@@ -265,7 +266,7 @@ es:
           approved: Aprobada
           dismissed: Descartada
           banned: Rechazada
-        created_at: Creado en
+        created_at: Creado El
       resume:
         about_me: Sobre mi
         email: Email
@@ -308,7 +309,7 @@ es:
         unpublished: No Publicado
         skills: Habilidades
         title: Titulo
-        created_at: Creado En
+        created_at: Creado El
         status: Estado
         publish: Publicar
         publish_inquiry: Publicado?
@@ -319,6 +320,13 @@ es:
           approved: Aprobado
           rejected: Rechazado
         job_posting: Anuncio De Empleo
+        candidate: Candidato
+      payment: # Payment is not an actual Model, but I put it here because it has the concept of being a model
+        stripe_id: Stripe Id
+        amount: Monto
+        candidate: Candidato
+        status: Status
+        created_at: Creado El
     errors:
       models:
         invitation_request:

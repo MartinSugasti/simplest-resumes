@@ -99,7 +99,15 @@
           "title": "Title",
           "unpublished": "Unpublished"
         },
+        "payment": {
+          "amount": "Amount",
+          "candidate": "Candidate",
+          "created_at": "Created At",
+          "status": "Status",
+          "stripe_id": "Stripe Id"
+        },
         "postulation": {
+          "candidate": "Candidate",
           "job_posting": "Job Posting",
           "status": "Status",
           "statuses": {
@@ -1179,7 +1187,7 @@
           "start_year": "Año de comienzo"
         },
         "invitation_request": {
-          "created_at": "Creado en",
+          "created_at": "Creado El",
           "email": "Email",
           "status": "Estado",
           "statuses": {
@@ -1191,7 +1199,7 @@
         },
         "job_posting": {
           "company": "Compañia",
-          "created_at": "Creado En",
+          "created_at": "Creado El",
           "description": "Descripcion",
           "publish": "Publicar",
           "publish_inquiry": "Publicado?",
@@ -1201,7 +1209,15 @@
           "title": "Titulo",
           "unpublished": "No Publicado"
         },
+        "payment": {
+          "amount": "Monto",
+          "candidate": "Candidato",
+          "created_at": "Creado El",
+          "status": "Status",
+          "stripe_id": "Stripe Id"
+        },
         "postulation": {
+          "candidate": "Candidato",
           "job_posting": "Anuncio De Empleo",
           "status": "Estado",
           "statuses": {

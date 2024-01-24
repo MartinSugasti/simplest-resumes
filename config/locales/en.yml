@@ -43,6 +43,7 @@ en:
     edit: Edit
     new: New
     new_job_posting: New Job Posting
+    payments: Payments
 
   application:
     invalid_authenticity_token: "Can't verify CSRF token authenticity"
@@ -319,6 +320,13 @@ en:
           approved: Approved
           rejected: Rejected
         job_posting: Job Posting
+        candidate: Candidate
+      payment: # Payment is not an actual Model, but I put it here because it has the concept of being a model
+        stripe_id: Stripe Id
+        amount: Amount
+        candidate: Candidate
+        status: Status
+        created_at: Created At
     errors:
       models:
         invitation_request:
