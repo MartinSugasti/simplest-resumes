@@ -13,6 +13,7 @@ import AdminsAdminsController from './admins/admins_controller';
 import AdminsCandidatesController from './admins/candidates_controller';
 import AdminsRecruitersController from './admins/recruiters_controller';
 import AdminsInvitationRequestsController from './admins/invitation_requests_controller';
+import AdminsPaymentsController from './admins/payments_controller';
 
 // Candidates components
 import CandidatesSubscriptionsController from './candidates/subscriptions_controller';
@@ -32,6 +33,7 @@ application.register('admins_admins', AdminsAdminsController);
 application.register('admins_candidates', AdminsCandidatesController);
 application.register('admins_recruiters', AdminsRecruitersController);
 application.register('admins_invitation_requests', AdminsInvitationRequestsController);
+application.register('admins_payments', AdminsPaymentsController);
 
 // Cadidates controllers
 application.register('candidates_subscriptions', CandidatesSubscriptionsController);
