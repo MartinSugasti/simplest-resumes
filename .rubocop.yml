@@ -89,3 +89,6 @@ Style/StringLiterals:
 
 Style/Documentation:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
