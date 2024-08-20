@@ -27,6 +27,7 @@ This is a list of key technologies and features:
 - Internationalization for English and Spanish
 - Custom error pages
 - [Stripe](https://stripe.com/) integration for allowing candidates to subscribe for unlimited job applications
+- Github Actions for rubocop, erb linter and GitGuardian
 
 
 # Live Application
