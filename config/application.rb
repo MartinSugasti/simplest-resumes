@@ -18,63 +18,65 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-class SimplestResumes::Application < Rails::Application
-  # Initialize configuration defaults for originally generated Rails version.
-  config.load_defaults 7.0
+module SimplestResumes # rubocop:disable Style/ClassAndModuleChildren
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 7.0
 
-  # Configuration for the application, engines, and railties goes here.
-  #
-  # These settings can be overridden in specific environments using the files
-  # in config/environments, which are processed later.
-  #
-  # config.time_zone = "Central Time (US & Canada)"
-  # config.eager_load_paths << Rails.root.join("extras")
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
 
-  # Don't generate system test files.
-  config.generators.system_tests = nil
+    # Don't generate system test files.
+    config.generators.system_tests = nil
 
-  config.active_job.queue_adapter = :sidekiq
+    config.active_job.queue_adapter = :sidekiq
 
-  config.action_mailer.default_url_options = { host: 'simplestresumes.com' }
-  config.action_mailer.smtp_settings = {
-    user_name: 'apikey',
-    password: ENV.fetch('SENDGRID_API_KEY', nil),
-    domain: 'simplestresumes.com',
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+    config.action_mailer.default_url_options = { host: 'simplestresumes.com' }
+    config.action_mailer.smtp_settings = {
+      user_name: 'apikey',
+      password: ENV.fetch('SENDGRID_API_KEY', nil),
+      domain: 'simplestresumes.com',
+      address: 'smtp.sendgrid.net',
+      port: 587,
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
 
-  config.i18n.available_locales = %i[en es]
-  config.i18n.default_locale = :en
-  config.i18n.fallbacks = true
-  config.i18n.load_path += Dir[Rails.root.join('config/locales/*.{rb,yml}')]
-  config.active_model.i18n_customize_full_message = true
+    config.i18n.available_locales = %i[en es]
+    config.i18n.default_locale = :en
+    config.i18n.fallbacks = true
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/*.{rb,yml}')]
+    config.active_model.i18n_customize_full_message = true
 
-  config.contact_email = ENV.fetch('CONTACT_EMAIL', 'martinsugasti@gmail.com')
+    config.contact_email = ENV.fetch('CONTACT_EMAIL', 'martinsugasti@gmail.com')
 
-  # External services keys
-  config.github_key = ENV.fetch('GITHUB_KEY', nil)
-  config.github_secret = ENV.fetch('GITHUB_SECRET', nil)
+    # External services keys
+    config.github_key = ENV.fetch('GITHUB_KEY', nil)
+    config.github_secret = ENV.fetch('GITHUB_SECRET', nil)
 
-  config.google_client_id = ENV.fetch('GOOGLE_CLIENT_ID', nil)
-  config.google_client_secret = ENV.fetch('GOOGLE_CLIENT_SECRET', nil)
+    config.google_client_id = ENV.fetch('GOOGLE_CLIENT_ID', nil)
+    config.google_client_secret = ENV.fetch('GOOGLE_CLIENT_SECRET', nil)
 
-  config.twitter_key = ENV.fetch('TWITTER_KEY', nil)
-  config.twitter_secret = ENV.fetch('TWITTER_SECRET', nil)
+    config.twitter_key = ENV.fetch('TWITTER_KEY', nil)
+    config.twitter_secret = ENV.fetch('TWITTER_SECRET', nil)
 
-  config.sendgrid_api_key = ENV.fetch('SENDGRID_API_KEY', nil)
+    config.sendgrid_api_key = ENV.fetch('SENDGRID_API_KEY', nil)
 
-  config.twilio_account_sid = ENV.fetch('TWILIO_ACCOUNT_SID', nil)
-  config.twilio_auth_token = ENV.fetch('TWILIO_AUTH_TOKEN', nil)
-  config.twilio_from_phone = ENV.fetch('TWILIO_FROM_PHONE', nil)
-  config.twilio_test_phone = ENV.fetch('TWILIO_TEST_PHONE', nil)
+    config.twilio_account_sid = ENV.fetch('TWILIO_ACCOUNT_SID', nil)
+    config.twilio_auth_token = ENV.fetch('TWILIO_AUTH_TOKEN', nil)
+    config.twilio_from_phone = ENV.fetch('TWILIO_FROM_PHONE', nil)
+    config.twilio_test_phone = ENV.fetch('TWILIO_TEST_PHONE', nil)
 
-  config.stripe_api_key = ENV.fetch('STRIPE_API_KEY', nil)
-  config.stripe_secret_key = ENV.fetch('STRIPE_SECRET_KEY', nil)
-  config.stripe_signing_secret = ENV.fetch('STRIPE_SIGNING_SECRET', nil)
+    config.stripe_api_key = ENV.fetch('STRIPE_API_KEY', nil)
+    config.stripe_secret_key = ENV.fetch('STRIPE_SECRET_KEY', nil)
+    config.stripe_signing_secret = ENV.fetch('STRIPE_SIGNING_SECRET', nil)
 
-  config.google_recaptcha_site_key = ENV.fetch('GOOGLE_RECAPTCHA_SITE_KEY', nil)
-  config.google_recaptcha_secret_key = ENV.fetch('GOOGLE_RECAPTCHA_SECRET_KEY', nil)
+    config.google_recaptcha_site_key = ENV.fetch('GOOGLE_RECAPTCHA_SITE_KEY', nil)
+    config.google_recaptcha_secret_key = ENV.fetch('GOOGLE_RECAPTCHA_SECRET_KEY', nil)
+  end
 end
