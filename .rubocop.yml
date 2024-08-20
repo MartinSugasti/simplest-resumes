@@ -20,6 +20,7 @@ AllCops:
     - test/fixtures/**/*
     - tmp/**/*
     - vendor/**/*
+    - vendor/bundle/**/*
 
 #  Metrics cops
 Metrics/ClassLength:
