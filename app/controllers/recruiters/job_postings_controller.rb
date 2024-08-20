@@ -24,17 +24,6 @@ class Recruiters::JobPostingsController < ApplicationController
 
   def new; end
 
-  def create
-    job_posting = current_recruiter.job_postings.build(safe_params)
-    authorize(job_posting, policy_class: Recruiters::JobPostingPolicy)
-
-    if job_posting.save
-      head :ok
-    else
-      render json: { errors: job_posting.errors }, status: :unprocessable_entity
-    end
-  end
-
   def edit
     respond_to do |format|
       format.html
@@ -44,6 +33,17 @@ class Recruiters::JobPostingsController < ApplicationController
 
         render json: job_posting
       end
+    end
+  end
+
+  def create
+    job_posting = current_recruiter.job_postings.build(safe_params)
+    authorize(job_posting, policy_class: Recruiters::JobPostingPolicy)
+
+    if job_posting.save
+      head :ok
+    else
+      render json: { errors: job_posting.errors }, status: :unprocessable_entity
     end
   end
 

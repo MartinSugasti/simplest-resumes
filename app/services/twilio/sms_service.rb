@@ -15,18 +15,18 @@ class Twilio::SmsService
     @client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
     message = @client.messages.create(
-                body: @body,
-                from: TWILIO_FROM_PHONE,
-                to: @to
-              )
-    puts message.sid
+      body: @body,
+      from: TWILIO_FROM_PHONE,
+      to: @to
+    )
+    Rails.logger.debug message.sid
   end
 
   private
 
   # Uncomment once the Twilio account is upgraded, so that messages can be send not only to
   # verified numbers, like TWILIO_TEST_PHONE
-  def to(to_phone_number)
+  def to(_to_phone_number)
     # return TWILIO_TEST_PHONE if Rails.env.development?
 
     # to_phone_number

@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/LexicallyScopedActionFilter
+
 class Admins::InvitationsController < Devise::InvitationsController
   include Accessible
 
-  before_action :check_if_resource_already_signed_in, only: [:edit, :update, :destroy]
-  before_action -> { authorize([:admins, :invitation]) }, only: [:new, :create]
+  before_action :check_if_resource_already_signed_in, only: %i[edit update destroy]
+  before_action -> { authorize(%i[admins invitation]) }, only: %i[new create]
   before_action :configure_permitted_parameters
 
   def resend
@@ -41,7 +43,7 @@ class Admins::InvitationsController < Devise::InvitationsController
     end
   end
 
-  def after_invite_path_for(resource)
+  def after_invite_path_for(_resource)
     new_admin_invitation_path
   end
 
@@ -49,3 +51,5 @@ class Admins::InvitationsController < Devise::InvitationsController
     devise_parameter_sanitizer.permit(:invite, keys: [:role])
   end
 end
+
+# rubocop:enable Rails/LexicallyScopedActionFilter

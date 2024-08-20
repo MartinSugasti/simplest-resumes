@@ -36,7 +36,7 @@ class Recruiter < ApplicationRecord
   has_many :job_postings, dependent: :destroy
 
   has_one_attached :profile_picture
-  validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
+  validates :profile_picture, content_type: %i[png jpeg jpg], size: { less_than: 0.5.megabytes }
 
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |recruiter|

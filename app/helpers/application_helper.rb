@@ -8,12 +8,12 @@ module ApplicationHelper
       next false if controller != controller_path
       next true if actions.empty?
 
-      actions.any? { |action| action == action_name }
+      actions.any?(action_name)
     end
   end
 
   def omniauth_authorize_path_for(resource, provider)
-    public_send("#{resource.class.name.downcase}_#{provider}_omniauth_authorize_path")
+    public_send(:"#{resource.class.name.downcase}_#{provider}_omniauth_authorize_path")
   end
 
   def translate_enum_value(model, enum, value)

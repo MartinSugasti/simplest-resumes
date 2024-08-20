@@ -5,30 +5,30 @@ module Accessible
 
   protected
 
-  def check_if_resource_already_signed_in
-    if user_signed_in?
-      flash.keep
+  def check_if_resource_already_signed_in # rubocop:disable Metrics/AbcSize
+    return unless user_signed_in?
 
-      # In case it's not called from devise controller, in which case resource_name is not defined
-      if !defined?(resource_name)
-        flash[:alert] ||= []
-        flash[:alert] << t('accesible.resource_already_signed_in', class: current_user.class)
+    flash.keep
 
-        redirect_to(root_path) and return
-      end
-
-      if controller_path == "#{resource_name.to_s.pluralize}/sessions" && action_name == 'create'
-        redirect_to(root_path) and return
-      end
-
+    # In case it's not called from devise controller, in which case resource_name is not defined
+    unless defined?(resource_name)
       flash[:alert] ||= []
       flash[:alert] << t('accesible.resource_already_signed_in', class: current_user.class)
 
       redirect_to(root_path) and return
     end
+
+    if controller_path == "#{resource_name.to_s.pluralize}/sessions" && action_name == 'create'
+      redirect_to(root_path) and return
+    end
+
+    flash[:alert] ||= []
+    flash[:alert] << t('accesible.resource_already_signed_in', class: current_user.class)
+
+    redirect_to(root_path) and return
   end
 
-  def check_if_confirmation_available
+  def check_if_confirmation_available # rubocop:disable Metrics/AbcSize
     token = params[:confirmation_token]
     user = token && resource_class.find_by(confirmation_token: token)
 

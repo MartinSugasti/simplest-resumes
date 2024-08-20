@@ -37,7 +37,7 @@ class WorkExperienceItem < ApplicationRecord
   validates :start_month, presence: true, numericality: { only_integer: true, in: 1..12 }
   validates :start_year, presence: true, numericality: { only_integer: true, in: 1900..2100 }
   validates :end_month, presence: true, numericality: {
-    only_integer: true, in: 1..12, greater_than_or_equal_to: ->(item) do
+    only_integer: true, in: 1..12, greater_than_or_equal_to: lambda do |item|
       item.start_year == item.end_year ? item.start_month : 1
     end
   }, if: ->(item) { item.end_year.present? }

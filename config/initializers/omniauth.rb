@@ -8,21 +8,22 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter, Rails.configuration.twitter_key, Rails.configuration.twitter_secret
 
   before_callback_phase do |env|
-    env["devise.mapping"] = map_resource(env)
+    env['devise.mapping'] = map_resource(env)
   end
 
   on_failure do |env|
-    env["devise.mapping"] = map_resource(env)
+    env['devise.mapping'] = map_resource(env)
     OmniauthCallbacksController.action(:failure).call(env)
   end
 
   def map_resource(env)
     # This is a workaround to get the resource class. If not, devise fails.
-    devise_map = env["action_dispatch.request.unsigned_session_cookie"]["omniauth.origin"] || env["HTTP_REFERER"]
+    devise_map = env['action_dispatch.request.unsigned_session_cookie']['omniauth.origin'] || env['HTTP_REFERER']
 
-    if devise_map&.include?("candidate")
+    if devise_map&.include?('candidate')
       Devise.mappings[:candidate]
-    else devise_map&.include?("recruiter")
+    else
+      devise_map&.include?('recruiter')
       Devise.mappings[:recruiter]
     end
   end

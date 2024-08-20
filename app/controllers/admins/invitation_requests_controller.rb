@@ -3,14 +3,14 @@
 class Admins::InvitationRequestsController < ApplicationController
   include Accessible
 
-  before_action :authenticate_admin!, only: [:index, :dismiss, :ban]
-  before_action -> { authorize([:admins, InvitationRequest]) }, only: [:index, :dismiss, :ban]
-  before_action :check_if_resource_already_signed_in, only: [:new, :create]
+  before_action :authenticate_admin!, only: %i[index dismiss ban]
+  before_action -> { authorize([:admins, InvitationRequest]) }, only: %i[index dismiss ban]
+  before_action :check_if_resource_already_signed_in, only: %i[new create]
 
   def index
     respond_to do |format|
       format.html
-      format.json { render json: InvitationRequest.all.order(:status) }
+      format.json { render json: InvitationRequest.order(:status) }
     end
   end
 
@@ -26,7 +26,7 @@ class Admins::InvitationRequestsController < ApplicationController
 
       flash.now[:notice] ||= []
       flash.now[:notice] << t('.notice')
-      render "pages/home"
+      render 'pages/home'
     else
       flash.now[:alert] ||= []
       flash.now[:alert] << @invitation_request.errors.full_messages.to_sentence

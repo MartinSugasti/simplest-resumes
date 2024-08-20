@@ -33,9 +33,7 @@ class RecruiterSerializer < ActiveModel::Serializer
     object.created_at.strftime('%d/%m/%Y %H:%M')
   end
 
-  def confirmed?
-    object.confirmed?
-  end
+  delegate :confirmed?, to: :object
 
   def sign_in_path
     recruiter_masquerade_index_path

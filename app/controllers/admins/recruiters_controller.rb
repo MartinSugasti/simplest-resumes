@@ -6,7 +6,7 @@ class Admins::RecruitersController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render json: Recruiter.all.order(:id) }
+      format.json { render json: Recruiter.order(:id) }
     end
   end
 end

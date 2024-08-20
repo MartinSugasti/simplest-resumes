@@ -2,7 +2,9 @@
 
 class AddStripeSubscriptionsDataToCandidates < ActiveRecord::Migration[7.0]
   def change
-    add_column :candidates, :plan, :string
-    add_column :candidates, :subscription_ends_at, :datetime
+    change_table :candidates, bulk: true do |t|
+      t.string :plan
+      t.datetime :subscription_ends_at
+    end
   end
 end

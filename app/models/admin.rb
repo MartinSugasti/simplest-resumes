@@ -44,7 +44,7 @@ class Admin < ApplicationRecord
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
-  has_many :invitations, class_name: self.to_s, as: :invited_by
+  has_many :invitations, class_name: to_s, as: :invited_by, dependent: :nullify
 
   enum role: {
     super_admin: 0,

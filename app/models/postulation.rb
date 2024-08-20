@@ -48,7 +48,8 @@ class Postulation < ApplicationRecord
   end
 
   def candidate_can_postulate
-    return if candidate.active_subscription? || candidate.postulations.pending.count < MAX_NUMBER_OF_POSTULATIONS_WO_SUBSCRIPTION
+    return if candidate.active_subscription?
+    return if candidate.postulations.pending.count < MAX_NUMBER_OF_POSTULATIONS_WO_SUBSCRIPTION
 
     errors.add(:candidate, :max_number_of_postulations_reached)
   end

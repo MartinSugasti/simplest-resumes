@@ -12,7 +12,7 @@ class Candidates::PostulationsMailer < ApplicationMailer
       mail(
         to: candidate.email,
         body: I18n.t('candidates.postulations_mailer.postulation_approved.body', job_posting_title: job_posting.title),
-        content_type: "text/html"
+        content_type: 'text/html'
       )
     end
   end
@@ -26,7 +26,7 @@ class Candidates::PostulationsMailer < ApplicationMailer
       mail(
         to: candidate.email,
         body: I18n.t('candidates.postulations_mailer.postulation_rejected.body', job_posting_title: job_posting.title),
-        content_type: "text/html"
+        content_type: 'text/html'
       )
     end
   end
