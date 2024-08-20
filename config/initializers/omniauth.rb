@@ -22,8 +22,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
     if devise_map&.include?('candidate')
       Devise.mappings[:candidate]
-    else
-      devise_map&.include?('recruiter')
+    elsif devise_map&.include?('recruiter')
       Devise.mappings[:recruiter]
     end
   end

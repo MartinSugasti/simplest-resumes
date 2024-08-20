@@ -109,6 +109,9 @@ group :development, :test do
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
 
+  # .erb styles
+  gem 'erb_lint', require: false
+
   # For env variables
   gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 end

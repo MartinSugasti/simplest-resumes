@@ -5,7 +5,6 @@ class Candidates::PostulationApprovedJob < ApplicationJob
 
   def perform(postulation_id)
     postulation = Postulation.find(postulation_id)
-    postulation.candidate
     job_posting = postulation.job_posting
 
     I18n.with_locale(:es) do

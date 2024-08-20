@@ -1,12 +1,12 @@
 <li>
-  <%= link_to candidates_my_resume_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/my_resume' => ['show'] }) ? "bg-primary-dark" : ''}" do %>
+  <%= link_to candidates_my_resume_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/my_resume' => ['show'] }) ? 'bg-primary-dark' : ''}" do %>
     <i class="bi bi-file-text pe-2 pe-2"></i>
     <%= t('dashboard.my_resume') %>
   <% end %>
 </li>
 
 <li>
-  <%= link_to candidates_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/job_postings' => [] }) ? "bg-primary-dark" : ''}", data: { turbo: "false" } do %>
+  <%= link_to candidates_job_postings_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/job_postings' => [] }) ? 'bg-primary-dark' : ''}", data: { turbo: 'false' } do %>
     <i class="bi bi-collection pe-2"></i>
     <%= t('dashboard.job_postings') %>
   <% end %>
@@ -18,25 +18,25 @@
     <%= t('dashboard.subscription') %>
   </a>
 
-  <ul id="subscription-dropdown" class="sidebar-dropdown list-unstyled collapse <%= active_sidebar_option?({ 'candidates/payments' => ['index'], 'candidates/subscriptions' => ['index'] }) ? "show" : '' %>" data-bs-parent="#sidebar">
+  <ul id="subscription-dropdown" class="sidebar-dropdown list-unstyled collapse <%= active_sidebar_option?({ 'candidates/payments' => ['index'], 'candidates/subscriptions' => ['index'] }) ? 'show' : '' %>" data-bs-parent="#sidebar">
     <li>
-      <%= link_to t('dashboard.subscribe'), candidates_subscriptions_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/subscriptions' => ['index'] }) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.subscribe'), candidates_subscriptions_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/subscriptions' => ['index'] }) ? 'bg-primary-dark' : ''}" %>
     </li>
     <li>
-      <%= link_to t('dashboard.billing_portal'), billing_portal_candidates_subscriptions_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/subscriptions' => ['billing_portal'] }) ? "bg-primary-dark" : ''}" %>
+      <%= link_to t('dashboard.billing_portal'), billing_portal_candidates_subscriptions_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/subscriptions' => ['billing_portal'] }) ? 'bg-primary-dark' : ''}" %>
     </li>
   </ul>
 </li>
 
 <li>
-  <%= link_to edit_candidate_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/registrations' => ['edit'] }) ? "bg-primary-dark" : ''}" do %>
+  <%= link_to edit_candidate_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'candidates/registrations' => ['edit'] }) ? 'bg-primary-dark' : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     <%= t('dashboard.settings') %>
   <% end %>
 </li>
 
 <li>
-  <%= button_to destroy_candidate_session_path, class: "sidebar-link text-light px-4 py-2 bg-transparent border-0", method: :delete do %>
+  <%= button_to destroy_candidate_session_path, class: 'sidebar-link text-light px-4 py-2 bg-transparent border-0', method: :delete do %>
     <i class="bi bi-box-arrow-right pe-2"></i>
     <%= t('dashboard.sign_out') %>
   <% end %>

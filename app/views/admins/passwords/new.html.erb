@@ -9,20 +9,20 @@
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, data: { turbo: false }) do |f| %>
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: t('devise.shared.email') %>
+          <%= f.email_field :email, autocomplete: 'off', class: 'form-control rounded-pill bg-light', placeholder: t('devise.shared.email') %>
         </div>
 
         <div class="mt-4 text-center">
-          <%= f.submit t('devise.passwords.new.send_me_reset_password_instructions'), class: "btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill" %>
+          <%= f.submit t('devise.passwords.new.send_me_reset_password_instructions'), class: 'btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill' %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-2">
-          <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name), class: "text-primary-dark" %>
+          <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name), class: 'text-primary-dark' %>
         </div>
       <% end %>
     </div>
   </div>
 
-  <%= render "devise/shared/right_section" %>
+  <%= render 'devise/shared/right_section' %>
 </section>
 
