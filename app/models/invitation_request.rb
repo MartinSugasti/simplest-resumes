@@ -17,7 +17,7 @@
 class InvitationRequest < ApplicationRecord
   validates :email, :status, presence: true
   validates :email, uniqueness: {
-    message: ->(record, data) do
+    message: lambda do |_record, data|
       I18n.t(
         'activerecord.errors.models.invitation_request.attributes.email.custom_taken',
         email: Rails.configuration.contact_email,
@@ -39,7 +39,7 @@ class InvitationRequest < ApplicationRecord
   private
 
   def check_if_admin_already_exists
-    return unless Admin.find_by(email: email).present?
+    return if Admin.find_by(email: email).blank?
 
     errors.add(:email, :admin_already_exists)
   end
@@ -52,12 +52,6 @@ class InvitationRequest < ApplicationRecord
 
   def invitation_request_already_approved
     return unless status_was == 'approved'
-
-    errors.add(:status, :invitation_request_already_approved)
-  end
-
-  def invitation_request_already_approved
-    return unless Admin.find_by(email: email).present?
 
     errors.add(:status, :invitation_request_already_approved)
   end

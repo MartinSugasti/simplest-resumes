@@ -37,7 +37,7 @@ class Candidate < ApplicationRecord
          :rememberable, :validatable, :confirmable, :masqueradable
 
   has_one_attached :profile_picture
-  validates :profile_picture, content_type: [:png, :jpeg, :jpg], size: { less_than: 0.5.megabytes }
+  validates :profile_picture, content_type: %i[png jpeg jpg], size: { less_than: 0.5.megabytes }
 
   has_one :resume, dependent: :destroy
   has_many :primary_skill_items, through: :resume

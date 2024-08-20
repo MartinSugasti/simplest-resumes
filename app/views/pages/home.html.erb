@@ -1,4 +1,4 @@
-<%= render "pages/loader" %>
+<%= render 'pages/loader' %>
 
 <%= javascript_tag do %>
   var homeConfig = function() {
@@ -8,6 +8,6 @@
   }
 <% end %>
 
-<%= content_tag(:div, "", id: "home", class: 'smoothly-show-page', data: {
-  controller: "home"
+<%= content_tag(:div, '', id: 'home', class: 'smoothly-show-page', data: {
+  controller: 'home'
 }) %>

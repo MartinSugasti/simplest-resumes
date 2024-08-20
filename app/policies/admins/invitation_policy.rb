@@ -2,6 +2,7 @@
 
 class Admins::InvitationPolicy < ApplicationPolicy
   def initialize(user, _record)
+    super
     @user = user
   end
 

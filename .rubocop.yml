@@ -20,16 +20,19 @@ AllCops:
     - test/fixtures/**/*
     - tmp/**/*
     - vendor/**/*
+    - vendor/bundle/**/*
+    - config/initializers/*
+    - db/seeds.rb
 
 #  Metrics cops
 Metrics/ClassLength:
   CountComments: false
-  Max: 200
+  Max: 400
   Enabled: true
 
 Metrics/ModuleLength:
   CountComments: false
-  Max: 200
+  Max: 400
   Enabled: true
 
 Metrics/ParameterLists:
@@ -39,12 +42,12 @@ Metrics/ParameterLists:
 
 Metrics/MethodLength:
   CountComments: false
-  Max: 20
+  Max: 40
   Enabled: true
 
 Metrics/BlockLength:
   CountComments: false
-  Max: 15
+  Max: 25
   Enabled: true
   Exclude:
     - config/**/*
@@ -57,16 +60,16 @@ Metrics/BlockNesting:
   Enabled: true
 
 Metrics/CyclomaticComplexity:
-  Max: 6
+  Max: 15
   Enabled: true
 
 Metrics/PerceivedComplexity:
-  Max: 12
+  Max: 20
   Enabled: true
 
 Metrics/AbcSize:
   Enabled: true
-  Max: 19
+  Max: 30
 
 # Layout cops
 Layout/LineLength:

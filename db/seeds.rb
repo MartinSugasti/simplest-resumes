@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-password = ENV['GENERAL_PASSWORD']
+password = ENV.fetch('GENERAL_PASSWORD', nil)
 
 Candidate.skip_callback(:create, :after, :create_stripe_customer)
 
@@ -27,7 +27,8 @@ collaborator_2.save
 # Colaborators created from approved invitation requests
 invitation_request_1 = InvitationRequest.create(email: 'collaborator_3@simplestresumes.com')
 invitation_request_1.update(status: :approved)
-collaborator_3 = Admin.invite!(email: invitation_request_1.email, password: password, role: :collaborator) do |collaborator|
+collaborator_3 = Admin.invite!(email: invitation_request_1.email, password: password,
+                               role: :collaborator) do |collaborator|
   collaborator.invited_by = admin
   collaborator.skip_invitation = true
   collaborator.skip_confirmation!
@@ -38,7 +39,8 @@ collaborator_3.confirm
 
 invitation_request_2 = InvitationRequest.create(email: 'collaborator_4@simplestresumes.com')
 invitation_request_2.update(status: :approved)
-collaborator_4 = Admin.invite!(email: invitation_request_2.email, password: password, role: :collaborator) do |collaborator|
+collaborator_4 = Admin.invite!(email: invitation_request_2.email, password: password,
+                               role: :collaborator) do |collaborator|
   collaborator.invited_by = admin
   collaborator.skip_invitation = true
   collaborator.skip_confirmation!
@@ -49,30 +51,30 @@ collaborator_4.confirm
 
 # Approved invitation requests
 invitation_request_3 = InvitationRequest.create(email: 'collaborator_5@simplestresumes.com', status: :approved)
-collaborator_5 = Admin.invite!(email: invitation_request_3.email, role: :collaborator) do |collaborator|
+Admin.invite!(email: invitation_request_3.email, role: :collaborator) do |collaborator|
   collaborator.invited_by = admin
   collaborator.skip_invitation = true
   collaborator.skip_confirmation!
 end
 
 invitation_request_4 = InvitationRequest.create(email: 'collaborator_6@simplestresumes.com', status: :approved)
-collaborator_6 = Admin.invite!(email: invitation_request_4.email, role: :collaborator) do |collaborator|
+Admin.invite!(email: invitation_request_4.email, role: :collaborator) do |collaborator|
   collaborator.invited_by = admin
   collaborator.skip_invitation = true
   collaborator.skip_confirmation!
 end
 
 # Pending invitation requests
-invitation_request_5 = InvitationRequest.create(email: 'collaborator_7@simplestresumes.com')
-invitation_request_6 = InvitationRequest.create(email: 'collaborator_8@simplestresumes.com')
+InvitationRequest.create(email: 'collaborator_7@simplestresumes.com')
+InvitationRequest.create(email: 'collaborator_8@simplestresumes.com')
 
 # Dismissed invitation requests
-invitation_request_7 = InvitationRequest.create(email: 'collaborator_9@simplestresumes.com', status: :dismissed)
-invitation_request_8 = InvitationRequest.create(email: 'collaborator_10@simplestresumes.com', status: :dismissed)
+InvitationRequest.create(email: 'collaborator_9@simplestresumes.com', status: :dismissed)
+InvitationRequest.create(email: 'collaborator_10@simplestresumes.com', status: :dismissed)
 
 # Banned invitation requests
-invitation_request_9 = InvitationRequest.create(email: 'collaborator_11@simplestresumes.com', status: :banned)
-invitation_request_10 = InvitationRequest.create(email: 'collaborator_12@simplestresumes.com', status: :banned)
+InvitationRequest.create(email: 'collaborator_11@simplestresumes.com', status: :banned)
+InvitationRequest.create(email: 'collaborator_12@simplestresumes.com', status: :banned)
 
 # Recruiters
 recruiter_1 = Recruiter.new(email: 'recruiter_1@simplestresumes.com', password: password)
@@ -153,43 +155,43 @@ EducationItem.create(
 SkillItem.create(
   resume: resume_1,
   name: 'Marketing strategy',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_1,
   name: 'Lead generation',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_1,
   name: 'Sales growth',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_1,
   name: 'Social media marketing',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_1,
   name: 'Content marketing',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_1,
   name: 'Digital marketing',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_1,
   name: 'Email marketing',
-  kind: :secondary,
+  kind: :secondary
 )
 
 ExternalLinkItem.create(
@@ -232,7 +234,7 @@ WorkExperienceItem.create(
   location: 'Houston, TX',
   start_month: 4,
   start_year: 2018,
-  description: "Developed and implemented HR policies and procedures that ensured compliance with all applicable laws and regulations. During my time at Eta Communications, I was responsible for: Created high-quality content that was informative, engaging, and optimized for search engines. Provided excellent customer service, resolving issues quickly and efficiently. Developed and maintained web applications using Java, JavaScript, and HTML."
+  description: 'Developed and implemented HR policies and procedures that ensured compliance with all applicable laws and regulations. During my time at Eta Communications, I was responsible for: Created high-quality content that was informative, engaging, and optimized for search engines. Provided excellent customer service, resolving issues quickly and efficiently. Developed and maintained web applications using Java, JavaScript, and HTML.'
 )
 
 WorkExperienceItem.create(
@@ -256,7 +258,7 @@ WorkExperienceItem.create(
   start_year: 2010,
   end_month: 2,
   end_year: 2014,
-  description: "Provided excellent customer service, resolving issues quickly and efficiently. During my time at Beta Technologies, I was responsible for: Developed and maintained web applications using Java, JavaScript, and HTML. Developed and implemented sales strategies that resulted in increased revenue. Created high-quality content that was informative, engaging, and optimized for search engines."
+  description: 'Provided excellent customer service, resolving issues quickly and efficiently. During my time at Beta Technologies, I was responsible for: Developed and maintained web applications using Java, JavaScript, and HTML. Developed and implemented sales strategies that resulted in increased revenue. Created high-quality content that was informative, engaging, and optimized for search engines.'
 )
 
 resume_2 = Resume.create(
@@ -287,37 +289,37 @@ EducationItem.create(
 SkillItem.create(
   resume: resume_2,
   name: 'JavaScript',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_2,
   name: 'Python',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_2,
   name: 'SQL',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_2,
   name: 'HTML',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_2,
   name: 'CSS',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_2,
   name: 'Scrum',
-  kind: :secondary,
+  kind: :secondary
 )
 
 ExternalLinkItem.create(
@@ -378,7 +380,7 @@ WorkExperienceItem.create(
   start_year: 2017,
   end_month: 2,
   end_year: 2021,
-  description: "Provided excellent customer service, resolving issues quickly and efficiently. During my time at Theta Industries, I was responsible for: Developed and maintained web applications using Java, JavaScript, and HTML. Provided excellent customer service, resolving issues quickly and efficiently. Managed and executed marketing campaigns that increased brand awareness and generated leads."
+  description: 'Provided excellent customer service, resolving issues quickly and efficiently. During my time at Theta Industries, I was responsible for: Developed and maintained web applications using Java, JavaScript, and HTML. Provided excellent customer service, resolving issues quickly and efficiently. Managed and executed marketing campaigns that increased brand awareness and generated leads.'
 )
 
 resume_3 = Resume.create(
@@ -409,31 +411,31 @@ EducationItem.create(
 SkillItem.create(
   resume: resume_3,
   name: 'Photoshop',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_3,
   name: 'InDesign',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_3,
   name: 'Branding',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_3,
   name: 'Marketing materials',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_3,
   name: 'User interface design',
-  kind: :secondary,
+  kind: :secondary
 )
 
 ExternalLinkItem.create(
@@ -490,7 +492,7 @@ WorkExperienceItem.create(
   start_year: 2014,
   end_month: 1,
   end_year: 2019,
-  description: "Managed and executed marketing campaigns that increased brand awareness and generated leads. During my time at Lambda Marketing, I was responsible for: Created high-quality content that was informative, engaging, and optimized for search engines. Generated leads and closed deals, exceeding sales quotas consistently. Generated leads and closed deals, exceeding sales quotas consistently."
+  description: 'Managed and executed marketing campaigns that increased brand awareness and generated leads. During my time at Lambda Marketing, I was responsible for: Created high-quality content that was informative, engaging, and optimized for search engines. Generated leads and closed deals, exceeding sales quotas consistently. Generated leads and closed deals, exceeding sales quotas consistently.'
 )
 
 WorkExperienceItem.create(
@@ -502,7 +504,7 @@ WorkExperienceItem.create(
   start_year: 2013,
   end_month: 4,
   end_year: 2014,
-  description: "Created high-quality content that was informative, engaging, and optimized for search engines. During my time at Mu Consulting, I was responsible for: Developed and maintained web applications using Java, JavaScript, and HTML. Generated leads and closed deals, exceeding sales quotas consistently. Created visually appealing and effective designs for a variety of marketing materials."
+  description: 'Created high-quality content that was informative, engaging, and optimized for search engines. During my time at Mu Consulting, I was responsible for: Developed and maintained web applications using Java, JavaScript, and HTML. Generated leads and closed deals, exceeding sales quotas consistently. Created visually appealing and effective designs for a variety of marketing materials.'
 )
 
 resume_4 = Resume.create(
@@ -524,25 +526,25 @@ EducationItem.create(
 SkillItem.create(
   resume: resume_4,
   name: 'Lead generation',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_4,
   name: 'Campaign development and execution',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_4,
   name: 'Brand awareness',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_4,
   name: 'Public relations',
-  kind: :secondary,
+  kind: :secondary
 )
 
 ExternalLinkItem.create(
@@ -624,37 +626,37 @@ EducationItem.create(
 SkillItem.create(
   resume: resume_5,
   name: 'Ruby on Rails',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_5,
   name: 'React',
-  kind: :primary,
+  kind: :primary
 )
 
 SkillItem.create(
   resume: resume_5,
   name: 'Javascript',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_5,
   name: 'HTML',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_5,
   name: 'CSS',
-  kind: :secondary,
+  kind: :secondary
 )
 
 SkillItem.create(
   resume: resume_5,
   name: 'Git',
-  kind: :secondary,
+  kind: :secondary
 )
 
 ExternalLinkItem.create(
@@ -703,7 +705,7 @@ WorkExperienceItem.create(
   location: 'Montevideo, Uruguay',
   start_month: 2,
   start_year: 2022,
-  description: "Since joining the team, I have continued to acquire knowledge in Ruby on Rails and at the same time I started to learn other technologies, including React, a frontend library, and Cucumber, a framework for behavior-driven development."
+  description: 'Since joining the team, I have continued to acquire knowledge in Ruby on Rails and at the same time I started to learn other technologies, including React, a frontend library, and Cucumber, a framework for behavior-driven development.'
 )
 
 WorkExperienceItem.create(
@@ -715,7 +717,7 @@ WorkExperienceItem.create(
   start_year: 2019,
   end_month: 1,
   end_year: 2022,
-  description: "Worked as a full-stack developer using Ruby on Rails framework gaining experience in, within others, authentication and authorization systems, background jobs, scheduled tasks, ajax requests, third-party APIs integration, internationalization, mailers, data visualization, etc. Alongside RoR, I also gained experience with other languages, libraries and development tools such as HTML, CSS, JS, bootstrap, git, GitHub, SQL and Heroku. During this time, I have dealt with a variety of clients, spanning from small local companies to large multinational corporations using Agile/Scrum development techniques, staying in touch with clients daily, and reaching mutual agreements on ideas and next steps."
+  description: 'Worked as a full-stack developer using Ruby on Rails framework gaining experience in, within others, authentication and authorization systems, background jobs, scheduled tasks, ajax requests, third-party APIs integration, internationalization, mailers, data visualization, etc. Alongside RoR, I also gained experience with other languages, libraries and development tools such as HTML, CSS, JS, bootstrap, git, GitHub, SQL and Heroku. During this time, I have dealt with a variety of clients, spanning from small local companies to large multinational corporations using Agile/Scrum development techniques, staying in touch with clients daily, and reaching mutual agreements on ideas and next steps.'
 )
 
 WorkExperienceItem.create(
@@ -727,7 +729,7 @@ WorkExperienceItem.create(
   start_year: 2013,
   end_month: 9,
   end_year: 2019,
-  description: "Planned preventive and corrective maintenance for the Coca-Cola products bottling company in Uruguay. Executed the maintenance management migration in SAP when the company ownership changed from The Coca-Cola Company to FEMSA. At this point, approximately 1,800 maintenance plans were redesigned."
+  description: 'Planned preventive and corrective maintenance for the Coca-Cola products bottling company in Uruguay. Executed the maintenance management migration in SAP when the company ownership changed from The Coca-Cola Company to FEMSA. At this point, approximately 1,800 maintenance plans were redesigned.'
 )
 
 # Job Positions
@@ -735,7 +737,7 @@ job_posting_1 = JobPosting.create(
   recruiter: recruiter_1,
   title: 'Software Engineer',
   company: 'Google',
-  skills: 'Proficient in Java, Python, or C++',
+  skills: 'Proficient in Java, Python, or C#',
   description: 'We are looking for a Software Engineer to join our team and help us develop innovative software solutions. You will be responsible for designing, developing, and testing software applications. You will also be responsible for collaborating with other engineers to ensure that our software meets the needs of our users.',
   published: true
 )
@@ -785,7 +787,7 @@ job_posting_4 = JobPosting.create(
   published: true
 )
 
-job_posting_5 = JobPosting.create(
+JobPosting.create(
   recruiter: recruiter_3,
   title: 'Human Resources Manager',
   company: 'Netflix',

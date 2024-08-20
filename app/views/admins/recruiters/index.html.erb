@@ -7,13 +7,13 @@
   var adminsRecruitersConfig = function() {
     return (
       <%= {
-        has_masquerade_permissions: policy([:admins, :masquerade]).masquerade?
+        has_masquerade_permissions: policy(%i[admins masquerade]).masquerade?
       }.to_json.html_safe %>
     )
   }
 <% end %>
 
-<%= content_tag(:div, "", id: "admins-recruiters-container", data: {
-  controller: "admins_recruiters"
+<%= content_tag(:div, '', id: 'admins-recruiters-container', data: {
+  controller: 'admins_recruiters'
 }) %>
 

@@ -7,35 +7,35 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: true }) do |f| %>
     <% if resource.profile_picture.attached? %>
       <div class="mb-4 text-center">
-        <%= image_tag resource.profile_picture, class: "rounded-circle w-25 shadow" %>
+        <%= image_tag resource.profile_picture, class: 'rounded-circle w-25 shadow' %>
       </div>
     <% end %>
 
     <div class="mb-4">
-      <%= f.file_field :profile_picture, class: "form-control rounded-pill bg-light" %>
+      <%= f.file_field :profile_picture, class: 'form-control rounded-pill bg-light' %>
     </div>
 
     <div class="mb-4">
       <%= f.select :preferred_language,
-        options_for_select(
-          resource.class.preferred_languages.map { |key, _| [t("general.languages.#{key}"), key] },
-          resource.preferred_language
-        ),
-        { include_blank: t('devise.registrations.edit.select_language') },
-        { class: "form-select rounded-pill bg-light", required: true }
+                   options_for_select(
+                     resource.class.preferred_languages.map { |key, _| [t("general.languages.#{key}"), key] },
+                     resource.preferred_language
+                   ),
+                   { include_blank: t('devise.registrations.edit.select_language') },
+                   { class: 'form-select rounded-pill bg-light', required: true }
       %>
     </div>
 
     <div class="mb-4">
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: "#{t('devise.passwords.edit.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length)}" %>
+      <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control rounded-pill bg-light', placeholder: "#{t('devise.passwords.edit.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length)}" %>
     </div>
 
     <div class="mb-4">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill bg-light", placeholder: t('devise.passwords.edit.confirm_new_password') %>
+      <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control rounded-pill bg-light', placeholder: t('devise.passwords.edit.confirm_new_password') %>
     </div>
 
     <div class="mb-4">
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded-pill bg-light", placeholder: t('devise.passwords.edit.current_password') %>
+      <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control rounded-pill bg-light', placeholder: t('devise.passwords.edit.current_password') %>
       <p class="small">
         * <%= t('devise.passwords.edit.current_password_required') %>
         <i
@@ -48,11 +48,11 @@
     </div>
 
     <div class="mt-4 text-center">
-      <%= f.submit t('devise.registrations.edit.update'), class: "btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill" %>
+      <%= f.submit t('devise.registrations.edit.update'), class: 'btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill' %>
 
       <div class="text-decoration-none text-muted">
         <%= t('devise.registrations.edit.unhappy') %>
-        <%= link_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { turbo: true, turbo_method: :delete, turbo_confirm: t('devise.registrations.edit.are_you_sure') }, class: "text-danger" %>
+        <%= link_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { turbo: true, turbo_method: :delete, turbo_confirm: t('devise.registrations.edit.are_you_sure') }, class: 'text-danger' %>
       </div>
     </div>
   <% end %>

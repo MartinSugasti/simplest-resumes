@@ -3,7 +3,7 @@
 class ResumeAssociationsCountValidator < ActiveModel::Validator
   def validate(record)
     association_table = record.class.table_name
-    association_name = if ['skill_items', 'reference_items'].include?(association_table)
+    association_name = if %w[skill_items reference_items].include?(association_table)
                          "#{record.kind}_#{association_table}"
                        else
                          association_table

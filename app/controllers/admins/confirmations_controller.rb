@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/LexicallyScopedActionFilter
+
 class Admins::ConfirmationsController < Devise::ConfirmationsController
   include Accessible
 
@@ -17,3 +19,5 @@ class Admins::ConfirmationsController < Devise::ConfirmationsController
     redirect_to(root_path) and return
   end
 end
+
+# rubocop:enable Rails/LexicallyScopedActionFilter

@@ -20,6 +20,6 @@ class PaymentSerializer < ActiveModel::Serializer
   end
 
   def created_at
-    Time.at(object['created']).strftime('%d/%m/%Y %H:%M')
+    Time.zone.at(object['created']).strftime('%d/%m/%Y %H:%M')
   end
 end

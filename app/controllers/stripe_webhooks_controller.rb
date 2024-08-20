@@ -3,24 +3,24 @@
 class StripeWebhooksController < ActionController::Metal
   include ActionController::Head
 
-  def create
+  def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     payload = request.body.read
     sig_header = request.env['HTTP_STRIPE_SIGNATURE']
     event = nil
 
     begin
       event = Stripe::Webhook.construct_event(
-          payload, sig_header, Rails.configuration.stripe_signing_secret
+        payload, sig_header, Rails.configuration.stripe_signing_secret
       )
     rescue JSON::ParserError
       # Invalid payload
-      Rails.logger.error("StripeWebhooks error: Invalid payload")
+      Rails.logger.error('StripeWebhooks error: Invalid payload')
 
       status :bad_request
       return
     rescue Stripe::SignatureVerificationError
       # Invalid signature
-      Rails.logger.error("StripeWebhooks error: Invalid signature")
+      Rails.logger.error('StripeWebhooks error: Invalid signature')
 
       status :bad_request
       return
@@ -53,7 +53,7 @@ class StripeWebhooksController < ActionController::Metal
 
       candidate.update(
         plan: subscription.items.data[0].price.recurring.interval,
-        subscription_ends_at: Time.at(subscription.current_period_end).to_datetime
+        subscription_ends_at: Time.zone.at(subscription.current_period_end).to_datetime
       )
     else
       Rails.logger.info("StripeWebhooks alert: event type #{event.type} not supported")

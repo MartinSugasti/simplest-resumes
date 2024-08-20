@@ -8,15 +8,15 @@ class Candidates::SubscriptionsController < ApplicationController
 
   def create
     session = Stripe::Checkout::Session.create({
-      customer: current_user.stripe_customer_id,
-      mode: 'subscription',
-      line_items: [{
-        quantity: 1,
-        price: params[:plan_id]
-      }],
-      success_url: candidates_subscriptions_url(success: true),
-      cancel_url: candidates_subscriptions_url(canceled: true)
-    })
+                                                 customer: current_user.stripe_customer_id,
+                                                 mode: 'subscription',
+                                                 line_items: [{
+                                                   quantity: 1,
+                                                   price: params[:plan_id]
+                                                 }],
+                                                 success_url: candidates_subscriptions_url(success: true),
+                                                 cancel_url: candidates_subscriptions_url(canceled: true)
+                                               })
 
     render json: { url: session.url }
   end
@@ -36,9 +36,9 @@ class Candidates::SubscriptionsController < ApplicationController
 
   def billing_portal
     session = Stripe::BillingPortal::Session.create({
-      customer: current_user.stripe_customer_id,
-      return_url: candidates_subscriptions_url
-    })
+                                                      customer: current_user.stripe_customer_id,
+                                                      return_url: candidates_subscriptions_url
+                                                    })
 
     redirect_to session.url, allow_other_host: true
   end

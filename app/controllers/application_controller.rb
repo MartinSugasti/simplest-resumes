@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
-  devise_group :user, contains: [:admin, :candidate, :recruiter]
+  devise_group :user, contains: %i[admin candidate recruiter]
 
-  rescue_from ActionController::InvalidAuthenticityToken do |exception|
+  rescue_from ActionController::InvalidAuthenticityToken do |_exception|
     flash.keep
     flash[:alert] ||= []
     flash[:alert] << t('application.invalid_authenticity_token')

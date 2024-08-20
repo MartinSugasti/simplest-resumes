@@ -15,6 +15,6 @@ class Admins::MasqueradesController < Devise::MasqueradesController
   end
 
   def masquerade_authorize!
-    authorize([:admins, :masquerade], :masquerade?) unless params[:action] == 'back'
+    authorize(%i[admins masquerade], :masquerade?) unless params[:action] == 'back'
   end
 end

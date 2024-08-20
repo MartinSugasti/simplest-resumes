@@ -23,7 +23,7 @@
 #  fk_rails_...  (resume_id => resumes.id)
 #
 class ReferenceItem < ApplicationRecord
-  enum kind: %i[personal job]
+  enum kind: { personal: 0, job: 1 }
 
   belongs_to :resume
 

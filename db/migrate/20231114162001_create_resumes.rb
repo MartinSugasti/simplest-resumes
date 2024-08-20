@@ -1,5 +1,5 @@
 class CreateResumes < ActiveRecord::Migration[7.0]
-  def change
+  def change # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     create_table :resumes do |t|
       t.string :name, limit: 40
       t.string :email, limit: 40

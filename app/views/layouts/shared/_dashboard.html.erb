@@ -2,17 +2,17 @@
   <div class="sticky-top">
     <% if candidate_masquerade? || recruiter_masquerade? %>
       <div id="back-masquerade" class="bg-danger py-1 text-center sticky-top">
-        <%= link_to t('dashboard.return_to_admin_dashboard'), back_masquerade_path(user), class: "bg-light btn px-2 py-0 text-danger text-decoration-none" %>
+        <%= link_to t('dashboard.return_to_admin_dashboard'), back_masquerade_path(user), class: 'bg-light btn px-2 py-0 text-danger text-decoration-none' %>
       </div>
     <% end %>
   </div>
 
 
   <div class="d-flex min-vh-100">
-    <%= render "layouts/shared/sidebar_container", user: user %>
+    <%= render 'layouts/shared/sidebar_container', user: user %>
 
     <div id="dashboard-content" class="w-100">
-      <%= render "layouts/shared/navbar", user: user %>
+      <%= render 'layouts/shared/navbar', user: user %>
 
       <main id="dashboard-main-content" class="py-3 bg-light">
         <div class="container-fluid">
@@ -26,7 +26,7 @@
         </div>
       </main>
 
-      <%= render "layouts/shared/footer" %>
+      <%= render 'layouts/shared/footer' %>
     </div>
   </div>
 </div>

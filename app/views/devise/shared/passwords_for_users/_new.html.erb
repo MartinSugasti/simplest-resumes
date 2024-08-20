@@ -11,35 +11,35 @@
         <div class="btn-group mb-4 w-100 bg-primary rounded-pill" role="group" aria-label="Basic radio toggle button group">
           <%= link_to t('devise.shared.users.candidate'),
                       new_candidate_password_path,
-                      class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-end-0 rounded-start-pill"
+                      class: "type-selector candidate #{resource_name.to_s == 'candidate' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark'} btn border-end-0 rounded-start-pill"
           %>
           <%= link_to t('devise.shared.users.recruiter'),
                       new_recruiter_password_path,
-                      class: "type-selector recruiter #{resource_name.to_s == 'recruiter' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark' } btn border-start-0 rounded-end-pill"
+                      class: "type-selector recruiter #{resource_name.to_s == 'recruiter' ? 'selected text-light' : 'text-primary-dark border border-1 border-primary-dark'} btn border-start-0 rounded-end-pill"
           %>
         </div>
 
         <div class="mb-4">
-          <%= f.email_field :email, autocomplete: "off", class: "form-control rounded-pill bg-light", placeholder: t('devise.shared.email') %>
+          <%= f.email_field :email, autocomplete: 'off', class: 'form-control rounded-pill bg-light', placeholder: t('devise.shared.email') %>
         </div>
 
         <div class="mt-4 text-center">
-          <%= f.submit t('devise.passwords.new.send_me_reset_password_instructions'), class: "btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill" %>
+          <%= f.submit t('devise.passwords.new.send_me_reset_password_instructions'), class: 'btn-submit btn btn-primary border-0 shadow w-100 text-light text-wrap px-0 rounded-pill' %>
         </div>
 
         <div class="text-center d-md-flex justify-content-center mt-2">
-          <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name), class: "text-primary-dark" %>
+          <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name), class: 'text-primary-dark' %>
         </div>
 
         <% if devise_mapping.registerable? %>
           <div class="text-center d-md-flex justify-content-center">
-            <%= link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), class: "text-primary-dark" %>
+            <%= link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), class: 'text-primary-dark' %>
           </div>
         <% end %>
       <% end %>
     </div>
   </div>
 
-  <%= render "devise/shared/right_section" %>
+  <%= render 'devise/shared/right_section' %>
 </section>
 

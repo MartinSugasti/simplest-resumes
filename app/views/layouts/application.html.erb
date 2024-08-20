@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <%= render "layouts/shared/head" %>
+  <%= render 'layouts/shared/head' %>
 
   <body data-locale="<%= I18n.locale %>">
-    <%= render "layouts/shared/flash" %>
+    <%= render 'layouts/shared/flash' %>
 
     <% if defined? resource %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= render 'devise/shared/error_messages', resource: resource %>
     <% end %>
 
     <% if show_dashboard_layout %>
-      <%= render "layouts/shared/dashboard", user: current_user %>
+      <%= render 'layouts/shared/dashboard', user: current_user %>
     <% else %>
       <%= yield %>
     <% end %>

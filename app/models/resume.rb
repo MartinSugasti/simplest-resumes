@@ -31,16 +31,32 @@ class Resume < ApplicationRecord
   has_many :work_experience_items, dependent: :destroy
   validates :work_experience_items, length: { maximum: 5 }
 
-  has_many :primary_skill_items, -> { where(kind: :primary) }, class_name: 'SkillItem', dependent: :destroy
+  has_many :primary_skill_items,
+           -> { where(kind: :primary) },
+           class_name: 'SkillItem',
+           inverse_of: :resume,
+           dependent: :destroy
   validates :primary_skill_items, length: { maximum: 5 }
 
-  has_many :secondary_skill_items, -> { where(kind: :secondary) }, class_name: 'SkillItem', dependent: :destroy
+  has_many :secondary_skill_items,
+           -> { where(kind: :secondary) },
+           class_name: 'SkillItem',
+           inverse_of: :resume,
+           dependent: :destroy
   validates :secondary_skill_items, length: { maximum: 5 }
 
-  has_many :personal_reference_items, -> { where(kind: :personal) }, class_name: 'ReferenceItem', dependent: :destroy
+  has_many :personal_reference_items,
+           -> { where(kind: :personal) },
+           class_name: 'ReferenceItem',
+           inverse_of: :resume,
+           dependent: :destroy
   validates :personal_reference_items, length: { maximum: 4 }
 
-  has_many :job_reference_items, -> { where(kind: :job) }, class_name: 'ReferenceItem', dependent: :destroy
+  has_many :job_reference_items,
+           -> { where(kind: :job) },
+           class_name: 'ReferenceItem',
+           inverse_of: :resume,
+           dependent: :destroy
   validates :job_reference_items, length: { maximum: 4 }
 
   has_many :external_link_items, dependent: :destroy

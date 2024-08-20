@@ -20,7 +20,7 @@
 #  fk_rails_...  (resume_id => resumes.id)
 #
 class SkillItem < ApplicationRecord
-  enum kind: %i[primary secondary]
+  enum kind: { primary: 0, secondary: 1 }
 
   belongs_to :resume
 

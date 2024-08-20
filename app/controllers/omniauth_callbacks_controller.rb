@@ -2,7 +2,7 @@
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # See https://github.com/omniauth/omniauth/wiki/FAQ#rails-session-is-clobbered-after-callback-on-developer-strategy
-  skip_before_action :verify_authenticity_token, only: [:github, :google_oauth2, :twitter]
+  skip_before_action :verify_authenticity_token, only: %i[github google_oauth2 twitter]
 
   def github
     general_callback('Github')
@@ -26,7 +26,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def general_callback(provider_name)
     # You need to implement the method below in your model (e.g. app/models/resource_class.rb)
-    @resource = resource_class.from_omniauth(request.env["omniauth.auth"])
+    @resource = resource_class.from_omniauth(request.env['omniauth.auth'])
 
     if @resource.persisted?
       @resource.confirm
@@ -35,11 +35,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       flash[:alert] ||= []
 
-      if @resource.email.blank?
-        flash[:alert] << t('omniauth_callbacks.no_email', provider_name: provider_name)
-      else
-        flash[:alert] << @resource.errors.full_messages.to_sentence
-      end
+      flash[:alert] << if @resource.email.blank?
+                         t('omniauth_callbacks.no_email', provider_name: provider_name)
+                       else
+                         @resource.errors.full_messages.to_sentence
+                       end
 
       redirect_to new_session_url(@resource)
     end
