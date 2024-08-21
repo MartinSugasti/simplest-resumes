@@ -10,7 +10,7 @@ class ResumeAssociationsCountValidator < ActiveModel::Validator
                        end
 
     max_associations = Resume.validators_on(association_name)[0].options[:maximum]
-    return if record.resume.send(association_name).count < max_associations
+    return if record.resume.blank? || record.resume.send(association_name).count < max_associations
 
     record.errors.add(
       :base,
