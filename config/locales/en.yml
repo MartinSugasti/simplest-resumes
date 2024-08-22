@@ -19,6 +19,17 @@ en:
     confirm_record_deletion: Please confirm you want to delete this record.
     ago: ago
 
+  honeybadger:
+    feedback:
+      heading: "Care to help us fix this?"
+      explanation: "Any information you can provide will help us fix the problem."
+      submit: "Send"
+      thanks: "Thanks for the feedback!"
+      labels:
+        name: "Your name"
+        email: "Your email address"
+        comment: "Comment (required)"
+
   dashboard:
     users: 'Users'
     admins: 'Admins'
