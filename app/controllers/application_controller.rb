@@ -7,10 +7,11 @@ class ApplicationController < ActionController::Base
 
   devise_group :user, contains: %i[admin candidate recruiter]
 
-  rescue_from ActionController::InvalidAuthenticityToken do |_exception|
+  rescue_from ActionController::InvalidAuthenticityToken do |exception|
     flash.keep
     flash[:alert] ||= []
     flash[:alert] << t('application.invalid_authenticity_token')
+    Honeybadger.notify(exception)
 
     redirect_to(root_path)
   end
@@ -19,7 +20,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_not_authorized
+  def user_not_authorized(exception)
+    Honeybadger.notify(exception)
+
     respond_to do |format|
       format.html do
         flash[:alert] = t('application.user_not_authorized')
