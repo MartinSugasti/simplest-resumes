@@ -12,15 +12,17 @@ class StripeWebhooksController < ActionController::Metal
       event = Stripe::Webhook.construct_event(
         payload, sig_header, Rails.configuration.stripe_signing_secret
       )
-    rescue JSON::ParserError
+    rescue JSON::ParserError => e
       # Invalid payload
       Rails.logger.error('StripeWebhooks error: Invalid payload')
+      Honeybadger.notify(e, context: { payload: payload })
 
       status :bad_request
       return
-    rescue Stripe::SignatureVerificationError
+    rescue Stripe::SignatureVerificationError => e
       # Invalid signature
       Rails.logger.error('StripeWebhooks error: Invalid signature')
+      Honeybadger.notify(e, context: { payload: payload })
 
       status :bad_request
       return
@@ -33,12 +35,14 @@ class StripeWebhooksController < ActionController::Metal
       candidate = Candidate.find_by(email: stripe_customer.email)
 
       if candidate.nil?
-        Rails.logger.info("StripeWebhooks alert: candidate not found with email #{stripe_customer.email}")
+        msg = "StripeWebhooks alert: candidate not found with email #{stripe_customer.email}"
+        Rails.logger.error(msg)
+        Honeybadger.notify(msg, context: { payload: payload })
       elsif candidate.stripe_customer_id.present?
-        Rails.logger.info(
-          "StripeWebhooks alert: candidate #{stripe_customer.email} already has " \
-          "the Stripe Customer #{candidate.stripe_customer_id}"
-        )
+        msg = "StripeWebhooks alert: candidate #{stripe_customer.email} already has " \
+              "the Stripe Customer #{candidate.stripe_customer_id}"
+        Rails.logger.error(msg)
+        Honeybadger.notify(msg, context: { payload: payload })
       else
         candidate.update(stripe_customer_id: stripe_customer.id)
       end
@@ -56,7 +60,9 @@ class StripeWebhooksController < ActionController::Metal
         subscription_ends_at: Time.zone.at(subscription.current_period_end).to_datetime
       )
     else
-      Rails.logger.info("StripeWebhooks alert: event type #{event.type} not supported")
+      msg = "StripeWebhooks alert: event type #{event.type} not supported"
+      Rails.logger.error(msg)
+      Honeybadger.notify(msg, context: { payload: payload })
     end
 
     head :ok
