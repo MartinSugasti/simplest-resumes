@@ -7,6 +7,7 @@
     body {
       padding: 0;
       margin: 0;
+      background-color: #f8f8f8;
     }
 
     #notfound {
@@ -115,6 +116,61 @@
       .notfound h2 {
         font-size: 22px;
       }
+    }
+
+    #honeybadger_feedback_form {
+      color: #2b2b2b;
+      font-family: 'Kanit', sans-serif;
+      font-size: 18px;
+      padding: 0 20px 20px;
+      margin-top: -45px;
+
+      h2 {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      #honeybadger_feedback_name, #honeybadger_feedback_email {
+        border-color: #08427c;
+        border-style: solid;
+        border-radius: 51px;
+        border-width: 1px;
+        border-image: none;
+      }
+
+      #honeybadger_feedback_comment {
+        font-family: 'Kanit', sans-serif;
+        border-color: #08427c;
+        border-style: solid;
+        border-radius: 15px;
+        border-width: 1px;
+        border-image: none;
+      }
+
+      .honeybadger-feedback-submit {
+        margin-bottom: 0;
+        text-align: center;
+
+        #honeybadger_feedback_submit {
+          background-color: #5883C8;
+          border-style: solid;
+          border: none;
+          padding: 10px 30px;
+          border-radius: 50px;
+          color: #f8f8f8;
+        }
+      }
+    }
+
+    #honeybadger_feedback_link {
+      display: none;
+    }
+
+    p:has(> #honeybadger_feedback_link) {
+      margin: 0;
     }
   </style>
 </head>
