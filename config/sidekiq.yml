@@ -7,4 +7,4 @@
 :scheduler:
   :schedule:
     Admins::RemindInvitationsJob:
-      every: ['24h', first_in: '1h']
+      cron: '0 9 * * 1-5'
