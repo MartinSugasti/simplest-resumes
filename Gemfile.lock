@@ -164,6 +164,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
+    honeybadger (5.15.6)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     i18n-js (4.2.3)
@@ -443,6 +444,7 @@ DEPENDENCIES
   devise_masquerade (~> 2.1)
   dotenv-rails (~> 2.8, >= 2.8.1)
   erb_lint
+  honeybadger (~> 5.15)
   i18n-js (~> 4.2)
   jbuilder
   jsbundling-rails
