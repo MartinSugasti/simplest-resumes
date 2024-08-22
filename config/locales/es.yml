@@ -19,6 +19,17 @@ es:
     confirm_record_deletion: Por favor, confirme que quiere eliminar este registro.
     ago: atras
 
+  honeybadger:
+    feedback:
+      heading: "Te importaria ayudarnos?"
+      explanation: "Cualquier información que nos puedas brindar nos ayudara a solucionar el problema."
+      submit: "Enviar"
+      thanks: "Gracias por tus comentarios!"
+      labels:
+        name: "Nombre"
+        email: "Email"
+        comment: "Comentario (requerido)"
+
   dashboard:
     users: 'Usuarios'
     admins: 'Administradores'
