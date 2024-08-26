@@ -39,13 +39,15 @@ class ApplicationController < ActionController::Base
                     current_user.preferred_language
                   elsif params[:lang].present? && I18n.available_locales.include?(params[:lang].to_sym)
                     params[:lang]
+                  elsif I18n.available_locales.include?(locale_from_header)
+                    I18n.available_locales.inlcude?
                   else
-                    locale_from_header || I18n.default_locale
+                    I18n.default_locale
                   end
   end
 
   def locale_from_header
-    request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first
+    request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first&.to_sym
   end
 
   def default_url_options
