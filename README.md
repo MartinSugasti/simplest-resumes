@@ -12,27 +12,34 @@ This web application facilitates the following functions:
 - Candidates can generate and download their resumes, as well as postulate to job postings
 - Admin users can oversee the application’s various operational aspects
 
-This is a list of key technologies and features:
+# Key Technologies & Features:
+### Infrastructure
 - [Render](https://render.com/) for hosting
-- [Ruby on Rails](https://rubyonrails.org/) for the backend
 - [PostgreSQL](https://www.postgresql.org/) as database
 - [Redis](https://redis.com/) for in-memory storage
+- [Amazon S3](https://aws.amazon.com/) for storing images, such as profile pictures
+- [Stripe](https://stripe.com/) integration for allowing candidates to subscribe for unlimited job applications
+- [Sendgrid](https://sendgrid.com/) as an SMTP provider
+- [Forwardemail](https://forwardemail.net/) for forwarding emails to my personal account. Also, configured my personal account to send emails as support@simplestresumes.com
+- [Twilio](https://pages.twilio.com/) for sending SMS notifications
+
+### Backend
+- [Ruby on Rails](https://rubyonrails.org/) as framework
 - [Sidekiq](https://sidekiq.org/) for handling background jobs, such as sending SMS to candidates when their job applications are approved
 - [Sidekiq-Scheduler](https://github.com/sidekiq-scheduler/sidekiq-scheduler) for scheduled tasks, such as sending reminder emails
 - [Devise](https://github.com/heartcombo/devise) for authentication
 - [Devise Masquerade](https://github.com/oivoodoo/devise_masquerade) for admins to impersonate candidates and recruiters
 - [Omniauth](https://github.com/omniauth/omniauth) for social login with Gmail, Twitter, and GitHub for candidates and recruiters
 - [Pundit](https://github.com/varvet/pundit) for authorization
-- [Amazon S3](https://aws.amazon.com/) for storing images, such as profile pictures
-- [Sendgrid](https://sendgrid.com/) as an SMTP provider
-- [Forwardemail](https://forwardemail.net/) for forwarding emails to my personal account. Also, configured my personal account to send emails as support@simplestresumes.com
-- [Twilio](https://pages.twilio.com/) for sending SMS notifications
-- [Stripe](https://stripe.com/) integration for allowing candidates to subscribe for unlimited job applications
-- [Honeybadger](https://www.honeybadger.io/) for monitoring errors
+
+### Frontend
 - [React](https://react.dev/) for the frontend. Although, erb is used in some cases, such as Devise's views
 - [Bootstrap](https://getbootstrap.com/) as CSS framework
 - [Redux](https://react-redux.js.org/) for managing state in certain features. Even though it was not strictly necessary for such features, I thought it appropriate to add it
 - [React-Router](https://reactrouter.com/) for managing navigation and UI updates within sections
+
+### Others
+- [Honeybadger](https://www.honeybadger.io/) for monitoring errors
 - Internationalization for English and Spanish
 - Custom error pages
 - Github Actions for rubocop, erb linter and GitGuardian
