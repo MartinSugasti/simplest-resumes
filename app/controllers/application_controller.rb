@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
                   elsif params[:lang].present? && I18n.available_locales.include?(params[:lang].to_sym)
                     params[:lang]
                   elsif I18n.available_locales.include?(locale_from_header)
-                    I18n.available_locales.inlcude?
+                    locale_from_header
                   else
                     I18n.default_locale
                   end
