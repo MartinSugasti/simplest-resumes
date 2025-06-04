@@ -55,10 +55,16 @@ class StripeWebhooksController < ActionController::Metal
       subscription = event.data.object
       candidate = Candidate.find_by(stripe_customer_id: subscription.customer)
 
-      candidate.update(
-        plan: subscription.items.data[0].price.recurring.interval,
-        subscription_ends_at: Time.zone.at(subscription.current_period_end).to_datetime
-      )
+      if candidate.nil?
+        msg = "StripeWebhooks alert: candidate not found with stripe_customer_id #{subscription.customer}"
+        Rails.logger.error(msg)
+        Honeybadger.notify(msg, context: { payload: payload })
+      else
+        candidate.update(
+          plan: subscription.items.data[0].price.recurring.interval,
+          subscription_ends_at: Time.zone.at(subscription.current_period_end).to_datetime
+        )
+      end
     else
       msg = "StripeWebhooks alert: event type #{event.type} not supported"
       Rails.logger.error(msg)
