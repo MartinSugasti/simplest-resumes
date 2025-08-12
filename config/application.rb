@@ -65,8 +65,6 @@ module SimplestResumes # rubocop:disable Style/ClassAndModuleChildren
     config.twitter_key = ENV.fetch('TWITTER_KEY', nil)
     config.twitter_secret = ENV.fetch('TWITTER_SECRET', nil)
 
-    config.sendgrid_api_key = ENV.fetch('SENDGRID_API_KEY', nil)
-
     config.twilio_account_sid = ENV.fetch('TWILIO_ACCOUNT_SID', nil)
     config.twilio_auth_token = ENV.fetch('TWILIO_AUTH_TOKEN', nil)
     config.twilio_from_phone = ENV.fetch('TWILIO_FROM_PHONE', nil)

@@ -19,8 +19,8 @@ This web application facilitates the following functions:
 - [Redis](https://redis.com/) for in-memory storage
 - [Amazon S3](https://aws.amazon.com/) for storing images, such as profile pictures
 - [Stripe](https://stripe.com/) integration for allowing candidates to subscribe for unlimited job applications
-- [Sendgrid](https://sendgrid.com/) as an SMTP provider
-- [Forwardemail](https://forwardemail.net/) for forwarding emails to my personal account. Also, configured my personal account to send emails as support@simplestresumes.com
+- [Mailgun](https://www.mailgun.com/) as an SMTP provider
+- [Mailgun](https://forwardemail.net/) for forwarding emails to my Gmail personal account. Also, configured my Gmail personal account to send emails as support@simplestresumes.com
 - [Twilio](https://pages.twilio.com/) for sending SMS notifications
 
 ### Backend
