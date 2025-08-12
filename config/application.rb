@@ -38,10 +38,10 @@ module SimplestResumes # rubocop:disable Style/ClassAndModuleChildren
 
     config.action_mailer.default_url_options = { host: 'simplestresumes.com' }
     config.action_mailer.smtp_settings = {
-      user_name: 'apikey',
-      password: ENV.fetch('SENDGRID_API_KEY', nil),
+      user_name: ENV.fetch('MAILGUN_SMTP_USER', nil),
+      password: ENV.fetch('MAILGUN_SMTP_PASSWORD', nil),
       domain: 'simplestresumes.com',
-      address: 'smtp.sendgrid.net',
+      address: ENV.fetch('MAILGUN_DOMAIN', nil),
       port: 587,
       authentication: :plain,
       enable_starttls_auto: true
