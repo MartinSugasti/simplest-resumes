@@ -55,6 +55,12 @@ en:
     new: New
     new_job_posting: New Job Posting
     payments: Payments
+    admins:
+      search: Functionality to be implemented
+    candidates:
+      search: Job Postings for Google
+    recruiters:
+      search: Candidates with experience in Marketing
 
   application:
     invalid_authenticity_token: "Can't verify CSRF token authenticity"
@@ -172,6 +178,9 @@ en:
       recruiter_will_get_in_touch: The recruiter will get in touch soon!
       postulate: Postulate
       successfully_postulated: You have successfully postulated!
+      errors: &query_errors
+        query_not_valid: Search query must be related to the database schema
+        unable_to_process_query: Unable to process search query
     postulations_mailer:
       postulation_approved:
         subject: Postulation Approved
@@ -197,6 +206,7 @@ en:
       postulation_rejected: Postulation successfully rejected!
     candidates:
       no_resume: Candidate has not completed his/her Resume yet
+      errors: *query_errors
 
   omniauth_callbacks:
     no_email: "We weren't able to get an email from your #{provider_name} account. Please, set an email in your account or allow access to read your email address in the app settings."

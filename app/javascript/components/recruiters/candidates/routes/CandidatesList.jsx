@@ -2,16 +2,20 @@ import React, { useEffect } from 'react';
 import {
   Link,
   useLoaderData,
-  useOutletContext
+  useOutletContext,
+  useSearchParams
 } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { getCandidates } from '../api';
 import ErrorPage from '../../../shared/ErrorPage';
 
-export const loader = async () => {
+export const loader = async ({ request }) => {
   try {
-    const response = await getCandidates();
+    const url = new URL(request.url);
+    const query = url.searchParams.get('query');
+
+    const response = await getCandidates(query);
 
     return { candidates: response.data };
   } catch (error) {
@@ -22,11 +26,20 @@ export const loader = async () => {
 const CandidatesList = () => {
   const data = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
+  const [searchParams] = useSearchParams();
   const { t } = useTranslation();
 
+  const searchQuery = searchParams.get('query');
+
   useEffect(() => {
-    setBreadcrumbs('<strong>Candidates</strong>');
-  }, [setBreadcrumbs]);
+    if (searchQuery) {
+      setBreadcrumbs(
+        `${t('dashboard.candidates')} / <strong>${t('dashboard.search')}: ${searchQuery}</strong>`
+      );
+    } else {
+      setBreadcrumbs(`<strong>${t('dashboard.candidates')}</strong>`);
+    }
+  }, [setBreadcrumbs, searchQuery, t]);
 
   return (
     <div className="table-responsive" id="admins-candidates-report">

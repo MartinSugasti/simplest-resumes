@@ -3,16 +3,19 @@ import React, { useEffect } from 'react';
 import {
   Link,
   useLoaderData,
-  useOutletContext
+  useOutletContext,
+  useSearchParams
 } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { getJobPostings } from '../api';
 import ErrorPage from '../../../shared/ErrorPage';
 
-export const loader = async () => {
+export const loader = async ({ request }) => {
   try {
-    const response = await getJobPostings();
+    const url = new URL(request.url);
+    const query = url.searchParams.get('query');
+    const response = await getJobPostings(query);
 
     return { jobPostings: response.data };
   } catch (error) {
@@ -23,11 +26,20 @@ export const loader = async () => {
 const JobPostingsList = () => {
   const data = useLoaderData();
   const [setBreadcrumbs] = useOutletContext();
+  const [searchParams] = useSearchParams();
   const { t } = useTranslation();
 
+  const searchQuery = searchParams.get('query');
+
   useEffect(() => {
-    setBreadcrumbs(`<strong>${t('dashboard.job_postings')}</strong>`);
-  }, [setBreadcrumbs, t]);
+    if (searchQuery) {
+      setBreadcrumbs(
+        `${t('dashboard.job_postings')} / <strong>${t('dashboard.search')}: ${searchQuery}</strong>`
+      );
+    } else {
+      setBreadcrumbs(`<strong>${t('dashboard.job_postings')}</strong>`);
+    }
+  }, [setBreadcrumbs, searchQuery, t]);
 
   return (
     <div className="table-responsive">
