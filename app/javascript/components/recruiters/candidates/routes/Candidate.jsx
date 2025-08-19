@@ -35,7 +35,6 @@ const Candidate = () => {
 
     getResume(candidate.resume_id)
       .then((response) => {
-        console.log(response.data)
         setResumeData(response.data);
       })
       .catch(() => showErrorToast());

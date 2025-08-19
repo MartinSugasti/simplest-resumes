@@ -96,6 +96,9 @@ gem 'i18n-js', '~> 4.2'
 # Error tracking
 gem 'honeybadger', '~> 5.15'
 
+# OpenAI integration
+gem 'ruby-openai', '~> 8.0'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]

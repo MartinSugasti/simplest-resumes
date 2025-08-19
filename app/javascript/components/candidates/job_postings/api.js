@@ -1,6 +1,13 @@
 import axios from '../../shared/configuredAxios';
 
-export const getJobPostings = () => axios.get('/candidates/job_postings.json');
+export const getJobPostings = (query) => {
+  const params = {};
+
+  if (query) {
+    params.query = query;
+  }
+  return axios.get('/candidates/job_postings.json', { params });
+};
 
 export const getJobPosting = (id) => axios.get(`/candidates/job_postings/${id}.json`);
 

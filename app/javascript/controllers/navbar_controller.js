@@ -9,6 +9,6 @@ export default class extends Controller {
     const root = createRoot(document.getElementById('dashboard-navbar'));
     const config = window.navbarConfig();
 
-    root.render(<Navbar user={config.user} />);
+    root.render(<Navbar userType={config.user_type} />);
   }
 }

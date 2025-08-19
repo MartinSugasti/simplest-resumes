@@ -55,6 +55,12 @@ es:
     new: Nuevo
     new_job_posting: Nuevo Anuncio De Empleo
     payments: Pagos
+    admins:
+      search: Funcionalidad por implementar
+    candidates:
+      search: Anuncios de empleo para Google
+    recruiters:
+      search: Candidatos con experiencia en Marketing
 
   application:
     invalid_authenticity_token: 'CSRF token de autenticidad inválido'
@@ -172,6 +178,9 @@ es:
       recruiter_will_get_in_touch: Pronto se pondran en contacto!
       postulate: Postularse
       successfully_postulated: Te has postulado con exito!
+      errors: &query_errors
+        query_not_valid: La consulta no es valida
+        unable_to_process_query: No se pudo procesar la consulta
     postulations_mailer:
       postulation_approved:
         subject: Postulación Aprobada
@@ -197,6 +206,7 @@ es:
       postulation_rejected: Postulación rechazada con exito!
     candidates:
       no_resume: Este Candidate aun no ha creado su CV
+      errors: *query_errors
 
   omniauth_callbacks:
     no_email: 'No pudimos conseguir un email desde tu cuenta con #{provider_name}. Por favor, configura un email en tu cuenta o permite acceso a tu email desde la configuración de #{provider_name}'
