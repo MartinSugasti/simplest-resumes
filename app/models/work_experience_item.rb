@@ -33,7 +33,7 @@ class WorkExperienceItem < ApplicationRecord
   validates :position, presence: true, length: { maximum: 40 }
   validates :company, presence: true, length: { maximum: 40 }
   validates :location, presence: true, length: { maximum: 40 }
-  validates :description, presence: true, length: { maximum: 800 }
+  validates :description, presence: true, length: { maximum: 2000 }
   validates :start_month, presence: true, numericality: { only_integer: true, in: 1..12 }
   validates :start_year, presence: true, numericality: { only_integer: true, in: 1900..2100 }
   validates :end_month, presence: true, numericality: {

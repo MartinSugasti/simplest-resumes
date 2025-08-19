@@ -450,13 +450,9 @@
       }
     },
     "dashboard": {
-      "admins": {
-        "search": "Functionality to be implemented"
-      },
+      "admins": "Admins",
       "billing_portal": "Billing Portal",
-      "candidates": {
-        "search": "Job Postings for Google"
-      },
+      "candidates": "Candidates",
       "dashboard": "Dashboard",
       "edit": "Edit",
       "invitations": "Invitations",
@@ -466,12 +462,15 @@
       "new": "New",
       "new_job_posting": "New Job Posting",
       "payments": "Payments",
-      "recruiters": {
-        "search": "Candidates with experience in Marketing"
-      },
+      "recruiters": "Recruiters",
       "requests": "Requests",
       "return_to_admin_dashboard": "Return to Admin dashboard",
       "search": "Search",
+      "search_navbar": {
+        "admins": "Functionality to be implemented",
+        "candidates": "Job Postings for Google",
+        "recruiters": "Candidates with experience in Marketing"
+      },
       "send_invitation": "Send Invitation",
       "settings": "Settings",
       "show": "Show",
@@ -1594,13 +1593,9 @@
       }
     },
     "dashboard": {
-      "admins": {
-        "search": "Funcionalidad por implementar"
-      },
+      "admins": "Administradores",
       "billing_portal": "Portal de Facturación",
-      "candidates": {
-        "search": "Anuncios de empleo para Google"
-      },
+      "candidates": "Candidatos",
       "dashboard": "Panel",
       "edit": "Editar",
       "invitations": "Invitaciones",
@@ -1610,12 +1605,15 @@
       "new": "Nuevo",
       "new_job_posting": "Nuevo Anuncio De Empleo",
       "payments": "Pagos",
-      "recruiters": {
-        "search": "Candidatos con experiencia en Marketing"
-      },
+      "recruiters": "Reclutadores",
       "requests": "Solicitudes",
       "return_to_admin_dashboard": "Regresar al panel de administrador",
       "search": "Buscar",
+      "search_navbar": {
+        "admins": "Funcionalidad por implementar",
+        "candidates": "Anuncios de empleo para Google",
+        "recruiters": "Candidatos con experiencia en Marketing"
+      },
       "send_invitation": "Enviar Invitación",
       "settings": "Configuración",
       "show": "Vista",

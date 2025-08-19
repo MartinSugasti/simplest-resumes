@@ -55,12 +55,10 @@ es:
     new: Nuevo
     new_job_posting: Nuevo Anuncio De Empleo
     payments: Pagos
-    admins:
-      search: Funcionalidad por implementar
-    candidates:
-      search: Anuncios de empleo para Google
-    recruiters:
-      search: Candidatos con experiencia en Marketing
+    search_navbar:
+      admins: Funcionalidad por implementar
+      candidates: Anuncios de empleo para Google
+      recruiters: Candidatos con experiencia en Marketing
 
   application:
     invalid_authenticity_token: 'CSRF token de autenticidad inválido'
