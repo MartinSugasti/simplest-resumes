@@ -66,5 +66,5 @@ class Resume < ApplicationRecord
   validates :email, length: { maximum: 40 }, format: Devise.email_regexp, allow_blank: true
   validates :mobile, length: { maximum: 20 }
   validates :location, length: { maximum: 40 }
-  validates :about_me, length: { maximum: 800 }
+  validates :about_me, length: { maximum: 2000 }
 end

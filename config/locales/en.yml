@@ -55,12 +55,10 @@ en:
     new: New
     new_job_posting: New Job Posting
     payments: Payments
-    admins:
-      search: Functionality to be implemented
-    candidates:
-      search: Job Postings for Google
-    recruiters:
-      search: Candidates with experience in Marketing
+    search_navbar:
+      admins: Functionality to be implemented
+      candidates: Job Postings for Google
+      recruiters: Candidates with experience in Marketing
 
   application:
     invalid_authenticity_token: "Can't verify CSRF token authenticity"

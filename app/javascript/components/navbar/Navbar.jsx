@@ -44,7 +44,7 @@ const Navbar = ({ userType }) => {
         <input
           className="form-control me-2 bg-light"
           type="search"
-          placeholder={t(`dashboard.${userType}s.search`)}
+          placeholder={t(`dashboard.search_navbar.${userType}s`)}
           aria-label="Search"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
