@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import LinkWithLoaderAndScrolling from '../../shared/LinkWithLoaderAndScrolling';
 
-import resumesImage from '../../../../images/others/resumes.png';
+import resumesImage from '../../../../images/others/resumes.svg';
 
 const Intro = () => {
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ const Intro = () => {
             </LinkWithLoaderAndScrolling>
           </div>
 
-          <div className="col-12 col-sm-8 col-md-6 text-center">
+          <div className="col-12 col-sm-8 col-md-6 text-center p-3 p-xl-5">
             <img src={resumesImage} className="img-fluid" alt="family" />
           </div>
         </div>

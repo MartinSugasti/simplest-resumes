@@ -33,6 +33,17 @@
   }
 }
 
+#main-intro, #about-us-intro {
+  min-height: calc(100vh - 4rem); /* 100vh minus navbar height (pt-2 + pb-2 + content) */
+  display: flex;
+  align-items: center;
+
+  .container-lg {
+    width: 100%;
+  }
+}
+
+
 #services {
   .card {
     height: 300px !important;
