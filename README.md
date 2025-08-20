@@ -43,6 +43,7 @@ This web application facilitates the following functions:
 - Internationalization for English and Spanish
 - Custom error pages
 - Github Actions for rubocop, erb linter and GitGuardian
+- [OpenAI](https://openai.com/) for natural langugage searches
 
 # Live Application
 [https://simplestresumes.com/](https://simplestresumes.com/)
