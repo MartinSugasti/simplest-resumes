@@ -33,12 +33,20 @@
     </div>
 
     <div class="mb-4">
+      <% if resource.otp_required_for_login %>
+          <%= f.text_field :otp_attempt, class: 'form-control rounded-pill bg-light', placeholder: t('devise.passwords.edit.enter_otp') %>
+      <% else %>
+        <%= link_to t('devise.passwords.edit.enable_2fa'), admins_enable_otp_show_qr_path, class: 'btn btn-success border-0 shadow w-100 text-light rounded-pill' %>
+      <% end %>
+    </div>
+
+    <div class="mb-4">
       <%= f.password_field :current_password,
                            autocomplete: 'current-password',
                            class: 'form-control rounded-pill bg-light',
                            placeholder: t('devise.passwords.edit.current_password')
       %>
-      <p class="small">* <%= t('devise.passwords.edit.current_password_required') %></p>
+      <p class="small ms-2 mb-0">*<%= t('devise.passwords.edit.current_password_required') %></p>
     </div>
 
     <div class="mt-4 text-center">

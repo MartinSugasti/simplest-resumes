@@ -1,0 +1,19 @@
+<section class="authentication-page row g-0 vh-100">
+  <div class="left-section col-10 col-sm-4 offset-1 py-4 d-flex align-items-center">
+    <div class="w-100">
+      <div class="text-center mb-5">
+        <%= link_to home_path do %>
+          <%= image_tag 'logos/primary.png', class: 'mw-100' %>
+        <% end %>
+      </div>
+
+      <%= form_tag admins_verify_otp_path, method: :post do %>
+        <%= text_field_tag :otp_attempt, nil, class: 'form-control rounded-pill bg-light mb-4', placeholder: t('admins.enable_otp_show_qr.enter_one_time_password') %>
+
+        <%= submit_tag t('admins.otp.verify'), class: 'btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill' %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'devise/shared/right_section' %>
+</section>

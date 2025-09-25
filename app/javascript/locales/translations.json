@@ -293,6 +293,13 @@
           "welcome": "Welcome to the the %{role}'s dashboard!"
         }
       },
+      "enable_otp_show_qr": {
+        "2fa_already_enabled": "2FA is already enabled.",
+        "2fa_enabled_successfully": "2FA enabled successfully.",
+        "enter_one_time_password": "Enter One Time Password",
+        "scan_qr_code": "Scan the QR Code with and Authenticator App to Enable Two Factor Authentication",
+        "verify_and_enable_2fa": "Verify and Enable 2FA"
+      },
       "invitation_request_serializer": {
         "accepted": "Accepted",
         "admin_not_found": "Admin Not Found"
@@ -342,6 +349,10 @@
           "body_html": "Invitation has been requested to %{email}. You can manage this and others invitation requests at %{link} page.",
           "subject": "Invitation requested for %{email}"
         }
+      },
+      "opt": {
+        "enter_one_time_password": "Enter One Time Password",
+        "verify": "Verify"
       },
       "registrations": {
         "sign_up_not_allowed": "Admins need an invitation to sign up"
@@ -455,6 +466,7 @@
       "candidates": "Candidates",
       "dashboard": "Dashboard",
       "edit": "Edit",
+      "enable_2fa": "Enable 2FA",
       "invitations": "Invitations",
       "job_posting": "Job Posting",
       "job_postings": "Job Postings",
@@ -687,13 +699,21 @@
         "failure": "Could not authenticate you from %{kind} because \"%{reason}\".",
         "success": "Successfully authenticated from %{kind} account."
       },
+      "otp": {
+        "disabled": "2FA has been disabled successfully",
+        "invalid_otp": "Invalid OTP code",
+        "invalid_otp_and_password": "Invalid OTP code and password",
+        "invalid_password": "Invalid password"
+      },
       "passwords": {
         "edit": {
           "change_my_password": "Change my password",
           "change_your_password": "Change your password",
           "confirm_new_password": "Confirm new password",
           "current_password": "Current password",
-          "current_password_required": "Required if updating your password",
+          "current_password_required": "Required if updating your password or disabling 2FA",
+          "enable_2fa": "Enable 2FA",
+          "enter_otp": "Enter One Time Password to disable 2FA",
           "new_password": "New password",
           "oauth_password": "If you log in using a external provider (Google, Github, etc), you may not require a password update. But if you still want it, to know your password you should reset it from the Forgot password? page."
         },
@@ -1436,6 +1456,13 @@
           "welcome": "Bienvenido al panel de %{role}"
         }
       },
+      "enable_otp_show_qr": {
+        "2fa_already_enabled": "La verificación en 2 pasos ya está habilitada.",
+        "2fa_enabled_successfully": "La verificación en 2 pasos se ha habilitado correctamente.",
+        "enter_one_time_password": "Ingresé el código de un solo uso (OPT)",
+        "scan_qr_code": "Escaneé el código QR con una aplicación de autenticación para habilitar la autenticación en 2 pasos",
+        "verify_and_enable_2fa": "Verificar y Habilitar 2FA"
+      },
       "invitation_request_serializer": {
         "accepted": "Aceptada",
         "admin_not_found": "Usuario Admin no encontrado"
@@ -1485,6 +1512,10 @@
           "body_html": "Solicitud de invitación para %{email}. Maneja las solicitudes en la pagina de %{link}!",
           "subject": "Nueva solicitud de invitación para %{email}"
         }
+      },
+      "opt": {
+        "enter_one_time_password": "Ingresé el código de un solo uso (OPT)",
+        "verify": "Verificar"
       },
       "registrations": {
         "sign_up_not_allowed": "Usuarios Admin necesitan una invitación para registrarse"
@@ -1598,6 +1629,7 @@
       "candidates": "Candidatos",
       "dashboard": "Panel",
       "edit": "Editar",
+      "enable_2fa": "Habilitar 2FA",
       "invitations": "Invitaciones",
       "job_posting": "Anuncio De Empleo",
       "job_postings": "Anuncios De Empleo",
@@ -1830,13 +1862,21 @@
         "failure": "No has sido autorizado en la cuenta %{kind} porque \"%{reason}\".",
         "success": "Has sido autorizado satisfactoriamente en la cuenta %{kind}."
       },
+      "otp": {
+        "disabled": "La verificación en 2 pasos ha sido deshabilitada correctamente",
+        "invalid_otp": "Código de un solo uso (OPT) inválido",
+        "invalid_otp_and_password": "Código de un solo uso (OPT) y contraseña inválidos",
+        "invalid_password": "Contraseña inválida"
+      },
       "passwords": {
         "edit": {
           "change_my_password": "Cambiar mi contraseña",
           "change_your_password": "Cambie su contraseña",
           "confirm_new_password": "Confirme la nueva contraseña",
           "current_password": "Contraseña actual",
-          "current_password_required": "Requerido al actualizar la contraseña",
+          "current_password_required": "Requerido al actualizar la contraseña o deshabilitar 2FA",
+          "enable_2fa": "Habilitar 2FA",
+          "enter_otp": "Ingresé el código de un solo uso (OPT) para deshabilitar la verificación en 2 pasos",
           "new_password": "Nueva contraseña",
           "oauth_password": "Si inicia sesión con un proveedor externo (Google, Github, etc.), es posible que no necesite actualizar su contraseña. Pero si aún lo desea, para conocer su contraseña debe restablecerla desde la página de ¿Olvidó su contraseña?"
         },

@@ -8,6 +8,7 @@
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
+#  consumed_timestep      :integer
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  invitation_accepted_at :datetime
@@ -17,6 +18,8 @@
 #  invitation_token       :string
 #  invitations_count      :integer          default(0)
 #  invited_by_type        :string
+#  otp_required_for_login :boolean          default(FALSE), not null
+#  otp_secret             :string
 #  preferred_language     :integer          default("en"), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -42,7 +45,7 @@ class Admin < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
+  devise :two_factor_authenticatable, :invitable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :invitations, class_name: to_s, as: :invited_by, dependent: :nullify
 

@@ -82,7 +82,9 @@ en:
         confirm_new_password: Confirm new password
         new_password: New password
         current_password: Current password
-        current_password_required: Required if updating your password
+        current_password_required: Required if updating your password or disabling 2FA
+        enable_2fa: Enable 2FA
+        enter_otp: Enter One Time Password to disable 2FA
         oauth_password: If you log in using a external provider (Google, Github, etc), you may not require a password update. But if you still want it, to know your password you should reset it from the Forgot password? page.
       new:
         forgot_your_password: Forgot your password?
@@ -126,6 +128,11 @@ en:
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
       unlocked: Your account has been unlocked successfully. Please sign in to continue.
+    otp:
+      invalid_otp: Invalid OTP code
+      invalid_password: Invalid password
+      invalid_otp_and_password: Invalid OTP code and password
+      disabled: 2FA has been disabled successfully
     shared:
       users:
         admin: Admin
