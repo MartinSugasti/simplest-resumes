@@ -350,7 +350,7 @@
           "subject": "Invitation requested for %{email}"
         }
       },
-      "opt": {
+      "otp": {
         "enter_one_time_password": "Enter One Time Password",
         "verify": "Verify"
       },
@@ -1459,7 +1459,7 @@
       "enable_otp_show_qr": {
         "2fa_already_enabled": "La verificación en 2 pasos ya está habilitada.",
         "2fa_enabled_successfully": "La verificación en 2 pasos se ha habilitado correctamente.",
-        "enter_one_time_password": "Ingresé el código de un solo uso (OPT)",
+        "enter_one_time_password": "Ingresé el código de un solo uso (OTP)",
         "scan_qr_code": "Escaneé el código QR con una aplicación de autenticación para habilitar la autenticación en 2 pasos",
         "verify_and_enable_2fa": "Verificar y Habilitar 2FA"
       },
@@ -1513,8 +1513,8 @@
           "subject": "Nueva solicitud de invitación para %{email}"
         }
       },
-      "opt": {
-        "enter_one_time_password": "Ingresé el código de un solo uso (OPT)",
+      "otp": {
+        "enter_one_time_password": "Ingresé el código de un solo uso (OTP)",
         "verify": "Verificar"
       },
       "registrations": {

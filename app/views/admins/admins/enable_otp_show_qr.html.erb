@@ -9,7 +9,7 @@
 
 <div class="mb-3 text-center">
   <%= raw RQRCode::QRCode.new(
-        current_admin.otp_provisioning_uri(current_admin.email, issuer: 'Simplest Resumes'),
+        @provisioning_uri,
         :svg,
         level: :l,
         unit: 2

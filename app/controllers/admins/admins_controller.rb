@@ -15,9 +15,9 @@ class Admins::AdminsController < ApplicationController
       redirect_to edit_admin_registration_path, alert: t('admins.enable_otp_show_qr.2fa_already_enabled')
     else
       current_admin.otp_secret = Admin.generate_otp_secret
-      issuer = 'Simplest Resumes'
-      label = "#{issuer}:#{current_admin.email}"
-      @provisioning_uri = current_admin.otp_provisioning_uri(label, issuer: issuer)
+      @provisioning_uri = current_admin.otp_provisioning_uri(
+        "Simplest Resumes:#{current_admin.email}", issuer: 'Simplest Resumes'
+      )
 
       current_admin.save!
     end
@@ -42,6 +42,9 @@ class Admins::AdminsController < ApplicationController
     verifier = Rails.application.message_verifier(:otp_session)
     admin_id = verifier.verify(session[:otp_token])
     admin = Admin.find(admin_id)
+
+    # Clear the OTP token from session to prevent replay attacks
+    session.delete(:otp_token)
 
     if admin.validate_and_consume_otp!(params[:otp_attempt])
       # OTP is correct. Log the admin in
