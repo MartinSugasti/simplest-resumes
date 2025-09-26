@@ -92,6 +92,9 @@ Rails.application.routes.draw do
     get 'enable_otp_show_qr', to: 'admins#enable_otp_show_qr'
     post 'enable_otp_verify', to: 'admins#enable_otp_verify'
 
+    get 'disable_otp', to: 'admins#disable_otp'
+    post 'disable_otp_verify', to: 'admins#disable_otp_verify'
+
     get 'otp', to: 'admins#otp'
     post 'verify_otp', to: 'admins#verify_otp'
   end

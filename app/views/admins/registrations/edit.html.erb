@@ -32,15 +32,7 @@
       %>
     </div>
 
-    <div class="mb-4">
-      <% if resource.otp_required_for_login %>
-          <%= f.text_field :otp_attempt, class: 'form-control rounded-pill bg-light', placeholder: t('devise.passwords.edit.enter_otp') %>
-      <% else %>
-        <%= link_to t('devise.passwords.edit.enable_2fa'), admins_enable_otp_show_qr_path, class: 'btn btn-success border-0 shadow w-100 text-light rounded-pill' %>
-      <% end %>
-    </div>
-
-    <div class="mb-4">
+    <div class="mb-3">
       <%= f.password_field :current_password,
                            autocomplete: 'current-password',
                            class: 'form-control rounded-pill bg-light',
@@ -49,7 +41,15 @@
       <p class="small ms-2 mb-0">*<%= t('devise.passwords.edit.current_password_required') %></p>
     </div>
 
-    <div class="mt-4 text-center">
+    <div class="mb-4">
+      <% if resource.otp_required_for_login %>
+          <%= link_to t('devise.passwords.edit.disable_2fa'), admins_disable_otp_path, class: 'btn btn-danger border-0 shadow w-100 text-light rounded-pill' %>
+      <% else %>
+        <%= link_to t('devise.passwords.edit.enable_2fa'), admins_enable_otp_show_qr_path, class: 'btn btn-success border-0 shadow w-100 text-light rounded-pill' %>
+      <% end %>
+    </div>
+
+    <div class="mb-4 text-center">
       <%= f.submit t('devise.registrations.edit.update'), class: 'btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill' %>
 
       <div class="text-decoration-none text-muted">

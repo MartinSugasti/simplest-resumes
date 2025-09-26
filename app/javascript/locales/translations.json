@@ -293,11 +293,15 @@
           "welcome": "Welcome to the the %{role}'s dashboard!"
         }
       },
+      "disable_otp": {
+        "2fa_already_disbled": "2FA is already disabled."
+      },
       "enable_otp_show_qr": {
         "2fa_already_enabled": "2FA is already enabled.",
         "2fa_enabled_successfully": "2FA enabled successfully.",
         "enter_one_time_password": "Enter One Time Password",
         "scan_qr_code": "Scan the QR Code with and Authenticator App to Enable Two Factor Authentication",
+        "verify_and_disable_2fa": "Verify and Disable 2FA",
         "verify_and_enable_2fa": "Verify and Enable 2FA"
       },
       "invitation_request_serializer": {
@@ -465,6 +469,7 @@
       "billing_portal": "Billing Portal",
       "candidates": "Candidates",
       "dashboard": "Dashboard",
+      "disable_2fa": "Disable 2FA",
       "edit": "Edit",
       "enable_2fa": "Enable 2FA",
       "invitations": "Invitations",
@@ -703,7 +708,8 @@
         "disabled": "2FA has been disabled successfully",
         "invalid_otp": "Invalid OTP code",
         "invalid_otp_and_password": "Invalid OTP code and password",
-        "invalid_password": "Invalid password"
+        "invalid_password": "Invalid password",
+        "missing_password_or_otp": "Password and OTP are required"
       },
       "passwords": {
         "edit": {
@@ -711,9 +717,10 @@
           "change_your_password": "Change your password",
           "confirm_new_password": "Confirm new password",
           "current_password": "Current password",
-          "current_password_required": "Required if updating your password or disabling 2FA",
+          "current_password_required": "Required if updating your password",
+          "disable_2fa": "Disable 2FA",
           "enable_2fa": "Enable 2FA",
-          "enter_otp": "Enter One Time Password to disable 2FA",
+          "enter_otp": "Enter One Time Password",
           "new_password": "New password",
           "oauth_password": "If you log in using a external provider (Google, Github, etc), you may not require a password update. But if you still want it, to know your password you should reset it from the Forgot password? page."
         },
@@ -1456,11 +1463,15 @@
           "welcome": "Bienvenido al panel de %{role}"
         }
       },
+      "disable_otp": {
+        "2fa_already_disbled": "La verificación en 2 pasos ya está deshabilitada."
+      },
       "enable_otp_show_qr": {
         "2fa_already_enabled": "La verificación en 2 pasos ya está habilitada.",
         "2fa_enabled_successfully": "La verificación en 2 pasos se ha habilitado correctamente.",
         "enter_one_time_password": "Ingresé el código de un solo uso (OTP)",
         "scan_qr_code": "Escaneé el código QR con una aplicación de autenticación para habilitar la autenticación en 2 pasos",
+        "verify_and_disable_2fa": "Verificar y Deshabilitar 2FA",
         "verify_and_enable_2fa": "Verificar y Habilitar 2FA"
       },
       "invitation_request_serializer": {
@@ -1628,6 +1639,7 @@
       "billing_portal": "Portal de Facturación",
       "candidates": "Candidatos",
       "dashboard": "Panel",
+      "disable_2fa": "Deshabilitar 2FA",
       "edit": "Editar",
       "enable_2fa": "Habilitar 2FA",
       "invitations": "Invitaciones",
@@ -1866,7 +1878,8 @@
         "disabled": "La verificación en 2 pasos ha sido deshabilitada correctamente",
         "invalid_otp": "Código de un solo uso (OPT) inválido",
         "invalid_otp_and_password": "Código de un solo uso (OPT) y contraseña inválidos",
-        "invalid_password": "Contraseña inválida"
+        "invalid_password": "Contraseña inválida",
+        "missing_password_or_otp": "Contraseña y código de un solo uso (OPT) son requeridos"
       },
       "passwords": {
         "edit": {
@@ -1874,9 +1887,10 @@
           "change_your_password": "Cambie su contraseña",
           "confirm_new_password": "Confirme la nueva contraseña",
           "current_password": "Contraseña actual",
-          "current_password_required": "Requerido al actualizar la contraseña o deshabilitar 2FA",
+          "current_password_required": "Requerido al actualizar la contraseña",
+          "disable_2fa": "Deshabilitar 2FA",
           "enable_2fa": "Habilitar 2FA",
-          "enter_otp": "Ingresé el código de un solo uso (OPT) para deshabilitar la verificación en 2 pasos",
+          "enter_otp": "Ingresé el código de un solo uso (OPT)",
           "new_password": "Nueva contraseña",
           "oauth_password": "Si inicia sesión con un proveedor externo (Google, Github, etc.), es posible que no necesite actualizar su contraseña. Pero si aún lo desea, para conocer su contraseña debe restablecerla desde la página de ¿Olvidó su contraseña?"
         },

@@ -43,7 +43,7 @@
 </li>
 
 <li>
-  <%= link_to edit_admin_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/registrations' => ['edit'] }) ? 'bg-primary-dark' : ''}" do %>
+  <%= link_to edit_admin_registration_path, class: "sidebar-link text-light px-4 py-2 #{active_sidebar_option?({ 'admins/registrations' => ['edit'], 'admins/admins' => %w[enable_otp_show_qr disable_otp] }) ? 'bg-primary-dark' : ''}" do %>
     <i class="bi bi-gear-fill pe-2"></i>
     <%= t('dashboard.settings') %>
   <% end %>

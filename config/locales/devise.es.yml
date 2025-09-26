@@ -82,9 +82,10 @@ es:
         confirm_new_password: Confirme la nueva contraseña
         new_password: Nueva contraseña
         current_password: Contraseña actual
-        current_password_required: Requerido al actualizar la contraseña o deshabilitar 2FA
+        current_password_required: Requerido al actualizar la contraseña
         enable_2fa: Habilitar 2FA
-        enter_otp: Ingresé el código de un solo uso (OPT) para deshabilitar la verificación en 2 pasos
+        disable_2fa: Deshabilitar 2FA
+        enter_otp: Ingresé el código de un solo uso (OPT)
         oauth_password: Si inicia sesión con un proveedor externo (Google, Github, etc.), es posible que no necesite actualizar su contraseña. Pero si aún lo desea, para conocer su contraseña debe restablecerla desde la página de ¿Olvidó su contraseña?
       new:
         forgot_your_password: "¿Ha olvidado su contraseña?"
@@ -133,6 +134,7 @@ es:
       invalid_password: Contraseña inválida
       invalid_otp_and_password: Código de un solo uso (OPT) y contraseña inválidos
       disabled: La verificación en 2 pasos ha sido deshabilitada correctamente
+      missing_password_or_otp: Contraseña y código de un solo uso (OPT) son requeridos
     shared:
       users:
         admin: Administrador

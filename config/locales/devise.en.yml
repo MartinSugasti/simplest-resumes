@@ -82,9 +82,10 @@ en:
         confirm_new_password: Confirm new password
         new_password: New password
         current_password: Current password
-        current_password_required: Required if updating your password or disabling 2FA
+        current_password_required: Required if updating your password
         enable_2fa: Enable 2FA
-        enter_otp: Enter One Time Password to disable 2FA
+        disable_2fa: Disable 2FA
+        enter_otp: Enter One Time Password
         oauth_password: If you log in using a external provider (Google, Github, etc), you may not require a password update. But if you still want it, to know your password you should reset it from the Forgot password? page.
       new:
         forgot_your_password: Forgot your password?
@@ -133,6 +134,7 @@ en:
       invalid_password: Invalid password
       invalid_otp_and_password: Invalid OTP code and password
       disabled: 2FA has been disabled successfully
+      missing_password_or_otp: Password and OTP are required
     shared:
       users:
         admin: Admin

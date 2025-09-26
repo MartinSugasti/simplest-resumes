@@ -56,6 +56,7 @@ es:
     new_job_posting: Nuevo Anuncio De Empleo
     payments: Pagos
     enable_2fa: Habilitar 2FA
+    disable_2fa: Deshabilitar 2FA
     search_navbar:
       admins: Funcionalidad por implementar
       candidates: Anuncios de empleo para Google
@@ -128,8 +129,11 @@ es:
       scan_qr_code: 'Escaneé el código QR con una aplicación de autenticación para habilitar la autenticación en 2 pasos'
       enter_one_time_password: 'Ingresé el código de un solo uso (OTP)'
       verify_and_enable_2fa: 'Verificar y Habilitar 2FA'
+      verify_and_disable_2fa: 'Verificar y Deshabilitar 2FA'
       2fa_already_enabled: 'La verificación en 2 pasos ya está habilitada.'
       2fa_enabled_successfully: 'La verificación en 2 pasos se ha habilitado correctamente.'
+    disable_otp:
+      2fa_already_disbled: 'La verificación en 2 pasos ya está deshabilitada.'
     otp:
       verify: Verificar
       enter_one_time_password: 'Ingresé el código de un solo uso (OTP)'
