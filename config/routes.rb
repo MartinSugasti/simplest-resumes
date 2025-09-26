@@ -88,6 +88,12 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    get 'enable_otp', to: 'admins#enable_otp'
+    post 'enable_otp_verify', to: 'admins#enable_otp_verify'
+
+    get 'disable_otp', to: 'admins#disable_otp'
+    post 'disable_otp_verify', to: 'admins#disable_otp_verify'
   end
 
   namespace :candidates do

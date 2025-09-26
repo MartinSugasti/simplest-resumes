@@ -1,0 +1,26 @@
+<% content_for :top_section do %>
+  <h2 class="mb-1"><%= t('dashboard.settings') %></h2>
+  <p class="small text-muted mb-0"><%= t('dashboard.settings') %> / <strong><%= t('dashboard.disable_2fa') %></strong></p>
+<% end %>
+
+<div class="authentication-page">
+  <%= link_to t('general.back'), edit_admin_registration_path, class: 'border-0 btn m-0 mb-3 p-0 text-decoration-underline text-primary' %>
+
+  <%= form_for(current_admin, as: :admin, url: admins_disable_otp_verify_path, html: { method: :post }, data: { turbo: true }) do |f| %>
+    <div class="mb-4">
+      <%= f.password_field :current_password,
+                           autocomplete: 'current-password',
+                           class: 'form-control rounded-pill bg-light',
+                           placeholder: t('devise.passwords.edit.current_password')
+      %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.text_field :otp_attempt, class: 'form-control rounded-pill bg-light', placeholder: t('devise.passwords.edit.enter_otp') %>
+    </div>
+
+    <div class="mb-4 text-center">
+      <%= f.submit t('admins.enable_otp.verify_and_disable_2fa'), class: 'btn-submit btn btn-danger border-0 shadow mb-1 w-100 text-light rounded-pill' %>
+    </div>
+  <% end %>
+</div>

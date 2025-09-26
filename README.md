@@ -30,6 +30,7 @@ This web application facilitates the following functions:
 - [Devise](https://github.com/heartcombo/devise) for authentication
 - [Devise Masquerade](https://github.com/oivoodoo/devise_masquerade) for admins to impersonate candidates and recruiters
 - [Omniauth](https://github.com/omniauth/omniauth) for social login with Gmail, Twitter, and GitHub for candidates and recruiters
+- [Devise 2FA](https://github.com/devise-two-factor/devise-two-factor) for admin users
 - [Pundit](https://github.com/varvet/pundit) for authorization
 
 ### Frontend

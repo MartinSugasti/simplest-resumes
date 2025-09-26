@@ -1,0 +1,31 @@
+<section class="authentication-page row g-0 vh-100">
+  <div class="left-section col-10 col-sm-4 offset-1 py-4 d-flex align-items-center">
+    <div class="w-100">
+      <div class="text-center mb-5">
+        <%= link_to home_path do %>
+          <%= image_tag 'logos/primary.png', class: 'mw-100' %>
+        <% end %>
+      </div>
+
+      <%# TODO: I had to disable turbo because it was causing the otp not to render after the password page %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), method: :post, data: { turbo: false }) do |f| %>
+        <div class="mb-1">
+          <%= f.number_field :otp_attempt, class: 'form-control rounded-pill bg-light', placeholder: t('devise.shared.one_time_password') %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="form-check mb-0">
+            <%= f.check_box :remember_me, class: 'form-check-input' %>
+            <%= f.label :remember_me, t('devise.sessions.new.remember_me'), class: 'form-check-label' %>
+          </div>
+        <% end %>
+
+        <div class="mt-4 text-center">
+          <%= f.submit t('devise.shared.links.sign_in'), class: 'btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'devise/shared/right_section' %>
+</section>

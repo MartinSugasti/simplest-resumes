@@ -55,6 +55,8 @@ en:
     new: New
     new_job_posting: New Job Posting
     payments: Payments
+    enable_2fa: Enable 2FA
+    disable_2fa: Disable 2FA
     search_navbar:
       admins: Functionality to be implemented
       candidates: Job Postings for Google
@@ -123,6 +125,18 @@ en:
     invitation_request_serializer:
       accepted: 'Accepted'
       admin_not_found: 'Admin Not Found'
+    enable_otp:
+      scan_qr_code: 'Scan the QR Code with and Authenticator App to Enable Two Factor Authentication'
+      enter_one_time_password: 'Enter One Time Password'
+      verify_and_enable_2fa: 'Verify and Enable 2FA'
+      verify_and_disable_2fa: 'Verify and Disable 2FA'
+      2fa_already_enabled: '2FA is already enabled.'
+      2fa_enabled_successfully: '2FA enabled successfully.'
+    disable_otp:
+      2fa_already_disabled: '2FA is already disabled.'
+    otp:
+      verify: Verify
+      enter_one_time_password: 'Enter One Time Password'
 
   candidates:
     dashboard:

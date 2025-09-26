@@ -83,6 +83,9 @@ es:
         new_password: Nueva contraseña
         current_password: Contraseña actual
         current_password_required: Requerido al actualizar la contraseña
+        enable_2fa: Habilitar 2FA
+        disable_2fa: Deshabilitar 2FA
+        enter_otp: Ingresé el código de un solo uso (OPT)
         oauth_password: Si inicia sesión con un proveedor externo (Google, Github, etc.), es posible que no necesite actualizar su contraseña. Pero si aún lo desea, para conocer su contraseña debe restablecerla desde la página de ¿Olvidó su contraseña?
       new:
         forgot_your_password: "¿Ha olvidado su contraseña?"
@@ -126,6 +129,12 @@ es:
       send_instructions: Vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       send_paranoid_instructions: Si tu cuenta existe, vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       unlocked: Tu cuenta ha sido desbloqueada. Ya puedes iniciar sesión.
+    otp:
+      invalid_otp: Código de un solo uso (OPT) inválido
+      invalid_password: Contraseña inválida
+      invalid_otp_and_password: Código de un solo uso (OPT) y contraseña inválidos
+      disabled: La verificación en 2 pasos ha sido deshabilitada correctamente
+      missing_password_or_otp: Contraseña y código de un solo uso (OPT) son requeridos
     shared:
       users:
         admin: Administrador
@@ -149,6 +158,7 @@ es:
       email: Email
       password: Contraseña
       confirm_password: Confirme la contraseña
+      one_time_password: Código de un solo uso (OPT)
       or: O
       minimum_password_length:
         one: "(%{count} caracter como mínimo)"

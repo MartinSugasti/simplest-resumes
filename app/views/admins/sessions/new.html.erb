@@ -7,7 +7,8 @@
         <% end %>
       </div>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: true }) do |f| %>
+      <%# TODO: I had to disable turbo because it was causing the otp not to render after the password page %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
         <div class="mb-4">
           <%= f.email_field :email, autocomplete: 'off', class: 'form-control rounded-pill bg-light', placeholder: t('devise.shared.email') %>
         </div>
