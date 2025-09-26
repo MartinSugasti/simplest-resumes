@@ -158,6 +158,7 @@ en:
       email: Email
       password: Password
       confirm_password: Confirm password
+      one_time_password: One time password
       or: Or
       minimum_password_length:
         one: "(%{count} character minimum)"

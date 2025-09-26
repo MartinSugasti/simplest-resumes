@@ -125,7 +125,7 @@ es:
     invitation_request_serializer:
       accepted: 'Aceptada'
       admin_not_found: 'Usuario Admin no encontrado'
-    enable_otp_show_qr:
+    enable_otp:
       scan_qr_code: 'Escaneé el código QR con una aplicación de autenticación para habilitar la autenticación en 2 pasos'
       enter_one_time_password: 'Ingresé el código de un solo uso (OTP)'
       verify_and_enable_2fa: 'Verificar y Habilitar 2FA'
@@ -133,7 +133,7 @@ es:
       2fa_already_enabled: 'La verificación en 2 pasos ya está habilitada.'
       2fa_enabled_successfully: 'La verificación en 2 pasos se ha habilitado correctamente.'
     disable_otp:
-      2fa_already_disbled: 'La verificación en 2 pasos ya está deshabilitada.'
+      2fa_already_disabled: 'La verificación en 2 pasos ya está deshabilitada.'
     otp:
       verify: Verificar
       enter_one_time_password: 'Ingresé el código de un solo uso (OTP)'

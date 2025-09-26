@@ -5,7 +5,7 @@
 
 <%= link_to t('general.back'), edit_admin_registration_path, class: 'border-0 btn m-0 mb-3 p-0 text-decoration-underline text-primary' %>
 
-<p class="mb-3"><%= t('admins.enable_otp_show_qr.scan_qr_code') %></p>
+<p class="mb-3"><%= t('admins.enable_otp.scan_qr_code') %></p>
 
 <div class="mb-3 text-center">
   <%= raw RQRCode::QRCode.new(
@@ -18,8 +18,8 @@
 
 <%= form_tag admins_enable_otp_verify_path, method: :post do %>
   <div class="mb-3">
-    <%= text_field_tag :otp_attempt, nil, class: 'form-control rounded-pill bg-light', placeholder: t('admins.enable_otp_show_qr.enter_one_time_password') %>
+    <%= text_field_tag :otp_attempt, nil, class: 'form-control rounded-pill bg-light', placeholder: t('admins.enable_otp.enter_one_time_password') %>
   </div>
 
-  <%= submit_tag t('admins.enable_otp_show_qr.verify_and_enable_2fa'), class: 'btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill' %>
+  <%= submit_tag t('admins.enable_otp.verify_and_enable_2fa'), class: 'btn-submit btn btn-primary border-0 shadow mb-1 w-100 text-light rounded-pill' %>
 <% end %>

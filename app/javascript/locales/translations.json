@@ -294,9 +294,9 @@
         }
       },
       "disable_otp": {
-        "2fa_already_disbled": "2FA is already disabled."
+        "2fa_already_disabled": "2FA is already disabled."
       },
-      "enable_otp_show_qr": {
+      "enable_otp": {
         "2fa_already_enabled": "2FA is already enabled.",
         "2fa_enabled_successfully": "2FA enabled successfully.",
         "enter_one_time_password": "Enter One Time Password",
@@ -791,6 +791,7 @@
           "one": "(%{count} character minimum)",
           "other": "(%{count} characters minimum)"
         },
+        "one_time_password": "One time password",
         "or": "Or",
         "password": "Password",
         "users": {
@@ -1464,9 +1465,9 @@
         }
       },
       "disable_otp": {
-        "2fa_already_disbled": "La verificación en 2 pasos ya está deshabilitada."
+        "2fa_already_disabled": "La verificación en 2 pasos ya está deshabilitada."
       },
-      "enable_otp_show_qr": {
+      "enable_otp": {
         "2fa_already_enabled": "La verificación en 2 pasos ya está habilitada.",
         "2fa_enabled_successfully": "La verificación en 2 pasos se ha habilitado correctamente.",
         "enter_one_time_password": "Ingresé el código de un solo uso (OTP)",
@@ -1961,6 +1962,7 @@
           "one": "(%{count} caracter como mínimo)",
           "other": "(%{count} caracteres como mínimo)"
         },
+        "one_time_password": "Código de un solo uso (OPT)",
         "or": "O",
         "password": "Contraseña",
         "users": {
