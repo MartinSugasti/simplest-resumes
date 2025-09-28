@@ -146,10 +146,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-two-factor (5.1.0)
-      activesupport (~> 7.0)
+    devise-two-factor (6.1.0)
+      activesupport (>= 7.0, < 8.1)
       devise (~> 4.0)
-      railties (~> 7.0)
+      railties (>= 7.0, < 8.1)
       rotp (~> 6.0)
     devise_invitable (2.0.9)
       actionmailer (>= 5.0)
@@ -483,7 +483,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.9)
-  devise-two-factor (~> 5.0)
+  devise-two-factor (~> 6.0)
   devise_invitable (~> 2.0)
   devise_masquerade (~> 2.1)
   dotenv-rails (~> 2.8, >= 2.8.1)

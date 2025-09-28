@@ -76,7 +76,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'omniauth-twitter', '~> 1.4'
 
 # For two-factor authentication
-gem 'devise-two-factor', '~> 5.0'
+gem 'devise-two-factor', '~> 6.0'
 gem 'rqrcode', '~> 2.2'
 
 # For SMS
