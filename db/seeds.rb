@@ -12343,8 +12343,6 @@ ReferenceItem.create(
   kind: :personal
 )
 
-Candidate.set_callback(:create, :after, :create_stripe_customer)
-
 # Candidate 101
 candidate_101 = Candidate.new(email: 'candidate_101@simplestresumes.com', password: password)
 candidate_101.skip_confirmation!

@@ -66,8 +66,8 @@ class Candidate < ApplicationRecord
 
   def create_stripe_customer
     # This will create a customer in Stripe
-    # Then, Stripe will hit stripe_webhooks/create with the evet 'customer.created'
-    # There, we must associate the customer the the candidate
+    # Then, Stripe will hit stripe_webhooks/create with the event 'customer.created'
+    # There, we must associate the customer to the candidate
     Stripe::Customer.create(email: email)
   end
 end
