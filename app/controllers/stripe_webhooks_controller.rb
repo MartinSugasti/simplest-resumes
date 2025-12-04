@@ -39,10 +39,13 @@ class StripeWebhooksController < ActionController::Metal
         Rails.logger.error(msg)
         Honeybadger.notify(msg, context: { payload: payload })
       elsif candidate.stripe_customer_id.present?
-        msg = "StripeWebhooks alert: candidate #{stripe_customer.email} already has " \
-              "the Stripe Customer #{candidate.stripe_customer_id}"
-        Rails.logger.error(msg)
-        Honeybadger.notify(msg, context: { payload: payload })
+        if candidate.stripe_customer_id != stripe_customer.id
+          msg = "StripeWebhooks alert: candidate #{candidate.email} is already associated to " \
+                "Stripe Customer #{candidate.stripe_customer_id} and cannot be associated to " \
+                "Stripe Customer #{stripe_customer.id}"
+          Rails.logger.error(msg)
+          Honeybadger.notify(msg, context: { payload: payload })
+        end
       else
         candidate.update(stripe_customer_id: stripe_customer.id)
       end
