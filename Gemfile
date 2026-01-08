@@ -89,7 +89,7 @@ gem 'stripe', '~> 9.3'
 gem 'active_storage_validations', '~> 1.0'
 
 # S3 storage
-gem 'aws-sdk-s3', '~> 1.135', require: false
+gem 'aws-sdk-s3', '~> 1.208', require: false
 
 # Authorization
 gem 'pundit', '~> 2.3'
