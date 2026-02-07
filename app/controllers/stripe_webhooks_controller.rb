@@ -17,14 +17,14 @@ class StripeWebhooksController < ActionController::Metal
       Rails.logger.error('StripeWebhooks error: Invalid payload')
       Honeybadger.notify(e, context: { payload: payload })
 
-      status :bad_request
+      head :bad_request
       return
     rescue Stripe::SignatureVerificationError => e
       # Invalid signature
       Rails.logger.error('StripeWebhooks error: Invalid signature')
       Honeybadger.notify(e, context: { payload: payload })
 
-      status :bad_request
+      head :bad_request
       return
     end
 

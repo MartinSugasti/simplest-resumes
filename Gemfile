@@ -111,6 +111,13 @@ group :development, :test do
   gem 'pry', '~> 0.14.2'
   gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
 
+  # Testing
+  gem 'factory_bot_rails', '~> 6.4'
+  gem 'pundit-matchers', '~> 2.0'
+  gem 'rspec-rails', '~> 7.0'
+  gem 'shoulda-matchers', '~> 6.0'
+  gem 'webmock', '~> 3.20'
+
   # Ruby styles
   gem 'rubocop', require: false
   gem 'rubocop-git', require: false
