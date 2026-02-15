@@ -49,8 +49,5 @@ class Admin < ApplicationRecord
 
   has_many :invitations, class_name: to_s, as: :invited_by, dependent: :nullify
 
-  enum role: {
-    super_admin: 0,
-    collaborator: 1
-  }
+  enum :role, { super_admin: 0, collaborator: 1 }
 end

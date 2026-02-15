@@ -33,11 +33,7 @@ class Postulation < ApplicationRecord
   validate :job_posting_published
   validate :candidate_can_postulate
 
-  enum status: {
-    pending: 0,
-    approved: 1,
-    rejected: 2
-  }
+  enum :status, { pending: 0, approved: 1, rejected: 2 }
 
   private
 

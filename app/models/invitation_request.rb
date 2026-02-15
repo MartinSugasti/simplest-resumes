@@ -29,12 +29,7 @@ class InvitationRequest < ApplicationRecord
   validate :email_cannot_change, on: :update
   validate :invitation_request_already_approved, on: :update, if: -> { !approved? }
 
-  enum status: {
-    pending: 0,
-    approved: 1,
-    dismissed: 2,
-    banned: 3
-  }
+  enum :status, { pending: 0, approved: 1, dismissed: 2, banned: 3 }
 
   private
 
