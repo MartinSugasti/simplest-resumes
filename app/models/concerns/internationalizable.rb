@@ -4,7 +4,7 @@ module Internationalizable
   extend ActiveSupport::Concern
 
   included do
-    enum preferred_language: I18n.available_locales # [:en, :es]
+    enum :preferred_language, I18n.available_locales
 
     def send_devise_notification(notification, *args)
       I18n.with_locale(preferred_language || I18n.locale) do
