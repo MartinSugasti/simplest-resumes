@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '~> 3.4.0' # Use latest 3.4.x for security and bug fixes
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 7.2.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -13,7 +13,7 @@ gem 'sprockets-rails'
 gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 8.0'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'jsbundling-rails'
@@ -62,7 +62,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 # For authentication
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 5.0'
 gem 'devise_invitable', '~> 2.0'
 
 # For impresionation
